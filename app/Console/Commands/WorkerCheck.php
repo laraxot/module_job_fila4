@@ -37,6 +37,7 @@ class WorkerCheck extends Command
      * Create a new command instance.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
     public function __construct()
@@ -44,12 +45,16 @@ class WorkerCheck extends Command
         parent::__construct();
     }
 >>>>>>> e1b0bf9 (.)
+=======
+    
+>>>>>>> 7d4742a (.)
 
     /**
      * Execute the console command.
      */
     public function handle(): void
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         if (!$this->isQueueListenerRunning()) {
             $pid = $this->startQueueListener();
@@ -59,6 +64,11 @@ class WorkerCheck extends Command
             $pid = $this->startQueueListener();
             $this->comment('Queue listener is being started. pid['.$pid.']');
 >>>>>>> e1b0bf9 (.)
+=======
+        if (!$this->isQueueListenerRunning()) {
+            $pid = $this->startQueueListener();
+            $this->comment('Queue listener is being started. pid[' . $pid . ']');
+>>>>>>> 7d4742a (.)
             $this->saveQueueListenerPID($pid);
         }
 
@@ -71,15 +81,21 @@ class WorkerCheck extends Command
     private function isQueueListenerRunning(): bool
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
         if (
             ($pid = $this->getLastQueueListenerPID()) === '' ||
                 ($pid = $this->getLastQueueListenerPID()) === '0' ||
                 ($pid = $this->getLastQueueListenerPID()) === false ||
                 ($pid = $this->getLastQueueListenerPID()) === null
         ) {
+<<<<<<< HEAD
 =======
         if (($pid = $this->getLastQueueListenerPID()) === '' || ($pid = $this->getLastQueueListenerPID()) === '0' || ($pid = $this->getLastQueueListenerPID()) === false || ($pid = $this->getLastQueueListenerPID()) === null) {
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
             return false;
         }
 
@@ -105,10 +121,14 @@ class WorkerCheck extends Command
     private function getLastQueueListenerPID(): string|bool|null
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!Storage::disk('cache')->exists($this->filename)) {
 =======
         if (! Storage::disk('cache')->exists($this->filename)) {
 >>>>>>> e1b0bf9 (.)
+=======
+        if (!Storage::disk('cache')->exists($this->filename)) {
+>>>>>>> 7d4742a (.)
             return false;
         }
 
@@ -124,10 +144,14 @@ class WorkerCheck extends Command
         $path = Storage::disk('cache')->path($this->filename);
         $size = Storage::disk('cache')->size($this->filename);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->comment('saved on [' . $path . '] size [' . $size . ']');
 =======
         $this->comment('saved on ['.$path.'] size ['.$size.']');
 >>>>>>> e1b0bf9 (.)
+=======
+        $this->comment('saved on [' . $path . '] size [' . $size . ']');
+>>>>>>> 7d4742a (.)
     }
 
     /*
@@ -136,6 +160,9 @@ class WorkerCheck extends Command
      * @return string
      * @method Modules\Job\Console\Commands\WorkerCheck::restartQueue() is unused
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
      *
      * private function restartQueue() {
      * // $command = 'php-cli ' . base_path() . '/artisan queue:listen --timeout=60 --sleep=5 --tries=3 > /dev/null & echo $!'; // 5.1
@@ -150,6 +177,7 @@ class WorkerCheck extends Command
      * return is_string($pid) ? $pid : (string) $pid;
      * }
      */
+<<<<<<< HEAD
 =======
 
     private function restartQueue() {
@@ -166,6 +194,8 @@ class WorkerCheck extends Command
     }
     */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     /**
      * Start the queue listener.
      */
@@ -175,13 +205,19 @@ class WorkerCheck extends Command
         // $command = 'php-cli '.base_path().'/artisan queue:work --timeout=60 --sleep=5 --tries=3 > /dev/null & echo //$!'; // 5.6 - see comments
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
         $command =
             ' /usr/local/bin/php ' .
             base_path() .
             '/artisan queue:work --timeout=60 --sleep=5 --tries=3 > /dev/null & echo $!';
+<<<<<<< HEAD
 =======
         $command = ' /usr/local/bin/php '.base_path().'/artisan queue:work --timeout=60 --sleep=5 --tries=3 > /dev/null & echo $!';
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
         // $this->comment($command);
 
         // dd($command);

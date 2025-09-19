@@ -9,9 +9,13 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Modules\Job\Database\Factories\ScheduleHistoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
@@ -70,6 +74,9 @@ class ScheduleHistory extends BaseModel
         'options',
     ];
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 
     /*
      * Creates a new instance of the model.
@@ -86,6 +93,7 @@ class ScheduleHistory extends BaseModel
      * }
      *
      */
+<<<<<<< HEAD
 =======
     /*
          * Creates a new instance of the model.
@@ -103,6 +111,8 @@ class ScheduleHistory extends BaseModel
 
     */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 
     public function command(): BelongsTo
     {
@@ -110,9 +120,13 @@ class ScheduleHistory extends BaseModel
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+    #[Override]
+>>>>>>> 7d4742a (.)
     protected function casts(): array
     {
         return [
@@ -122,6 +136,7 @@ class ScheduleHistory extends BaseModel
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
@@ -132,6 +147,11 @@ class ScheduleHistory extends BaseModel
             'deleted_by' => 'string',
 
 >>>>>>> e1b0bf9 (.)
+=======
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+>>>>>>> 7d4742a (.)
             'params' => 'array',
             'options' => 'array',
         ];

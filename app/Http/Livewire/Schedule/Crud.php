@@ -6,6 +6,9 @@ namespace Modules\Job\Http\Livewire\Schedule;
 
 use Exception;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
@@ -15,6 +18,7 @@ use Modules\Job\Models\Task;
 use Modules\Xot\Actions\GetViewAction;
 use Symfony\Component\Console\Command\Command;
 use Webmozart\Assert\Assert;
+<<<<<<< HEAD
 =======
 use Livewire\Component;
 use Modules\Job\Models\Task;
@@ -26,6 +30,8 @@ use Modules\Job\Actions\ExecuteTaskAction;
 use Illuminate\Contracts\Support\Renderable;
 use Symfony\Component\Console\Command\Command;
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 
 /**
  * Class Schedule\Crud.
@@ -45,10 +51,14 @@ class Crud extends Component
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         throw new Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
 =======
         throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
 >>>>>>> e1b0bf9 (.)
+=======
+        throw new Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+>>>>>>> 7d4742a (.)
     }
 
     public function render(): Renderable
@@ -59,11 +69,15 @@ class Crud extends Component
             'tasks' => $tasks,
             /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
              * 'task' => new Task(),
              * 'commands' => $this->getCommands(),
              * 'timezones' => timezone_identifiers_list(),
              * 'frequencies' => $this->getFrequencies(),
              */
+<<<<<<< HEAD
 =======
             'task' => new Task(),
             'commands' => $this->getCommands(),
@@ -71,6 +85,8 @@ class Crud extends Component
             'frequencies' => $this->getFrequencies(),
             */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
         ];
 
         return view($view, $view_params);
@@ -92,6 +108,9 @@ class Crud extends Component
 
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
          * if (! empty($command_filter)) {
          * // $all_commands = $all_commands->filter(function (Command $command) use ($command_filter, $whitelist) {
          * $all_commands = $all_commands->filter(
@@ -116,6 +135,7 @@ class Crud extends Component
 
             return $name;
         });
+<<<<<<< HEAD
 =======
         if (! empty($command_filter)) {
             // $all_commands = $all_commands->filter(function (Command $command) use ($command_filter, $whitelist) {
@@ -144,6 +164,8 @@ class Crud extends Component
             }
         );
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     }
 
     public function executeTask(string $task_id): void
@@ -151,9 +173,13 @@ class Crud extends Component
         app(ExecuteTaskAction::class)->execute($task_id);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         session()->flash('message', 'task [' . $task_id . '] executed at ' . now());
 =======
         session()->flash('message', 'task ['.$task_id.'] executed at '.now());
 >>>>>>> e1b0bf9 (.)
+=======
+        session()->flash('message', 'task [' . $task_id . '] executed at ' . now());
+>>>>>>> 7d4742a (.)
     }
 }

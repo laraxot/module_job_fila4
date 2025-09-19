@@ -7,6 +7,7 @@ namespace Modules\Job\Models;
 use Modules\User\Models\User;
 use Carbon\Carbon;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Modules\Predict\Models\Profile;
 use Illuminate\Database\Eloquent\Builder;
@@ -14,6 +15,8 @@ use Illuminate\Database\Eloquent\Collection;
 use Closure;
 use Illuminate\Contracts\Database\Query\Expression;
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -32,6 +35,7 @@ use Modules\Xot\Traits\Updater;
  * @property Carbon|null $deleted_at
  * @property-read Task $task
  * @property-read User $user
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
  * @property-read Profile|null $creator
@@ -53,6 +57,8 @@ use Modules\Xot\Traits\Updater;
  *
  * @mixin \Eloquent
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
  */
 class TaskComment extends Model
 {

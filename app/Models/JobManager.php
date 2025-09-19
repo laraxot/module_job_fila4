@@ -6,9 +6,13 @@ namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Support\Carbon;
 use Modules\Job\Database\Factories\JobManagerFactory;
@@ -83,6 +87,9 @@ class JobManager extends BaseModel
     public function status(): Attribute
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
         return Attribute::make(get: function (): string {
             if ($this->isFinished()) {
                 return $this->failed ? 'failed' : 'succeeded';
@@ -90,6 +97,7 @@ class JobManager extends BaseModel
 
             return 'running';
         });
+<<<<<<< HEAD
 =======
         return Attribute::make(
             get: function (): string {
@@ -101,6 +109,8 @@ class JobManager extends BaseModel
             },
         );
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     }
 
     public function isFinished(): bool
@@ -120,11 +130,15 @@ class JobManager extends BaseModel
     public function hasSucceeded(): bool
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
         if (!$this->isFinished()) {
             return false;
         }
 
         return !$this->hasFailed();
+<<<<<<< HEAD
 =======
         if (! $this->isFinished()) {
             return false;
@@ -132,6 +146,8 @@ class JobManager extends BaseModel
 
         return ! $this->hasFailed();
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     }
 
     public function prunable(): Builder
@@ -139,10 +155,14 @@ class JobManager extends BaseModel
         if (config('jobs.pruning.activate')) {
             $retention_days = config('jobs.pruning.retention_days');
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (!is_int($retention_days)) {
 =======
             if (! is_int($retention_days)) {
 >>>>>>> e1b0bf9 (.)
+=======
+            if (!is_int($retention_days)) {
+>>>>>>> 7d4742a (.)
                 $retention_days = 365;
             }
 
@@ -153,9 +173,13 @@ class JobManager extends BaseModel
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+    #[Override]
+>>>>>>> 7d4742a (.)
     protected function casts(): array
     {
         return [
@@ -164,6 +188,7 @@ class JobManager extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+<<<<<<< HEAD
 <<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
@@ -175,6 +200,11 @@ class JobManager extends BaseModel
             'deleted_by' => 'string',
 
 >>>>>>> e1b0bf9 (.)
+=======
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+>>>>>>> 7d4742a (.)
             'failed' => 'bool',
             'started_at' => 'datetime',
             'finished_at' => 'datetime',

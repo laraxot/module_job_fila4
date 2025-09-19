@@ -9,9 +9,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Modules\Job\Filament\Resources\FailedJobResource\Pages\ListFailedJobs;
@@ -23,6 +27,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class FailedJobResource extends XotBaseResource
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     protected static null|string $model = FailedJob::class;
 
     #[Override]
@@ -34,6 +41,7 @@ class FailedJobResource extends XotBaseResource
             'id' => TextInput::make('id')->disabled(),
             'connection' => TextInput::make('connection')->disabled(),
             'queue' => TextInput::make('queue')->disabled(),
+<<<<<<< HEAD
 =======
     protected static ?string $model = FailedJob::class;
 
@@ -52,6 +60,8 @@ class FailedJobResource extends XotBaseResource
             'queue' => TextInput::make('queue')
                 ->disabled(),
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
             'exception' => Textarea::make('exception')
                 ->disabled()
                 ->columnSpan(4)
@@ -64,6 +74,9 @@ class FailedJobResource extends XotBaseResource
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     #[Override]
     public static function getRelations(): array
     {
@@ -71,6 +84,7 @@ class FailedJobResource extends XotBaseResource
     }
 
     #[Override]
+<<<<<<< HEAD
 =======
     public static function getRelations(): array
     {
@@ -79,6 +93,8 @@ class FailedJobResource extends XotBaseResource
     }
 
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     public static function getPages(): array
     {
         return [

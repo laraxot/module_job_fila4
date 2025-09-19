@@ -11,9 +11,13 @@ declare(strict_types=1);
 namespace Modules\Job\Providers;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Filament\Actions\Exports\Models\Export;
 use Filament\Actions\Imports\Models\Import;
 use Illuminate\Console\Scheduling\Schedule;
@@ -37,19 +41,27 @@ class JobServiceProvider extends XotBaseServiceProvider
     protected string $module_ns = __NAMESPACE__;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+    #[Override]
+>>>>>>> 7d4742a (.)
     public function boot(): void
     {
         parent::boot();
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
          * $this->app->resolving(Schedule::class, function ($schedule) {
          * dddx($schedule);
          * //
          * });
          */
+<<<<<<< HEAD
 =======
             $this->app->resolving(Schedule::class, function ($schedule) {
                 dddx($schedule);
@@ -57,6 +69,8 @@ class JobServiceProvider extends XotBaseServiceProvider
             });
             */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
         // $this->app->booted(function () {
         // $schedule = $this->app->make(Schedule::class);
         // try {
@@ -74,6 +88,9 @@ class JobServiceProvider extends XotBaseServiceProvider
     {
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
          * Queue::before(static function (JobProcessing $event) {
          * self::jobStarted($event->job);
          * });
@@ -138,6 +155,7 @@ class JobServiceProvider extends XotBaseServiceProvider
      * }
      * }
      */
+<<<<<<< HEAD
 =======
         Queue::before(static function (JobProcessing $event) {
            self::jobStarted($event->job);
@@ -204,4 +222,6 @@ class JobServiceProvider extends XotBaseServiceProvider
     }
     */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 }

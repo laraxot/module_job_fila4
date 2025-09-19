@@ -6,17 +6,6 @@ namespace Modules\Job\Models;
 
 use Modules\User\Models\User;
 use Carbon\Carbon;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Modules\Predict\Models\Profile;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Closure;
-use Illuminate\Contracts\Database\Query\Expression;
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -35,30 +24,6 @@ use Modules\Xot\Traits\Updater;
  * @property Carbon|null $deleted_at
  * @property-read Task $task
  * @property-read User $user
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
- * @property-read Profile|null $creator
- * @property-read Profile|null $updater
- *
- * @method static Builder<static>|TaskComment newModelQuery()
- * @method static Builder<static>|TaskComment newQuery()
- * @method static Builder<static>|TaskComment onlyTrashed()
- * @method static Builder<static>|TaskComment query()
- * @method static Builder<static>|TaskComment withTrashed(bool $withTrashed = true)
- * @method static Builder<static>|TaskComment withoutTrashed()
- * @method static TaskComment|null first()
- * @method static Collection<int, TaskComment> get()
- * @method static TaskComment create(array $attributes = [])
- * @method static TaskComment firstOrCreate(array $attributes = [], array $values = [])
- * @method static Builder<static>|TaskComment where((string|Closure) $column, mixed $operator = null, mixed $value = null, string $boolean = 'and')
- * @method static Builder<static>|TaskComment whereNotNull((string|Expression) $columns)
- * @method static int count(string $columns = '*')
- *
- * @mixin \Eloquent
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
  */
 class TaskComment extends Model
 {

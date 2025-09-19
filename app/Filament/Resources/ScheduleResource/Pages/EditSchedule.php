@@ -5,14 +5,7 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> e1b0bf9 (.)
-=======
-use Override;
->>>>>>> 7d4742a (.)
 use Filament\Schemas\Schema;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
@@ -29,14 +22,7 @@ class EditSchedule extends XotBaseEditRecord
 
     protected static string $resource = ScheduleResource::class;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> e1b0bf9 (.)
-=======
-    #[Override]
->>>>>>> 7d4742a (.)
     public function getformSchema(): array
     {
         Assert::isArray($res = $this->getResource()::getFormSchema());
@@ -44,23 +30,10 @@ class EditSchedule extends XotBaseEditRecord
         return $res;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
     #[Override]
     public function form(Schema $schema): Schema
     {
         return $schema->components($this->getFormSchema());
-<<<<<<< HEAD
-=======
-    public function form(Schema $schema): Schema
-    {
-        return $schema
-            ->components($this->getFormSchema());
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
     }
 
     protected function onValidationError(ValidationException $exception): void

@@ -8,14 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> e1b0bf9 (.)
-=======
-use Override;
->>>>>>> 7d4742a (.)
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Components\Utilities\Get;
@@ -41,15 +34,7 @@ use Webmozart\Assert\Assert;
 
 class ScheduleResource extends XotBaseResource
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected static null|string $model = Schedule::class;
-=======
-    protected static ?string $model = Schedule::class;
->>>>>>> e1b0bf9 (.)
-=======
-    protected static null|string $model = Schedule::class;
->>>>>>> 7d4742a (.)
 
     protected static bool $shouldRegisterNavigation = true;
 
@@ -64,14 +49,7 @@ class ScheduleResource extends XotBaseResource
             ]);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> e1b0bf9 (.)
-=======
-    #[Override]
->>>>>>> 7d4742a (.)
     public static function getPages(): array
     {
         return [
@@ -82,14 +60,7 @@ class ScheduleResource extends XotBaseResource
         ];
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> e1b0bf9 (.)
-=======
-    #[Override]
->>>>>>> 7d4742a (.)
     public static function getFormSchema(): array
     {
         static::$commands = app(GetCommandsAction::class)->execute();
@@ -98,33 +69,15 @@ class ScheduleResource extends XotBaseResource
         return [
             'main_section' => Section::make([
                 Select::make('command')
-<<<<<<< HEAD
-<<<<<<< HEAD
                     ->options(fn() => $commands_opts)
-=======
-                    ->options(fn () => $commands_opts)
->>>>>>> e1b0bf9 (.)
-=======
-                    ->options(fn() => $commands_opts)
->>>>>>> 7d4742a (.)
                     ->reactive()
                     ->searchable()
                     ->required()
                     ->afterStateUpdated(function (Set $set, $state): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
                         Assert::isInstanceOf(
                             $command = static::$commands->where('name', $state)->first(),
                             CommandData::class,
                         );
-<<<<<<< HEAD
-=======
-                        Assert::isInstanceOf($command = static::$commands->where('name', $state)->first(), CommandData::class);
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
                         $params = $command->arguments;
                         $options_with_value = $command->options['withValue'] ?? [];
                         $set('params', $params);
@@ -134,18 +87,8 @@ class ScheduleResource extends XotBaseResource
                     ->schema([
                         Hidden::make('name'),
                         TextInput::make('value')
-<<<<<<< HEAD
-<<<<<<< HEAD
                             ->label(fn(Get $get): mixed => $get('name'))
                             ->required(fn(Get $get): mixed => $get('required')),
-=======
-                            ->label(fn (Get $get): mixed => $get('name'))
-                            ->required(fn (Get $get): mixed => $get('required')),
->>>>>>> e1b0bf9 (.)
-=======
-                            ->label(fn(Get $get): mixed => $get('name'))
-                            ->required(fn(Get $get): mixed => $get('required')),
->>>>>>> 7d4742a (.)
                     ])
                     ->addable(false)
                     ->deletable(false)
@@ -153,68 +96,27 @@ class ScheduleResource extends XotBaseResource
                 Repeater::make('options_with_value')
                     ->schema([
                         Hidden::make('name'),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
                         Hidden::make('type')->default('string'),
                         TextInput::make('value')
                             ->label(fn(Get $get): mixed => $get('name'))
                             ->required(fn(Get $get): mixed => $get('required')),
-<<<<<<< HEAD
-=======
-                        Hidden::make('type')
-                            ->default('string'),
-                        TextInput::make('value')
-                            ->label(fn (Get $get): mixed => $get('name'))
-                            ->required(fn (Get $get): mixed => $get('required')),
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
                     ])
                     ->addable(false)
                     ->deletable(false)
                     ->reorderable(false),
                 TextInput::make('expression')
                     ->placeholder('* * * * *')
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
                     ->rules([new Corn()])
                     ->required(),
                 TagsInput::make('environments')->placeholder(null),
                 TextInput::make('log_filename')->helperText(static::trans('messages.help-log-filename')),
-<<<<<<< HEAD
-=======
-                    ->rules([new Corn])
-                    ->required(),
-                TagsInput::make('environments')
-                    ->placeholder(null),
-                TextInput::make('log_filename')
-                    ->helperText(static::trans('messages.help-log-filename')),
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
                 TextInput::make('webhook_before'),
                 TextInput::make('webhook_after'),
                 TextInput::make('email_output'),
                 Toggle::make('sendmail_success'),
                 Toggle::make('sendmail_error'),
-<<<<<<< HEAD
-<<<<<<< HEAD
                 Toggle::make('log_success')->default(true),
                 Toggle::make('log_error')->default(true),
-=======
-                Toggle::make('log_success')
-                    ->default(true),
-                Toggle::make('log_error')
-                    ->default(true),
->>>>>>> e1b0bf9 (.)
-=======
-                Toggle::make('log_success')->default(true),
-                Toggle::make('log_error')->default(true),
->>>>>>> 7d4742a (.)
                 Toggle::make('even_in_maintenance_mode'),
                 Toggle::make('without_overlapping'),
                 Toggle::make('on_one_server'),
@@ -223,24 +125,11 @@ class ScheduleResource extends XotBaseResource
         ];
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
     #[Override]
     public static function getRelations(): array
     {
         return [
             
-<<<<<<< HEAD
-=======
-    public static function getRelations(): array
-    {
-        return [
-            //
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
         ];
     }
 }

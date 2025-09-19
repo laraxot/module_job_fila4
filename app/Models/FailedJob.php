@@ -8,14 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> e1b0bf9 (.)
-=======
-use Override;
->>>>>>> 7d4742a (.)
 use Modules\Job\Database\Factories\FailedJobFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Contracts\ProfileContract;
@@ -58,14 +51,7 @@ class FailedJob extends BaseModel
         'failed_at',
     ];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> e1b0bf9 (.)
-=======
-    #[Override]
->>>>>>> 7d4742a (.)
     protected function casts(): array
     {
         return [
@@ -74,23 +60,9 @@ class FailedJob extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
-<<<<<<< HEAD
-<<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
-=======
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
->>>>>>> e1b0bf9 (.)
-=======
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
->>>>>>> 7d4742a (.)
             'payload' => 'array',
         ];
     }

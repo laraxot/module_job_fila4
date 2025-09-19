@@ -4,21 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Database\Eloquent\Collection;
-=======
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Notifications\DatabaseNotificationCollection;
-use Illuminate\Notifications\DatabaseNotification;
->>>>>>> e1b0bf9 (.)
-=======
-use Illuminate\Notifications\DatabaseNotificationCollection;
-use Illuminate\Notifications\DatabaseNotification;
-use Illuminate\Database\Eloquent\Collection;
->>>>>>> 7d4742a (.)
 use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Builder;
 use function Safe\json_decode;
@@ -125,27 +113,12 @@ class Task extends BaseModel
         Assert::isArray($parameters);
 
         if ($forScheduler) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             return array_map(fn($value) => is_bool($value) ? ($value ? '1' : '0') : ((string) $value), $parameters);
-=======
-            return array_map(fn ($value) => is_bool($value) ? ($value ? '1' : '0') : (string) $value, $parameters);
->>>>>>> e1b0bf9 (.)
-=======
-            return array_map(fn($value) => is_bool($value) ? ($value ? '1' : '0') : ((string) $value), $parameters);
->>>>>>> 7d4742a (.)
         }
 
         return $parameters;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> e1b0bf9 (.)
-=======
-
->>>>>>> 7d4742a (.)
     protected $fillable = [
         'id',
         'description',
@@ -216,23 +189,10 @@ class Task extends BaseModel
     /**
      * Returns the most recent result entry for this task.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
     public function getLastResultAttribute(): null|Result
     {
         $res = $this->results()->orderBy('id', 'desc')->first();
         if ($res === null) {
-<<<<<<< HEAD
-=======
-    public function getLastResultAttribute(): ?Result
-    {
-        $res = $this->results()->orderBy('id', 'desc')->first();
-        if ($res == null) {
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
             return null;
         }
         Assert::isInstanceOf($res, Result::class);
@@ -253,15 +213,7 @@ class Task extends BaseModel
     /**
      * Route notifications for the mail channel.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function routeNotificationForMail(): null|string
-=======
-    public function routeNotificationForMail(): ?string
->>>>>>> e1b0bf9 (.)
-=======
-    public function routeNotificationForMail(): null|string
->>>>>>> 7d4742a (.)
     {
         return $this->notification_email_address;
     }
@@ -269,15 +221,7 @@ class Task extends BaseModel
     /**
      * Route notifications for the Nexmo channel.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function routeNotificationForNexmo(): null|string
-=======
-    public function routeNotificationForNexmo(): ?string
->>>>>>> e1b0bf9 (.)
-=======
-    public function routeNotificationForNexmo(): null|string
->>>>>>> 7d4742a (.)
     {
         return $this->notification_phone_number;
     }
@@ -285,15 +229,7 @@ class Task extends BaseModel
     /**
      * Route notifications for the Slack channel.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function routeNotificationForSlack(): null|string
-=======
-    public function routeNotificationForSlack(): ?string
->>>>>>> e1b0bf9 (.)
-=======
-    public function routeNotificationForSlack(): null|string
->>>>>>> 7d4742a (.)
     {
         return $this->notification_slack_webhook;
     }
@@ -318,17 +254,7 @@ class Task extends BaseModel
                         ->select('id')
                         ->pluck('id');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                     Result::query()->whereIn('id', $rowsToDelete)->delete();
-=======
-                    Result::query()
-                        ->whereIn('id', $rowsToDelete)
-                        ->delete();
->>>>>>> e1b0bf9 (.)
-=======
-                    Result::query()->whereIn('id', $rowsToDelete)->delete();
->>>>>>> 7d4742a (.)
                 } while ($rowsToDelete->count() > 0);
             } else {
                 do {
@@ -339,17 +265,7 @@ class Task extends BaseModel
                         ->select('id')
                         ->pluck('id');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                     Result::query()->whereIn('id', $rowsToDelete)->delete();
-=======
-                    Result::query()
-                        ->whereIn('id', $rowsToDelete)
-                        ->delete();
->>>>>>> e1b0bf9 (.)
-=======
-                    Result::query()->whereIn('id', $rowsToDelete)->delete();
->>>>>>> 7d4742a (.)
                 } while ($rowsToDelete->count() > 0);
             }
         }

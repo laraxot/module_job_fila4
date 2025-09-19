@@ -8,14 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> e1b0bf9 (.)
-=======
-use Override;
->>>>>>> 7d4742a (.)
 use Modules\Job\Database\Factories\ScheduleHistoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
@@ -73,10 +66,6 @@ class ScheduleHistory extends BaseModel
         'output',
         'options',
     ];
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
 
     /*
      * Creates a new instance of the model.
@@ -93,40 +82,13 @@ class ScheduleHistory extends BaseModel
      * }
      *
      */
-<<<<<<< HEAD
-=======
-    /*
-         * Creates a new instance of the model.
-         *
-         * @param array $attributes
-         * @return void
-         */
-    /*
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-
-        $this->table = Config::get('filament-database-schedule.table.schedule_histories', 'schedule_histories');
-    }
-
-    */
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
 
     public function command(): BelongsTo
     {
         return $this->belongsTo(Schedule::class, 'schedule_id', 'id');
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> e1b0bf9 (.)
-=======
-    #[Override]
->>>>>>> 7d4742a (.)
     protected function casts(): array
     {
         return [
@@ -135,23 +97,9 @@ class ScheduleHistory extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
-<<<<<<< HEAD
-<<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
-=======
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
->>>>>>> e1b0bf9 (.)
-=======
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
->>>>>>> 7d4742a (.)
             'params' => 'array',
             'options' => 'array',
         ];

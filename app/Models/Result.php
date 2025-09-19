@@ -4,14 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> e1b0bf9 (.)
-=======
-use Override;
->>>>>>> 7d4742a (.)
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Job\Database\Factories\ResultFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -46,15 +39,7 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedBy($value)
  * @property ProfileContract|null $creator
  * @mixin IdeHelperResult
-<<<<<<< HEAD
-<<<<<<< HEAD
  * @property-read ProfileContract|null $updater
-=======
- * @property-read \Modules\SaluteOra\Models\Profile|null $updater
->>>>>>> e1b0bf9 (.)
-=======
- * @property-read ProfileContract|null $updater
->>>>>>> 7d4742a (.)
  * @method static ResultFactory factory($count = null, $state = [])
  * @mixin \Eloquent
  */
@@ -89,14 +74,7 @@ class Result extends BaseModel
             ->getQuery();
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> e1b0bf9 (.)
-=======
-    #[Override]
->>>>>>> 7d4742a (.)
     protected function casts(): array
     {
         return [
@@ -105,23 +83,9 @@ class Result extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
-<<<<<<< HEAD
-<<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
-=======
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
->>>>>>> e1b0bf9 (.)
-=======
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
->>>>>>> 7d4742a (.)
             'ran_at' => 'datetime',
         ];
     }

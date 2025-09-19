@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> e1b0bf9 (.)
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Actions\EditAction;
@@ -22,7 +25,10 @@ class ListSchedules extends XotBaseListRecords
 {
     protected static string $resource = ScheduleResource::class;
 
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> e1b0bf9 (.)
     public function getTableColumns(): array
     {
         return [
@@ -30,6 +36,7 @@ class ListSchedules extends XotBaseListRecords
                 ->numeric()
                 ->sortable()
                 ->searchable(),
+<<<<<<< HEAD
             'command' => TextColumn::make('command')->sortable()->searchable(),
             'params' => TextColumn::make('params')->wrap()->searchable(),
             'expression' => TextColumn::make('expression')->sortable()->searchable(),
@@ -37,6 +44,29 @@ class ListSchedules extends XotBaseListRecords
             'is_active' => IconColumn::make('is_active')->boolean()->sortable(),
             'without_overlapping' => IconColumn::make('without_overlapping')->boolean()->sortable(),
             'on_one_server' => IconColumn::make('on_one_server')->boolean()->sortable(),
+=======
+            'command' => TextColumn::make('command')
+                ->sortable()
+                ->searchable(),
+            'params' => TextColumn::make('params')
+                ->wrap()
+                ->searchable(),
+            'expression' => TextColumn::make('expression')
+                ->sortable()
+                ->searchable(),
+            'timezone' => TextColumn::make('timezone')
+                ->sortable()
+                ->searchable(),
+            'is_active' => IconColumn::make('is_active')
+                ->boolean()
+                ->sortable(),
+            'without_overlapping' => IconColumn::make('without_overlapping')
+                ->boolean()
+                ->sortable(),
+            'on_one_server' => IconColumn::make('on_one_server')
+                ->boolean()
+                ->sortable(),
+>>>>>>> e1b0bf9 (.)
             'created_at' => TextColumn::make('created_at')
                 ->dateTime()
                 ->sortable()
@@ -52,6 +82,7 @@ class ListSchedules extends XotBaseListRecords
     {
         return [
             EditAction::make()
+<<<<<<< HEAD
                 ->hidden(fn($record) => $record->trashed())
                 ->tooltip(__('filament-support::actions/edit.single.label')),
             RestoreAction::make()->tooltip(__('filament-support::actions/restore.single.label')),
@@ -59,6 +90,16 @@ class ListSchedules extends XotBaseListRecords
             ForceDeleteAction::make()->tooltip(__(
                 'filament-support::actions/force-delete.single.label',
             )),
+=======
+                ->hidden(fn ($record) => $record->trashed())
+                ->tooltip(__('filament-support::actions/edit.single.label')),
+            RestoreAction::make()
+                ->tooltip(__('filament-support::actions/restore.single.label')),
+            DeleteAction::make()
+                ->tooltip(__('filament-support::actions/delete.single.label')),
+            ForceDeleteAction::make()
+                ->tooltip(__('filament-support::actions/force-delete.single.label')),
+>>>>>>> e1b0bf9 (.)
             ViewAction::make()
                 ->icon('history')
                 ->color('gray')
@@ -73,8 +114,14 @@ class ListSchedules extends XotBaseListRecords
         ];
     }
 
+<<<<<<< HEAD
     protected function getTableRecordUrlUsing(): null|Closure
     {
         return static fn(): null|string => null;
+=======
+    protected function getTableRecordUrlUsing(): ?Closure
+    {
+        return static fn (): ?string => null;
+>>>>>>> e1b0bf9 (.)
     }
 }

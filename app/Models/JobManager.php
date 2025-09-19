@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> e1b0bf9 (.)
 use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Support\Carbon;
 use Modules\Job\Database\Factories\JobManagerFactory;
@@ -79,6 +82,7 @@ class JobManager extends BaseModel
 
     public function status(): Attribute
     {
+<<<<<<< HEAD
         return Attribute::make(get: function (): string {
             if ($this->isFinished()) {
                 return $this->failed ? 'failed' : 'succeeded';
@@ -86,6 +90,17 @@ class JobManager extends BaseModel
 
             return 'running';
         });
+=======
+        return Attribute::make(
+            get: function (): string {
+                if ($this->isFinished()) {
+                    return $this->failed ? 'failed' : 'succeeded';
+                }
+
+                return 'running';
+            },
+        );
+>>>>>>> e1b0bf9 (.)
     }
 
     public function isFinished(): bool
@@ -104,18 +119,30 @@ class JobManager extends BaseModel
 
     public function hasSucceeded(): bool
     {
+<<<<<<< HEAD
         if (!$this->isFinished()) {
             return false;
         }
 
         return !$this->hasFailed();
+=======
+        if (! $this->isFinished()) {
+            return false;
+        }
+
+        return ! $this->hasFailed();
+>>>>>>> e1b0bf9 (.)
     }
 
     public function prunable(): Builder
     {
         if (config('jobs.pruning.activate')) {
             $retention_days = config('jobs.pruning.retention_days');
+<<<<<<< HEAD
             if (!is_int($retention_days)) {
+=======
+            if (! is_int($retention_days)) {
+>>>>>>> e1b0bf9 (.)
                 $retention_days = 365;
             }
 
@@ -125,7 +152,10 @@ class JobManager extends BaseModel
         return static::query();
     }
 
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> e1b0bf9 (.)
     protected function casts(): array
     {
         return [
@@ -134,9 +164,17 @@ class JobManager extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+<<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
+=======
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+>>>>>>> e1b0bf9 (.)
             'failed' => 'bool',
             'started_at' => 'datetime',
             'finished_at' => 'datetime',

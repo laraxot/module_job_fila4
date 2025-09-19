@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> e1b0bf9 (.)
 use Modules\Job\Database\Factories\JobFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Contracts\ProfileContract;
@@ -66,16 +69,21 @@ class Job extends BaseModel
 
     public function getTable(): string
     {
+<<<<<<< HEAD
         Assert::string(
             $res = config('queue.connections.database.table'),
             '[' . __LINE__ . '][' . class_basename($this) . ']',
         );
+=======
+        Assert::string($res = config('queue.connections.database.table'), '['.__LINE__.']['.class_basename($this).']');
+>>>>>>> e1b0bf9 (.)
 
         return $res;
     }
 
     public function status(): Attribute
     {
+<<<<<<< HEAD
         return Attribute::make(get: function (): string {
             if ($this->reserved_at) {
                 return 'running';
@@ -90,6 +98,24 @@ class Job extends BaseModel
         Assert::string($json = $this->attributes['payload'], __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
         $payload = json_decode($json, true);
         if (!is_array($payload)) {
+=======
+        return Attribute::make(
+            get: function (): string {
+                if ($this->reserved_at) {
+                    return 'running';
+                }
+
+                return 'waiting';
+            },
+        );
+    }
+
+    public function getDisplayNameAttribute(): ?string
+    {
+        Assert::string($json = $this->attributes['payload']);
+        $payload = json_decode($json, true);
+        if (! is_array($payload)) {
+>>>>>>> e1b0bf9 (.)
             return null;
         }
 
@@ -98,7 +124,10 @@ class Job extends BaseModel
         return $res;
     }
 
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> e1b0bf9 (.)
     protected function casts(): array
     {
         return [

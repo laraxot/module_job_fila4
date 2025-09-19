@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> e1b0bf9 (.)
 use Exception;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
@@ -133,7 +136,10 @@ class Schedule extends BaseModel
     ];
 
     /** @return array<string, string> */
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> e1b0bf9 (.)
     protected function casts(): array
     {
         return [
@@ -157,7 +163,13 @@ class Schedule extends BaseModel
      */
     public static function getEnvironments(): Collection
     {
+<<<<<<< HEAD
         return static::whereNotNull('environments')->groupBy('environments')->pluck('environments', 'environments');
+=======
+        return static::whereNotNull('environments')
+            ->groupBy('environments')
+            ->pluck('environments', 'environments');
+>>>>>>> e1b0bf9 (.)
     }
 
     /**
@@ -200,9 +212,13 @@ class Schedule extends BaseModel
                 // Replace eval with a safer function or an allowed list of callable functions
                 $arguments[$argument] = $this->evaluateFunction($value['value']);
             } else {
+<<<<<<< HEAD
                 $arguments[(string) ($value['name'] ?? $argument)] = is_string($value)
                     ? $value
                     : ((string) $value['value']);
+=======
+                $arguments[(string) ($value['name'] ?? $argument)] = is_string($value) ? $value : (string) $value['value'];
+>>>>>>> e1b0bf9 (.)
             }
         }
 
@@ -217,7 +233,11 @@ class Schedule extends BaseModel
         $options = collect($this->options ?? []);
         $optionsWithValues = $this->options_with_value ?? [];
 
+<<<<<<< HEAD
         if (!empty($optionsWithValues)) {
+=======
+        if (! empty($optionsWithValues)) {
+>>>>>>> e1b0bf9 (.)
             $options = $options->merge($optionsWithValues);
         }
 
@@ -225,7 +245,11 @@ class Schedule extends BaseModel
             if (is_array($value)) {
                 Assert::nullOrString($value['name']);
 
+<<<<<<< HEAD
                 return '--' . ((string) ($value['name'] ?? $key)) . '=' . ((string) $value['value']);
+=======
+                return '--'.((string) ($value['name'] ?? $key)).'='.(string) $value['value'];
+>>>>>>> e1b0bf9 (.)
             }
 
             return "--{$value}";
@@ -240,7 +264,11 @@ class Schedule extends BaseModel
      *
      * @throws InvalidArgumentException Se viene passato un argomento non valido
      */
+<<<<<<< HEAD
     private function evaluateFunction(string $functionString): null|string
+=======
+    private function evaluateFunction(string $functionString): ?string
+>>>>>>> e1b0bf9 (.)
     {
         // Define a list of allowed functions or implement custom evaluation logic.
         $allowedFunctions = ['strtolower', 'strtoupper']; // Example allowed functions
@@ -262,7 +290,11 @@ class Schedule extends BaseModel
                 return null;
             }
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> e1b0bf9 (.)
         // Funzione non consentita
         return null;
     }

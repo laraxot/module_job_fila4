@@ -35,7 +35,11 @@ class ViewSchedule extends Page implements HasTable
     }
 
     #[Url]
+<<<<<<< HEAD
     public null|string $activeTab = null;
+=======
+    public ?string $activeTab = null;
+>>>>>>> e1b0bf9 (.)
 
     protected static string $resource = ScheduleResource::class;
 
@@ -56,6 +60,7 @@ class ViewSchedule extends Page implements HasTable
      *
      * @param string $record
      * @return void
+<<<<<<< HEAD
      *
      * public function mount($record): void
      * {
@@ -81,10 +86,38 @@ class ViewSchedule extends Page implements HasTable
     protected function getTableColumns(): array
     {
         $date_format = Assert::string(config('app.date_format'), '[' . __LINE__ . '][' . class_basename($this) . ']');
+=======
+
+    public function mount($record): void
+    {
+        static::authorizeResourceAccess();
+
+        $this->record = $this->resolveRecord($record);
+
+        abort_unless(static::getResource()::canView($this->getRecord()), 403);
+    }
+
+    protected function getRelationManagers(): array
+    {
+        return [];
+    }
+
+
+    protected function getTableQuery(): Builder
+    {
+        return ScheduleHistory::where('schedule_id', $this->record->id)->latest();
+    }
+    */
+
+    protected function getTableColumns(): array
+    {
+        $date_format = Assert::string(config('app.date_format'), '['.__LINE__.']['.class_basename($this).']');
+>>>>>>> e1b0bf9 (.)
 
         return [
             Split::make([
                 TextColumn::make('command'),
+<<<<<<< HEAD
                 TextColumn::make('created_at')->dateTime($date_format),
                 TextColumn::make('updated_at')->formatStateUsing(static function (
                     $state,
@@ -110,6 +143,28 @@ class ViewSchedule extends Page implements HasTable
                     ))),
             ])->collapsible(),
             // ->collapsed(config('job::history_collapsed'))
+=======
+                TextColumn::make('created_at')
+
+                    ->dateTime($date_format),
+                TextColumn::make('updated_at')
+
+                    ->formatStateUsing(static function ($state, $record): string {
+                        if ($state === $record->created_at) {
+                            return 'Processing...';
+                        }
+
+                        return $state->diffInSeconds($record->created_at).' seconds';
+                    }),
+                TextColumn::make('output')
+                    ->formatStateUsing(static fn (string $state): string => (count(explode('<br />', nl2br($state))) - 1).' rows of output'),
+            ]), Panel::make([
+                TextColumn::make('output')->extraAttributes(['class' => '!max-w-max'], true)
+                    ->formatStateUsing(static fn (string $state): HtmlString => new HtmlString(nl2br($state))),
+            ])->collapsible()
+            // ->collapsed(config('job::history_collapsed'))
+            ,
+>>>>>>> e1b0bf9 (.)
         ];
     }
 }

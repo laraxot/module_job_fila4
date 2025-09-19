@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> e1b0bf9 (.)
 use Modules\Job\Database\Factories\FailedImportRowFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
@@ -49,7 +52,10 @@ class FailedImportRow extends BaseModel
         'validation_error',
     ];
 
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> e1b0bf9 (.)
     protected function casts(): array
     {
         return [
@@ -59,9 +65,17 @@ class FailedImportRow extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+<<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
+=======
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+>>>>>>> e1b0bf9 (.)
             'payload' => 'array',
             'completed_at' => 'datetime',
             // 'updated_at' => 'datetime:Y-m-d H:00',

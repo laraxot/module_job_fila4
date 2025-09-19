@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Database\Eloquent\Collection;
+=======
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Notifications\DatabaseNotificationCollection;
+use Illuminate\Notifications\DatabaseNotification;
+>>>>>>> e1b0bf9 (.)
 use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Builder;
 use function Safe\json_decode;
@@ -113,12 +119,19 @@ class Task extends BaseModel
         Assert::isArray($parameters);
 
         if ($forScheduler) {
+<<<<<<< HEAD
             return array_map(fn($value) => is_bool($value) ? ($value ? '1' : '0') : ((string) $value), $parameters);
+=======
+            return array_map(fn ($value) => is_bool($value) ? ($value ? '1' : '0') : (string) $value, $parameters);
+>>>>>>> e1b0bf9 (.)
         }
 
         return $parameters;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e1b0bf9 (.)
     protected $fillable = [
         'id',
         'description',
@@ -189,10 +202,17 @@ class Task extends BaseModel
     /**
      * Returns the most recent result entry for this task.
      */
+<<<<<<< HEAD
     public function getLastResultAttribute(): null|Result
     {
         $res = $this->results()->orderBy('id', 'desc')->first();
         if ($res === null) {
+=======
+    public function getLastResultAttribute(): ?Result
+    {
+        $res = $this->results()->orderBy('id', 'desc')->first();
+        if ($res == null) {
+>>>>>>> e1b0bf9 (.)
             return null;
         }
         Assert::isInstanceOf($res, Result::class);
@@ -213,7 +233,11 @@ class Task extends BaseModel
     /**
      * Route notifications for the mail channel.
      */
+<<<<<<< HEAD
     public function routeNotificationForMail(): null|string
+=======
+    public function routeNotificationForMail(): ?string
+>>>>>>> e1b0bf9 (.)
     {
         return $this->notification_email_address;
     }
@@ -221,7 +245,11 @@ class Task extends BaseModel
     /**
      * Route notifications for the Nexmo channel.
      */
+<<<<<<< HEAD
     public function routeNotificationForNexmo(): null|string
+=======
+    public function routeNotificationForNexmo(): ?string
+>>>>>>> e1b0bf9 (.)
     {
         return $this->notification_phone_number;
     }
@@ -229,7 +257,11 @@ class Task extends BaseModel
     /**
      * Route notifications for the Slack channel.
      */
+<<<<<<< HEAD
     public function routeNotificationForSlack(): null|string
+=======
+    public function routeNotificationForSlack(): ?string
+>>>>>>> e1b0bf9 (.)
     {
         return $this->notification_slack_webhook;
     }
@@ -254,7 +286,13 @@ class Task extends BaseModel
                         ->select('id')
                         ->pluck('id');
 
+<<<<<<< HEAD
                     Result::query()->whereIn('id', $rowsToDelete)->delete();
+=======
+                    Result::query()
+                        ->whereIn('id', $rowsToDelete)
+                        ->delete();
+>>>>>>> e1b0bf9 (.)
                 } while ($rowsToDelete->count() > 0);
             } else {
                 do {
@@ -265,7 +303,13 @@ class Task extends BaseModel
                         ->select('id')
                         ->pluck('id');
 
+<<<<<<< HEAD
                     Result::query()->whereIn('id', $rowsToDelete)->delete();
+=======
+                    Result::query()
+                        ->whereIn('id', $rowsToDelete)
+                        ->delete();
+>>>>>>> e1b0bf9 (.)
                 } while ($rowsToDelete->count() > 0);
             }
         }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Modulo Job
 
 ## Struttura
@@ -135,6 +136,8 @@
 
 ---
 
+=======
+>>>>>>> 548bbd3 (.)
 # ⚡ Modulo Job - Sistema di Code e Job Avanzato
 
 ## 📊 Stato del Modulo
@@ -331,7 +334,10 @@ php artisan queue:failed-table
 
 ```bash
 # Esegui analisi statica
+<<<<<<< HEAD
 cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
+=======
+>>>>>>> 548bbd3 (.)
 cd /var/www/html/_bases/base_saluteora/laravel
 ./vendor/bin/phpstan analyze Modules/Job --level=9
 ```
@@ -395,6 +401,7 @@ php artisan test --filter=ResultBusinessLogicTest
 **Versione**: 2.0
 **Stato**: Test business logic implementati (85% copertura)
 
+<<<<<<< HEAD
 # Modulo Job
 
 ## Struttura
@@ -532,3 +539,5 @@ php artisan test --filter=ResultBusinessLogicTest
 
 ---
 
+=======
+>>>>>>> 548bbd3 (.)

@@ -11,10 +11,27 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Override;
 use Modules\Job\Database\Factories\JobBatchFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Contracts\ProfileContract;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Override;
+=======
+>>>>>>> a12f125f4a (.)
+=======
+use Override;
+>>>>>>> b93ef594b4 (.)
+use Modules\Job\Database\Factories\JobBatchFactory;
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Xot\Contracts\ProfileContract;
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
@@ -31,6 +48,10 @@ use Illuminate\Support\Collection;
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 548bbd3 (.)
  * @method static JobBatchFactory factory($count = null, $state = [])
  * @method static Builder|JobBatch newModelQuery()
  * @method static Builder|JobBatch newQuery()
@@ -47,6 +68,27 @@ use Illuminate\Support\Collection;
  * @method static Builder|JobBatch whereTotalJobs($value)
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+<<<<<<< HEAD
+=======
+=======
+ * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch query()
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereCancelledAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereFailedJobIds($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereFailedJobs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereFinishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereOptions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch wherePendingJobs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JobBatch whereTotalJobs($value)
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
  * @mixin IdeHelperJobBatch
  * @mixin \Eloquent
  */
@@ -86,7 +128,23 @@ class JobBatch extends BaseModel
      */
     public function progress(): int
     {
+<<<<<<< HEAD
         $progress = $this->total_jobs > 0 ? round(($this->processedJobs() / $this->total_jobs) * 100) : 0;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $progress = $this->total_jobs > 0 ? round(($this->processedJobs() / $this->total_jobs) * 100) : 0;
+=======
+        $progress = $this->total_jobs > 0 ? round($this->processedJobs() / $this->total_jobs * 100) : 0;
+>>>>>>> a12f125f4a (.)
+=======
+        $progress = $this->total_jobs > 0 ? round(($this->processedJobs() / $this->total_jobs) * 100) : 0;
+>>>>>>> b93ef594b4 (.)
+=======
+        $progress = $this->total_jobs > 0 ? round($this->processedJobs() / $this->total_jobs * 100) : 0;
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
 
         return (int) $progress;
     }
@@ -132,7 +190,21 @@ class JobBatch extends BaseModel
     }
 
     /**  @return array<string, string>  */
+<<<<<<< HEAD
     #[Override]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    #[Override]
+=======
+>>>>>>> a12f125f4a (.)
+=======
+    #[Override]
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     protected function casts(): array
     {
         return [
@@ -141,9 +213,35 @@ class JobBatch extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+<<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+=======
+=======
+>>>>>>> origin/develop
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
             'options' => 'collection',
             'failed_jobs' => 'integer',
             'cancelled_at' => 'datetime',

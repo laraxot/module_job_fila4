@@ -46,7 +46,7 @@ class JobStatsOverview extends BaseWidget
                     $this->formatSeconds(
                         (int) app(SafeEloquentCastAction::class)
                             ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0'),
-                    ) . 's'
+                    )
                 )
                 : '0';
         } else {

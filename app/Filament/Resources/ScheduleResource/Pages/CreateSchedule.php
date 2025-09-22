@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
+use Filament\Forms\Form;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
-use Filament\Schemas\Schema;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
@@ -28,9 +28,9 @@ class CreateSchedule extends XotBaseCreateRecord
         return $res;
     }
 
-    public function form(Schema $schema): Schema
+    public function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
     {
-        return $schema->components($this->getFormSchema());
+        return $form->components($this->getFormSchema());
     }
 
     protected function onValidationError(ValidationException $exception): void

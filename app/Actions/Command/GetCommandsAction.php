@@ -32,24 +32,12 @@ class GetCommandsAction
 
             /** @var Collection<int, array{name: string, description: string, required: bool}> $arguments */
             $arguments = collect($command->getDefinition()->getArguments())
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
                 ->map(fn($argument) => [
                     'name' => $argument->getName(),
                     'description' => $argument->getDescription(),
                     'required' => $argument->isRequired(),
                 ])
                 ->values();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
 
             /** @var Collection<int, array{name: string, description: string, required: bool}> $options */
             $options = collect($command->getDefinition()->getOptions())
@@ -59,82 +47,16 @@ class GetCommandsAction
                     'required' => $option->isValueRequired(),
                 ])
                 ->values();
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-                ->map(function ($argument) {
-                    return [
-                        'name' => $argument->getName(),
-                        'description' => $argument->getDescription(),
-                        'required' => $argument->isRequired(),
-                    ];
-                })->values();
-
-            /** @var Collection<int, array{name: string, description: string, required: bool}> $options */
-            $options = collect($command->getDefinition()->getOptions())
-                ->map(function ($option) {
-                    return [
-                        'name' => $option->getName(),
-                        'description' => $option->getDescription(),
-                        'required' => $option->isValueRequired(),
-                    ];
-                })->values();
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-
-            /** @var Collection<int, array{name: string, description: string, required: bool}> $options */
-            $options = collect($command->getDefinition()->getOptions())
-                ->map(fn($option) => [
-                    'name' => $option->getName(),
-                    'description' => $option->getDescription(),
-                    'required' => $option->isValueRequired(),
-                ])
-                ->values();
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
 
             return new CommandData(
                 name: $name,
                 description: $description,
                 signature: $signature,
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
                 full_name: $name . ' - ' . $description,
                 arguments: $arguments->toArray(),
                 options: [
                     'withValue' => $options->toArray(),
                 ],
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-                full_name: $name.' - '.$description,
-                arguments: $arguments->toArray(),
-                options: [
-                    'withValue' => $options->toArray(),
-                ]
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-                full_name: $name . ' - ' . $description,
-                arguments: $arguments->toArray(),
-                options: [
-                    'withValue' => $options->toArray(),
-                ],
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
             );
         });
 

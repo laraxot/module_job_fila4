@@ -25,23 +25,7 @@ class Broad extends Component
 
     public function try(): void
     {
-<<<<<<< HEAD
         session()->flash('message', 'try [' . now() . ']');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        session()->flash('message', 'try [' . now() . ']');
-=======
-        session()->flash('message', 'try ['.now().']');
->>>>>>> a12f125f4a (.)
-=======
-        session()->flash('message', 'try [' . now() . ']');
->>>>>>> b93ef594b4 (.)
-=======
-        session()->flash('message', 'try ['.now().']');
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         // OrderShipped::dispatch();
         // event(new PublicEvent('test'));
         PublicEvent::dispatch();
@@ -49,31 +33,9 @@ class Broad extends Component
 
     public function notifyEvent(): never
     {
-<<<<<<< HEAD
         session()->flash('message', 'notifyEvent [' . now() . ']');
         dd('fine');
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        session()->flash('message', 'notifyEvent [' . now() . ']');
-        dd('fine');
-
-=======
-        session()->flash('message', 'notifyEvent ['.now().']');
-        dd('fine');
->>>>>>> a12f125f4a (.)
-=======
-        session()->flash('message', 'notifyEvent [' . now() . ']');
-        dd('fine');
-
->>>>>>> b93ef594b4 (.)
-=======
-        session()->flash('message', 'notifyEvent ['.now().']');
-        dd('fine');
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         // $this->showNewOrderNotification = true;
     }
 }

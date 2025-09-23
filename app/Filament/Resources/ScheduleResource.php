@@ -8,8 +8,13 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Schemas\Components\Section;
 use Override;
+=======
+use Override;
+use Filament\Schemas\Components\Section;
+>>>>>>> a51482b (.)
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Forms\Components\Hidden;

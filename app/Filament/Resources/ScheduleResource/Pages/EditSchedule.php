@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
+<<<<<<< HEAD
 use Filament\Forms\Form;
+=======
+use Filament\Schemas\Schema;
+>>>>>>> 9836ef8 (.)
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 use Override;
 use Filament\Notifications\Notification;

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # 🔧 PHPStan Fixes - Modulo Job - Gennaio 2025
 
 **Data**: 27 Gennaio 2025  
@@ -205,4 +203,3 @@ public function __construct(string $output)
 
 
 
->>>>>>> be644fc (.)

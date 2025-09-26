@@ -7,7 +7,7 @@ namespace Modules\Job\Tests;
 use Illuminate\Foundation\Application;
 use Modules\Job\Providers\JobServiceProvider;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Tests\CreatesApplication;
+use Modules\Xot\Tests\CreatesApplication;
 
 /**
  * Base test case for Job module tests.

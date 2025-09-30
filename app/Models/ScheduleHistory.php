@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> e1b0bf9 (.)
 use Modules\Job\Database\Factories\ScheduleHistoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
@@ -66,6 +69,7 @@ class ScheduleHistory extends BaseModel
         'output',
         'options',
     ];
+<<<<<<< HEAD
 
     /*
      * Creates a new instance of the model.
@@ -82,13 +86,33 @@ class ScheduleHistory extends BaseModel
      * }
      *
      */
+=======
+    /*
+         * Creates a new instance of the model.
+         *
+         * @param array $attributes
+         * @return void
+         */
+    /*
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->table = Config::get('filament-database-schedule.table.schedule_histories', 'schedule_histories');
+    }
+
+    */
+>>>>>>> e1b0bf9 (.)
 
     public function command(): BelongsTo
     {
         return $this->belongsTo(Schedule::class, 'schedule_id', 'id');
     }
 
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> e1b0bf9 (.)
     protected function casts(): array
     {
         return [
@@ -97,9 +121,17 @@ class ScheduleHistory extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+<<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
+=======
+
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+
+>>>>>>> e1b0bf9 (.)
             'params' => 'array',
             'options' => 'array',
         ];

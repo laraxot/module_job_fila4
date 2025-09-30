@@ -47,6 +47,10 @@ use Modules\Xot\Contracts\ProfileContract;
  * @mixin IdeHelperJobsWaiting
  * @mixin \Eloquent
  */
+<<<<<<< HEAD
 class JobsWaiting extends Job
 {
 }
+=======
+class JobsWaiting extends Job {}
+>>>>>>> e1b0bf9 (.)

@@ -73,7 +73,7 @@ class ScheduleResource extends XotBaseResource
                     ->reactive()
                     ->searchable()
                     ->required()
-                    ->afterStateUpdated(function (Set $set, $state): void {
+                    ->afterStateUpdated(function (\Filament\Schemas\Components\Utilities\Set $set, $state): void {
                         Assert::isInstanceOf(
                             $command = static::$commands->where('name', $state)->first(),
                             CommandData::class,
@@ -87,8 +87,8 @@ class ScheduleResource extends XotBaseResource
                     ->schema([
                         Hidden::make('name'),
                         TextInput::make('value')
-                            ->label(fn(Get $get): mixed => $get('name'))
-                            ->required(fn(Get $get): mixed => $get('required')),
+                            ->label(fn(\Filament\Schemas\Components\Utilities\Get $get): mixed => $get('name'))
+                            ->required(fn(\Filament\Schemas\Components\Utilities\Get $get): mixed => $get('required')),
                     ])
                     ->addable(false)
                     ->deletable(false)
@@ -98,8 +98,8 @@ class ScheduleResource extends XotBaseResource
                         Hidden::make('name'),
                         Hidden::make('type')->default('string'),
                         TextInput::make('value')
-                            ->label(fn(Get $get): mixed => $get('name'))
-                            ->required(fn(Get $get): mixed => $get('required')),
+                            ->label(fn(\Filament\Schemas\Components\Utilities\Get $get): mixed => $get('name'))
+                            ->required(fn(\Filament\Schemas\Components\Utilities\Get $get): mixed => $get('required')),
                     ])
                     ->addable(false)
                     ->deletable(false)

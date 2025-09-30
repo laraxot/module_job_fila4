@@ -4,29 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
 use Override;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> a12f125f4a (.)
-=======
-use Override;
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
 use Exception;
 use Illuminate\Support\Carbon;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Job\Database\Factories\ScheduleFactory;
 use InvalidArgumentException;
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
 use Illuminate\Console\Scheduling\ManagesFrequencies;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -40,15 +23,7 @@ use Webmozart\Assert\Assert;
  *
  * @property Status $status
  * @property array $options
-<<<<<<< HEAD
  * @property \Illuminate\Database\Eloquent\Collection<int, ScheduleHistory> $histories
-=======
-<<<<<<< HEAD
- * @property \Illuminate\Database\Eloquent\Collection<int, ScheduleHistory> $histories
-=======
- * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
  * @property int|null $histories_count
  * @property int $id
  * @property string $command
@@ -69,10 +44,6 @@ use Webmozart\Assert\Assert;
  * @property bool $log_error
  * @property bool $run_in_background
  * @property bool $sendmail_success
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
@@ -117,55 +88,6 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Schedule whereWithoutOverlapping($value)
  * @method static Builder|Schedule withTrashed()
  * @method static Builder|Schedule withoutTrashed()
-<<<<<<< HEAD
-=======
-=======
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property string|null $deleted_by
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule active()
- * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule inactive()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule query()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereCommand($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereCommandCustom($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereDeletedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereEmailOutput($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereEnvironments($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereEvenInMaintenanceMode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereExpression($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereLogError($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereLogFilename($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereLogSuccess($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereOnOneServer($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereOptions($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereOptionsWithValue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereParams($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereRunInBackground($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereSendmailError($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereSendmailSuccess($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereUpdatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereWebhookAfter($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereWebhookBefore($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule whereWithoutOverlapping($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Schedule withoutTrashed()
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
  * @mixin IdeHelperSchedule
  * @mixin \Eloquent
  */
@@ -211,21 +133,7 @@ class Schedule extends BaseModel
     ];
 
     /** @return array<string, string> */
-<<<<<<< HEAD
     #[Override]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
->>>>>>> a12f125f4a (.)
-=======
-    #[Override]
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
     protected function casts(): array
     {
         return [
@@ -249,27 +157,7 @@ class Schedule extends BaseModel
      */
     public static function getEnvironments(): Collection
     {
-<<<<<<< HEAD
         return static::whereNotNull('environments')->groupBy('environments')->pluck('environments', 'environments');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return static::whereNotNull('environments')->groupBy('environments')->pluck('environments', 'environments');
-=======
-        return static::whereNotNull('environments')
-            ->groupBy('environments')
-            ->pluck('environments', 'environments');
->>>>>>> a12f125f4a (.)
-=======
-        return static::whereNotNull('environments')->groupBy('environments')->pluck('environments', 'environments');
->>>>>>> b93ef594b4 (.)
-=======
-        return static::whereNotNull('environments')
-            ->groupBy('environments')
-            ->pluck('environments', 'environments');
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
     }
 
     /**
@@ -312,29 +200,9 @@ class Schedule extends BaseModel
                 // Replace eval with a safer function or an allowed list of callable functions
                 $arguments[$argument] = $this->evaluateFunction($value['value']);
             } else {
-<<<<<<< HEAD
                 $arguments[(string) ($value['name'] ?? $argument)] = is_string($value)
                     ? $value
                     : ((string) $value['value']);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                $arguments[(string) ($value['name'] ?? $argument)] = is_string($value)
-                    ? $value
-                    : ((string) $value['value']);
-=======
-                $arguments[(string) ($value['name'] ?? $argument)] = is_string($value) ? $value : (string) $value['value'];
->>>>>>> a12f125f4a (.)
-=======
-                $arguments[(string) ($value['name'] ?? $argument)] = is_string($value)
-                    ? $value
-                    : ((string) $value['value']);
->>>>>>> b93ef594b4 (.)
-=======
-                $arguments[(string) ($value['name'] ?? $argument)] = is_string($value) ? $value : (string) $value['value'];
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
             }
         }
 
@@ -349,23 +217,7 @@ class Schedule extends BaseModel
         $options = collect($this->options ?? []);
         $optionsWithValues = $this->options_with_value ?? [];
 
-<<<<<<< HEAD
         if (!empty($optionsWithValues)) {
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!empty($optionsWithValues)) {
-=======
-        if (! empty($optionsWithValues)) {
->>>>>>> a12f125f4a (.)
-=======
-        if (!empty($optionsWithValues)) {
->>>>>>> b93ef594b4 (.)
-=======
-        if (! empty($optionsWithValues)) {
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
             $options = $options->merge($optionsWithValues);
         }
 
@@ -373,23 +225,7 @@ class Schedule extends BaseModel
             if (is_array($value)) {
                 Assert::nullOrString($value['name']);
 
-<<<<<<< HEAD
                 return '--' . ((string) ($value['name'] ?? $key)) . '=' . ((string) $value['value']);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                return '--' . ((string) ($value['name'] ?? $key)) . '=' . ((string) $value['value']);
-=======
-                return '--'.((string) ($value['name'] ?? $key)).'='.(string) $value['value'];
->>>>>>> a12f125f4a (.)
-=======
-                return '--' . ((string) ($value['name'] ?? $key)) . '=' . ((string) $value['value']);
->>>>>>> b93ef594b4 (.)
-=======
-                return '--'.((string) ($value['name'] ?? $key)).'='.(string) $value['value'];
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
             }
 
             return "--{$value}";
@@ -401,32 +237,10 @@ class Schedule extends BaseModel
      *
      * @param string $functionString Il nome della funzione da valutare
      * @return string|null Il risultato della funzione o null se la funzione non è consentita
-<<<<<<< HEAD
      *
      * @throws InvalidArgumentException Se viene passato un argomento non valido
      */
     private function evaluateFunction(string $functionString): null|string
-=======
-<<<<<<< HEAD
-     *
-     * @throws InvalidArgumentException Se viene passato un argomento non valido
-     */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    private function evaluateFunction(string $functionString): null|string
-=======
-    private function evaluateFunction(string $functionString): ?string
->>>>>>> a12f125f4a (.)
-=======
-    private function evaluateFunction(string $functionString): null|string
->>>>>>> b93ef594b4 (.)
-=======
-     * 
-     * @throws \InvalidArgumentException Se viene passato un argomento non valido
-     */
-    private function evaluateFunction(string $functionString): ?string
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
     {
         // Define a list of allowed functions or implement custom evaluation logic.
         $allowedFunctions = ['strtolower', 'strtoupper']; // Example allowed functions
@@ -443,36 +257,12 @@ class Schedule extends BaseModel
                     default:
                         return null;
                 }
-<<<<<<< HEAD
             } catch (Exception $e) {
-=======
-<<<<<<< HEAD
-            } catch (Exception $e) {
-=======
-            } catch (\Exception $e) {
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
                 // Log error or handle exception
                 return null;
             }
         }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         // Funzione non consentita
         return null;
     }

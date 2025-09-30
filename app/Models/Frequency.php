@@ -4,18 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
 use Modules\Job\Database\Factories\FrequencyFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Contracts\ProfileContract;
-=======
-<<<<<<< HEAD
-use Modules\Job\Database\Factories\FrequencyFactory;
-use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Contracts\ProfileContract;
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -33,10 +24,6 @@ use Illuminate\Support\Carbon;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
  * @property Collection<int, Parameter> $parameters
  * @property int|null $parameters_count
  * @property Task|null $task
@@ -54,28 +41,6 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Frequency whereUpdatedBy($value)
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
-<<<<<<< HEAD
-=======
-=======
- * @property Collection<int, \Modules\Job\Models\Parameter> $parameters
- * @property int|null $parameters_count
- * @property Task|null $task
- * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency query()
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereInterval($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereLabel($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereTaskId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Frequency whereUpdatedBy($value)
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
  * @mixin IdeHelperFrequency
  * @mixin \Eloquent
  */

@@ -4,25 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
 use Override;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Job\Database\Factories\ResultFactory;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> a12f125f4a (.)
-=======
-use Override;
->>>>>>> b93ef594b4 (.)
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Job\Database\Factories\ResultFactory;
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
@@ -53,32 +37,10 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedBy($value)
-<<<<<<< HEAD
  * @property ProfileContract|null $creator
  * @mixin IdeHelperResult
  * @property-read ProfileContract|null $updater
  * @method static ResultFactory factory($count = null, $state = [])
-=======
-<<<<<<< HEAD
- * @property ProfileContract|null $creator
- * @mixin IdeHelperResult
-<<<<<<< HEAD
-<<<<<<< HEAD
- * @property-read ProfileContract|null $updater
-=======
- * @property-read \Modules\SaluteOra\Models\Profile|null $updater
->>>>>>> a12f125f4a (.)
-=======
- * @property-read ProfileContract|null $updater
->>>>>>> b93ef594b4 (.)
- * @method static ResultFactory factory($count = null, $state = [])
-=======
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @mixin IdeHelperResult
- * @property-read \Modules\SaluteOra\Models\Profile|null $updater
- * @method static \Modules\Job\Database\Factories\ResultFactory factory($count = null, $state = [])
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
  * @mixin \Eloquent
  */
 class Result extends BaseModel
@@ -112,21 +74,7 @@ class Result extends BaseModel
             ->getQuery();
     }
 
-<<<<<<< HEAD
     #[Override]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    #[Override]
-=======
->>>>>>> a12f125f4a (.)
-=======
-    #[Override]
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
     protected function casts(): array
     {
         return [
@@ -135,35 +83,9 @@ class Result extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
-<<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-=======
-=======
->>>>>>> origin/develop
-
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
             'ran_at' => 'datetime',
         ];
     }

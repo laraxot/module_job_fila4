@@ -37,42 +37,12 @@ class Status extends Component
         Artisan::call('worker:check');
         $this->out .= Artisan::output();
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
         $this->out .= '<br/>[' . JobModel::count() . '] Jobs';
         $this->out .= '<br/>[' . FailedJobModel::count() . '] Failed Jobs';
         $this->out .= '<br/>[' . JobBatchModel::count() . '] Job Batch';
         $queue_conn = getenv('QUEUE_CONNECTION');
         if ($queue_conn === false) {
             throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-        $this->out .= '<br/>['.JobModel::count().'] Jobs';
-        $this->out .= '<br/>['.FailedJobModel::count().'] Failed Jobs';
-        $this->out .= '<br/>['.JobBatchModel::count().'] Job Batch';
-        $queue_conn = getenv('QUEUE_CONNECTION');
-        if ($queue_conn === false) {
-            throw new Exception('['.__LINE__.']['.class_basename($this).']');
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-        $this->out .= '<br/>[' . JobModel::count() . '] Jobs';
-        $this->out .= '<br/>[' . FailedJobModel::count() . '] Failed Jobs';
-        $this->out .= '<br/>[' . JobBatchModel::count() . '] Job Batch';
-        $queue_conn = getenv('QUEUE_CONNECTION');
-        if ($queue_conn === false) {
-            throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         }
 
         $this->old_value = $queue_conn;
@@ -90,14 +60,6 @@ class Status extends Component
 
         $acts = [
             /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
              * (object) [
              * 'name' => 'batches-table',
              * 'label' => 'Create a migration for the batches database table',
@@ -111,32 +73,6 @@ class Status extends Component
              * 'label' => 'Create a migration for the queue jobs database table',
              * ],
              */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-            (object) [
-                'name' => 'batches-table',
-                'label' => 'Create a migration for the batches database table',
-            ],
-            (object) [
-                'name' => 'failed-table',
-                'label' => ' Create a migration for the failed queue jobs database table',
-            ],
-            (object) [
-                'name' => 'table',
-                'label' => 'Create a migration for the queue jobs database table',
-            ],
-            */
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
             (object) [
                 'name' => 'clear',
                 'label' => 'Delete all of the jobs from the specified queue',
@@ -145,42 +81,16 @@ class Status extends Component
                 'name' => 'failed',
                 'label' => 'List all of the failed queue jobs',
             ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
             (object) [
                 'name' => 'flush',
                 'label' => 'Flush all of the failed queue jobs',
             ],
             /* -- VUOLE ID
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
              * (object) [
              * 'name' => 'forget',
              * 'label' => 'Delete a failed queue job',
              * ],
              */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
             /* --- RIMANE APPESO
              * (object) [
              * 'name' => 'listen',
@@ -193,53 +103,6 @@ class Status extends Component
              * 'label' => 'Monitor the size of the specified queues',
              * ],
              */
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-            (object) [
-                'name' => 'forget',
-                'label' => 'Delete a failed queue job',
-            ],
-            */
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
-            /* --- RIMANE APPESO
-             * (object) [
-             * 'name' => 'listen',
-             * 'label' => 'Listen to a given queue',
-             * ],
-             */
-            /*manca parametro
-<<<<<<< HEAD
-=======
-            /* --- RIMANE APPESO
-            (object) [
-                'name' => 'listen',
-                'label' => 'Listen to a given queue',
-            ],
-            */
-            /*manca parametro
->>>>>>> origin/develop
-            (object) [
-                'name' => 'monitor',
-                'label' => 'Monitor the size of the specified queues',
-            ],
-            */
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-             * (object) [
-             * 'name' => 'monitor',
-             * 'label' => 'Monitor the size of the specified queues',
-             * ],
-             */
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
             (object) [
                 'name' => 'prune-batches',
                 'label' => 'Prune stale entries from the batches database',
@@ -257,58 +120,17 @@ class Status extends Component
                 'label' => 'Retry a failed queue job',
             ],
             /*-- vuole parametro
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
              * (object) [
              * 'name' => 'retry-batch',
              * 'label' => 'Retry the failed jobs for a batch',
              * ],
              */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
             /*-- rimane appeso
              * (object) [
              * 'name' => 'work',
              * 'label' => 'Start processing jobs on the queue as a daemon',
              * ],
              */
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-            (object) [
-                'name' => 'retry-batch',
-                'label' => 'Retry the failed jobs for a batch',
-            ],
-            */
-            /*-- rimane appeso
-            (object) [
-                'name' => 'work',
-                'label' => 'Start processing jobs on the queue as a daemon',
-            ],
-            */
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-            /*-- rimane appeso
-             * (object) [
-             * 'name' => 'work',
-             * 'label' => 'Start processing jobs on the queue as a daemon',
-             * ],
-             */
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         ];
 
         $view_params = [
@@ -333,42 +155,12 @@ class Status extends Component
         $env_file = base_path('.env');
         $env_content = File::get($env_file);
         $new_content = Str::replace(
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
             'QUEUE_CONNECTION=' . $this->old_value,
             'QUEUE_CONNECTION=' . $this->form_data['conn'],
             $env_content,
         );
         putenv('QUEUE_CONNECTION=' . $this->form_data['conn']);
         Assert::string($new_content, '[' . __LINE__ . '][' . class_basename($this) . ']');
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-            'QUEUE_CONNECTION='.$this->old_value,
-            'QUEUE_CONNECTION='.$this->form_data['conn'],
-            $env_content
-        );
-        putenv('QUEUE_CONNECTION='.$this->form_data['conn']);
-        Assert::string($new_content, '['.__LINE__.']['.class_basename($this).']');
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-            'QUEUE_CONNECTION=' . $this->old_value,
-            'QUEUE_CONNECTION=' . $this->form_data['conn'],
-            $env_content,
-        );
-        putenv('QUEUE_CONNECTION=' . $this->form_data['conn']);
-        Assert::string($new_content, '[' . __LINE__ . '][' . class_basename($this) . ']');
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         File::put($env_file, $new_content);
         $this->old_value = $this->form_data['conn'];
     }
@@ -376,23 +168,7 @@ class Status extends Component
     public function artisan(string $cmd): void
     {
         $this->out .= '<hr/>';
-<<<<<<< HEAD
         Artisan::call('queue:' . $cmd);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Artisan::call('queue:' . $cmd);
-=======
-        Artisan::call('queue:'.$cmd);
->>>>>>> a12f125f4a (.)
-=======
-        Artisan::call('queue:' . $cmd);
->>>>>>> b93ef594b4 (.)
-=======
-        Artisan::call('queue:'.$cmd);
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         $this->out .= Artisan::output();
         $this->out .= '<hr/>';
     }
@@ -400,27 +176,7 @@ class Status extends Component
     public function dummyAction(): void
     {
         for ($i = 0; $i < 1000; $i++) {
-<<<<<<< HEAD
             app(DummyAction::class)->onQueue()->execute();
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            app(DummyAction::class)->onQueue()->execute();
-=======
-            app(DummyAction::class)
-                ->onQueue()
-                ->execute();
->>>>>>> a12f125f4a (.)
-=======
-            app(DummyAction::class)->onQueue()->execute();
->>>>>>> b93ef594b4 (.)
-=======
-            app(DummyAction::class)
-                ->onQueue()
-                ->execute();
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         }
 
         session()->flash('message', '1000 dummy Action');

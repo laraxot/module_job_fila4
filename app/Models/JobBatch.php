@@ -11,12 +11,12 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Override;
-use Modules\Job\Database\Factories\JobBatchFactory;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use Modules\Job\Database\Factories\JobBatchFactory;
+use Modules\Xot\Contracts\ProfileContract;
+use Override;
 
 /**
  * Modules\Job\Models\JobBatch.
@@ -31,6 +31,7 @@ use Illuminate\Support\Collection;
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
+ *
  * @method static JobBatchFactory factory($count = null, $state = [])
  * @method static Builder|JobBatch newModelQuery()
  * @method static Builder|JobBatch newQuery()
@@ -45,8 +46,10 @@ use Illuminate\Support\Collection;
  * @method static Builder|JobBatch whereOptions($value)
  * @method static Builder|JobBatch wherePendingJobs($value)
  * @method static Builder|JobBatch whereTotalJobs($value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @mixin IdeHelperJobBatch
  * @mixin \Eloquent
  */

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Override;
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Job\Database\Factories\ResultFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Modules\Job\Database\Factories\ResultFactory;
+use Modules\Xot\Contracts\ProfileContract;
+use Override;
 
 /**
  * Modules\Job\Models\Result.
@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\DB;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Task|null $task
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Result newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Result query()
@@ -37,10 +38,15 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Result whereUpdatedBy($value)
+ *
  * @property ProfileContract|null $creator
+ *
  * @mixin IdeHelperResult
+ *
  * @property-read ProfileContract|null $updater
+ *
  * @method static ResultFactory factory($count = null, $state = [])
+ *
  * @mixin \Eloquent
  */
 class Result extends BaseModel

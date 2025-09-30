@@ -8,17 +8,18 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Override;
-use Modules\Job\Database\Factories\FailedImportRowFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\FailedImportRowFactory;
 use Modules\Xot\Contracts\ProfileContract;
+use Override;
 
 /**
  * @method static FailedImportRowFactory factory($count = null, $state = [])
  * @method static Builder|FailedImportRow newModelQuery()
  * @method static Builder|FailedImportRow newQuery()
  * @method static Builder|FailedImportRow query()
+ *
  * @property int $id
  * @property array $data
  * @property int $import_id
@@ -27,6 +28,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
+ *
  * @method static Builder|FailedImportRow whereCreatedAt($value)
  * @method static Builder|FailedImportRow whereCreatedBy($value)
  * @method static Builder|FailedImportRow whereData($value)
@@ -35,8 +37,10 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|FailedImportRow whereUpdatedAt($value)
  * @method static Builder|FailedImportRow whereUpdatedBy($value)
  * @method static Builder|FailedImportRow whereValidationError($value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @mixin IdeHelperFailedImportRow
  * @mixin \Eloquent
  */

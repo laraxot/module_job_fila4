@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Modules\Job\Database\Factories\ParameterFactory;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ParameterFactory;
+use Modules\Xot\Contracts\ProfileContract;
 
 /**
  * Modules\Job\Models\Parameter.
@@ -22,6 +22,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Frequency|null $task
+ *
  * @method static ParameterFactory factory($count = null, $state = [])
  * @method static Builder|Parameter newModelQuery()
  * @method static Builder|Parameter newQuery()
@@ -34,8 +35,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Parameter whereUpdatedAt($value)
  * @method static Builder|Parameter whereUpdatedBy($value)
  * @method static Builder|Parameter whereValue($value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @mixin IdeHelperParameter
  * @mixin \Eloquent
  */

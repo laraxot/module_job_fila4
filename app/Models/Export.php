@@ -8,19 +8,20 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Modules\Job\Database\Factories\ExportFactory;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
-use Modules\Xot\Contracts\ProfileContract;
-use Illuminate\Database\Eloquent\Model;
 use Eloquent;
 use Filament\Actions\Exports\Models\Export as BaseExport;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ExportFactory;
+use Modules\Xot\Contracts\ProfileContract;
 
 /**
  * @method static ExportFactory factory($count = null, $state = [])
  * @method static Builder|Export newModelQuery()
  * @method static Builder|Export newQuery()
  * @method static Builder|Export query()
+ *
  * @property int $id
  * @property Carbon|null $completed_at
  * @property string $file_disk
@@ -36,6 +37,7 @@ use Filament\Actions\Exports\Models\Export as BaseExport;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
+ *
  * @method static Builder|Export whereCompletedAt($value)
  * @method static Builder|Export whereCreatedAt($value)
  * @method static Builder|Export whereCreatedBy($value)
@@ -51,11 +53,14 @@ use Filament\Actions\Exports\Models\Export as BaseExport;
  * @method static Builder|Export whereUpdatedAt($value)
  * @method static Builder|Export whereUpdatedBy($value)
  * @method static Builder|Export whereUserId($value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  * @property Model|Eloquent|null $user
  * @property string|null $user_type
+ *
  * @method static Builder|Export whereUserType($value)
+ *
  * @mixin Eloquent
  * @mixin IdeHelperExport
  * @mixin Eloquent

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Modules\Xot\Actions\Factory\GetFactoryAction;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Xot\Actions\Factory\GetFactoryAction;
+use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Traits\Updater;
 
 /**
@@ -66,7 +66,7 @@ abstract class BaseModel extends Model
     public function __construct(array $attributes = [])
     {
         if (isset($this->prefix)) {
-            $this->table = $this->prefix . $this->table;
+            $this->table = $this->prefix.$this->table;
         }
 
         parent::__construct($attributes);

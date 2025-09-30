@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Providers;
 
-use Override;
 use Filament\Actions\Exports\Models\Export;
 use Filament\Actions\Imports\Models\Import;
 use Illuminate\Console\Scheduling\Schedule;
@@ -24,6 +23,7 @@ use Modules\Job\Events\Executed;
 use Modules\Job\Events\Executing;
 use Modules\Job\Models\Task;
 use Modules\Xot\Providers\XotBaseServiceProvider;
+use Override;
 
 class JobServiceProvider extends XotBaseServiceProvider
 {

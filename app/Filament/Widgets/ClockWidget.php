@@ -57,7 +57,7 @@ class ClockWidget extends Widget
 
     public function beginStream(): void
     {
-        $this->run = !$this->run;
+        $this->run = ! $this->run;
         // $output = new BufferedOutput();
         /*
          * $output = new class() extends StreamOutput {
@@ -84,7 +84,7 @@ class ClockWidget extends Widget
          */
         $resource = fopen('php://stdout', 'w');
         if ($resource === false) {
-            throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
+            throw new Exception('['.__LINE__.']['.class_basename($this).']');
         }
         $output = new StreamOutput($resource);
         // $output = new StreamOutput(fopen('/path/to/output.log', 'a', false));

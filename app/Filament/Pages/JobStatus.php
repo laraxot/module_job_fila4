@@ -6,12 +6,8 @@ namespace Modules\Job\Filament\Pages;
 
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Process;
 use Modules\Job\Filament\Widgets\ClockWidget;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
-use Webmozart\Assert\Assert;
-
-use function Safe\mb_convert_encoding;
 
 class JobStatus extends Page
 {
@@ -19,7 +15,7 @@ class JobStatus extends Page
 
     public string $out = '';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-computer-desktop';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-computer-desktop';
 
     protected string $view = 'job::filament.pages.job-status';
 

@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Database\Eloquent\Builder;
-use Override;
-use Modules\Xot\Contracts\ProfileContract;
-use Illuminate\Support\Carbon;
-use Modules\Job\Database\Factories\JobManagerFactory;
 use Illuminate\Contracts\Queue\Job as JobContract;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Modules\Job\Database\Factories\JobManagerFactory;
+use Modules\Xot\Contracts\ProfileContract;
+use Override;
 
 /**
  * Modules\Job\Models\JobManager.
@@ -31,6 +31,7 @@ use Illuminate\Support\Facades\Hash;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string $status
+ *
  * @method static JobManagerFactory factory($count = null, $state = [])
  * @method static Builder|JobManager newModelQuery()
  * @method static Builder|JobManager newQuery()
@@ -47,6 +48,7 @@ use Illuminate\Support\Facades\Hash;
  * @method static Builder|JobManager whereQueue($value)
  * @method static Builder|JobManager whereStartedAt($value)
  * @method static Builder|JobManager whereUpdatedAt($value)
+ *
  * @mixin IdeHelperJobManager
  * @mixin \Eloquent
  */
@@ -104,18 +106,18 @@ class JobManager extends BaseModel
 
     public function hasSucceeded(): bool
     {
-        if (!$this->isFinished()) {
+        if (! $this->isFinished()) {
             return false;
         }
 
-        return !$this->hasFailed();
+        return ! $this->hasFailed();
     }
 
     public function prunable(): Builder
     {
         if (config('jobs.pruning.activate')) {
             $retention_days = config('jobs.pruning.retention_days');
-            if (!is_int($retention_days)) {
+            if (! is_int($retention_days)) {
                 $retention_days = 365;
             }
 

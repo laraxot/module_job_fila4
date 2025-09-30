@@ -8,21 +8,23 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Override;
-use Modules\Job\Database\Factories\ScheduleHistoryFactory;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ScheduleHistoryFactory;
+use Modules\Xot\Contracts\ProfileContract;
+use Override;
 
 /**
  * Modules\Job\Models\ScheduleHistory.
  *
  * @property Schedule|null $command
+ *
  * @method static ScheduleHistoryFactory factory($count = null, $state = [])
  * @method static Builder|ScheduleHistory newModelQuery()
  * @method static Builder|ScheduleHistory newQuery()
  * @method static Builder|ScheduleHistory query()
+ *
  * @property int $id
  * @property array|null $params
  * @property string $output
@@ -34,6 +36,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
+ *
  * @method static Builder|ScheduleHistory whereCommand($value)
  * @method static Builder|ScheduleHistory whereCreatedAt($value)
  * @method static Builder|ScheduleHistory whereCreatedBy($value)
@@ -46,8 +49,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Builder|ScheduleHistory whereScheduleId($value)
  * @method static Builder|ScheduleHistory whereUpdatedAt($value)
  * @method static Builder|ScheduleHistory whereUpdatedBy($value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @mixin IdeHelperScheduleHistory
  * @mixin \Eloquent
  */

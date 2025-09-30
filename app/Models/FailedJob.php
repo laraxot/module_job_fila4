@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Override;
-use Modules\Job\Database\Factories\FailedJobFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Modules\Job\Database\Factories\FailedJobFactory;
 use Modules\Xot\Contracts\ProfileContract;
+use Override;
 
 /**
  * Modules\Job\Models\FailedJob.
@@ -20,6 +20,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|FailedJob newModelQuery()
  * @method static Builder|FailedJob newQuery()
  * @method static Builder|FailedJob query()
+ *
  * @property int $id
  * @property string $uuid
  * @property string $connection
@@ -27,6 +28,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property array $payload
  * @property string $exception
  * @property string $failed_at
+ *
  * @method static Builder|FailedJob whereConnection($value)
  * @method static Builder|FailedJob whereException($value)
  * @method static Builder|FailedJob whereFailedAt($value)
@@ -34,8 +36,10 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|FailedJob wherePayload($value)
  * @method static Builder|FailedJob whereQueue($value)
  * @method static Builder|FailedJob whereUuid($value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @mixin IdeHelperFailedJob
  * @mixin \Eloquent
  */

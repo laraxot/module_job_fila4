@@ -36,16 +36,15 @@ class WorkerCheck extends Command
     /**
      * Create a new command instance.
      */
-    
 
     /**
      * Execute the console command.
      */
     public function handle(): void
     {
-        if (!$this->isQueueListenerRunning()) {
+        if (! $this->isQueueListenerRunning()) {
             $pid = $this->startQueueListener();
-            $this->comment('Queue listener is being started. pid[' . $pid . ']');
+            $this->comment('Queue listener is being started. pid['.$pid.']');
             $this->saveQueueListenerPID($pid);
         }
 
@@ -87,7 +86,7 @@ class WorkerCheck extends Command
      */
     private function getLastQueueListenerPID(): string|bool|null
     {
-        if (!Storage::disk('cache')->exists($this->filename)) {
+        if (! Storage::disk('cache')->exists($this->filename)) {
             return false;
         }
 
@@ -102,7 +101,7 @@ class WorkerCheck extends Command
         Storage::disk('cache')->put($this->filename, $pid);
         $path = Storage::disk('cache')->path($this->filename);
         $size = Storage::disk('cache')->size($this->filename);
-        $this->comment('saved on [' . $path . '] size [' . $size . ']');
+        $this->comment('saved on ['.$path.'] size ['.$size.']');
     }
 
     /*
@@ -133,8 +132,8 @@ class WorkerCheck extends Command
         // $command = 'php-cli '.base_path().'/artisan queue:work --timeout=60 --sleep=5 --tries=3 > /dev/null & echo //$!'; // 5.6 - see comments
 
         $command =
-            ' /usr/local/bin/php ' .
-            base_path() .
+            ' /usr/local/bin/php '.
+            base_path().
             '/artisan queue:work --timeout=60 --sleep=5 --tries=3 > /dev/null & echo $!';
         // $this->comment($command);
 

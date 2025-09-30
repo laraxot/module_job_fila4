@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Notifications\DatabaseNotificationCollection;
-use Illuminate\Notifications\DatabaseNotification;
-use Illuminate\Database\Eloquent\Collection;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Builder;
-use function Safe\json_decode;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Traits\FrontendSortable;
+use Modules\Xot\Contracts\ProfileContract;
 use Webmozart\Assert\Assert;
+
+use function Safe\json_decode;
 
 /**
  * Modules\Job\Models\Task.
@@ -57,6 +58,7 @@ use Webmozart\Assert\Assert;
  * @property Collection<int, Result> $results
  * @property int|null $results_count
  * @property ProfileContract|null $updater
+ *
  * @method static Builder<static>|Task newModelQuery()
  * @method static Builder<static>|Task newQuery()
  * @method static Builder<static>|Task query()
@@ -86,7 +88,9 @@ use Webmozart\Assert\Assert;
  * @method static Builder<static>|Task whereTimezone($value)
  * @method static Builder<static>|Task whereUpdatedAt($value)
  * @method static Builder<static>|Task whereUpdatedBy($value)
+ *
  * @property-read ProfileContract|null $creator
+ *
  * @mixin IdeHelperTask
  * @mixin \Eloquent
  */
@@ -100,12 +104,12 @@ class Task extends BaseModel
     /**
      * Compila i parametri del task per l'esecuzione.
      *
-     * @param bool $forScheduler Se true, i parametri vengono formattati per lo scheduler
+     * @param  bool  $forScheduler  Se true, i parametri vengono formattati per lo scheduler
      * @return array<int, string>|string
      */
     public function compileParameters(bool $forScheduler = false): array|string
     {
-        if (null === $this->parameters) {
+        if ($this->parameters === null) {
             return [];
         }
 
@@ -113,7 +117,7 @@ class Task extends BaseModel
         Assert::isArray($parameters);
 
         if ($forScheduler) {
-            return array_map(fn($value) => is_bool($value) ? ($value ? '1' : '0') : ((string) $value), $parameters);
+            return array_map(fn ($value) => is_bool($value) ? ($value ? '1' : '0') : ((string) $value), $parameters);
         }
 
         return $parameters;
@@ -189,7 +193,7 @@ class Task extends BaseModel
     /**
      * Returns the most recent result entry for this task.
      */
-    public function getLastResultAttribute(): null|Result
+    public function getLastResultAttribute(): ?Result
     {
         $res = $this->results()->orderBy('id', 'desc')->first();
         if ($res === null) {
@@ -213,7 +217,7 @@ class Task extends BaseModel
     /**
      * Route notifications for the mail channel.
      */
-    public function routeNotificationForMail(): null|string
+    public function routeNotificationForMail(): ?string
     {
         return $this->notification_email_address;
     }
@@ -221,7 +225,7 @@ class Task extends BaseModel
     /**
      * Route notifications for the Nexmo channel.
      */
-    public function routeNotificationForNexmo(): null|string
+    public function routeNotificationForNexmo(): ?string
     {
         return $this->notification_phone_number;
     }
@@ -229,7 +233,7 @@ class Task extends BaseModel
     /**
      * Route notifications for the Slack channel.
      */
-    public function routeNotificationForSlack(): null|string
+    public function routeNotificationForSlack(): ?string
     {
         return $this->notification_slack_webhook;
     }

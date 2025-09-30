@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Override;
 use Exception;
-use Illuminate\Support\Carbon;
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Job\Database\Factories\ScheduleFactory;
-use InvalidArgumentException;
 use Illuminate\Console\Scheduling\ManagesFrequencies;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use InvalidArgumentException;
+use Modules\Job\Database\Factories\ScheduleFactory;
 use Modules\Job\Enums\Status;
+use Modules\Xot\Contracts\ProfileContract;
+use Override;
 use Webmozart\Assert\Assert;
 
 /**
@@ -52,6 +52,7 @@ use Webmozart\Assert\Assert;
  * @property string|null $deleted_by
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @method static Builder|Schedule active()
  * @method static ScheduleFactory factory($count = null, $state = [])
  * @method static Builder|Schedule inactive()
@@ -88,6 +89,7 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Schedule whereWithoutOverlapping($value)
  * @method static Builder|Schedule withTrashed()
  * @method static Builder|Schedule withoutTrashed()
+ *
  * @mixin IdeHelperSchedule
  * @mixin \Eloquent
  */
@@ -217,7 +219,7 @@ class Schedule extends BaseModel
         $options = collect($this->options ?? []);
         $optionsWithValues = $this->options_with_value ?? [];
 
-        if (!empty($optionsWithValues)) {
+        if (! empty($optionsWithValues)) {
             $options = $options->merge($optionsWithValues);
         }
 
@@ -225,7 +227,7 @@ class Schedule extends BaseModel
             if (is_array($value)) {
                 Assert::nullOrString($value['name']);
 
-                return '--' . ((string) ($value['name'] ?? $key)) . '=' . ((string) $value['value']);
+                return '--'.((string) ($value['name'] ?? $key)).'='.((string) $value['value']);
             }
 
             return "--{$value}";
@@ -235,12 +237,12 @@ class Schedule extends BaseModel
     /**
      * Safely evaluate function strings (avoiding eval).
      *
-     * @param string $functionString Il nome della funzione da valutare
+     * @param  string  $functionString  Il nome della funzione da valutare
      * @return string|null Il risultato della funzione o null se la funzione non è consentita
      *
      * @throws InvalidArgumentException Se viene passato un argomento non valido
      */
-    private function evaluateFunction(string $functionString): null|string
+    private function evaluateFunction(string $functionString): ?string
     {
         // Define a list of allowed functions or implement custom evaluation logic.
         $allowedFunctions = ['strtolower', 'strtoupper']; // Example allowed functions

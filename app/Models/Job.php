@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Override;
-use Modules\Job\Database\Factories\JobFactory;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\JobFactory;
+use Modules\Xot\Contracts\ProfileContract;
+use Override;
 use Webmozart\Assert\Assert;
 
 use function Safe\json_decode;
@@ -31,6 +31,7 @@ use function Safe\json_decode;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
+ *
  * @method static JobFactory factory($count = null, $state = [])
  * @method static Builder|Job newModelQuery()
  * @method static Builder|Job newQuery()
@@ -45,10 +46,12 @@ use function Safe\json_decode;
  * @method static Builder|Job whereReservedAt($value)
  * @method static Builder|Job whereUpdatedAt($value)
  * @method static Builder|Job whereUpdatedBy($value)
+ *
  * @property mixed $display_name
  * @property mixed $status
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @mixin IdeHelperJob
  * @mixin \Eloquent
  */
@@ -68,7 +71,7 @@ class Job extends BaseModel
     {
         Assert::string(
             $res = config('queue.connections.database.table'),
-            '[' . __LINE__ . '][' . class_basename($this) . ']',
+            '['.__LINE__.']['.class_basename($this).']',
         );
 
         return $res;
@@ -85,11 +88,11 @@ class Job extends BaseModel
         });
     }
 
-    public function getDisplayNameAttribute(): null|string
+    public function getDisplayNameAttribute(): ?string
     {
-        Assert::string($json = $this->attributes['payload'], __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
+        Assert::string($json = $this->attributes['payload'], __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
         $payload = json_decode($json, true);
-        if (!is_array($payload)) {
+        if (! is_array($payload)) {
             return null;
         }
 

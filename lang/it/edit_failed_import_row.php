@@ -1,7 +1,8 @@
 <?php
 
 declare(strict_types=1);
- return [
+
+return [
     'actions' => [
         'delete' => [
             'label' => 'delete',

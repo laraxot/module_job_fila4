@@ -10,7 +10,21 @@ declare(strict_types=1);
 
 namespace Modules\Job\Providers;
 
+<<<<<<< HEAD
 use Override;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Override;
+=======
+>>>>>>> a12f125f4a (.)
+=======
+use Override;
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
 use Filament\Actions\Exports\Models\Export;
 use Filament\Actions\Imports\Models\Import;
 use Illuminate\Console\Scheduling\Schedule;
@@ -33,16 +47,56 @@ class JobServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
+<<<<<<< HEAD
     #[Override]
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    #[Override]
+=======
+>>>>>>> a12f125f4a (.)
+=======
+    #[Override]
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     public function boot(): void
     {
         parent::boot();
         /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
          * $this->app->resolving(Schedule::class, function ($schedule) {
          * dddx($schedule);
          * //
          * });
          */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+            $this->app->resolving(Schedule::class, function ($schedule) {
+                dddx($schedule);
+                //
+            });
+            */
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
         // $this->app->booted(function () {
         // $schedule = $this->app->make(Schedule::class);
         // try {
@@ -59,6 +113,14 @@ class JobServiceProvider extends XotBaseServiceProvider
     public function registerQueue(): void
     {
         /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
          * Queue::before(static function (JobProcessing $event) {
          * self::jobStarted($event->job);
          * });
@@ -75,6 +137,10 @@ class JobServiceProvider extends XotBaseServiceProvider
          * self::jobFinished($event->job, true, $event->exception);
          * });
          */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 548bbd3 (.)
     }
 
     /*
@@ -123,4 +189,128 @@ class JobServiceProvider extends XotBaseServiceProvider
      * }
      * }
      */
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+        Queue::before(static function (JobProcessing $event) {
+           self::jobStarted($event->job);
+        });
+
+        Queue::after(static function (JobProcessed $event) {
+           self::jobFinished($event->job);
+        });
+
+        Queue::failing(static function (JobFailed $event) {
+           self::jobFinished($event->job, true, $event->exception);
+        });
+
+        Queue::exceptionOccurred(static function (JobExceptionOccurred $event) {
+           self::jobFinished($event->job, true, $event->exception);
+        });
+        */
+    }
+
+    /*
+    public function registerSchedule(Schedule $schedule): void {
+        if (Schema::hasTable('tasks')) {
+            $tasks = app(Task::class)
+                ->query()
+                ->with('frequencies')
+                ->where('is_active', true)
+                ->get();
+
+            $tasks->each(
+                function ($task) use ($schedule) {
+                    if (! $task instanceof Task) {
+                        throw new \Exception('['.__LINE__.']['.class_basename($this).']');
+                    }
+                    //
+                    // var \Illuminate\Console\Scheduling\Event
+                    //
+                    $event = $schedule->command($task->command, $task->compileParameters(true));
+                    // --- funziona solo con daily per ora
+                    $event->{$task->expression}()
+                        ->name($task->description)
+                        ->timezone($task->timezone)
+                        ->before(function () use ($task) {
+                            //Access to an undefined property Illuminate\Console\Scheduling\Event::$start.
+                            //$event->start = microtime(true);
+                            Executing::dispatch($task);
+                        })
+                        ->thenWithOutput(function ($output) use ($event, $task) {
+                            Executed::dispatch($task, $event->start ?? microtime(true), $output);
+                        });
+                    if ($task->dont_overlap) {
+                        $event->withoutOverlapping();
+                    }
+                    if ($task->run_in_maintenance) {
+                        $event->evenInMaintenanceMode();
+                    }
+                    if ($task->run_on_one_server && in_array(config('cache.default'), ['memcached', 'redis', 'database', 'dynamodb'])) {
+                        $event->onOneServer();
+                    }
+                    if ($task->run_in_background) {
+                        $event->runInBackground();
+                    }
+                });
+        }
+    }
+    */
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+    }
+
+    /*
+     * public function registerSchedule(Schedule $schedule): void {
+     * if (Schema::hasTable('tasks')) {
+     * $tasks = app(Task::class)
+     * ->query()
+     * ->with('frequencies')
+     * ->where('is_active', true)
+     * ->get();
+     *
+     * $tasks->each(
+     * function ($task) use ($schedule) {
+     * if (! $task instanceof Task) {
+     * throw new \Exception('['.__LINE__.']['.class_basename($this).']');
+     * }
+     * //
+     * // var \Illuminate\Console\Scheduling\Event
+     * //
+     * $event = $schedule->command($task->command, $task->compileParameters(true));
+     * // --- funziona solo con daily per ora
+     * $event->{$task->expression}()
+     * ->name($task->description)
+     * ->timezone($task->timezone)
+     * ->before(function () use ($task) {
+     * //Access to an undefined property Illuminate\Console\Scheduling\Event::$start.
+     * //$event->start = microtime(true);
+     * Executing::dispatch($task);
+     * })
+     * ->thenWithOutput(function ($output) use ($event, $task) {
+     * Executed::dispatch($task, $event->start ?? microtime(true), $output);
+     * });
+     * if ($task->dont_overlap) {
+     * $event->withoutOverlapping();
+     * }
+     * if ($task->run_in_maintenance) {
+     * $event->evenInMaintenanceMode();
+     * }
+     * if ($task->run_on_one_server && in_array(config('cache.default'), ['memcached', 'redis', 'database', 'dynamodb'])) {
+     * $event->onOneServer();
+     * }
+     * if ($task->run_in_background) {
+     * $event->runInBackground();
+     * }
+     * });
+     * }
+     * }
+     */
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
 }

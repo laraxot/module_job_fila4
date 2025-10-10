@@ -41,9 +41,9 @@ use Override;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @mixin IdeHelperFailedImportRow
  * @mixin \Eloquent
  */
+/** */
 class FailedImportRow extends BaseModel
 {
     protected $fillable = [

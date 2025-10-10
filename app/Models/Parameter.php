@@ -39,9 +39,9 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @mixin IdeHelperParameter
  * @mixin \Eloquent
  */
+/** */
 class Parameter extends BaseModel
 {
     // protected $table = 'frequency_parameters';

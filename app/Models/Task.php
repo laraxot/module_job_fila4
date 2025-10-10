@@ -91,23 +91,24 @@ use function Safe\json_decode;
  *
  * @property-read ProfileContract|null $creator
  *
- * @mixin IdeHelperTask
  * @mixin \Eloquent
  */
+/** */
 class Task extends BaseModel
 {
     // use HasFrequencies;
     use FrontendSortable;
-    use HasFactory;
+    /** @use HasFactory<ModulesJobDatabaseFactoriesTaskFactory> */
+    use \Modules\Xot\Models\Traits\HasXotFactory;
     use Notifiable;
 
     /**
      * Compila i parametri del task per l'esecuzione.
      *
      * @param  bool  $forScheduler  Se true, i parametri vengono formattati per lo scheduler
-     * @return array<int, string>|string
+     * @return array<int, string>|array<string, mixed>
      */
-    public function compileParameters(bool $forScheduler = false): array|string
+    public function compileParameters(bool $forScheduler = false): array
     {
         if ($this->parameters === null) {
             return [];

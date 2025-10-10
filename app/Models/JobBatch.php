@@ -50,9 +50,9 @@ use Override;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @mixin IdeHelperJobBatch
  * @mixin \Eloquent
  */
+/** */
 class JobBatch extends BaseModel
 {
     /** @var bool */

@@ -49,9 +49,9 @@ use Override;
  * @method static Builder|JobManager whereStartedAt($value)
  * @method static Builder|JobManager whereUpdatedAt($value)
  *
- * @mixin IdeHelperJobManager
  * @mixin \Eloquent
  */
+/** */
 class JobManager extends BaseModel
 {
     // use HasFactory, Prunable;

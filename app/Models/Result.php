@@ -41,7 +41,6 @@ use Override;
  *
  * @property ProfileContract|null $creator
  *
- * @mixin IdeHelperResult
  *
  * @property-read ProfileContract|null $updater
  *
@@ -49,6 +48,7 @@ use Override;
  *
  * @mixin \Eloquent
  */
+/** */
 class Result extends BaseModel
 {
     protected $fillable = [

@@ -53,9 +53,9 @@ use Override;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @mixin IdeHelperScheduleHistory
  * @mixin \Eloquent
  */
+/** */
 class ScheduleHistory extends BaseModel
 {
     /*

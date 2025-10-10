@@ -14,9 +14,10 @@ use Illuminate\Support\Collection;
 use InvalidArgumentException;
 use Modules\Job\Database\Factories\ScheduleFactory;
 use Modules\Job\Enums\Status;
+use Modules\Xot\Actions\Cast\SafeArrayCastAction;
+use Modules\Xot\Actions\Cast\SafeStringCastAction;
 use Modules\Xot\Contracts\ProfileContract;
 use Override;
-use Webmozart\Assert\Assert;
 
 /**
  * Modules\Job\Models\Schedule.
@@ -90,9 +91,9 @@ use Webmozart\Assert\Assert;
  * @method static Builder|Schedule withTrashed()
  * @method static Builder|Schedule withoutTrashed()
  *
- * @mixin IdeHelperSchedule
  * @mixin \Eloquent
  */
+/** */
 class Schedule extends BaseModel
 {
     use ManagesFrequencies;
@@ -194,17 +195,20 @@ class Schedule extends BaseModel
         $arguments = [];
 
         foreach ($this->params ?? [] as $argument => $value) {
-            if (empty($value['value'])) {
+            if (! is_array($value) || empty($value['value'] ?? null)) {
                 continue;
             }
 
-            if (isset($value['type']) && $value['type'] === 'function') {
+            $valueArray = SafeArrayCastAction::cast($value);
+
+            if (isset($valueArray['type']) && $valueArray['type'] === 'function') {
                 // Replace eval with a safer function or an allowed list of callable functions
-                $arguments[$argument] = $this->evaluateFunction($value['value']);
+                $funcValue = $valueArray['value'] ?? '';
+                $funcValueStr = is_string($funcValue) ? $funcValue : '';
+                $arguments[$argument] = $this->evaluateFunction($funcValueStr);
             } else {
-                $arguments[(string) ($value['name'] ?? $argument)] = is_string($value)
-                    ? $value
-                    : ((string) $value['value']);
+                $name = SafeStringCastAction::cast($valueArray['name'] ?? $argument);
+                $arguments[$name] = SafeStringCastAction::cast($valueArray['value'] ?? '');
             }
         }
 
@@ -225,12 +229,15 @@ class Schedule extends BaseModel
 
         return $options->map(function ($value, $key) {
             if (is_array($value)) {
-                Assert::nullOrString($value['name']);
+                $name = SafeStringCastAction::cast($value['name'] ?? $key);
+                $val = SafeStringCastAction::cast($value['value'] ?? '');
 
-                return '--'.((string) ($value['name'] ?? $key)).'='.((string) $value['value']);
+                return "--{$name}={$val}";
             }
 
-            return "--{$value}";
+            $strValue = SafeStringCastAction::cast($value);
+
+            return "--{$strValue}";
         })->toArray();
     }
 

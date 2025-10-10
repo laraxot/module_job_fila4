@@ -40,9 +40,9 @@ use Override;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @mixin IdeHelperFailedJob
  * @mixin \Eloquent
  */
+/** */
 class FailedJob extends BaseModel
 {
     protected $fillable = [

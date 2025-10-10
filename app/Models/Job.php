@@ -52,9 +52,9 @@ use function Safe\json_decode;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  *
- * @mixin IdeHelperJob
  * @mixin \Eloquent
  */
+/** */
 class Job extends BaseModel
 {
     protected $fillable = [

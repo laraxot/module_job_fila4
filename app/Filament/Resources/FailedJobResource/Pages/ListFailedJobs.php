@@ -9,9 +9,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\FailedJobResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
@@ -25,11 +29,15 @@ class ListFailedJobs extends XotBaseListRecords
     protected static string $resource = FailedJobResource::class;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     #[Override]
     public function getTableColumns(): array
     {
         return [
             'id' => TextColumn::make('id')->searchable()->sortable(),
+<<<<<<< HEAD
 =======
     public function getTableColumns(): array
     {
@@ -38,10 +46,13 @@ class ListFailedJobs extends XotBaseListRecords
                 ->searchable()
                 ->sortable(),
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
             'uuid' => TextColumn::make('uuid')
                 ->searchable()
                 ->sortable()
                 ->copyable(),
+<<<<<<< HEAD
 <<<<<<< HEAD
             'connection' => TextColumn::make('connection')->searchable()->sortable(),
             'queue' => TextColumn::make('queue')->searchable()->sortable(),
@@ -53,6 +64,10 @@ class ListFailedJobs extends XotBaseListRecords
                 ->searchable()
                 ->sortable(),
 >>>>>>> e1b0bf9 (.)
+=======
+            'connection' => TextColumn::make('connection')->searchable()->sortable(),
+            'queue' => TextColumn::make('queue')->searchable()->sortable(),
+>>>>>>> 7d4742a (.)
             'payload' => TextColumn::make('payload')
                 ->searchable()
                 ->wrap()
@@ -62,12 +77,16 @@ class ListFailedJobs extends XotBaseListRecords
                 ->wrap()
                 ->limit(100),
 <<<<<<< HEAD
+<<<<<<< HEAD
             'failed_at' => TextColumn::make('failed_at')->dateTime()->sortable(),
 =======
             'failed_at' => TextColumn::make('failed_at')
                 ->dateTime()
                 ->sortable(),
 >>>>>>> e1b0bf9 (.)
+=======
+            'failed_at' => TextColumn::make('failed_at')->dateTime()->sortable(),
+>>>>>>> 7d4742a (.)
         ];
     }
 
@@ -75,15 +94,22 @@ class ListFailedJobs extends XotBaseListRecords
      * @return array<string, Action>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+    #[Override]
+>>>>>>> 7d4742a (.)
     protected function getHeaderActions(): array
     {
         return [
             'retry_all' => Action::make('retry_all')
                 ->requiresConfirmation()
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
                 ->action(static function (): void {
                     Artisan::call('queue:retry all');
                     Notification::make()
@@ -101,6 +127,7 @@ class ListFailedJobs extends XotBaseListRecords
                         ->success()
                         ->send();
                 }),
+<<<<<<< HEAD
 =======
                 ->action(
                     static function (): void {
@@ -125,6 +152,8 @@ class ListFailedJobs extends XotBaseListRecords
                     }
                 ),
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
         ];
     }
 }

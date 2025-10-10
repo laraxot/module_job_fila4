@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -19,6 +23,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class ExportResource extends XotBaseResource
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     protected static null|string $model = Export::class;
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -28,6 +35,7 @@ class ExportResource extends XotBaseResource
     {
         return [
             'name' => TextInput::make('name')->required()->maxLength(255),
+<<<<<<< HEAD
 =======
     protected static ?string $model = Export::class;
 
@@ -40,6 +48,8 @@ class ExportResource extends XotBaseResource
                 ->required()
                 ->maxLength(255),
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
             'type' => Select::make('type')
                 ->required()
                 ->options([
@@ -61,6 +71,7 @@ class ExportResource extends XotBaseResource
                 ->maxLength(65535)
                 ->columnSpanFull(),
 <<<<<<< HEAD
+<<<<<<< HEAD
             'created_at' => DateTimePicker::make('created_at')->disabled(),
             'updated_at' => DateTimePicker::make('updated_at')->disabled(),
 =======
@@ -69,6 +80,10 @@ class ExportResource extends XotBaseResource
             'updated_at' => DateTimePicker::make('updated_at')
                 ->disabled(),
 >>>>>>> e1b0bf9 (.)
+=======
+            'created_at' => DateTimePicker::make('created_at')->disabled(),
+            'updated_at' => DateTimePicker::make('updated_at')->disabled(),
+>>>>>>> 7d4742a (.)
         ];
     }
 }

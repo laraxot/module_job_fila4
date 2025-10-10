@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Actions\EditAction;
@@ -26,9 +30,13 @@ class ListSchedules extends XotBaseListRecords
     protected static string $resource = ScheduleResource::class;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+    #[Override]
+>>>>>>> 7d4742a (.)
     public function getTableColumns(): array
     {
         return [
@@ -37,6 +45,9 @@ class ListSchedules extends XotBaseListRecords
                 ->sortable()
                 ->searchable(),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
             'command' => TextColumn::make('command')->sortable()->searchable(),
             'params' => TextColumn::make('params')->wrap()->searchable(),
             'expression' => TextColumn::make('expression')->sortable()->searchable(),
@@ -44,6 +55,7 @@ class ListSchedules extends XotBaseListRecords
             'is_active' => IconColumn::make('is_active')->boolean()->sortable(),
             'without_overlapping' => IconColumn::make('without_overlapping')->boolean()->sortable(),
             'on_one_server' => IconColumn::make('on_one_server')->boolean()->sortable(),
+<<<<<<< HEAD
 =======
             'command' => TextColumn::make('command')
                 ->sortable()
@@ -67,6 +79,8 @@ class ListSchedules extends XotBaseListRecords
                 ->boolean()
                 ->sortable(),
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
             'created_at' => TextColumn::make('created_at')
                 ->dateTime()
                 ->sortable()
@@ -83,6 +97,9 @@ class ListSchedules extends XotBaseListRecords
         return [
             EditAction::make()
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
                 ->hidden(fn($record) => $record->trashed())
                 ->tooltip(__('filament-support::actions/edit.single.label')),
             RestoreAction::make()->tooltip(__('filament-support::actions/restore.single.label')),
@@ -90,6 +107,7 @@ class ListSchedules extends XotBaseListRecords
             ForceDeleteAction::make()->tooltip(__(
                 'filament-support::actions/force-delete.single.label',
             )),
+<<<<<<< HEAD
 =======
                 ->hidden(fn ($record) => $record->trashed())
                 ->tooltip(__('filament-support::actions/edit.single.label')),
@@ -100,6 +118,8 @@ class ListSchedules extends XotBaseListRecords
             ForceDeleteAction::make()
                 ->tooltip(__('filament-support::actions/force-delete.single.label')),
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
             ViewAction::make()
                 ->icon('history')
                 ->color('gray')
@@ -115,6 +135,7 @@ class ListSchedules extends XotBaseListRecords
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected function getTableRecordUrlUsing(): null|Closure
     {
         return static fn(): null|string => null;
@@ -123,5 +144,10 @@ class ListSchedules extends XotBaseListRecords
     {
         return static fn (): ?string => null;
 >>>>>>> e1b0bf9 (.)
+=======
+    protected function getTableRecordUrlUsing(): null|Closure
+    {
+        return static fn(): null|string => null;
+>>>>>>> 7d4742a (.)
     }
 }

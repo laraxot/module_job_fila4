@@ -9,9 +9,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Toggle;
@@ -24,6 +28,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class JobsWaitingResource extends XotBaseResource
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     protected static null|string $model = Job::class;
 
     protected static bool $shouldRegisterNavigation = true;
@@ -40,6 +47,7 @@ class JobsWaitingResource extends XotBaseResource
             'failed' => Toggle::make('failed')->required(),
             'attempt' => TextInput::make('attempt')->required(),
             'exception_message' => Textarea::make('exception_message')->maxLength(65535),
+<<<<<<< HEAD
 =======
     protected static ?string $model = Job::class;
 
@@ -64,6 +72,8 @@ class JobsWaitingResource extends XotBaseResource
             'exception_message' => Textarea::make('exception_message')
                 ->maxLength(65535),
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
         ];
     }
 

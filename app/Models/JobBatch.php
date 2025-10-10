@@ -12,9 +12,13 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Modules\Job\Database\Factories\JobBatchFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Xot\Contracts\ProfileContract;
@@ -90,10 +94,14 @@ class JobBatch extends BaseModel
     public function progress(): int
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $progress = $this->total_jobs > 0 ? round(($this->processedJobs() / $this->total_jobs) * 100) : 0;
 =======
         $progress = $this->total_jobs > 0 ? round($this->processedJobs() / $this->total_jobs * 100) : 0;
 >>>>>>> e1b0bf9 (.)
+=======
+        $progress = $this->total_jobs > 0 ? round(($this->processedJobs() / $this->total_jobs) * 100) : 0;
+>>>>>>> 7d4742a (.)
 
         return (int) $progress;
     }
@@ -140,9 +148,13 @@ class JobBatch extends BaseModel
 
     /**  @return array<string, string>  */
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+    #[Override]
+>>>>>>> 7d4742a (.)
     protected function casts(): array
     {
         return [
@@ -151,6 +163,7 @@ class JobBatch extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+<<<<<<< HEAD
 <<<<<<< HEAD
             'updated_by' => 'string',
             'created_by' => 'string',
@@ -162,6 +175,11 @@ class JobBatch extends BaseModel
             'deleted_by' => 'string',
 
 >>>>>>> e1b0bf9 (.)
+=======
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+>>>>>>> 7d4742a (.)
             'options' => 'collection',
             'failed_jobs' => 'integer',
             'cancelled_at' => 'datetime',

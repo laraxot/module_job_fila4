@@ -38,6 +38,9 @@ class ClockWidget extends Widget
     {
         $this->time = '';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
         $process = Process::path(base_path())->start('php artisan queue:listen --timeout=0');
         while ($process->running()) {
             // ...
@@ -46,6 +49,7 @@ class ClockWidget extends Widget
                 content: $this->time,
                 replace: true,
             );
+<<<<<<< HEAD
 =======
         $process = Process::path(base_path())
             ->start('php artisan queue:listen --timeout=0');
@@ -53,6 +57,8 @@ class ClockWidget extends Widget
             // ...
             $this->stream(to: 'count', content: $this->time, replace: true);
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
             // Pause for 1 second between numbers...
             sleep(3);
             // se no troppe richieste
@@ -66,6 +72,9 @@ class ClockWidget extends Widget
     public function beginStream(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
         $this->run = !$this->run;
         // $output = new BufferedOutput();
         /*
@@ -94,6 +103,7 @@ class ClockWidget extends Widget
         $resource = fopen('php://stdout', 'w');
         if ($resource === false) {
             throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
+<<<<<<< HEAD
 =======
         $this->run = ! $this->run;
         // $output = new BufferedOutput();
@@ -124,6 +134,8 @@ class ClockWidget extends Widget
         if ($resource === false) {
             throw new Exception('['.__LINE__.']['.class_basename($this).']');
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
         }
         $output = new StreamOutput($resource);
         // $output = new StreamOutput(fopen('/path/to/output.log', 'a', false));
@@ -135,6 +147,9 @@ class ClockWidget extends Widget
         // dddx($output->fetch());
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
          * while ($this->run) {
          * // Stream the current count to the browser...
          * $this->stream(
@@ -151,6 +166,7 @@ class ClockWidget extends Widget
          * $this->time = $output->fetch().PHP_EOL;
          * }
          */
+<<<<<<< HEAD
 =======
         while ($this->run) {
             // Stream the current count to the browser...
@@ -169,5 +185,7 @@ class ClockWidget extends Widget
         }
         */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     }
 }

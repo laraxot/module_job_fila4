@@ -30,16 +30,7 @@ class CreateSchedule extends XotBaseCreateRecord
 
     public function form(Schema $schema): Schema
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $schema->components($this->getFormSchema());
-=======
-        return $schema
-            ->components($this->getFormSchema());
->>>>>>> e1b0bf9 (.)
-=======
-        return $schema->components($this->getFormSchema());
->>>>>>> 7d4742a (.)
     }
 
     protected function onValidationError(ValidationException $exception): void
@@ -49,12 +40,4 @@ class CreateSchedule extends XotBaseCreateRecord
             ->danger()
             ->send();
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-   
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
 }

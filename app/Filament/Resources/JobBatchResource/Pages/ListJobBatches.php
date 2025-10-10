@@ -8,21 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobBatchResource\Pages;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
 use Filament\Actions\BulkAction;
 use Filament\Actions\ActionGroup;
 use Override;
 use Filament\Actions\DeleteBulkAction;
-<<<<<<< HEAD
-=======
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\ActionGroup;
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Tables;
@@ -39,10 +28,6 @@ class ListJobBatches extends XotBaseListRecords
     /**
      * @return array<string, Tables\Columns\Column>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
     #[Override]
     public function getTableColumns(): array
     {
@@ -50,14 +35,6 @@ class ListJobBatches extends XotBaseListRecords
             $date_format = config('app.date_format'),
             '[' . __LINE__ . '][' . class_basename(__CLASS__) . ']',
         );
-<<<<<<< HEAD
-=======
-    public function getTableColumns(): array
-    {
-        Assert::string($date_format = config('app.date_format'), '['.__LINE__.']['.class_basename(__CLASS__).']');
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
 
         return [
             'id' => TextColumn::make('id')
@@ -68,52 +45,18 @@ class ListJobBatches extends XotBaseListRecords
                 ->searchable()
                 ->sortable()
                 ->wrap(),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
             'total_jobs' => TextColumn::make('total_jobs')->numeric()->sortable(),
             'pending_jobs' => TextColumn::make('pending_jobs')->numeric()->sortable(),
             'failed_jobs' => TextColumn::make('failed_jobs')->numeric()->sortable(),
             'progress' => TextColumn::make('progress')
                 ->formatStateUsing(fn($record) => $record->progress() . '%')
-<<<<<<< HEAD
-=======
-            'total_jobs' => TextColumn::make('total_jobs')
-                ->numeric()
-                ->sortable(),
-            'pending_jobs' => TextColumn::make('pending_jobs')
-                ->numeric()
-                ->sortable(),
-            'failed_jobs' => TextColumn::make('failed_jobs')
-                ->numeric()
-                ->sortable(),
-            'progress' => TextColumn::make('progress')
-                ->formatStateUsing(fn ($record) => $record->progress().'%')
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
                 ->sortable(),
             'failed_job_ids' => TextColumn::make('failed_job_ids')
                 ->wrap()
                 ->searchable()
                 ->limit(50),
-<<<<<<< HEAD
-<<<<<<< HEAD
             'options' => TextColumn::make('options')->wrap()->searchable(),
             'cancelled_at' => TextColumn::make('cancelled_at')->dateTime($date_format)->sortable(),
-=======
-            'options' => TextColumn::make('options')
-                ->wrap()
-                ->searchable(),
-            'cancelled_at' => TextColumn::make('cancelled_at')
-                ->dateTime($date_format)
-                ->sortable(),
->>>>>>> e1b0bf9 (.)
-=======
-            'options' => TextColumn::make('options')->wrap()->searchable(),
-            'cancelled_at' => TextColumn::make('cancelled_at')->dateTime($date_format)->sortable(),
->>>>>>> 7d4742a (.)
             'created_at' => TextColumn::make('created_at')
                 ->dateTime($date_format)
                 ->sortable()
@@ -128,34 +71,16 @@ class ListJobBatches extends XotBaseListRecords
     /**
      * @return array<string, Action|ActionGroup>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> e1b0bf9 (.)
-=======
-    #[Override]
->>>>>>> 7d4742a (.)
     public function getTableActions(): array
     {
         return [];
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return array<string, BulkAction>
      */
     #[Override]
-=======
-     * @return array<string, \Filament\Actions\BulkAction>
-     */
->>>>>>> e1b0bf9 (.)
-=======
-     * @return array<string, BulkAction>
-     */
-    #[Override]
->>>>>>> 7d4742a (.)
     public function getTableBulkActions(): array
     {
         return [
@@ -166,24 +91,13 @@ class ListJobBatches extends XotBaseListRecords
     /**
      * @return array<Action>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     #[Override]
-=======
->>>>>>> e1b0bf9 (.)
-=======
-    #[Override]
->>>>>>> 7d4742a (.)
     protected function getHeaderActions(): array
     {
         return [
             Action::make('prune_batches')
                 ->requiresConfirmation()
                 ->color('danger')
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
                 ->action(static function (): void {
                     Artisan::call('queue:prune-batches');
                     Notification::make()
@@ -191,20 +105,6 @@ class ListJobBatches extends XotBaseListRecords
                         ->success()
                         ->send();
                 }),
-<<<<<<< HEAD
-=======
-                ->action(
-                    static function (): void {
-                        Artisan::call('queue:prune-batches');
-                        Notification::make()
-                            ->title('All batches have been pruned.')
-                            ->success()
-                            ->send();
-                    }
-                ),
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
         ];
     }
 }

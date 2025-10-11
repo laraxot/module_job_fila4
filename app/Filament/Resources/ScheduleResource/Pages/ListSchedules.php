@@ -56,15 +56,15 @@ class ListSchedules extends XotBaseListRecords
     public function getListTableActions(): array
     {
         return [
-            EditAction::make()
+            'edit' => EditAction::make()
                 ->hidden(fn ($record) => is_object($record) && method_exists($record, 'trashed') ? $record->trashed() : false)
                 ->tooltip(__('filament-support::actions/edit.single.label')),
-            RestoreAction::make()->tooltip(__('filament-support::actions/restore.single.label')),
-            DeleteAction::make()->tooltip(__('filament-support::actions/delete.single.label')),
-            ForceDeleteAction::make()->tooltip(__(
+            'restore' => RestoreAction::make()->tooltip(__('filament-support::actions/restore.single.label')),
+            'delete' => DeleteAction::make()->tooltip(__('filament-support::actions/delete.single.label')),
+            'force_delete' => ForceDeleteAction::make()->tooltip(__(
                 'filament-support::actions/force-delete.single.label',
             )),
-            ViewAction::make()
+            'view' => ViewAction::make()
                 ->icon('history')
                 ->color('gray')
                 ->tooltip(static::trans('buttons.history')),
@@ -77,7 +77,7 @@ class ListSchedules extends XotBaseListRecords
     public function getListTableBulkActions(): array
     {
         return [
-            DeleteBulkAction::make(),
+            'delete' => DeleteBulkAction::make(),
         ];
     }
 

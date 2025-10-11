@@ -15,12 +15,8 @@ use Modules\Xot\Traits\Updater;
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  */
-/**
- * @template TFactory of \Illuminate\Database\Eloquent\Factories\Factory
- */
 abstract class BaseModel extends Model
 {
-    /** @use HasFactory<TFactory> */
     use \Modules\Xot\Models\Traits\HasXotFactory;
 
     // use Searchable;

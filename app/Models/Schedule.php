@@ -193,8 +193,11 @@ class Schedule extends BaseModel
     public function getArguments(): array
     {
         $arguments = [];
+        
+        $params = $this->attributes['params'] ?? [];
+        $paramsArray = is_array($params) ? $params : [];
 
-        foreach ($this->params ?? [] as $argument => $value) {
+        foreach ($paramsArray as $argument => $value) {
             if (! is_array($value) || empty($value['value'] ?? null)) {
                 continue;
             }
@@ -220,11 +223,15 @@ class Schedule extends BaseModel
      */
     public function getOptions(): array
     {
-        $options = collect($this->options ?? []);
-        $optionsWithValues = $this->options_with_value ?? [];
+        $optionsValue = $this->attributes['options'] ?? [];
+        $optionsArray = is_array($optionsValue) ? $optionsValue : [];
+        $options = collect($optionsArray);
+        
+        $optionsWithValue = $this->attributes['options_with_value'] ?? [];
+        $optionsWithValuesArray = is_array($optionsWithValue) ? $optionsWithValue : [];
 
-        if (! empty($optionsWithValues)) {
-            $options = $options->merge($optionsWithValues);
+        if (! empty($optionsWithValuesArray)) {
+            $options = $options->merge($optionsWithValuesArray);
         }
 
         return $options->map(function ($value, $key) {

@@ -98,7 +98,6 @@ class Task extends BaseModel
 {
     // use HasFrequencies;
     use FrontendSortable;
-    /** @use HasFactory<ModulesJobDatabaseFactoriesTaskFactory> */
     use \Modules\Xot\Models\Traits\HasXotFactory;
     use Notifiable;
 
@@ -110,11 +109,13 @@ class Task extends BaseModel
      */
     public function compileParameters(bool $forScheduler = false): array
     {
-        if ($this->parameters === null) {
+        $parametersValue = $this->attributes['parameters'] ?? null;
+        
+        if ($parametersValue === null) {
             return [];
         }
 
-        $parameters = json_decode($this->parameters, true);
+        $parameters = json_decode((string) $parametersValue, true);
         Assert::isArray($parameters);
 
         if ($forScheduler) {
@@ -161,7 +162,8 @@ class Task extends BaseModel
      */
     public function getActivatedAttribute(): bool
     {
-        return (bool) $this->is_active;
+        $isActive = $this->attributes['is_active'] ?? 0;
+        return (bool) $isActive;
     }
 
     /**
@@ -220,7 +222,8 @@ class Task extends BaseModel
      */
     public function routeNotificationForMail(): ?string
     {
-        return $this->notification_email_address;
+        $email = $this->attributes['notification_email_address'] ?? null;
+        return is_string($email) ? $email : null;
     }
 
     /**
@@ -228,7 +231,8 @@ class Task extends BaseModel
      */
     public function routeNotificationForNexmo(): ?string
     {
-        return $this->notification_phone_number;
+        $phone = $this->attributes['notification_phone_number'] ?? null;
+        return is_string($phone) ? $phone : null;
     }
 
     /**
@@ -236,7 +240,8 @@ class Task extends BaseModel
      */
     public function routeNotificationForSlack(): ?string
     {
-        return $this->notification_slack_webhook;
+        $webhook = $this->attributes['notification_slack_webhook'] ?? null;
+        return is_string($webhook) ? $webhook : null;
     }
 
     /**
@@ -244,11 +249,16 @@ class Task extends BaseModel
      */
     public function autoCleanup(): void
     {
-        if ($this->auto_cleanup_num > 0) {
-            if ($this->auto_cleanup_type === 'results') {
+        $cleanupNumValue = $this->attributes['auto_cleanup_num'] ?? 0;
+        $autoCleanupNum = is_int($cleanupNumValue) ? $cleanupNumValue : (int) $cleanupNumValue;
+        
+        if ($autoCleanupNum > 0) {
+            $cleanupTypeValue = $this->attributes['auto_cleanup_type'] ?? '';
+            $autoCleanupType = is_string($cleanupTypeValue) ? $cleanupTypeValue : (string) $cleanupTypeValue;
+            if ($autoCleanupType === 'results') {
                 $oldest_id = $this->results()
                     ->orderBy('ran_at', 'desc')
-                    ->limit($this->auto_cleanup_num)
+                    ->limit($autoCleanupNum)
                     ->get()
                     ->min('id');
                 do {
@@ -264,7 +274,7 @@ class Task extends BaseModel
             } else {
                 do {
                     $rowsToDelete = $this->results()
-                        ->where('ran_at', '<', Carbon::now()->subDays($this->auto_cleanup_num - 1))
+                        ->where('ran_at', '<', Carbon::now()->subDays($autoCleanupNum - 1))
                         ->limit(50)
                         ->getQuery()
                         ->select('id')
@@ -274,5 +284,39 @@ class Task extends BaseModel
                 } while ($rowsToDelete->count() > 0);
             }
         }
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'id' => 'string',
+            'description' => 'string',
+            'command' => 'string',
+            'parameters' => 'string',
+            'expression' => 'string',
+            'timezone' => 'string',
+            'is_active' => 'integer',
+            'dont_overlap' => 'integer',
+            'run_in_maintenance' => 'integer',
+            'notification_email_address' => 'string',
+            'notification_phone_number' => 'string',
+            'notification_slack_webhook' => 'string',
+            'auto_cleanup_num' => 'integer',
+            'auto_cleanup_type' => 'string',
+            'run_on_one_server' => 'integer',
+            'run_in_background' => 'integer',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+            'created_by' => 'string',
+            'updated_by' => 'string',
+            'deleted_by' => 'string',
+            'order_column' => 'integer',
+            'status' => 'string',
+            'priority_id' => 'string',
+        ];
     }
 }

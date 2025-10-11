@@ -27,7 +27,6 @@ use Modules\Xot\Traits\Updater;
  */
 class TaskComment extends Model
 {
-    /** @use HasFactory<ModulesJobDatabaseFactoriesTaskCommentFactory> */
     use \Modules\Xot\Models\Traits\HasXotFactory;
     use SoftDeletes;
     use Updater;

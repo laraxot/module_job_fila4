@@ -24,6 +24,16 @@ use Modules\Xot\Traits\Updater;
  * @property Carbon|null $deleted_at
  * @property-read Task $task
  * @property-read User $user
+ * @method static \Modules\Job\Database\Factories\TaskCommentFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment withTrashed(bool $withTrashed = true)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment withoutTrashed()
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @mixin \Eloquent
  */
 class TaskComment extends Model
 {

@@ -42,7 +42,29 @@ use Override;
  *
  * @mixin \Eloquent
  */
-/** */
+/**
+ * @property string $id
+ * @property string $uuid
+ * @property string $connection
+ * @property string $queue
+ * @property array<array-key, mixed> $payload
+ * @property string $exception
+ * @property string $failed_at
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @method static \Modules\Job\Database\Factories\FailedJobFactory factory($count = null, $state = [])
+ * @method static Builder<static>|FailedJob newModelQuery()
+ * @method static Builder<static>|FailedJob newQuery()
+ * @method static Builder<static>|FailedJob query()
+ * @method static Builder<static>|FailedJob whereConnection($value)
+ * @method static Builder<static>|FailedJob whereException($value)
+ * @method static Builder<static>|FailedJob whereFailedAt($value)
+ * @method static Builder<static>|FailedJob whereId($value)
+ * @method static Builder<static>|FailedJob wherePayload($value)
+ * @method static Builder<static>|FailedJob whereQueue($value)
+ * @method static Builder<static>|FailedJob whereUuid($value)
+ * @mixin \Eloquent
+ */
 class FailedJob extends BaseModel
 {
     protected $fillable = [

@@ -93,7 +93,70 @@ use function Safe\json_decode;
  *
  * @mixin \Eloquent
  */
-/** */
+/**
+ * @property string $id
+ * @property string $description
+ * @property string $command
+ * @property string|null $parameters
+ * @property string|null $expression
+ * @property string $timezone
+ * @property int $is_active
+ * @property int $dont_overlap
+ * @property int $run_in_maintenance
+ * @property string|null $notification_email_address
+ * @property string|null $notification_phone_number
+ * @property string $notification_slack_webhook
+ * @property int $auto_cleanup_num
+ * @property string|null $auto_cleanup_type
+ * @property int $run_on_one_server
+ * @property int $run_in_background
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property Carbon|null $deleted_at
+ * @property string|null $deleted_by
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read Collection<int, \Modules\Job\Models\Frequency> $frequencies
+ * @property-read int|null $frequencies_count
+ * @property-read bool $activated
+ * @property-read float $average_runtime
+ * @property-read \Modules\Job\Models\Result|null $last_result
+ * @property-read string $upcoming
+ * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
+ * @property-read int|null $notifications_count
+ * @property-read Collection<int, \Modules\Job\Models\Result> $results
+ * @property-read int|null $results_count
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @method static \Modules\Job\Database\Factories\TaskFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Task newModelQuery()
+ * @method static Builder<static>|Task newQuery()
+ * @method static Builder<static>|Task query()
+ * @method static Builder<static>|Task sortableBy(array $sortableColumns, array $defaultSort = [])
+ * @method static Builder<static>|Task whereAutoCleanupNum($value)
+ * @method static Builder<static>|Task whereAutoCleanupType($value)
+ * @method static Builder<static>|Task whereCommand($value)
+ * @method static Builder<static>|Task whereCreatedAt($value)
+ * @method static Builder<static>|Task whereCreatedBy($value)
+ * @method static Builder<static>|Task whereDeletedAt($value)
+ * @method static Builder<static>|Task whereDeletedBy($value)
+ * @method static Builder<static>|Task whereDescription($value)
+ * @method static Builder<static>|Task whereDontOverlap($value)
+ * @method static Builder<static>|Task whereExpression($value)
+ * @method static Builder<static>|Task whereId($value)
+ * @method static Builder<static>|Task whereIsActive($value)
+ * @method static Builder<static>|Task whereNotificationEmailAddress($value)
+ * @method static Builder<static>|Task whereNotificationPhoneNumber($value)
+ * @method static Builder<static>|Task whereNotificationSlackWebhook($value)
+ * @method static Builder<static>|Task whereParameters($value)
+ * @method static Builder<static>|Task whereRunInBackground($value)
+ * @method static Builder<static>|Task whereRunInMaintenance($value)
+ * @method static Builder<static>|Task whereRunOnOneServer($value)
+ * @method static Builder<static>|Task whereTimezone($value)
+ * @method static Builder<static>|Task whereUpdatedAt($value)
+ * @method static Builder<static>|Task whereUpdatedBy($value)
+ * @mixin \Eloquent
+ */
 class Task extends BaseModel
 {
     // use HasFrequencies;

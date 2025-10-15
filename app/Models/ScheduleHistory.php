@@ -55,7 +55,39 @@ use Override;
  *
  * @mixin \Eloquent
  */
-/** */
+/**
+ * @property string $id
+ * @property \Modules\Job\Models\Schedule|null $command
+ * @property array<array-key, mixed>|null $params
+ * @property string $output
+ * @property array<array-key, mixed>|null $options
+ * @property int|null $schedule_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property Carbon|null $deleted_at
+ * @property string|null $deleted_by
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @method static \Modules\Job\Database\Factories\ScheduleHistoryFactory factory($count = null, $state = [])
+ * @method static Builder<static>|ScheduleHistory newModelQuery()
+ * @method static Builder<static>|ScheduleHistory newQuery()
+ * @method static Builder<static>|ScheduleHistory query()
+ * @method static Builder<static>|ScheduleHistory whereCommand($value)
+ * @method static Builder<static>|ScheduleHistory whereCreatedAt($value)
+ * @method static Builder<static>|ScheduleHistory whereCreatedBy($value)
+ * @method static Builder<static>|ScheduleHistory whereDeletedAt($value)
+ * @method static Builder<static>|ScheduleHistory whereDeletedBy($value)
+ * @method static Builder<static>|ScheduleHistory whereId($value)
+ * @method static Builder<static>|ScheduleHistory whereOptions($value)
+ * @method static Builder<static>|ScheduleHistory whereOutput($value)
+ * @method static Builder<static>|ScheduleHistory whereParams($value)
+ * @method static Builder<static>|ScheduleHistory whereScheduleId($value)
+ * @method static Builder<static>|ScheduleHistory whereUpdatedAt($value)
+ * @method static Builder<static>|ScheduleHistory whereUpdatedBy($value)
+ * @mixin \Eloquent
+ */
 class ScheduleHistory extends BaseModel
 {
     /*

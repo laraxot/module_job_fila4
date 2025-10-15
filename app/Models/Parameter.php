@@ -41,7 +41,32 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @mixin \Eloquent
  */
-/** */
+/**
+ * @property string $id
+ * @property int $frequency_id
+ * @property string $name
+ * @property string $value
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Job\Models\Frequency|null $task
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Parameter newModelQuery()
+ * @method static Builder<static>|Parameter newQuery()
+ * @method static Builder<static>|Parameter query()
+ * @method static Builder<static>|Parameter whereCreatedAt($value)
+ * @method static Builder<static>|Parameter whereCreatedBy($value)
+ * @method static Builder<static>|Parameter whereFrequencyId($value)
+ * @method static Builder<static>|Parameter whereId($value)
+ * @method static Builder<static>|Parameter whereName($value)
+ * @method static Builder<static>|Parameter whereUpdatedAt($value)
+ * @method static Builder<static>|Parameter whereUpdatedBy($value)
+ * @method static Builder<static>|Parameter whereValue($value)
+ * @mixin \Eloquent
+ */
 class Parameter extends BaseModel
 {
     // protected $table = 'frequency_parameters';

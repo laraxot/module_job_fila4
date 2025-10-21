@@ -116,7 +116,7 @@ use function Safe\json_decode;
  * @property string|null $created_by
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
- * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read Collection<int, \Modules\Job\Models\Frequency> $frequencies
  * @property-read int|null $frequencies_count
  * @property-read bool $activated
@@ -127,7 +127,7 @@ use function Safe\json_decode;
  * @property-read int|null $notifications_count
  * @property-read Collection<int, \Modules\Job\Models\Result> $results
  * @property-read int|null $results_count
- * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @method static \Modules\Job\Database\Factories\TaskFactory factory($count = null, $state = [])
  * @method static Builder<static>|Task newModelQuery()
  * @method static Builder<static>|Task newQuery()

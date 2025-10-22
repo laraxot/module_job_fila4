@@ -3,11 +3,10 @@
 declare(strict_types=1);
 
 use Modules\Job\Actions\GetTaskFrequenciesAction;
-use Modules\Job\Models\TaskFrequency;
 
 describe('GetTaskFrequenciesAction Integration', function () {
     beforeEach(function () {
-        $this->action = new GetTaskFrequenciesAction();
+        $this->action = new GetTaskFrequenciesAction;
     });
 
     it('returns array when config exists', function () {

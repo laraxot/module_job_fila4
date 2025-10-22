@@ -21,6 +21,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|Export newModelQuery()
  * @method static Builder|Export newQuery()
  * @method static Builder|Export query()
+ *
  * @property int $id
  * @property Carbon|null $completed_at
  * @property string $file_disk
@@ -36,6 +37,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
+ *
  * @method static Builder|Export whereCompletedAt($value)
  * @method static Builder|Export whereCreatedAt($value)
  * @method static Builder|Export whereCreatedBy($value)
@@ -51,11 +53,14 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|Export whereUpdatedAt($value)
  * @method static Builder|Export whereUpdatedBy($value)
  * @method static Builder|Export whereUserId($value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
  * @property Model|Eloquent|null $user
  * @property string|null $user_type
+ *
  * @method static Builder|Export whereUserType($value)
+ *
  * @mixin Eloquent
  */
 class Export extends BaseExport

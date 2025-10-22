@@ -46,6 +46,25 @@ class Parameter extends BaseModel
         'value',
     ];
 
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return array_merge(parent::casts(), [
+            'id' => 'integer',
+            'frequency_id' => 'integer',
+            'name' => 'string',
+            'value' => 'string',
+            'created_by' => 'string',
+            'updated_by' => 'string',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ]);
+    }
+
     public function task(): BelongsTo
     {
         return $this->belongsTo(Frequency::class);

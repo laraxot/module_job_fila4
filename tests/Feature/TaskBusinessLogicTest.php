@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Job\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Carbon;
 use Modules\Job\Models\Frequency;
 use Modules\Job\Models\Result;
 use Modules\Job\Models\Task;

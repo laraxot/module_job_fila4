@@ -28,6 +28,9 @@ class JobStatsOverview extends BaseWidget
         ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
         $aggregatedInfo = JobManager::query()->select($aggregationColumns)->first();
 
         if ($aggregatedInfo) {
@@ -50,6 +53,7 @@ class JobStatsOverview extends BaseWidget
                     ).'s'
                 )
                 : '0';
+<<<<<<< HEAD
 =======
         $aggregatedInfo = JobManager::query()
             ->select($aggregationColumns)
@@ -66,6 +70,8 @@ class JobStatsOverview extends BaseWidget
                 $this->formatSeconds((int) app(SafeEloquentCastAction::class)
                     ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0')).'s' : '0';
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
         } else {
             $averageTime = '0';
             $totalTime = '0';

@@ -8,10 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
-<<<<<<< HEAD
-=======
-use Override;
->>>>>>> b5d9c5c (.)
 use Filament\Schemas\Components\Section;
 use Override;
 use Filament\Schemas\Components\Utilities\Set;

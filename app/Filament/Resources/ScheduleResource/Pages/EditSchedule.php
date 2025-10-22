@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
-<<<<<<< HEAD
-=======
-use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
-use Override;
->>>>>>> b5d9c5c (.)
 use Filament\Schemas\Schema;
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 use Override;
@@ -38,15 +33,6 @@ class EditSchedule extends XotBaseEditRecord
         return $res;
     }
 
-<<<<<<< HEAD
-=======
-    #[Override]
-    public function form(Schema $schema): Schema
-    {
-        return $schema->components($this->getFormSchema());
-    }
-
->>>>>>> b5d9c5c (.)
     protected function onValidationError(ValidationException $exception): void
     {
         Notification::make()

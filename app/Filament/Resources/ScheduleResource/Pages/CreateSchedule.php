@@ -4,13 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
-<<<<<<< HEAD
 use Filament\Schemas\Schema;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
-=======
-use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
-use Filament\Schemas\Schema;
->>>>>>> a51482b (.)
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;

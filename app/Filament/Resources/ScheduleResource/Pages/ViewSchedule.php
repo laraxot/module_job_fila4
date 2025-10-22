@@ -84,7 +84,7 @@ class ViewSchedule extends Page implements HasTable
         return [
             Split::make([
                 TextColumn::make('command'),
-                TextColumn::make('created_at')->dateTime(is_string($date_format) ? $date_format : 'Y-m-d H:i:s'),
+                TextColumn::make('created_at')->dateTime($date_format),
                 TextColumn::make('updated_at')->formatStateUsing(static function (
                     $state,
                     $record,

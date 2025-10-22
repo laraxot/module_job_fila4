@@ -13,25 +13,24 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Modules\Job\Database\Factories\ScheduleHistoryFactory;
 use Modules\Xot\Contracts\ProfileContract;
-use Override;
 
 /**
  * Modules\Job\Models\ScheduleHistory.
  *
  * @property Schedule|null $command
  *
- * @method static ScheduleHistoryFactory factory($count = null, $state = [])
+ * @method static ScheduleHistoryFactory  factory($count = null, $state = [])
  * @method static Builder|ScheduleHistory newModelQuery()
  * @method static Builder|ScheduleHistory newQuery()
  * @method static Builder|ScheduleHistory query()
  *
- * @property int $id
- * @property array|null $params
- * @property string $output
- * @property array|null $options
+ * @property int         $id
+ * @property array|null  $params
+ * @property string      $output
+ * @property array|null  $options
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property int|null $schedule_id
+ * @property int|null    $schedule_id
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property string|null $deleted_at
@@ -56,47 +55,52 @@ use Override;
  * @mixin \Eloquent
  */
 /**
- * @property string $id
- * @property \Modules\Job\Models\Schedule|null $command
+ * @property string                       $id
+ * @property Schedule|null                $command
  * @property array<array-key, mixed>|null $params
- * @property string $output
+ * @property string                       $output
  * @property array<array-key, mixed>|null $options
- * @property int|null $schedule_id
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
- * @property Carbon|null $deleted_at
- * @property string|null $deleted_by
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property int|null                     $schedule_id
+ * @property Carbon|null                  $created_at
+ * @property Carbon|null                  $updated_at
+ * @property string|null                  $updated_by
+ * @property string|null                  $created_by
+ * @property Carbon|null                  $deleted_at
+ * @property string|null                  $deleted_by
+ * @property ProfileContract|null         $creator
+ * @property ProfileContract|null         $updater
+ *
  * @method static \Modules\Job\Database\Factories\ScheduleHistoryFactory factory($count = null, $state = [])
- * @method static Builder<static>|ScheduleHistory newModelQuery()
- * @method static Builder<static>|ScheduleHistory newQuery()
- * @method static Builder<static>|ScheduleHistory query()
- * @method static Builder<static>|ScheduleHistory whereCommand($value)
- * @method static Builder<static>|ScheduleHistory whereCreatedAt($value)
- * @method static Builder<static>|ScheduleHistory whereCreatedBy($value)
- * @method static Builder<static>|ScheduleHistory whereDeletedAt($value)
- * @method static Builder<static>|ScheduleHistory whereDeletedBy($value)
- * @method static Builder<static>|ScheduleHistory whereId($value)
- * @method static Builder<static>|ScheduleHistory whereOptions($value)
- * @method static Builder<static>|ScheduleHistory whereOutput($value)
- * @method static Builder<static>|ScheduleHistory whereParams($value)
- * @method static Builder<static>|ScheduleHistory whereScheduleId($value)
- * @method static Builder<static>|ScheduleHistory whereUpdatedAt($value)
- * @method static Builder<static>|ScheduleHistory whereUpdatedBy($value)
+ * @method static Builder<static>|ScheduleHistory                        newModelQuery()
+ * @method static Builder<static>|ScheduleHistory                        newQuery()
+ * @method static Builder<static>|ScheduleHistory                        query()
+ * @method static Builder<static>|ScheduleHistory                        whereCommand($value)
+ * @method static Builder<static>|ScheduleHistory                        whereCreatedAt($value)
+ * @method static Builder<static>|ScheduleHistory                        whereCreatedBy($value)
+ * @method static Builder<static>|ScheduleHistory                        whereDeletedAt($value)
+ * @method static Builder<static>|ScheduleHistory                        whereDeletedBy($value)
+ * @method static Builder<static>|ScheduleHistory                        whereId($value)
+ * @method static Builder<static>|ScheduleHistory                        whereOptions($value)
+ * @method static Builder<static>|ScheduleHistory                        whereOutput($value)
+ * @method static Builder<static>|ScheduleHistory                        whereParams($value)
+ * @method static Builder<static>|ScheduleHistory                        whereScheduleId($value)
+ * @method static Builder<static>|ScheduleHistory                        whereUpdatedAt($value)
+ * @method static Builder<static>|ScheduleHistory                        whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class ScheduleHistory extends BaseModel
 {
-    /*
+    /**
      * The database table used by the model.
      *
      * @var string
      */
     // protected $table;
 
+    /**
+     * @var list<string>
+     */
     protected $fillable = [
         'command',
         'params',
@@ -104,10 +108,9 @@ class ScheduleHistory extends BaseModel
         'options',
     ];
 
-    /*
+    /**
      * Creates a new instance of the model.
      *
-     * @param array $attributes
      * @return void
      */
     /*
@@ -120,12 +123,15 @@ class ScheduleHistory extends BaseModel
      *
      */
 
+    /**
+     * @return BelongsTo<Schedule, $this>
+     */
     public function command(): BelongsTo
     {
         return $this->belongsTo(Schedule::class, 'schedule_id', 'id');
     }
 
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

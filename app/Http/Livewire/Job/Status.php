@@ -156,10 +156,10 @@ class Status extends Component
         $env_content = File::get($env_file);
         $connValue = $this->form_data['conn'] ?? '';
         $oldValue = $this->old_value ?? '';
-        
+
         $oldValueStr = (string) $oldValue;
         $connValueStr = (string) $connValue;
-        
+
         $new_content = Str::replace(
             'QUEUE_CONNECTION='.$oldValueStr,
             'QUEUE_CONNECTION='.$connValueStr,

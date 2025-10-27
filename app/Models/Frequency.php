@@ -60,6 +60,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property-read int|null $parameters_count
  * @property-read \Modules\Job\Models\Task|null $task
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
  * @method static Builder<static>|Frequency newModelQuery()
  * @method static Builder<static>|Frequency newQuery()
@@ -72,6 +73,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|Frequency whereTaskId($value)
  * @method static Builder<static>|Frequency whereUpdatedAt($value)
  * @method static Builder<static>|Frequency whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class Frequency extends BaseModel

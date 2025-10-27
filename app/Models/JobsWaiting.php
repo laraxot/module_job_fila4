@@ -27,6 +27,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
  * @property mixed $display_name
+ *
  * @method static JobsWaitingFactory factory($count = null, $state = [])
  * @method static Builder|JobsWaiting newModelQuery()
  * @method static Builder|JobsWaiting newQuery()
@@ -41,9 +42,11 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|JobsWaiting whereReservedAt($value)
  * @method static Builder|JobsWaiting whereUpdatedAt($value)
  * @method static Builder|JobsWaiting whereUpdatedBy($value)
+ *
  * @property mixed $status
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @mixin \Eloquent
  */
 class JobsWaiting extends Job {}

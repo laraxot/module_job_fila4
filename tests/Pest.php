@@ -45,8 +45,7 @@ pest()->extend(TestCase::class)->in('Feature', 'Unit');
  */
 
 /**
- * @param array<string, mixed> $attributes
- * @return Job
+ * @param  array<string, mixed>  $attributes
  */
 function createJob(array $attributes = []): Job
 {
@@ -54,12 +53,12 @@ function createJob(array $attributes = []): Job
     $factory = Job::factory();
     /** @var Job $job */
     $job = $factory->create($attributes);
+
     return $job;
 }
 
 /**
- * @param array<string, mixed> $attributes
- * @return Job
+ * @param  array<string, mixed>  $attributes
  */
 function makeJob(array $attributes = []): Job
 {
@@ -67,12 +66,12 @@ function makeJob(array $attributes = []): Job
     $factory = Job::factory();
     /** @var Job $job */
     $job = $factory->make($attributes);
+
     return $job;
 }
 
 /**
- * @param array<string, mixed> $attributes
- * @return JobBatch
+ * @param  array<string, mixed>  $attributes
  */
 function createJobBatch(array $attributes = []): JobBatch
 {
@@ -80,12 +79,12 @@ function createJobBatch(array $attributes = []): JobBatch
     $factory = JobBatch::factory();
     /** @var JobBatch $batch */
     $batch = $factory->create($attributes);
+
     return $batch;
 }
 
 /**
- * @param array<string, mixed> $attributes
- * @return JobBatch
+ * @param  array<string, mixed>  $attributes
  */
 function makeJobBatch(array $attributes = []): JobBatch
 {
@@ -93,5 +92,6 @@ function makeJobBatch(array $attributes = []): JobBatch
     $factory = JobBatch::factory();
     /** @var JobBatch $batch */
     $batch = $factory->make($attributes);
+
     return $batch;
 }

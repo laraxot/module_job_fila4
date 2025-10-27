@@ -19,4 +19,3 @@ class TaskCommentFactory extends Factory
         return [];
     }
 }
-

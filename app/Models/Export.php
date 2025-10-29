@@ -62,6 +62,8 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder|Export whereUserType($value)
  *
  * @mixin Eloquent
+ * @mixin IdeHelperExport
+ * @mixin Eloquent
  */
 class Export extends BaseExport
 {

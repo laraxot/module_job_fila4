@@ -22,9 +22,6 @@ class ActionGroup extends \Filament\Actions\ActionGroup
 
     protected string $view = 'job::components.action-group';
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getActions(): array
     {
         return [];

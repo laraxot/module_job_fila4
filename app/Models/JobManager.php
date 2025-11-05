@@ -9,15 +9,11 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
-use Modules\Job\Database\Factories\JobManagerFactory;
-use Modules\Xot\Contracts\ProfileContract;
 use Override;
 
 /**
  * Modules\Job\Models\JobManager.
  *
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
  * @property string $id
  * @property string $job_id
  * @property string|null $name
@@ -30,26 +26,25 @@ use Override;
  * @property string|null $exception_message
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property string $status
- *
- * @method static JobManagerFactory factory($count = null, $state = [])
- * @method static Builder|JobManager newModelQuery()
- * @method static Builder|JobManager newQuery()
- * @method static Builder|JobManager query()
- * @method static Builder|JobManager whereAttempt($value)
- * @method static Builder|JobManager whereCreatedAt($value)
- * @method static Builder|JobManager whereExceptionMessage($value)
- * @method static Builder|JobManager whereFailed($value)
- * @method static Builder|JobManager whereFinishedAt($value)
- * @method static Builder|JobManager whereId($value)
- * @method static Builder|JobManager whereJobId($value)
- * @method static Builder|JobManager whereName($value)
- * @method static Builder|JobManager whereProgress($value)
- * @method static Builder|JobManager whereQueue($value)
- * @method static Builder|JobManager whereStartedAt($value)
- * @method static Builder|JobManager whereUpdatedAt($value)
- *
- * @mixin IdeHelperJobManager
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read string $status
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
+ * @method static Builder<static>|JobManager newModelQuery()
+ * @method static Builder<static>|JobManager newQuery()
+ * @method static Builder<static>|JobManager query()
+ * @method static Builder<static>|JobManager whereAttempt($value)
+ * @method static Builder<static>|JobManager whereCreatedAt($value)
+ * @method static Builder<static>|JobManager whereExceptionMessage($value)
+ * @method static Builder<static>|JobManager whereFailed($value)
+ * @method static Builder<static>|JobManager whereFinishedAt($value)
+ * @method static Builder<static>|JobManager whereId($value)
+ * @method static Builder<static>|JobManager whereJobId($value)
+ * @method static Builder<static>|JobManager whereName($value)
+ * @method static Builder<static>|JobManager whereProgress($value)
+ * @method static Builder<static>|JobManager whereQueue($value)
+ * @method static Builder<static>|JobManager whereStartedAt($value)
+ * @method static Builder<static>|JobManager whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel

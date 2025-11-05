@@ -13,7 +13,6 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Traits\FrontendSortable;
-use Modules\Xot\Contracts\ProfileContract;
 use Webmozart\Assert\Assert;
 
 use function Safe\json_decode;
@@ -41,23 +40,18 @@ use function Safe\json_decode;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property Carbon|null $deleted_at
- * @property string|null $deleted_by
- * @property int $order_column
- * @property string $status
- * @property string $priority_id
- *                               property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property Collection<int, Frequency> $frequencies
- * @property int|null $frequencies_count
- * @property bool $activated
- * @property float $average_runtime
- * @property Result|null $last_result
- * @property string $upcoming
- * @property DatabaseNotificationCollection<int, DatabaseNotification> $notifications
- * @property int|null $notifications_count
- * @property Collection<int, Result> $results
- * @property int|null $results_count
- * @property ProfileContract|null $updater
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read Collection<int, \Modules\Job\Models\Frequency> $frequencies
+ * @property-read int|null $frequencies_count
+ * @property-read bool $activated
+ * @property-read float $average_runtime
+ * @property-read \Modules\Job\Models\Result|null $last_result
+ * @property-read string $upcoming
+ * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
+ * @property-read int|null $notifications_count
+ * @property-read Collection<int, \Modules\Job\Models\Result> $results
+ * @property-read int|null $results_count
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
  *
  * @method static Builder<static>|Task newModelQuery()
  * @method static Builder<static>|Task newQuery()
@@ -68,8 +62,6 @@ use function Safe\json_decode;
  * @method static Builder<static>|Task whereCommand($value)
  * @method static Builder<static>|Task whereCreatedAt($value)
  * @method static Builder<static>|Task whereCreatedBy($value)
- * @method static Builder<static>|Task whereDeletedAt($value)
- * @method static Builder<static>|Task whereDeletedBy($value)
  * @method static Builder<static>|Task whereDescription($value)
  * @method static Builder<static>|Task whereDontOverlap($value)
  * @method static Builder<static>|Task whereExpression($value)
@@ -78,20 +70,14 @@ use function Safe\json_decode;
  * @method static Builder<static>|Task whereNotificationEmailAddress($value)
  * @method static Builder<static>|Task whereNotificationPhoneNumber($value)
  * @method static Builder<static>|Task whereNotificationSlackWebhook($value)
- * @method static Builder<static>|Task whereOrderColumn($value)
  * @method static Builder<static>|Task whereParameters($value)
- * @method static Builder<static>|Task wherePriorityId($value)
  * @method static Builder<static>|Task whereRunInBackground($value)
  * @method static Builder<static>|Task whereRunInMaintenance($value)
  * @method static Builder<static>|Task whereRunOnOneServer($value)
- * @method static Builder<static>|Task whereStatus($value)
  * @method static Builder<static>|Task whereTimezone($value)
  * @method static Builder<static>|Task whereUpdatedAt($value)
  * @method static Builder<static>|Task whereUpdatedBy($value)
  *
- * @property-read ProfileContract|null $creator
- *
- * @mixin IdeHelperTask
  * @mixin \Eloquent
  */
 class Task extends BaseModel
@@ -105,9 +91,9 @@ class Task extends BaseModel
      * Compila i parametri del task per l'esecuzione.
      *
      * @param  bool  $forScheduler  Se true, i parametri vengono formattati per lo scheduler
-     * @return array<int, string>|string
+     * @return array<int|string, mixed>
      */
-    public function compileParameters(bool $forScheduler = false): array|string
+    public function compileParameters(bool $forScheduler = false): array
     {
         if ($this->parameters === null) {
             return [];
@@ -117,7 +103,13 @@ class Task extends BaseModel
         Assert::isArray($parameters);
 
         if ($forScheduler) {
-            return array_map(fn ($value) => is_bool($value) ? ($value ? '1' : '0') : ((string) $value), $parameters);
+            /** @var array<int|string, string> $result */
+            $result = [];
+            foreach ($parameters as $key => $value) {
+                $result[$key] = is_bool($value) ? ($value ? '1' : '0') : ((string) $value);
+            }
+
+            return $result;
         }
 
         return $parameters;

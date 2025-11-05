@@ -13,16 +13,9 @@ use Filament\Actions\Exports\Models\Export as BaseExport;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
-use Modules\Job\Database\Factories\ExportFactory;
-use Modules\Xot\Contracts\ProfileContract;
 
 /**
- * @method static ExportFactory factory($count = null, $state = [])
- * @method static Builder|Export newModelQuery()
- * @method static Builder|Export newQuery()
- * @method static Builder|Export query()
- *
- * @property int $id
+ * @property string $id
  * @property Carbon|null $completed_at
  * @property string $file_disk
  * @property string|null $file_name
@@ -37,33 +30,27 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $created_by
  * @property string|null $deleted_at
  * @property string|null $deleted_by
- *
- * @method static Builder|Export whereCompletedAt($value)
- * @method static Builder|Export whereCreatedAt($value)
- * @method static Builder|Export whereCreatedBy($value)
- * @method static Builder|Export whereDeletedAt($value)
- * @method static Builder|Export whereDeletedBy($value)
- * @method static Builder|Export whereExporter($value)
- * @method static Builder|Export whereFileDisk($value)
- * @method static Builder|Export whereFileName($value)
- * @method static Builder|Export whereId($value)
- * @method static Builder|Export whereProcessedRows($value)
- * @method static Builder|Export whereSuccessfulRows($value)
- * @method static Builder|Export whereTotalRows($value)
- * @method static Builder|Export whereUpdatedAt($value)
- * @method static Builder|Export whereUpdatedBy($value)
- * @method static Builder|Export whereUserId($value)
- *
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
- * @property Model|Eloquent|null $user
  * @property string|null $user_type
- *
- * @method static Builder|Export whereUserType($value)
- *
- * @mixin IdeHelperExport
- * @mixin Eloquent
- * @mixin IdeHelperExport
+ * @property-read Model|\Eloquent|null $user
+ * @method static Builder<static>|Export newModelQuery()
+ * @method static Builder<static>|Export newQuery()
+ * @method static Builder<static>|Export query()
+ * @method static Builder<static>|Export whereCompletedAt($value)
+ * @method static Builder<static>|Export whereCreatedAt($value)
+ * @method static Builder<static>|Export whereCreatedBy($value)
+ * @method static Builder<static>|Export whereDeletedAt($value)
+ * @method static Builder<static>|Export whereDeletedBy($value)
+ * @method static Builder<static>|Export whereExporter($value)
+ * @method static Builder<static>|Export whereFileDisk($value)
+ * @method static Builder<static>|Export whereFileName($value)
+ * @method static Builder<static>|Export whereId($value)
+ * @method static Builder<static>|Export whereProcessedRows($value)
+ * @method static Builder<static>|Export whereSuccessfulRows($value)
+ * @method static Builder<static>|Export whereTotalRows($value)
+ * @method static Builder<static>|Export whereUpdatedAt($value)
+ * @method static Builder<static>|Export whereUpdatedBy($value)
+ * @method static Builder<static>|Export whereUserId($value)
+ * @method static Builder<static>|Export whereUserType($value)
  * @mixin Eloquent
  */
 class Export extends BaseExport

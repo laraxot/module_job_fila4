@@ -55,7 +55,7 @@ class JobStatsOverview extends BaseWidget
         }
 
         return [
-            Stat::make(__('jobs::translations.total_jobs'), $aggregatedInfo->count ?? 0),
+            Stat::make(__('jobs::translations.total_jobs'), (int) ($aggregatedInfo->count ?? 0)),
             Stat::make(__('jobs::translations.execution_time'), $totalTime),
             Stat::make(__('jobs::translations.average_time'), $averageTime),
         ];

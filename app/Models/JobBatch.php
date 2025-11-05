@@ -13,9 +13,6 @@ namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Collection;
-use Modules\Job\Database\Factories\JobBatchFactory;
-use Modules\Xot\Contracts\ProfileContract;
 use Override;
 
 /**
@@ -27,30 +24,26 @@ use Override;
  * @property int $pending_jobs
  * @property int $failed_jobs
  * @property string $failed_job_ids
- * @property Collection|null $options
+ * @property \Illuminate\Support\Collection<array-key, mixed>|null $options
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
- *
- * @method static JobBatchFactory factory($count = null, $state = [])
- * @method static Builder|JobBatch newModelQuery()
- * @method static Builder|JobBatch newQuery()
- * @method static Builder|JobBatch query()
- * @method static Builder|JobBatch whereCancelledAt($value)
- * @method static Builder|JobBatch whereCreatedAt($value)
- * @method static Builder|JobBatch whereFailedJobIds($value)
- * @method static Builder|JobBatch whereFailedJobs($value)
- * @method static Builder|JobBatch whereFinishedAt($value)
- * @method static Builder|JobBatch whereId($value)
- * @method static Builder|JobBatch whereName($value)
- * @method static Builder|JobBatch whereOptions($value)
- * @method static Builder|JobBatch wherePendingJobs($value)
- * @method static Builder|JobBatch whereTotalJobs($value)
- *
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
- *
- * @mixin IdeHelperJobBatch
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
+ * @method static Builder<static>|JobBatch newModelQuery()
+ * @method static Builder<static>|JobBatch newQuery()
+ * @method static Builder<static>|JobBatch query()
+ * @method static Builder<static>|JobBatch whereCancelledAt($value)
+ * @method static Builder<static>|JobBatch whereCreatedAt($value)
+ * @method static Builder<static>|JobBatch whereFailedJobIds($value)
+ * @method static Builder<static>|JobBatch whereFailedJobs($value)
+ * @method static Builder<static>|JobBatch whereFinishedAt($value)
+ * @method static Builder<static>|JobBatch whereId($value)
+ * @method static Builder<static>|JobBatch whereName($value)
+ * @method static Builder<static>|JobBatch whereOptions($value)
+ * @method static Builder<static>|JobBatch wherePendingJobs($value)
+ * @method static Builder<static>|JobBatch whereTotalJobs($value)
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel

@@ -12,85 +12,80 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
-use Modules\Job\Database\Factories\ScheduleFactory;
 use Modules\Job\Enums\Status;
-use Modules\Xot\Contracts\ProfileContract;
 use Override;
 use Webmozart\Assert\Assert;
 
 /**
  * Modules\Job\Models\Schedule.
  *
- * @property Status $status
- * @property array $options
- * @property \Illuminate\Database\Eloquent\Collection<int, ScheduleHistory> $histories
- * @property int|null $histories_count
- * @property int $id
+ * @property string $id
  * @property string $command
  * @property string|null $command_custom
- * @property array|null $params
+ * @property array<array-key, mixed>|null $params
  * @property string $expression
- * @property array|null $environments
- * @property array|null $options_with_value
+ * @property array<array-key, mixed>|null $environments
+ * @property array<array-key, mixed>|null $options
+ * @property array<array-key, mixed>|null $options_with_value
  * @property string|null $log_filename
- * @property bool $even_in_maintenance_mode
- * @property bool $without_overlapping
- * @property bool $on_one_server
+ * @property int $even_in_maintenance_mode
+ * @property int $without_overlapping
+ * @property int $on_one_server
  * @property string|null $webhook_before
  * @property string|null $webhook_after
  * @property string|null $email_output
- * @property bool $sendmail_error
- * @property bool $log_success
- * @property bool $log_error
- * @property bool $run_in_background
- * @property bool $sendmail_success
+ * @property int $sendmail_error
+ * @property int $log_success
+ * @property int $log_error
+ * @property Status $status
+ * @property int $run_in_background
+ * @property int $sendmail_success
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property string|null $deleted_by
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
- *
- * @method static Builder|Schedule active()
- * @method static ScheduleFactory factory($count = null, $state = [])
- * @method static Builder|Schedule inactive()
- * @method static Builder|Schedule newModelQuery()
- * @method static Builder|Schedule newQuery()
- * @method static Builder|Schedule onlyTrashed()
- * @method static Builder|Schedule query()
- * @method static Builder|Schedule whereCommand($value)
- * @method static Builder|Schedule whereCommandCustom($value)
- * @method static Builder|Schedule whereCreatedAt($value)
- * @method static Builder|Schedule whereCreatedBy($value)
- * @method static Builder|Schedule whereDeletedAt($value)
- * @method static Builder|Schedule whereDeletedBy($value)
- * @method static Builder|Schedule whereEmailOutput($value)
- * @method static Builder|Schedule whereEnvironments($value)
- * @method static Builder|Schedule whereEvenInMaintenanceMode($value)
- * @method static Builder|Schedule whereExpression($value)
- * @method static Builder|Schedule whereId($value)
- * @method static Builder|Schedule whereLogError($value)
- * @method static Builder|Schedule whereLogFilename($value)
- * @method static Builder|Schedule whereLogSuccess($value)
- * @method static Builder|Schedule whereOnOneServer($value)
- * @method static Builder|Schedule whereOptions($value)
- * @method static Builder|Schedule whereOptionsWithValue($value)
- * @method static Builder|Schedule whereParams($value)
- * @method static Builder|Schedule whereRunInBackground($value)
- * @method static Builder|Schedule whereSendmailError($value)
- * @method static Builder|Schedule whereSendmailSuccess($value)
- * @method static Builder|Schedule whereStatus($value)
- * @method static Builder|Schedule whereUpdatedAt($value)
- * @method static Builder|Schedule whereUpdatedBy($value)
- * @method static Builder|Schedule whereWebhookAfter($value)
- * @method static Builder|Schedule whereWebhookBefore($value)
- * @method static Builder|Schedule whereWithoutOverlapping($value)
- * @method static Builder|Schedule withTrashed()
- * @method static Builder|Schedule withoutTrashed()
- *
- * @mixin IdeHelperSchedule
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
+ * @property-read int|null $histories_count
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @method static Builder<static>|Schedule active()
+ * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Schedule inactive()
+ * @method static Builder<static>|Schedule newModelQuery()
+ * @method static Builder<static>|Schedule newQuery()
+ * @method static Builder<static>|Schedule onlyTrashed()
+ * @method static Builder<static>|Schedule query()
+ * @method static Builder<static>|Schedule whereCommand($value)
+ * @method static Builder<static>|Schedule whereCommandCustom($value)
+ * @method static Builder<static>|Schedule whereCreatedAt($value)
+ * @method static Builder<static>|Schedule whereCreatedBy($value)
+ * @method static Builder<static>|Schedule whereDeletedAt($value)
+ * @method static Builder<static>|Schedule whereDeletedBy($value)
+ * @method static Builder<static>|Schedule whereEmailOutput($value)
+ * @method static Builder<static>|Schedule whereEnvironments($value)
+ * @method static Builder<static>|Schedule whereEvenInMaintenanceMode($value)
+ * @method static Builder<static>|Schedule whereExpression($value)
+ * @method static Builder<static>|Schedule whereId($value)
+ * @method static Builder<static>|Schedule whereLogError($value)
+ * @method static Builder<static>|Schedule whereLogFilename($value)
+ * @method static Builder<static>|Schedule whereLogSuccess($value)
+ * @method static Builder<static>|Schedule whereOnOneServer($value)
+ * @method static Builder<static>|Schedule whereOptions($value)
+ * @method static Builder<static>|Schedule whereOptionsWithValue($value)
+ * @method static Builder<static>|Schedule whereParams($value)
+ * @method static Builder<static>|Schedule whereRunInBackground($value)
+ * @method static Builder<static>|Schedule whereSendmailError($value)
+ * @method static Builder<static>|Schedule whereSendmailSuccess($value)
+ * @method static Builder<static>|Schedule whereStatus($value)
+ * @method static Builder<static>|Schedule whereUpdatedAt($value)
+ * @method static Builder<static>|Schedule whereUpdatedBy($value)
+ * @method static Builder<static>|Schedule whereWebhookAfter($value)
+ * @method static Builder<static>|Schedule whereWebhookBefore($value)
+ * @method static Builder<static>|Schedule whereWithoutOverlapping($value)
+ * @method static Builder<static>|Schedule withTrashed(bool $withTrashed = true)
+ * @method static Builder<static>|Schedule withoutTrashed()
  * @mixin \Eloquent
  */
 class Schedule extends BaseModel
@@ -194,17 +189,32 @@ class Schedule extends BaseModel
         $arguments = [];
 
         foreach ($this->params ?? [] as $argument => $value) {
+            // PHPStan Level 10: Type safety for mixed $value
+            if (! is_array($value)) {
+                continue;
+            }
+
             if (empty($value['value'])) {
                 continue;
             }
 
-            if (isset($value['type']) && $value['type'] === 'function') {
-                // Replace eval with a safer function or an allowed list of callable functions
-                $arguments[$argument] = $this->evaluateFunction($value['value']);
+            /** @var array<string, mixed> $safeValue */
+            $safeValue = $value;
+
+            if (isset($safeValue['type']) && $safeValue['type'] === 'function') {
+                // PHPStan Level 10: Ensure string for evaluateFunction
+                $functionString = is_string($safeValue['value']) ? $safeValue['value'] : '';
+                $arguments[$argument] = $this->evaluateFunction($functionString);
             } else {
-                $arguments[(string) ($value['name'] ?? $argument)] = is_string($value)
-                    ? $value
-                    : ((string) $value['value']);
+                $name = isset($safeValue['name']) && is_string($safeValue['name'])
+                    ? $safeValue['name']
+                    : (string) $argument;
+
+                $val = is_string($safeValue)
+                    ? $safeValue
+                    : (isset($safeValue['value']) ? (string) $safeValue['value'] : '');
+
+                $arguments[$name] = $val;
             }
         }
 
@@ -230,7 +240,9 @@ class Schedule extends BaseModel
                 return '--'.((string) ($value['name'] ?? $key)).'='.((string) $value['value']);
             }
 
-            return "--{$value}";
+            // PHPStan Level 10: Cast to string for encapsed string
+            $strValue = is_string($value) ? $value : (string) $value;
+            return "--{$strValue}";
         })->toArray();
     }
 

@@ -64,6 +64,7 @@ class Crud extends Component
     {
         config('totem.artisan.command_filter');
         config('totem.artisan.whitelist', true);
+        /** @var Collection<int|string, Command> $all_commands */
         $all_commands = collect(Artisan::all());
 
         /*

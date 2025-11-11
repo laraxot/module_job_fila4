@@ -10,15 +10,13 @@ namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
-use Modules\Job\Database\Factories\JobsWaitingFactory;
-use Modules\Xot\Contracts\ProfileContract;
 
 /**
  * Modules\Job\Models\JobsWaiting.
  *
  * @property int $id
  * @property string $queue
- * @property array $payload
+ * @property array<array-key, mixed> $payload
  * @property int $attempts
  * @property int|null $reserved_at
  * @property int $available_at
@@ -26,24 +24,24 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
- * @property mixed $display_name
- * @method static JobsWaitingFactory factory($count = null, $state = [])
- * @method static Builder|JobsWaiting newModelQuery()
- * @method static Builder|JobsWaiting newQuery()
- * @method static Builder|JobsWaiting query()
- * @method static Builder|JobsWaiting whereAttempts($value)
- * @method static Builder|JobsWaiting whereAvailableAt($value)
- * @method static Builder|JobsWaiting whereCreatedAt($value)
- * @method static Builder|JobsWaiting whereCreatedBy($value)
- * @method static Builder|JobsWaiting whereId($value)
- * @method static Builder|JobsWaiting wherePayload($value)
- * @method static Builder|JobsWaiting whereQueue($value)
- * @method static Builder|JobsWaiting whereReservedAt($value)
- * @method static Builder|JobsWaiting whereUpdatedAt($value)
- * @method static Builder|JobsWaiting whereUpdatedBy($value)
- * @property mixed $status
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read string|null $display_name
+ * @property-read string $status
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @method static \Modules\Job\Database\Factories\JobsWaitingFactory factory($count = null, $state = [])
+ * @method static Builder<static>|JobsWaiting newModelQuery()
+ * @method static Builder<static>|JobsWaiting newQuery()
+ * @method static Builder<static>|JobsWaiting query()
+ * @method static Builder<static>|JobsWaiting whereAttempts($value)
+ * @method static Builder<static>|JobsWaiting whereAvailableAt($value)
+ * @method static Builder<static>|JobsWaiting whereCreatedAt($value)
+ * @method static Builder<static>|JobsWaiting whereCreatedBy($value)
+ * @method static Builder<static>|JobsWaiting whereId($value)
+ * @method static Builder<static>|JobsWaiting wherePayload($value)
+ * @method static Builder<static>|JobsWaiting whereQueue($value)
+ * @method static Builder<static>|JobsWaiting whereReservedAt($value)
+ * @method static Builder<static>|JobsWaiting whereUpdatedAt($value)
+ * @method static Builder<static>|JobsWaiting whereUpdatedBy($value)
  * @mixin \Eloquent
  */
 class JobsWaiting extends Job {}

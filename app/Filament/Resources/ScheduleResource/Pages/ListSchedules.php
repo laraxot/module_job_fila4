@@ -22,9 +22,6 @@ class ListSchedules extends XotBaseListRecords
     protected static string $resource = ScheduleResource::class;
 
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         return [
@@ -50,34 +47,34 @@ class ListSchedules extends XotBaseListRecords
         ];
     }
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getListTableActions(): array
     {
         return [
-            'edit' => EditAction::make()
-                ->hidden(fn ($record) => is_object($record) && method_exists($record, 'trashed') ? $record->trashed() : false)
+            EditAction::make()
+                ->hidden(function ($record): bool {
+                    if (is_object($record) && method_exists($record, 'trashed')) {
+                        $trashed = $record->trashed();
+                        return is_bool($trashed) ? $trashed : false;
+                    }
+                    return false;
+                })
                 ->tooltip(__('filament-support::actions/edit.single.label')),
-            'restore' => RestoreAction::make()->tooltip(__('filament-support::actions/restore.single.label')),
-            'delete' => DeleteAction::make()->tooltip(__('filament-support::actions/delete.single.label')),
-            'force_delete' => ForceDeleteAction::make()->tooltip(__(
+            RestoreAction::make()->tooltip(__('filament-support::actions/restore.single.label')),
+            DeleteAction::make()->tooltip(__('filament-support::actions/delete.single.label')),
+            ForceDeleteAction::make()->tooltip(__(
                 'filament-support::actions/force-delete.single.label',
             )),
-            'view' => ViewAction::make()
+            ViewAction::make()
                 ->icon('history')
                 ->color('gray')
                 ->tooltip(static::trans('buttons.history')),
         ];
     }
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getListTableBulkActions(): array
     {
         return [
-            'delete' => DeleteBulkAction::make(),
+            DeleteBulkAction::make(),
         ];
     }
 

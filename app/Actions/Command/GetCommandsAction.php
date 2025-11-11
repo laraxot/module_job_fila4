@@ -28,8 +28,10 @@ class GetCommandsAction
         $commandDataCollection = collect($commands)->map(function (Command $command): CommandData {
             $name = $command->getName() ?? '';
             $description = $command->getDescription();
-            $signature = method_exists($command, 'getSignature') ? $command->getSignature() : $name;
-            $signature = is_string($signature) ? $signature : (string) $signature;
+            
+            // Ensure signature is always a string
+            $rawSignature = method_exists($command, 'getSignature') ? $command->getSignature() : $name;
+            $signature = is_string($rawSignature) ? $rawSignature : (string) $name;
 
             /** @var Collection<int, array{name: string, description: string, required: bool}> $arguments */
             $arguments = collect($command->getDefinition()->getArguments())

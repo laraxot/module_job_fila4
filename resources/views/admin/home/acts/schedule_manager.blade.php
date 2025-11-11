@@ -7,3 +7,7 @@ declare(strict_types=1);
 @section('content')
 {!! $out !!}
 @endsection
+@extends('adm_theme::layouts.app')
+@section('content')
+{!! $out !!}
+@endsection

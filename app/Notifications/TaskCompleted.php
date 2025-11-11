@@ -31,7 +31,7 @@ class TaskCompleted extends Notification implements ShouldQueue
     public function via(Task $notifiable): array
     {
         $result = [];
-        
+
         $emailAddress = $notifiable->attributes['notification_email_address'] ?? null;
         if ($emailAddress) {
             $result[] = 'mail';
@@ -57,13 +57,13 @@ class TaskCompleted extends Notification implements ShouldQueue
     {
         $descriptionValue = $task->attributes['description'] ?? 'Task';
         $description = is_string($descriptionValue) ? $descriptionValue : 'Task';
-        
-        $message = new MailMessage();
+
+        $message = new MailMessage;
         $message->subject($description);
         $message->greeting('Hi,');
         $message->line(sprintf('%s just finished running.', $description));
         $message->line($this->output);
-        
+
         return $message;
     }
 

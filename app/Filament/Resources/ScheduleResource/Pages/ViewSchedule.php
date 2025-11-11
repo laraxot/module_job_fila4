@@ -89,20 +89,20 @@ class ViewSchedule extends Page implements HasTable
                     $state,
                     $record,
                 ): string {
-                    if (! is_object($record) || ! property_exists($record, 'created_at')) {
-                        return 'Unknown';
-                    }
-                    
-                    if ($state === $record->created_at) {
-                        return 'Processing...';
+                    if (is_object($record) && method_exists($record, 'getAttribute')) {
+                        $createdAt = $record->getAttribute('created_at');
+                        if ($state === $createdAt) {
+                            return 'Processing...';
+                        }
+                        
+                        if (is_object($state) && method_exists($state, 'diffInSeconds') && is_object($createdAt) && method_exists($createdAt, 'getTimestamp')) {
+                            $diffSeconds = $state->diffInSeconds($createdAt);
+                            $diffStr = is_numeric($diffSeconds) ? ((string) $diffSeconds) : '0';
+                            return sprintf('%s seconds', $diffStr);
+                        }
                     }
 
-                    if (! is_object($state) || ! method_exists($state, 'diffInSeconds')) {
-                        return 'Unknown';
-                    }
-
-                    $seconds = $state->diffInSeconds($record->created_at);
-                    return is_numeric($seconds) ? $seconds.' seconds' : '0 seconds';
+                    return '0 seconds';
                 }),
                 TextColumn::make('output')->formatStateUsing(
                     static fn (string $state): string => (

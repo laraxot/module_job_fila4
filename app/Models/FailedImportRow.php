@@ -10,39 +10,8 @@ namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
-use Modules\Job\Database\Factories\FailedImportRowFactory;
-use Modules\Xot\Contracts\ProfileContract;
 use Override;
 
-/**
- * @method static FailedImportRowFactory factory($count = null, $state = [])
- * @method static Builder|FailedImportRow newModelQuery()
- * @method static Builder|FailedImportRow newQuery()
- * @method static Builder|FailedImportRow query()
- *
- * @property int $id
- * @property array $data
- * @property int $import_id
- * @property string|null $validation_error
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $updated_by
- * @property string|null $created_by
- *
- * @method static Builder|FailedImportRow whereCreatedAt($value)
- * @method static Builder|FailedImportRow whereCreatedBy($value)
- * @method static Builder|FailedImportRow whereData($value)
- * @method static Builder|FailedImportRow whereId($value)
- * @method static Builder|FailedImportRow whereImportId($value)
- * @method static Builder|FailedImportRow whereUpdatedAt($value)
- * @method static Builder|FailedImportRow whereUpdatedBy($value)
- * @method static Builder|FailedImportRow whereValidationError($value)
- *
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
- *
- * @mixin \Eloquent
- */
 /**
  * @property string $id
  * @property array<array-key, mixed> $data
@@ -52,8 +21,8 @@ use Override;
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
  * @method static \Modules\Job\Database\Factories\FailedImportRowFactory factory($count = null, $state = [])
  * @method static Builder<static>|FailedImportRow newModelQuery()
  * @method static Builder<static>|FailedImportRow newQuery()

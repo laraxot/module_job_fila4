@@ -11,43 +11,30 @@ use Tests\TestCase;
 
 uses(TestCase::class, RefreshDatabase::class);
 
-test('base model extends eloquent model', function (): void {
-    $baseModel = new class extends BaseModel
+beforeEach(function () {
+    $this->baseModel = new class extends BaseModel
     {
         protected $table = 'test_job_table';
     };
-    expect($baseModel)->toBeInstanceOf(Model::class);
 });
 
-test('base model has correct table name', function (): void {
-    $baseModel = new class extends BaseModel
-    {
-        protected $table = 'test_job_table';
-    };
-    expect($baseModel->getTable())->toBe('test_job_table');
+test('base model extends eloquent model', function () {
+    expect($this->baseModel)->toBeInstanceOf(Model::class);
 });
 
-test('base model can be instantiated', function (): void {
-    $baseModel = new class extends BaseModel
-    {
-        protected $table = 'test_job_table';
-    };
-    expect($baseModel)->toBeInstanceOf(BaseModel::class);
+test('base model has correct table name', function () {
+    expect($this->baseModel->getTable())->toBe('test_job_table');
 });
 
-test('base model has proper inheritance chain', function (): void {
-    $baseModel = new class extends BaseModel
-    {
-        protected $table = 'test_job_table';
-    };
-    expect($baseModel)->toBeInstanceOf(BaseModel::class);
-    expect($baseModel)->toBeInstanceOf(Model::class);
+test('base model can be instantiated', function () {
+    expect($this->baseModel)->toBeInstanceOf(BaseModel::class);
 });
 
-test('base model has timestamps enabled', function (): void {
-    $baseModel = new class extends BaseModel
-    {
-        protected $table = 'test_job_table';
-    };
-    expect($baseModel->usesTimestamps())->toBeTrue();
+test('base model has proper inheritance chain', function () {
+    expect($this->baseModel)->toBeInstanceOf(BaseModel::class);
+    expect($this->baseModel)->toBeInstanceOf(Model::class);
+});
+
+test('base model has timestamps enabled', function () {
+    expect($this->baseModel->usesTimestamps())->toBeTrue();
 });

@@ -18,13 +18,11 @@ The Job module is fully compliant with PHPStan level 9 analysis, demonstrating:
 - ✅ Safe function usage
 - ✅ Strict types declaration
 
-## Module Features
+## Aggiornamento 11 novembre 2025
 
-This module provides job management functionality including:
-- Job posting and management
-- Application processing
-- Candidate tracking
-- Employment workflows
+- Rifattorizzati `ExecuteTaskAction`, `ScheduleOptions`, `FailedImportRowPolicy` e `JobPolicy` per rimuovere doppie dichiarazioni e normalizzare le unioni di tipo (`UserContract|ProfileContract`).
+- Ripulite le traduzioni italiane `edit_failed_import_row.php` e `jobs_waiting.php`, rimuovendo cloni generati da merge conflict e migliorando le chiavi `.navigation`.
+- Gli script di analisi (PHPStan lvl 10, PHP Insights, PHPMD) ora richiedono la risoluzione dei marker `<<<` residui in `Modules/Quaeris/.../ViewQuestionChartVisualizationWidget.php` prima di completare l'esecuzione globale; il blocco è stato registrato nel piano di lavoro.
 
 ## Filament 4.x Compatibility
 

@@ -8,3 +8,4 @@ declare(strict_types=1);
     <br/><br/>
     <livewire:schedule.status ></livewire:schedule.status>
 @endsection
+@endsection

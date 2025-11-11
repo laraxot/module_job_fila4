@@ -19,6 +19,9 @@ class JobStatus extends Page
 
     protected string $view = 'job::filament.pages.job-status';
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getHeaderWidgets(): array
     {
         return [
@@ -35,6 +38,9 @@ class JobStatus extends Page
         $this->out .= Artisan::output();
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getViewData(): array
     {
         return [
@@ -42,6 +48,9 @@ class JobStatus extends Page
         ];
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getActs(): array
     {
         return [

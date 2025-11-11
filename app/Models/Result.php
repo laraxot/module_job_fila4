@@ -22,10 +22,10 @@ use Override;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Job\Models\Task|null $task
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
- * @method static \Modules\Job\Database\Factories\ResultFactory factory($count = null, $state = [])
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @method static \Illuminate\Database\Eloquent\Factories\Factory<static> factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result query()

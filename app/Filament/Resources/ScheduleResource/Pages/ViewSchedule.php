@@ -78,7 +78,8 @@ class ViewSchedule extends Page implements HasTable
 
     protected function getTableColumns(): array
     {
-        $date_format = Assert::string(config('app.date_format'), '['.__LINE__.']['.class_basename($this).']');
+        $date_format = config('app.date_format');
+        Assert::string($date_format, '['.__LINE__.']['.class_basename($this).']');
 
         return [
             Split::make([
@@ -88,11 +89,20 @@ class ViewSchedule extends Page implements HasTable
                     $state,
                     $record,
                 ): string {
-                    if ($state === $record->created_at) {
-                        return 'Processing...';
+                    if (is_object($record) && method_exists($record, 'getAttribute')) {
+                        $createdAt = $record->getAttribute('created_at');
+                        if ($state === $createdAt) {
+                            return 'Processing...';
+                        }
+                        
+                        if (is_object($state) && method_exists($state, 'diffInSeconds') && is_object($createdAt) && method_exists($createdAt, 'getTimestamp')) {
+                            $diffSeconds = $state->diffInSeconds($createdAt);
+                            $diffStr = is_numeric($diffSeconds) ? ((string) $diffSeconds) : '0';
+                            return sprintf('%s seconds', $diffStr);
+                        }
                     }
 
-                    return $state->diffInSeconds($record->created_at).' seconds';
+                    return '0 seconds';
                 }),
                 TextColumn::make('output')->formatStateUsing(
                     static fn (string $state): string => (

@@ -3,9 +3,7 @@
 declare(strict_types=1);
 
 return [
-    // ==============================================
     // NAVIGATION & STRUCTURE
-    // ==============================================
     'navigation' => [
         'label' => 'Job',
         'plural_label' => 'Job',
@@ -14,17 +12,13 @@ return [
         'sort' => 50,
         'badge' => 'Gestione processi in background',
     ],
-    // ==============================================
     // MODEL INFORMATION
-    // ==============================================
     'model' => [
         'label' => 'Job',
         'plural' => 'Job',
         'description' => 'Processi in background e code di elaborazione',
     ],
-    // ==============================================
     // FIELDS - STRUTTURA ESPANSA OBBLIGATORIA
-    // ==============================================
     'fields' => [
         'id' => [
             'label' => 'ID',
@@ -75,9 +69,7 @@ return [
             'helper_text' => 'Data e ora dell\'ultimo aggiornamento del job',
         ],
     ],
-    // ==============================================
     // ACTIONS - STRUTTURA ESPANSA OBBLIGATORIA
-    // ==============================================
     'actions' => [
         'create' => [
             'label' => 'Nuovo Job',
@@ -185,9 +177,7 @@ return [
             ],
         ],
     ],
-    // ==============================================
     // SECTIONS - ORGANIZZAZIONE FORM
-    // ==============================================
     'sections' => [
         'basic_info' => [
             'label' => 'Informazioni Base',
@@ -205,9 +195,7 @@ return [
             'icon' => 'heroicon-o-document-text',
         ],
     ],
-    // ==============================================
     // FILTERS - RICERCA E FILTRI
-    // ==============================================
     'filters' => [
         'queue' => [
             'label' => 'Coda',
@@ -231,9 +219,7 @@ return [
             'placeholder' => 'Seleziona il periodo',
         ],
     ],
-    // ==============================================
     // MESSAGES - FEEDBACK UTENTE
-    // ==============================================
     'messages' => [
         'empty_state' => 'Nessun job trovato',
         'search_placeholder' => 'Cerca job...',
@@ -250,9 +236,7 @@ return [
         'error_permission' => 'Non hai i permessi per eseguire questa azione.',
         'success_operation' => 'Operazione completata con successo',
     ],
-    // ==============================================
     // VALIDATION - MESSAGGI DI VALIDAZIONE
-    // ==============================================
     'validation' => [
         'queue_required' => 'La coda è obbligatoria',
         'payload_required' => 'Il payload è obbligatorio',
@@ -261,18 +245,14 @@ return [
         'available_at_required' => 'La data di disponibilità è obbligatoria',
         'available_at_after' => 'La data di disponibilità deve essere futura',
     ],
-    // ==============================================
     // DESCRIPTIONS - DESCRIZIONI CONTESTUALI
-    // ==============================================
     'descriptions' => [
         'job_purpose' => 'Gestione dei processi in background e code di elaborazione',
         'queue_system' => 'Sistema di code per l\'elaborazione asincrona dei task',
         'retry_mechanism' => 'Meccanismo di ri-tentativo per job falliti',
         'monitoring' => 'Monitoraggio dello stato e delle performance dei job',
     ],
-    // ==============================================
     // OPTIONS - OPZIONI E VALORI PREDEFINITI
-    // ==============================================
     'options' => [
         'queues' => [
             'default' => 'Default',

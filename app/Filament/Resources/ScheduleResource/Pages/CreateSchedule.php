@@ -21,16 +21,26 @@ class CreateSchedule extends XotBaseCreateRecord
 
     protected static string $resource = ScheduleResource::class;
 
+    /**
+     * @return array<\Illuminate\Contracts\Support\Htmlable|string>
+     */
     public function getformSchema(): array
     {
-        Assert::isArray($res = $this->getResource()::getFormSchema());
+        $res = $this->getResource()::getFormSchema();
+        Assert::isArray($res);
 
-        return $res;
+        /** @var array<\Illuminate\Contracts\Support\Htmlable|string> $typedRes */
+        $typedRes = $res;
+
+        return $typedRes;
     }
 
     public function form(Schema $schema): Schema
     {
-        return $schema->components($this->getFormSchema());
+        /** @var array<\Illuminate\Contracts\Support\Htmlable|string> $formSchema */
+        $formSchema = $this->getFormSchema();
+        Assert::isArray($formSchema);
+        return $schema->components($formSchema);
     }
 
     protected function onValidationError(ValidationException $exception): void

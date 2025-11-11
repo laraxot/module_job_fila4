@@ -60,7 +60,7 @@ class JobsWaitingOverview extends BaseWidget
         }
 
         return [
-            Stat::make('waiting_jobs', $jobsWaiting->count ?? 0),
+            Stat::make('waiting_jobs', (int) ($jobsWaiting->count ?? 0)),
             Stat::make('execution_time', $totalTime),
             Stat::make('average_time', $averageTime),
         ];

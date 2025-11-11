@@ -51,7 +51,13 @@ class ListSchedules extends XotBaseListRecords
     {
         return [
             EditAction::make()
-                ->hidden(fn ($record) => $record->trashed())
+                ->hidden(function ($record): bool {
+                    if (is_object($record) && method_exists($record, 'trashed')) {
+                        $trashed = $record->trashed();
+                        return is_bool($trashed) ? $trashed : false;
+                    }
+                    return false;
+                })
                 ->tooltip(__('filament-support::actions/edit.single.label')),
             RestoreAction::make()->tooltip(__('filament-support::actions/restore.single.label')),
             DeleteAction::make()->tooltip(__('filament-support::actions/delete.single.label')),

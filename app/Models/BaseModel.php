@@ -19,7 +19,7 @@ use Modules\Xot\Traits\Updater;
  */
 abstract class BaseModel extends Model
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
 
     // use Searchable;
     // //use Cachable;
@@ -72,16 +72,7 @@ abstract class BaseModel extends Model
         parent::__construct($attributes);
     }
 
-    /**
-     * ----
-     * Create a new factory instance for the model.
-     *
-     * @return Factory<static>
-     */
-    protected static function newFactory()
-    {
-        return app(GetFactoryAction::class)->execute(static::class);
-    }
+    
 
     /** @return array<string, string> */
     protected function casts(): array

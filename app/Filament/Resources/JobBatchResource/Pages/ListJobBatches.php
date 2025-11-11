@@ -49,7 +49,16 @@ class ListJobBatches extends XotBaseListRecords
             'pending_jobs' => TextColumn::make('pending_jobs')->numeric()->sortable(),
             'failed_jobs' => TextColumn::make('failed_jobs')->numeric()->sortable(),
             'progress' => TextColumn::make('progress')
-                ->formatStateUsing(fn ($record) => $record->progress().'%')
+                ->formatStateUsing(function ($record): string {
+                    if (is_object($record) && method_exists($record, 'progress')) {
+                        $progress = $record->progress();
+                        $progressStr = is_numeric($progress) ? ((string) $progress) : '0';
+
+                        return sprintf('%s%%', $progressStr);
+                    }
+
+                    return '0%';
+                })
                 ->sortable(),
             'failed_job_ids' => TextColumn::make('failed_job_ids')
                 ->wrap()

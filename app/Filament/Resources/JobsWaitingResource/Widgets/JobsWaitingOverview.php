@@ -25,27 +25,13 @@ class JobsWaitingOverview extends BaseWidget
 
     protected function getCards(): array
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $jobsWaiting = Job::query()->select(DB::raw('COUNT(*) as count'))->first();
-=======
-        $jobsWaiting = Job::query()
-            ->select(DB::raw('COUNT(*) as count'))
-            ->first();
->>>>>>> e1b0bf9 (.)
-=======
-        $jobsWaiting = Job::query()->select(DB::raw('COUNT(*) as count'))->first();
->>>>>>> 7d4742a (.)
 
         $aggregationColumns = [
             DB::raw('SUM(finished_at - started_at) as total_time_elapsed'),
             DB::raw('AVG(finished_at - started_at) as average_time_elapsed'),
         ];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
         $aggregatedInfo = JobManager::query()->select($aggregationColumns)->first();
 
         if ($aggregatedInfo) {
@@ -68,25 +54,6 @@ class JobsWaitingOverview extends BaseWidget
                     ).'s'
                 )
                 : '0';
-<<<<<<< HEAD
-=======
-        $aggregatedInfo = JobManager::query()
-            ->select($aggregationColumns)
-            ->first();
-
-        if ($aggregatedInfo) {
-            $averageTime = app(SafeEloquentCastAction::class)
-                ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0') ? 
-                ceil((float) app(SafeEloquentCastAction::class)
-                    ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0')).'s' : '0';
-            
-            $totalTime = app(SafeEloquentCastAction::class)
-                ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0') ? 
-                $this->formatSeconds((int) app(SafeEloquentCastAction::class)
-                    ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0')).'s' : '0';
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
         } else {
             $averageTime = '0';
             $totalTime = '0';

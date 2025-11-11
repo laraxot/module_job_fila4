@@ -10,8 +10,57 @@ namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ImportFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Override;
 
+/**
+ * @method static ImportFactory factory($count = null, $state = [])
+ * @method static Builder|Import newModelQuery()
+ * @method static Builder|Import newQuery()
+ * @method static Builder|Import query()
+ *
+ * @property int $id
+ * @property Carbon|null $completed_at
+ * @property string $file_name
+ * @property string $file_path
+ * @property string $importer
+ * @property int $processed_rows
+ * @property int $total_rows
+ * @property int $successful_rows
+ * @property string|null $user_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property string|null $deleted_at
+ * @property string|null $deleted_by
+ *
+ * @method static Builder|Import whereCompletedAt($value)
+ * @method static Builder|Import whereCreatedAt($value)
+ * @method static Builder|Import whereCreatedBy($value)
+ * @method static Builder|Import whereDeletedAt($value)
+ * @method static Builder|Import whereDeletedBy($value)
+ * @method static Builder|Import whereFileName($value)
+ * @method static Builder|Import whereFilePath($value)
+ * @method static Builder|Import whereId($value)
+ * @method static Builder|Import whereImporter($value)
+ * @method static Builder|Import whereProcessedRows($value)
+ * @method static Builder|Import whereSuccessfulRows($value)
+ * @method static Builder|Import whereTotalRows($value)
+ * @method static Builder|Import whereUpdatedAt($value)
+ * @method static Builder|Import whereUpdatedBy($value)
+ * @method static Builder|Import whereUserId($value)
+ *
+ * @property string|null $user_type
+ *
+ * @method static Builder|Import whereUserType($value)
+ *
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $updater
+ *
+ * @mixin \Eloquent
+ */
 /**
  * @property string $id
  * @property Carbon|null $completed_at
@@ -29,8 +78,8 @@ use Override;
  * @property string|null $created_by
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @method static \Modules\Job\Database\Factories\ImportFactory factory($count = null, $state = [])
  * @method static Builder<static>|Import newModelQuery()
  * @method static Builder<static>|Import newQuery()

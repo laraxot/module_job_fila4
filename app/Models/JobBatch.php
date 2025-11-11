@@ -13,6 +13,9 @@ namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
+use Modules\Job\Database\Factories\JobBatchFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Override;
 
 /**
@@ -24,12 +27,44 @@ use Override;
  * @property int $pending_jobs
  * @property int $failed_jobs
  * @property string $failed_job_ids
+ * @property Collection|null $options
+ * @property Carbon|null $cancelled_at
+ * @property Carbon $created_at
+ * @property Carbon|null $finished_at
+ *
+ * @method static JobBatchFactory factory($count = null, $state = [])
+ * @method static Builder|JobBatch newModelQuery()
+ * @method static Builder|JobBatch newQuery()
+ * @method static Builder|JobBatch query()
+ * @method static Builder|JobBatch whereCancelledAt($value)
+ * @method static Builder|JobBatch whereCreatedAt($value)
+ * @method static Builder|JobBatch whereFailedJobIds($value)
+ * @method static Builder|JobBatch whereFailedJobs($value)
+ * @method static Builder|JobBatch whereFinishedAt($value)
+ * @method static Builder|JobBatch whereId($value)
+ * @method static Builder|JobBatch whereName($value)
+ * @method static Builder|JobBatch whereOptions($value)
+ * @method static Builder|JobBatch wherePendingJobs($value)
+ * @method static Builder|JobBatch whereTotalJobs($value)
+ *
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $updater
+ *
+ * @mixin \Eloquent
+ */
+/**
+ * @property string $id
+ * @property string $name
+ * @property int $total_jobs
+ * @property int $pending_jobs
+ * @property int $failed_jobs
+ * @property string $failed_job_ids
  * @property \Illuminate\Support\Collection<array-key, mixed>|null $options
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
  * @method static Builder<static>|JobBatch newModelQuery()
  * @method static Builder<static>|JobBatch newQuery()

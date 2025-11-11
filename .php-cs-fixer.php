@@ -1,11 +1,8 @@
 <?php
 
-<<<<<<< HEAD
 declare(strict_types=1);
 
 
-=======
->>>>>>> e1b0bf9 (.)
 $finder = PhpCsFixer\Finder::create()
     ->notPath('bootstrap/cache')
     ->notPath('storage')
@@ -14,7 +11,7 @@ $finder = PhpCsFixer\Finder::create()
     ->name('*.php')
     ->notName('*.blade.php')
     ->ignoreDotFiles(true)
-    ->ignoreVCS(true);
+    ->ignoreVCS(true)
 
 $config = new PhpCsFixer\Config();
 

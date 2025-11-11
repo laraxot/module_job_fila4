@@ -11,25 +11,65 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ScheduleHistoryFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Override;
 
 /**
  * Modules\Job\Models\ScheduleHistory.
  *
- * @property string $id
- * @property \Modules\Job\Models\Schedule|null $command
- * @property array<array-key, mixed>|null $params
+ * @property Schedule|null $command
+ *
+ * @method static ScheduleHistoryFactory factory($count = null, $state = [])
+ * @method static Builder|ScheduleHistory newModelQuery()
+ * @method static Builder|ScheduleHistory newQuery()
+ * @method static Builder|ScheduleHistory query()
+ *
+ * @property int $id
+ * @property array|null $params
  * @property string $output
- * @property array<array-key, mixed>|null $options
+ * @property array|null $options
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property int|null $schedule_id
  * @property string|null $updated_by
  * @property string|null $created_by
+ * @property string|null $deleted_at
+ * @property string|null $deleted_by
+ *
+ * @method static Builder|ScheduleHistory whereCommand($value)
+ * @method static Builder|ScheduleHistory whereCreatedAt($value)
+ * @method static Builder|ScheduleHistory whereCreatedBy($value)
+ * @method static Builder|ScheduleHistory whereDeletedAt($value)
+ * @method static Builder|ScheduleHistory whereDeletedBy($value)
+ * @method static Builder|ScheduleHistory whereId($value)
+ * @method static Builder|ScheduleHistory whereOptions($value)
+ * @method static Builder|ScheduleHistory whereOutput($value)
+ * @method static Builder|ScheduleHistory whereParams($value)
+ * @method static Builder|ScheduleHistory whereScheduleId($value)
+ * @method static Builder|ScheduleHistory whereUpdatedAt($value)
+ * @method static Builder|ScheduleHistory whereUpdatedBy($value)
+ *
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $updater
+ *
+ * @mixin \Eloquent
+ */
+/**
+ * @property string $id
+ * @property \Modules\Job\Models\Schedule|null $command
+ * @property array<array-key, mixed>|null $params
+ * @property string $output
+ * @property array<array-key, mixed>|null $options
+ * @property int|null $schedule_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @method static \Modules\Job\Database\Factories\ScheduleHistoryFactory factory($count = null, $state = [])
  * @method static Builder<static>|ScheduleHistory newModelQuery()
  * @method static Builder<static>|ScheduleHistory newQuery()

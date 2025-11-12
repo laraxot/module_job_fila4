@@ -4,63 +4,43 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Contracts\ProfileContract;
-use Modules\Xot\Traits\Updater;
+use Modules\Xot\Models\XotBaseModel;
 
 /**
- * Class BaseModel.
+ * Base Model for Job module.
+ *
+ * Extends XotBaseModel and adds:
+ * - Table prefix support for dynamic table naming
  *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
+ * @see \Modules\Xot\Models\XotBaseModel
  */
-abstract class BaseModel extends Model
+abstract class BaseModel extends XotBaseModel
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
-
-    // use Searchable;
-    // //use Cachable;
-    use Updater;
-
     /**
-     * Indicates whether attributes are snake cased on arrays.
+     * The connection name for the model.
      *
-     * @see https://laravel-news.com/6-eloquent-secrets
-     *
-     * @var bool
+     * @var string
      */
-    public static $snakeAttributes = true;
-
-    /** @var bool */
-    public $incrementing = true;
-
-    /** @var bool */
-    public $timestamps = true;
-
-    /** @var int */
-    protected $perPage = 30;
-
-    /** @var string */
     protected $connection = 'job';
 
-    /** @var string|null */
+    /**
+     * Table prefix for dynamic table naming.
+     *
+     * @var string|null
+     */
     protected $prefix;
 
-    /** @var list<string> */
-    protected $fillable = ['id'];
-
-    /** @var string */
-    protected $primaryKey = 'id';
-
-    /** @var string */
-    protected $keyType = 'string';
-
-    /** @var list<string> */
-    protected $hidden = [
-        // 'password'
-    ];
-
+    /**
+     * Create a new Eloquent model instance.
+     *
+     * Handles dynamic table prefix for Job module.
+     *
+     * @param  array<string, mixed>  $attributes
+     */
     public function __construct(array $attributes = [])
     {
         if (isset($this->prefix)) {
@@ -68,21 +48,5 @@ abstract class BaseModel extends Model
         }
 
         parent::__construct($attributes);
-    }
-
-    /** @return array<string, string> */
-    protected function casts(): array
-    {
-        return [
-            'id' => 'string',
-            'uuid' => 'string',
-            'published_at' => 'datetime',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-        ];
     }
 }

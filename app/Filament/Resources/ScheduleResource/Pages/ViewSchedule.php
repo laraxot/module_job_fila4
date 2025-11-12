@@ -83,16 +83,25 @@ class ViewSchedule extends Page implements HasTable
         return [
             Split::make([
                 TextColumn::make('command'),
-                TextColumn::make('created_at')->dateTime($date_format),
+                TextColumn::make('created_at')->dateTime(is_string($date_format) ? $date_format : 'Y-m-d H:i:s'),
                 TextColumn::make('updated_at')->formatStateUsing(static function (
                     $state,
                     $record,
                 ): string {
+                    if (! is_object($record) || ! property_exists($record, 'created_at')) {
+                        return 'Unknown';
+                    }
+                    
                     if ($state === $record->created_at) {
                         return 'Processing...';
                     }
 
-                    return $state->diffInSeconds($record->created_at).' seconds';
+                    if (! is_object($state) || ! method_exists($state, 'diffInSeconds')) {
+                        return 'Unknown';
+                    }
+
+                    $seconds = $state->diffInSeconds($record->created_at);
+                    return is_numeric($seconds) ? $seconds.' seconds' : '0 seconds';
                 }),
                 TextColumn::make('output')->formatStateUsing(
                     static fn (string $state): string => (

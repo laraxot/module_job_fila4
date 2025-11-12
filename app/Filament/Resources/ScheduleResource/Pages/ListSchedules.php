@@ -22,6 +22,9 @@ class ListSchedules extends XotBaseListRecords
     protected static string $resource = ScheduleResource::class;
 
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [
@@ -47,11 +50,14 @@ class ListSchedules extends XotBaseListRecords
         ];
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getListTableActions(): array
     {
         return [
             EditAction::make()
-                ->hidden(fn ($record) => $record->trashed())
+                ->hidden(fn ($record) => is_object($record) && method_exists($record, 'trashed') ? $record->trashed() : false)
                 ->tooltip(__('filament-support::actions/edit.single.label')),
             RestoreAction::make()->tooltip(__('filament-support::actions/restore.single.label')),
             DeleteAction::make()->tooltip(__('filament-support::actions/delete.single.label')),
@@ -65,6 +71,9 @@ class ListSchedules extends XotBaseListRecords
         ];
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getListTableBulkActions(): array
     {
         return [

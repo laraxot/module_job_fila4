@@ -21,9 +21,7 @@ class ScheduleService
     public function __construct()
     {
         Assert::string($modelClass = config('job::model'), '['.__LINE__.']['.class_basename($this).']');
-        $model = app($modelClass);
-        Assert::isInstanceOf($model, Schedule::class);
-        $this->model = $model;
+        $this->model = app($modelClass);
     }
 
     /**

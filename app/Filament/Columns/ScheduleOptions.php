@@ -19,16 +19,17 @@ class ScheduleOptions extends TextColumn
 
     public function getTags(): array
     {
-        /*
-         * if($this->record==null){
-         * return [];
-         * }
-         * if($this->withValue)
-         * return $this->record->getOptions();
-         * else{
-         * return parent::getTags();
-         * }
-         */
-        return [];
+        if ($this->record === null) {
+            return [];
+        }
+
+        if ($this->withValue && method_exists($this->record, 'getOptions')) {
+            /** @var array<int|string, string> $options */
+            $options = $this->record->getOptions();
+
+            return $options;
+        }
+
+        return parent::getTags();
     }
 }

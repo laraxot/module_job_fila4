@@ -40,6 +40,6 @@ $config
         'class_definition' => true,
         'elseif' => true,
     ])
-    ->setFinder($finder)
+    ->setFinder($finder);
 
 return $config;

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
 return [
     'name' => 'Job',
     'description' => 'Modulo per la gestione dei lavori in background e code',
@@ -19,8 +18,3 @@ return [
         'Modules\\Job\\Providers\\JobServiceProvider',
     ],
 ];
-=======
-
-
-return [];
->>>>>>> a51482b (.)

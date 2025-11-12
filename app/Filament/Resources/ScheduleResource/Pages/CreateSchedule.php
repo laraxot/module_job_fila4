@@ -26,9 +26,13 @@ class CreateSchedule extends XotBaseCreateRecord
      */
     public function getformSchema(): array
     {
-        Assert::isArray($res = $this->getResource()::getFormSchema());
+        $res = $this->getResource()::getFormSchema();
+        Assert::isArray($res);
+        
+        /** @var array<string, mixed> $result */
+        $result = $res;
 
-        return $res;
+        return $result;
     }
 
     public function form(Schema $schema): Schema

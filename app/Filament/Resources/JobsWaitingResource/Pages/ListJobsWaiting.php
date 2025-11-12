@@ -24,7 +24,7 @@ class ListJobsWaiting extends XotBaseListRecords
     public function getHeaderWidgets(): array
     {
         return [
-            JobsWaitingOverview::class,
+            'overview' => JobsWaitingOverview::class,
         ];
     }
 

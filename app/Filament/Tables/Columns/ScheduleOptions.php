@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Columns;
+namespace Modules\Job\Filament\Tables\Columns;
 
 use Filament\Tables\Columns\TextColumn;
 
@@ -23,13 +23,13 @@ class ScheduleOptions extends TextColumn
             return [];
         }
 
-        if ($this->withValue && method_exists($this->record, 'getOptions')) {
+        if ($this->withValue && is_object($this->record) && method_exists($this->record, 'getOptions')) {
             /** @var array<int|string, string> $options */
             $options = $this->record->getOptions();
 
             return $options;
         }
 
-        return parent::getTags();
+        return [];
     }
 }

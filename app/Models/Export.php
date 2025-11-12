@@ -52,8 +52,6 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Export whereUserId($value)
  * @method static Builder<static>|Export whereUserType($value)
  * @mixin Eloquent
- * @mixin IdeHelperExport
- * @mixin Eloquent
  */
 class Export extends BaseExport
 {

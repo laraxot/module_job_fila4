@@ -19,17 +19,12 @@ class JobStatus extends Page
 
     protected string $view = 'job::filament.pages.job-status';
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getHeaderWidgets(): array
     {
         return [
             ClockWidget::make(),
         ];
     }
-
-    
 
     public function artisan(string $cmd): void
     {
@@ -38,9 +33,6 @@ class JobStatus extends Page
         $this->out .= Artisan::output();
     }
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getViewData(): array
     {
         return [
@@ -48,24 +40,23 @@ class JobStatus extends Page
         ];
     }
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getActs(): array
     {
         return [
-            (object) [
-                'name' => 'batches-table',
-                'label' => 'Create a migration for the batches database table',
-            ],
-            (object) [
-                'name' => 'failed-table',
-                'label' => ' Create a migration for the failed queue jobs database table',
-            ],
-            (object) [
-                'name' => 'table',
-                'label' => 'Create a migration for the queue jobs database table',
-            ],
+            /*
+             * (object) [
+             * 'name' => 'batches-table',
+             * 'label' => 'Create a migration for the batches database table',
+             * ],
+             * (object) [
+             * 'name' => 'failed-table',
+             * 'label' => ' Create a migration for the failed queue jobs database table',
+             * ],
+             * (object) [
+             * 'name' => 'table',
+             * 'label' => 'Create a migration for the queue jobs database table',
+             * ],
+             */
             (object) [
                 'name' => 'queue:clear',
                 'label' => 'Delete all of the jobs from the specified queue',
@@ -78,10 +69,24 @@ class JobStatus extends Page
                 'name' => 'queue:flush',
                 'label' => 'Flush all of the failed queue jobs',
             ],
-            (object) [
-                'name' => 'forget',
-                'label' => 'Delete a failed queue job',
-            ],
+            /* -- VUOLE ID
+             * (object) [
+             * 'name' => 'forget',
+             * 'label' => 'Delete a failed queue job',
+             * ],
+             */
+            /* --- RIMANE APPESO
+             * (object) [
+             * 'name' => 'listen',
+             * 'label' => 'Listen to a given queue',
+             * ],
+             */
+            /*manca parametro
+             * (object) [
+             * 'name' => 'monitor',
+             * 'label' => 'Monitor the size of the specified queues',
+             * ],
+             */
             (object) [
                 'name' => 'queue:prune-batches',
                 'label' => 'Prune stale entries from the batches database',
@@ -98,10 +103,18 @@ class JobStatus extends Page
                 'name' => 'queue:retry',
                 'label' => 'Retry a failed queue job',
             ],
-            (object) [
-                'name' => 'retry-batch',
-                'label' => 'Retry the failed jobs for a batch',
-            ],
+            /*-- vuole parametro
+             * (object) [
+             * 'name' => 'retry-batch',
+             * 'label' => 'Retry the failed jobs for a batch',
+             * ],
+             */
+            /*-- rimane appeso
+             * (object) [
+             * 'name' => 'work',
+             * 'label' => 'Start processing jobs on the queue as a daemon',
+             * ],
+             */
             (object) [
                 'name' => 'worker:check',
                 'label' => 'Ensure that the queue listener is running.',

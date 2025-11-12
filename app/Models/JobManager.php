@@ -78,8 +78,7 @@ class JobManager extends BaseModel
     {
         return Attribute::make(get: function (): string {
             if ($this->isFinished()) {
-                $failed = $this->attributes['failed'] ?? false;
-                return $failed ? 'failed' : 'succeeded';
+                return $this->failed ? 'failed' : 'succeeded';
             }
 
             return 'running';
@@ -91,15 +90,13 @@ class JobManager extends BaseModel
         if ($this->hasFailed()) {
             return true;
         }
-        
-        $finishedAt = $this->attributes['finished_at'] ?? null;
-        return $finishedAt !== null;
+
+        return $this->finished_at !== null;
     }
 
     public function hasFailed(): bool
     {
-        $failed = $this->attributes['failed'] ?? false;
-        return (bool) $failed;
+        return $this->failed;
     }
 
     public function hasSucceeded(): bool

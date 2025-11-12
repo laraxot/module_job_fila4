@@ -28,7 +28,7 @@ use Modules\Xot\Traits\Updater;
  */
 class TaskComment extends Model
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasFactory;
     use SoftDeletes;
     use Updater;
 
@@ -40,19 +40,11 @@ class TaskComment extends Model
         'comment',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    }
 
     public function task(): BelongsTo
     {

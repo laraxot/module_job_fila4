@@ -25,4 +25,3 @@ declare(strict_types=1);
         {{ $value }}
     @endif
 </li>
-</li>

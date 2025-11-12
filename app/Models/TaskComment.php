@@ -14,9 +14,9 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class TaskComment.
  *
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Job\Models\Task|null $task
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  * @property-read User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment newQuery()

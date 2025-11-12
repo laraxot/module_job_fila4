@@ -40,7 +40,7 @@ use function Safe\json_decode;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read Collection<int, \Modules\Job\Models\Frequency> $frequencies
  * @property-read int|null $frequencies_count
  * @property-read bool $activated
@@ -51,7 +51,7 @@ use function Safe\json_decode;
  * @property-read int|null $notifications_count
  * @property-read Collection<int, \Modules\Job\Models\Result> $results
  * @property-read int|null $results_count
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  *
  * @method static Builder<static>|Task newModelQuery()
  * @method static Builder<static>|Task newQuery()

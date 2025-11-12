@@ -268,7 +268,11 @@ class JobResource extends Resource
 {
     protected static ?string $model = Job::class;
     
+<<<<<<< HEAD
     public static function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
+=======
+    public static function form(Form $form): Form
+>>>>>>> a51482b (.)
     {
         return $form
             ->schema([

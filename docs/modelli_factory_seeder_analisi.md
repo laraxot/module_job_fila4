@@ -62,7 +62,12 @@ Questo documento analizza tutti i modelli del modulo Job verificando la presenza
 - **Progress Tracking**: Monitoraggio avanzamento
 - **Resource Management**: Gestione risorse sistema
 
+<<<<<<< HEAD
 **Business Logic SaluteOra**:
+=======
+**Business Logic <nome progetto>**:
+**Business Logic **:
+>>>>>>> bccac65 (.)
 - **Report Generation**: Generazione referti asincrona
 - **Email Sending**: Invio email massive
 - **Data Backup**: Backup dati automatico
@@ -145,7 +150,12 @@ Questo documento analizza tutti i modelli del modulo Job verificando la presenza
 - **Error Handling**: Gestione errori import
 - **Rollback Support**: Supporto rollback
 
+<<<<<<< HEAD
 **Business Logic SaluteOra**:
+=======
+**Business Logic <nome progetto>**:
+**Business Logic **:
+>>>>>>> bccac65 (.)
 - **Patient Import**: Import pazienti massivo
 - **Appointment Import**: Import appuntamenti
 - **Medical Data**: Import dati medici
@@ -160,7 +170,12 @@ Questo documento analizza tutti i modelli del modulo Job verificando la presenza
 - **Secure Export**: Export sicuro dati sensibili
 - **Scheduling**: Programmazione export
 
+<<<<<<< HEAD
 **Business Logic SaluteOra**:
+=======
+**Business Logic <nome progetto>**:
+**Business Logic **:
+>>>>>>> bccac65 (.)
 - **Report Export**: Export referti
 - **Patient Data**: Export dati pazienti
 - **Analytics Export**: Export dati analytics
@@ -233,7 +248,12 @@ Tutti i modelli attivi hanno le factory corrispondenti.
 1. **Creare seeder core**: JobBatchSeeder, TaskSeeder, JobManagerSeeder
 2. **Creare seeder config**: ParameterSeeder, FrequencySeeder
 3. **Valutare modelli .aaa**: Decidere se riattivare monitoraggio schedule
+<<<<<<< HEAD
 4. **Documentare integrazione**: Aggiornare documentazione job SaluteOra
+=======
+4. **Documentare integrazione**: Aggiornare documentazione job <nome progetto>
+4. **Documentare integrazione**: Aggiornare documentazione job <nome progetto>
+>>>>>>> bccac65 (.)
 
 ### Azioni Future
 1. **Monitoring avanzato**: Implementare dashboard monitoraggio
@@ -269,7 +289,12 @@ Tutti i modelli attivi hanno le factory corrispondenti.
 - **Queue Monitoring**: Monitoraggio code native
 - **Job Middleware**: Middleware job personalizzati
 
+<<<<<<< HEAD
 #### SaluteOra Integration
+=======
+#### <nome progetto> Integration
+#### <nome progetto> Integration
+>>>>>>> bccac65 (.)
 - **Medical Jobs**: Job specifici sanitari
 - **Appointment Processing**: Elaborazione appuntamenti
 - **Report Generation**: Generazione referti
@@ -305,7 +330,12 @@ Tutti i file factory devono essere validati con PHPStan livello 9:
 - [Performance Tuning](./performance_tuning.md)
 
 ### Moduli Collegati
+<<<<<<< HEAD
 - [SaluteOra Module](../../SaluteOra/docs/modelli_factory_seeder_analisi.md) - Job medici
+=======
+- [<nome progetto> Module](../../<nome progetto>/docs/modelli_factory_seeder_analisi.md) - Job medici
+- [<nome progetto> Module](../../../docs/modelli_factory_seeder_analisi.md) - Job medici
+>>>>>>> bccac65 (.)
 - [Notify Module](../../Notify/docs/modelli_factory_seeder_analisi.md) - Job notifiche
 - [Media Module](../../Media/docs/modelli_factory_seeder_analisi.md) - Job processing media
 - [User Module](../../User/docs/modelli_factory_seeder_analisi.md) - Job utenti

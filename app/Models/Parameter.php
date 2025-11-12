@@ -22,6 +22,7 @@ use Illuminate\Support\Carbon;
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Job\Models\Frequency|null $task
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
  * @method static Builder<static>|Parameter newModelQuery()
  * @method static Builder<static>|Parameter newQuery()
@@ -34,6 +35,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Parameter whereUpdatedAt($value)
  * @method static Builder<static>|Parameter whereUpdatedBy($value)
  * @method static Builder<static>|Parameter whereValue($value)
+ *
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel

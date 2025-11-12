@@ -9,15 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\Job;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<Job>
-=======
-<<<<<<< HEAD
- * @extends Factory<Job>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Job>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
  */
 class JobFactory extends Factory
 {

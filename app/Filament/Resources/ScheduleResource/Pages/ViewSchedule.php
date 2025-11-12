@@ -92,7 +92,7 @@ class ViewSchedule extends Page implements HasTable
                     if (! is_object($record) || ! property_exists($record, 'created_at')) {
                         return 'Unknown';
                     }
-                    
+
                     if ($state === $record->created_at) {
                         return 'Processing...';
                     }
@@ -102,6 +102,7 @@ class ViewSchedule extends Page implements HasTable
                     }
 
                     $seconds = $state->diffInSeconds($record->created_at);
+
                     return is_numeric($seconds) ? $seconds.' seconds' : '0 seconds';
                 }),
                 TextColumn::make('output')->formatStateUsing(

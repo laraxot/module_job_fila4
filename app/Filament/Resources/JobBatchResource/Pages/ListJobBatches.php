@@ -55,8 +55,10 @@ class ListJobBatches extends XotBaseListRecords
                 ->formatStateUsing(function ($record) {
                     if (is_object($record) && method_exists($record, 'progress')) {
                         $progress = $record->progress();
+
                         return is_numeric($progress) ? $progress.'%' : '0%';
                     }
+
                     return '0%';
                 })
                 ->sortable(),

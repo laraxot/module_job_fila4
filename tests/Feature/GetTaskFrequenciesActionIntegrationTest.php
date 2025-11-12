@@ -23,15 +23,43 @@ describe('GetTaskFrequenciesAction Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
         expect($result)
             ->toBeArray()
             ->and($result)
             ->toHaveKeys([
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        expect($result)->toBeArray()
+            ->and($result)->toHaveKeys([
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+        expect($result)->toBeArray()
+            ->and($result)->toHaveKeys([
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
                 'everyMinute',
                 'everyFiveMinutes',
                 'hourly',
                 'daily',
                 'weekly',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 548bbd3 (.)
                 'monthly',
             ])
             ->and($result['everyMinute'])
@@ -40,20 +68,81 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBe('Hourly')
             ->and($result['daily'])
             ->toBe('Daily');
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+                'monthly'
+            ])
+            ->and($result['everyMinute'])->toBe('Every Minute')
+            ->and($result['hourly'])->toBe('Hourly')
+            ->and($result['daily'])->toBe('Daily');
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+                'monthly',
+            ])
+            ->and($result['everyMinute'])
+            ->toBe('Every Minute')
+            ->and($result['hourly'])
+            ->toBe('Hourly')
+            ->and($result['daily'])
+            ->toBe('Daily');
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     });
 
     it('throws exception when config is not array', function () {
         // Mock config with non-array value
         config(['totem.frequencies' => 'invalid_value']);
 
+<<<<<<< HEAD
         expect($this->action->execute(...))->toThrow(Exception::class);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        expect($this->action->execute(...))->toThrow(Exception::class);
+=======
+        expect(fn () => $this->action->execute())
+            ->toThrow(Exception::class);
+>>>>>>> a12f125f4a (.)
+=======
+        expect($this->action->execute(...))->toThrow(Exception::class);
+>>>>>>> b93ef594b4 (.)
+=======
+        expect(fn () => $this->action->execute())
+            ->toThrow(Exception::class);
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     });
 
     it('throws exception when config is null', function () {
         // Mock config with null value
         config(['totem.frequencies' => null]);
 
+<<<<<<< HEAD
         expect($this->action->execute(...))->toThrow(Exception::class);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        expect($this->action->execute(...))->toThrow(Exception::class);
+=======
+        expect(fn () => $this->action->execute())
+            ->toThrow(Exception::class);
+>>>>>>> a12f125f4a (.)
+=======
+        expect($this->action->execute(...))->toThrow(Exception::class);
+>>>>>>> b93ef594b4 (.)
+=======
+        expect(fn () => $this->action->execute())
+            ->toThrow(Exception::class);
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     });
 
     it('handles empty array config', function () {
@@ -61,7 +150,25 @@ describe('GetTaskFrequenciesAction Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
         expect($result)->toBeArray()->and(count($result))->toBe(0);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        expect($result)->toBeArray()->and(count($result))->toBe(0);
+=======
+        expect($result)->toBeArray()
+            ->and(count($result))->toBe(0);
+>>>>>>> a12f125f4a (.)
+=======
+        expect($result)->toBeArray()->and(count($result))->toBe(0);
+>>>>>>> b93ef594b4 (.)
+=======
+        expect($result)->toBeArray()
+            ->and(count($result))->toBe(0);
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     });
 
     it('can be queued', function () {
@@ -72,7 +179,23 @@ describe('GetTaskFrequenciesAction Integration', function () {
     it('integrates with Laravel service container', function () {
         // Test that the action can be resolved from container
         $actionFromContainer = app(GetTaskFrequenciesAction::class);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> a12f125f4a (.)
+=======
+
+>>>>>>> b93ef594b4 (.)
+=======
+        
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
         expect($actionFromContainer)->toBeInstanceOf(GetTaskFrequenciesAction::class);
     });
 
@@ -85,6 +208,14 @@ describe('GetTaskFrequenciesAction Integration', function () {
         config(['totem.frequencies' => ['changed' => 'Changed Value']]);
         $result2 = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
         expect($result1)
             ->toHaveKey('initial')
             ->and($result1['initial'])
@@ -95,6 +226,24 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBe('Changed Value')
             ->and($result2)
             ->not->toHaveKey('initial');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        expect($result1)->toHaveKey('initial')
+            ->and($result1['initial'])->toBe('Initial Value')
+            ->and($result2)->toHaveKey('changed')
+            ->and($result2['changed'])->toBe('Changed Value')
+            ->and($result2)->not->toHaveKey('initial');
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     });
 
     it('returns string keys and mixed values', function () {
@@ -107,6 +256,14 @@ describe('GetTaskFrequenciesAction Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
         expect($result)
             ->toBeArray()
             ->and($result['string_key'])
@@ -117,6 +274,24 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBe(123)
             ->and($result['boolean_key'])
             ->toBe(true);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        expect($result)->toBeArray()
+            ->and($result['string_key'])->toBe('string_value')
+            ->and($result['another_key'])->toBe(['nested', 'array'])
+            ->and($result['numeric_key'])->toBe(123)
+            ->and($result['boolean_key'])->toBe(true);
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     });
 
     it('preserves array key types', function () {
@@ -128,6 +303,14 @@ describe('GetTaskFrequenciesAction Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
         expect($result)
             ->toBeArray()
             ->and($result)
@@ -142,6 +325,26 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBe('value2')
             ->and($result[1])
             ->toBe('value3');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        expect($result)->toBeArray()
+            ->and($result)->toHaveKey('string_key')
+            ->and($result)->toHaveKey(0)
+            ->and($result)->toHaveKey(1)
+            ->and($result['string_key'])->toBe('value1')
+            ->and($result[0])->toBe('value2')
+            ->and($result[1])->toBe('value3');
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     });
 
     it('maintains consistency across multiple executions', function () {
@@ -178,6 +381,14 @@ describe('GetTaskFrequenciesAction Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
         expect($result)
             ->toBeArray()
             ->and(count($result))
@@ -194,5 +405,26 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBe('Monthly')
             ->and($result['yearly'])
             ->toBe('Yearly');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        expect($result)->toBeArray()
+            ->and(count($result))->toBe(10)
+            ->and($result['everyMinute'])->toBe('Every Minute')
+            ->and($result['hourly'])->toBe('Hourly')
+            ->and($result['daily'])->toBe('Daily')
+            ->and($result['weekly'])->toBe('Weekly')
+            ->and($result['monthly'])->toBe('Monthly')
+            ->and($result['yearly'])->toBe('Yearly');
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     });
 });

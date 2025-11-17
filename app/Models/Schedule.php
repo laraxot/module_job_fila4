@@ -46,6 +46,7 @@ use Webmozart\Assert\Assert;
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property string|null $deleted_by
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
  * @property-read int|null $histories_count
@@ -130,26 +131,6 @@ class Schedule extends BaseModel
         'options' => '[]',
         'options_with_value' => '[]',
     ];
-
-    /** @return array<string, string> */
-    #[Override]
-    protected function casts(): array
-    {
-        return [
-            'id' => 'string',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-            'deleted_at' => 'datetime',
-            'updated_by' => 'string',
-            'created_by' => 'string',
-            'deleted_by' => 'string',
-            'params' => 'array',
-            'options' => 'array',
-            'options_with_value' => 'array',
-            'environments' => 'array',
-            'status' => Status::class,
-        ];
-    }
 
     /**
      * Get available environments.
@@ -239,7 +220,7 @@ class Schedule extends BaseModel
             if (is_array($value)) {
                 Assert::nullOrString($value['name']);
 
-                return '--'.((string) ($value['name'] ?? $key)).'='.((string) $value['value']);
+                return '--'.(string) ($value['name'] ?? $key).'='.((string) $value['value']);
             }
 
             // PHPStan Level 10: Cast to string for encapsed string
@@ -249,10 +230,31 @@ class Schedule extends BaseModel
         })->toArray();
     }
 
+    /** @return array<string, string> */
+    #[Override]
+    protected function casts(): array
+    {
+        return [
+            'id' => 'string',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+            'updated_by' => 'string',
+            'created_by' => 'string',
+            'deleted_by' => 'string',
+            'params' => 'array',
+            'options' => 'array',
+            'options_with_value' => 'array',
+            'environments' => 'array',
+            'status' => Status::class,
+        ];
+    }
+
     /**
      * Safely evaluate function strings (avoiding eval).
      *
      * @param  string  $functionString  Il nome della funzione da valutare
+     *
      * @return string|null Il risultato della funzione o null se la funzione non è consentita
      *
      * @throws InvalidArgumentException Se viene passato un argomento non valido

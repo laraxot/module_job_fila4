@@ -12,9 +12,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Carbon;
 use Override;
-use Webmozart\Assert\Assert;
-
 use function Safe\json_decode;
+use Webmozart\Assert\Assert;
 
 /**
  * Modules\Job\Models\Job.
@@ -29,6 +28,7 @@ use function Safe\json_decode;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read string|null $display_name
  * @property-read string $status
@@ -87,7 +87,7 @@ class Job extends BaseModel
 
     public function getDisplayNameAttribute(): ?string
     {
-        Assert::string($json = $this->attributes['payload'], __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+        Assert::string($json = $this->attributes['payload'], __FILE__.':'.__LINE__.' - '.class_basename(self::class));
         $payload = json_decode($json, true);
         if (! is_array($payload)) {
             return null;

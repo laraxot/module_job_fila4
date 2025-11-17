@@ -13,9 +13,8 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Traits\FrontendSortable;
-use Webmozart\Assert\Assert;
-
 use function Safe\json_decode;
+use Webmozart\Assert\Assert;
 
 /**
  * Modules\Job\Models\Task.
@@ -40,6 +39,7 @@ use function Safe\json_decode;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read Collection<int, \Modules\Job\Models\Frequency> $frequencies
  * @property-read int|null $frequencies_count
@@ -87,34 +87,6 @@ class Task extends BaseModel
     use HasFactory;
     use Notifiable;
 
-    /**
-     * Compila i parametri del task per l'esecuzione.
-     *
-     * @param  bool  $forScheduler  Se true, i parametri vengono formattati per lo scheduler
-     * @return array<int|string, mixed>
-     */
-    public function compileParameters(bool $forScheduler = false): array
-    {
-        if ($this->parameters === null) {
-            return [];
-        }
-
-        $parameters = json_decode($this->parameters, true);
-        Assert::isArray($parameters);
-
-        if ($forScheduler) {
-            /** @var array<int|string, string> $result */
-            $result = [];
-            foreach ($parameters as $key => $value) {
-                $result[$key] = is_bool($value) ? ($value ? '1' : '0') : ((string) $value);
-            }
-
-            return $result;
-        }
-
-        return $parameters;
-    }
-
     protected $fillable = [
         'id',
         'description',
@@ -146,6 +118,35 @@ class Task extends BaseModel
         'last_result',
         'average_runtime',
     ];
+
+    /**
+     * Compila i parametri del task per l'esecuzione.
+     *
+     * @param  bool  $forScheduler  Se true, i parametri vengono formattati per lo scheduler
+     *
+     * @return array<int|string, mixed>
+     */
+    public function compileParameters(bool $forScheduler = false): array
+    {
+        if ($this->parameters === null) {
+            return [];
+        }
+
+        $parameters = json_decode($this->parameters, true);
+        Assert::isArray($parameters);
+
+        if ($forScheduler) {
+            /** @var array<int|string, string> $result */
+            $result = [];
+            foreach ($parameters as $key => $value) {
+                $result[$key] = is_bool($value) ? ($value ? '1' : '0') : ((string) $value);
+            }
+
+            return $result;
+        }
+
+        return $parameters;
+    }
 
     /**
      * Activated Accessor.

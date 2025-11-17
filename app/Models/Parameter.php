@@ -19,6 +19,7 @@ use Illuminate\Support\Carbon;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Job\Models\Frequency|null $task
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
@@ -48,6 +49,11 @@ class Parameter extends BaseModel
         'value',
     ];
 
+    public function task(): BelongsTo
+    {
+        return $this->belongsTo(Frequency::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -65,10 +71,5 @@ class Parameter extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ]);
-    }
-
-    public function task(): BelongsTo
-    {
-        return $this->belongsTo(Frequency::class);
     }
 }

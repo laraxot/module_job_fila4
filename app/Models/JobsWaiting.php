@@ -24,6 +24,7 @@ use Illuminate\Support\Carbon;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read string|null $display_name
  * @property-read string $status
@@ -46,4 +47,6 @@ use Illuminate\Support\Carbon;
  *
  * @mixin \Eloquent
  */
-class JobsWaiting extends Job {}
+class JobsWaiting extends Job
+{
+}

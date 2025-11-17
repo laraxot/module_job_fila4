@@ -41,6 +41,16 @@ class TaskComment extends Model
         'comment',
     ];
 
+    public function task(): BelongsTo
+    {
+        return $this->belongsTo(Task::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -53,15 +63,5 @@ class TaskComment extends Model
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
         ];
-    }
-
-    public function task(): BelongsTo
-    {
-        return $this->belongsTo(Task::class);
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
     }
 }

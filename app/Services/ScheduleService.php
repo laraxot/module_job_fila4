@@ -28,10 +28,8 @@ class ScheduleService
 
     /**
      * Undocumented function.
-     *
-     * @return Collection
      */
-    public function getActives()
+    public function getActives(): Collection
     {
         if (config('job::cache.enabled')) {
             return $this->getFromCache();
@@ -50,10 +48,8 @@ class ScheduleService
 
     /**
      * Undocumented function.
-     *
-     * @return Collection
      */
-    private function getFromCache()
+    private function getFromCache(): Collection
     {
         Assert::string($store = config('job::cache.store'), '['.__LINE__.']['.class_basename($this).']');
         Assert::string($key = config('job::cache.key'), '['.__LINE__.']['.class_basename($this).']');

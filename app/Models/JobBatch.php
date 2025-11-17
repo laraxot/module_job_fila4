@@ -28,6 +28,7 @@ use Override;
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  *
@@ -88,7 +89,7 @@ class JobBatch extends BaseModel
     public function progress(): int
     {
         $totalJobs = (int) ($this->attributes['total_jobs'] ?? 0);
-        $progress = $totalJobs > 0 ? round(($this->processedJobs() / $totalJobs) * 100) : 0;
+        $progress = $totalJobs > 0 ? round($this->processedJobs() / $totalJobs * 100) : 0;
 
         return (int) $progress;
     }

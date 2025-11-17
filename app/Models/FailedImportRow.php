@@ -21,6 +21,7 @@ use Override;
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  *

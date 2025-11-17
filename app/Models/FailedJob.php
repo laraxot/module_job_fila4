@@ -21,6 +21,7 @@ use Override;
  * @property array<array-key, mixed> $payload
  * @property string $exception
  * @property string $failed_at
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  *

@@ -26,6 +26,7 @@ use Override;
  * @property string|null $exception_message
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read string $status
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater

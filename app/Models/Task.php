@@ -13,8 +13,9 @@ use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Traits\FrontendSortable;
-use function Safe\json_decode;
 use Webmozart\Assert\Assert;
+
+use function Safe\json_decode;
 
 /**
  * Modules\Job\Models\Task.
@@ -39,7 +40,6 @@ use Webmozart\Assert\Assert;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read Collection<int, \Modules\Job\Models\Frequency> $frequencies
  * @property-read int|null $frequencies_count
@@ -123,7 +123,6 @@ class Task extends BaseModel
      * Compila i parametri del task per l'esecuzione.
      *
      * @param  bool  $forScheduler  Se true, i parametri vengono formattati per lo scheduler
-     *
      * @return array<int|string, mixed>
      */
     public function compileParameters(bool $forScheduler = false): array

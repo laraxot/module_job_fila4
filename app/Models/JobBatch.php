@@ -28,7 +28,6 @@ use Override;
  * @property Carbon|null $cancelled_at
  * @property Carbon $created_at
  * @property Carbon|null $finished_at
- *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
  *

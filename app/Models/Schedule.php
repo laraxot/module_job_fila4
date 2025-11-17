@@ -46,7 +46,6 @@ use Webmozart\Assert\Assert;
  * @property string|null $updated_by
  * @property string|null $created_by
  * @property string|null $deleted_by
- *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
  * @property-read int|null $histories_count
@@ -254,7 +253,6 @@ class Schedule extends BaseModel
      * Safely evaluate function strings (avoiding eval).
      *
      * @param  string  $functionString  Il nome della funzione da valutare
-     *
      * @return string|null Il risultato della funzione o null se la funzione non è consentita
      *
      * @throws InvalidArgumentException Se viene passato un argomento non valido

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\User\Models\User;
@@ -27,7 +26,7 @@ use Modules\Xot\Traits\Updater;
  *
  * @mixin \Eloquent
  */
-class TaskComment extends Model
+class TaskComment extends BaseModel
 {
     use \Modules\Xot\Models\Traits\HasXotFactory;
     use SoftDeletes;

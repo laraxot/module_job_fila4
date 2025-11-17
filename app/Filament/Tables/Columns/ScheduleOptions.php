@@ -19,13 +19,15 @@ class ScheduleOptions extends TextColumn
 
     public function getTags(): array
     {
-        if ($this->record === null) {
+        if (null === $this->record) {
             return [];
         }
 
-        if ($this->withValue && is_object($this->record) && method_exists($this->record, 'getOptions')) {
+        if ($this->withValue && \is_object($this->record) && method_exists($this->record, 'getOptions')) {
             /** @var array<int|string, string> $options */
-            return $this->record->getOptions();
+            $options = $this->record->getOptions();
+
+            return $options;
         }
 
         return [];

@@ -23,6 +23,7 @@ use Override;
  * @property string $failed_at
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Modules\Job\Database\Factories\FailedJobFactory factory($count = null, $state = [])
  * @method static Builder<static>|FailedJob newModelQuery()
  * @method static Builder<static>|FailedJob newQuery()
@@ -34,6 +35,7 @@ use Override;
  * @method static Builder<static>|FailedJob wherePayload($value)
  * @method static Builder<static>|FailedJob whereQueue($value)
  * @method static Builder<static>|FailedJob whereUuid($value)
+ *
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel

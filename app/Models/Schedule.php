@@ -50,6 +50,7 @@ use Webmozart\Assert\Assert;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Job\Models\ScheduleHistory> $histories
  * @property-read int|null $histories_count
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static Builder<static>|Schedule active()
  * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
  * @method static Builder<static>|Schedule inactive()
@@ -86,6 +87,7 @@ use Webmozart\Assert\Assert;
  * @method static Builder<static>|Schedule whereWithoutOverlapping($value)
  * @method static Builder<static>|Schedule withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|Schedule withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class Schedule extends BaseModel
@@ -242,6 +244,7 @@ class Schedule extends BaseModel
 
             // PHPStan Level 10: Cast to string for encapsed string
             $strValue = is_string($value) ? $value : (string) $value;
+
             return "--{$strValue}";
         })->toArray();
     }

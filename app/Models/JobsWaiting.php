@@ -28,6 +28,7 @@ use Illuminate\Support\Carbon;
  * @property-read string|null $display_name
  * @property-read string $status
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Modules\Job\Database\Factories\JobsWaitingFactory factory($count = null, $state = [])
  * @method static Builder<static>|JobsWaiting newModelQuery()
  * @method static Builder<static>|JobsWaiting newQuery()
@@ -42,6 +43,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|JobsWaiting whereReservedAt($value)
  * @method static Builder<static>|JobsWaiting whereUpdatedAt($value)
  * @method static Builder<static>|JobsWaiting whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class JobsWaiting extends Job {}

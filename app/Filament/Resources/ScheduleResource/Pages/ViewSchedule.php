@@ -94,10 +94,11 @@ class ViewSchedule extends Page implements HasTable
                         if ($state === $createdAt) {
                             return 'Processing...';
                         }
-                        
+
                         if (is_object($state) && method_exists($state, 'diffInSeconds') && is_object($createdAt) && method_exists($createdAt, 'getTimestamp')) {
                             $diffSeconds = $state->diffInSeconds($createdAt);
                             $diffStr = is_numeric($diffSeconds) ? ((string) $diffSeconds) : '0';
+
                             return sprintf('%s seconds', $diffStr);
                         }
                     }

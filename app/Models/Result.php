@@ -25,6 +25,7 @@ use Override;
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Job\Models\Task|null $task
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Illuminate\Database\Eloquent\Factories\Factory<static> factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result newQuery()
@@ -38,6 +39,7 @@ use Override;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class Result extends BaseModel

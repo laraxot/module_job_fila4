@@ -30,6 +30,7 @@ use Override;
  * @property Carbon|null $finished_at
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
  * @method static Builder<static>|JobBatch newModelQuery()
  * @method static Builder<static>|JobBatch newQuery()
@@ -44,6 +45,7 @@ use Override;
  * @method static Builder<static>|JobBatch whereOptions($value)
  * @method static Builder<static>|JobBatch wherePendingJobs($value)
  * @method static Builder<static>|JobBatch whereTotalJobs($value)
+ *
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel
@@ -76,7 +78,7 @@ class JobBatch extends BaseModel
     {
         $totalJobs = (int) ($this->attributes['total_jobs'] ?? 0);
         $pendingJobs = (int) ($this->attributes['pending_jobs'] ?? 0);
-        
+
         return $totalJobs - $pendingJobs;
     }
 
@@ -97,7 +99,7 @@ class JobBatch extends BaseModel
     public function hasPendingJobs(): bool
     {
         $pendingJobs = (int) ($this->attributes['pending_jobs'] ?? 0);
-        
+
         return $pendingJobs > 0;
     }
 
@@ -107,7 +109,7 @@ class JobBatch extends BaseModel
     public function finished(): bool
     {
         $finishedAt = $this->attributes['finished_at'] ?? null;
-        
+
         return $finishedAt instanceof Carbon;
     }
 
@@ -117,7 +119,7 @@ class JobBatch extends BaseModel
     public function hasFailures(): bool
     {
         $failedJobs = (int) ($this->attributes['failed_jobs'] ?? 0);
-        
+
         return $failedJobs > 0;
     }
 
@@ -128,7 +130,7 @@ class JobBatch extends BaseModel
     {
         $failedJobs = (int) ($this->attributes['failed_jobs'] ?? 0);
         $totalJobs = (int) ($this->attributes['total_jobs'] ?? 0);
-        
+
         return $failedJobs === $totalJobs;
     }
 
@@ -138,7 +140,7 @@ class JobBatch extends BaseModel
     public function cancelled(): bool
     {
         $cancelledAt = $this->attributes['cancelled_at'] ?? null;
-        
+
         return $cancelledAt instanceof Carbon;
     }
 

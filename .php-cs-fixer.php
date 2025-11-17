@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
 
-$finder = PhpCsFixer\Finder::create()
+$finder = Finder::create()
     ->notPath('bootstrap/cache')
     ->notPath('storage')
     ->notPath('vendor')
@@ -13,7 +15,7 @@ $finder = PhpCsFixer\Finder::create()
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
-$config = new PhpCsFixer\Config();
+$config = new Config();
 
 $config
     ->setRules([
@@ -38,6 +40,6 @@ $config
         'class_definition' => true,
         'elseif' => true,
     ])
-    ->setFinder($finder)
+    ->setFinder($finder);
 
 return $config;

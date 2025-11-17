@@ -54,8 +54,10 @@ class ListSchedules extends XotBaseListRecords
                 ->hidden(function ($record): bool {
                     if (is_object($record) && method_exists($record, 'trashed')) {
                         $trashed = $record->trashed();
+
                         return is_bool($trashed) ? $trashed : false;
                     }
+
                     return false;
                 })
                 ->tooltip(__('filament-support::actions/edit.single.label')),

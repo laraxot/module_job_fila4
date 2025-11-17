@@ -28,7 +28,7 @@ class GetCommandsAction
         $commandDataCollection = collect($commands)->map(function (Command $command): CommandData {
             $name = $command->getName() ?? '';
             $description = $command->getDescription();
-            
+
             // Ensure signature is always a string
             $rawSignature = method_exists($command, 'getSignature') ? $command->getSignature() : $name;
             $signature = is_string($rawSignature) ? $rawSignature : (string) $name;

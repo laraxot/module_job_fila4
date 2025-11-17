@@ -29,6 +29,7 @@ use Override;
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read string $status
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
  * @method static Builder<static>|JobManager newModelQuery()
  * @method static Builder<static>|JobManager newQuery()
@@ -45,6 +46,7 @@ use Override;
  * @method static Builder<static>|JobManager whereQueue($value)
  * @method static Builder<static>|JobManager whereStartedAt($value)
  * @method static Builder<static>|JobManager whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel
@@ -79,6 +81,7 @@ class JobManager extends BaseModel
         return Attribute::make(get: function (): string {
             if ($this->isFinished()) {
                 $failed = $this->attributes['failed'] ?? false;
+
                 return $failed ? 'failed' : 'succeeded';
             }
 
@@ -91,14 +94,16 @@ class JobManager extends BaseModel
         if ($this->hasFailed()) {
             return true;
         }
-        
+
         $finishedAt = $this->attributes['finished_at'] ?? null;
+
         return $finishedAt !== null;
     }
 
     public function hasFailed(): bool
     {
         $failed = $this->attributes['failed'] ?? false;
+
         return (bool) $failed;
     }
 

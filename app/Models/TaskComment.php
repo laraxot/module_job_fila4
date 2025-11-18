@@ -5,17 +5,15 @@ declare(strict_types=1);
 namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\User\Models\User;
-use Modules\Xot\Traits\Updater;
 
 /**
  * Class TaskComment.
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Job\Models\Task|null $task
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
- * @property-read User|null $user
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property Task|null                                   $task
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property User|null                                   $user
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment newQuery()
@@ -28,10 +26,6 @@ use Modules\Xot\Traits\Updater;
  */
 class TaskComment extends BaseModel
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
-    use SoftDeletes;
-    use Updater;
-
     protected $table = 'task_comments';
 
     protected $fillable = [

@@ -4,64 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Models\XotBaseModel;
-use Modules\Xot\Traits\Updater;
 
 /**
  * Class BaseModel.
  *
- * @property-read ProfileContract|null $creator
- * @property-read ProfileContract|null $updater
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $updater
  */
 abstract class BaseModel extends XotBaseModel
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
-    use SoftDeletes;
-
-    // use Searchable;
-    // //use Cachable;
-    use Updater;
-
-    /**
-     * Indicates whether attributes are snake cased on arrays.
-     *
-     * @see https://laravel-news.com/6-eloquent-secrets
-     *
-     * @var bool
-     */
-    public static $snakeAttributes = true;
-
-    /** @var bool */
-    public $incrementing = true;
-
-    /** @var bool */
-    public $timestamps = true;
-
-    /** @var int */
-    protected $perPage = 30;
-
     /** @var string */
     protected $connection = 'job';
 
-    /** @var string|null */
-    protected $prefix;
-
-    /** @var list<string> */
-    protected $fillable = ['id'];
-
-    /** @var string */
-    protected $primaryKey = 'id';
-
-    /** @var string */
-    protected $keyType = 'string';
-
-    /** @var list<string> */
-    protected $hidden = [
-        // 'password'
-    ];
-
+    /*
     public function __construct(array $attributes = [])
     {
         if (isset($this->prefix)) {
@@ -70,7 +27,7 @@ abstract class BaseModel extends XotBaseModel
 
         parent::__construct($attributes);
     }
-
+    */
     /** @return array<string, string> */
     protected function casts(): array
     {

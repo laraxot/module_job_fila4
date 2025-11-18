@@ -84,7 +84,7 @@ class Task extends BaseModel
 {
     // use HasFrequencies;
     use FrontendSortable;
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
     use Notifiable;
 
     protected $fillable = [

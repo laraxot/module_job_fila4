@@ -136,7 +136,6 @@ class WorkerCheck extends Command
             '/artisan queue:work --timeout=60 --sleep=5 --tries=3 > /dev/null & echo $!';
         // $this->comment($command);
 
-        // dd($command);
 
         $pid = exec($command);
         // if ($pid === false) {

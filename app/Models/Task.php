@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Modules\Xot\Models\Traits\HasXotFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -40,18 +42,18 @@ use function Safe\json_decode;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read Collection<int, \Modules\Job\Models\Frequency> $frequencies
+ * @property-read ProfileContract|null $creator
+ * @property-read Collection<int, Frequency> $frequencies
  * @property-read int|null $frequencies_count
  * @property-read bool $activated
  * @property-read float $average_runtime
- * @property-read \Modules\Job\Models\Result|null $last_result
+ * @property-read Result|null $last_result
  * @property-read string $upcoming
  * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
- * @property-read Collection<int, \Modules\Job\Models\Result> $results
+ * @property-read Collection<int, Result> $results
  * @property-read int|null $results_count
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read ProfileContract|null $updater
  *
  * @method static Builder<static>|Task newModelQuery()
  * @method static Builder<static>|Task newQuery()
@@ -84,7 +86,7 @@ class Task extends BaseModel
 {
     // use HasFrequencies;
     use FrontendSortable;
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasXotFactory;
     use Notifiable;
 
     protected $fillable = [

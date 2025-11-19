@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Job\Database\Factories\JobFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Carbon;
@@ -29,12 +31,12 @@ use function Safe\json_decode;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read ProfileContract|null $creator
  * @property-read string|null $display_name
  * @property-read string $status
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read ProfileContract|null $updater
  *
- * @method static \Modules\Job\Database\Factories\JobFactory factory($count = null, $state = [])
+ * @method static JobFactory factory($count = null, $state = [])
  * @method static Builder<static>|Job newModelQuery()
  * @method static Builder<static>|Job newQuery()
  * @method static Builder<static>|Job query()

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
+use Illuminate\Contracts\Support\Htmlable;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Collection;
@@ -22,14 +23,14 @@ class CreateSchedule extends XotBaseCreateRecord
     protected static string $resource = ScheduleResource::class;
 
     /**
-     * @return array<\Illuminate\Contracts\Support\Htmlable|string>
+     * @return array<Htmlable|string>
      */
     public function getformSchema(): array
     {
         $res = $this->getResource()::getFormSchema();
         Assert::isArray($res);
 
-        /** @var array<\Illuminate\Contracts\Support\Htmlable|string> $typedRes */
+        /** @var array<Htmlable|string> $typedRes */
         $typedRes = $res;
 
         return $typedRes;
@@ -37,7 +38,7 @@ class CreateSchedule extends XotBaseCreateRecord
 
     public function form(Schema $schema): Schema
     {
-        /** @var array<\Illuminate\Contracts\Support\Htmlable|string> $formSchema */
+        /** @var array<Htmlable|string> $formSchema */
         $formSchema = $this->getFormSchema();
         Assert::isArray($formSchema);
 

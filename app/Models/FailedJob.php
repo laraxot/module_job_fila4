@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Job\Database\Factories\FailedJobFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Override;
 
@@ -21,10 +23,10 @@ use Override;
  * @property array<array-key, mixed> $payload
  * @property string $exception
  * @property string $failed_at
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read ProfileContract|null $creator
+ * @property-read ProfileContract|null $updater
  *
- * @method static \Modules\Job\Database\Factories\FailedJobFactory factory($count = null, $state = [])
+ * @method static FailedJobFactory factory($count = null, $state = [])
  * @method static Builder<static>|FailedJob newModelQuery()
  * @method static Builder<static>|FailedJob newQuery()
  * @method static Builder<static>|FailedJob query()

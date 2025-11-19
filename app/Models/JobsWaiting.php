@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Job\Database\Factories\JobsWaitingFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 
@@ -24,12 +26,12 @@ use Illuminate\Support\Carbon;
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property Carbon|null $updated_at
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property-read ProfileContract|null $creator
  * @property-read string|null $display_name
  * @property-read string $status
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read ProfileContract|null $updater
  *
- * @method static \Modules\Job\Database\Factories\JobsWaitingFactory factory($count = null, $state = [])
+ * @method static JobsWaitingFactory factory($count = null, $state = [])
  * @method static Builder<static>|JobsWaiting newModelQuery()
  * @method static Builder<static>|JobsWaiting newQuery()
  * @method static Builder<static>|JobsWaiting query()

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Override;
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Job\Database\Factories\JobManagerFactory;
 use Illuminate\Contracts\Queue\Job as JobContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -25,11 +28,11 @@ use Illuminate\Support\Facades\Hash;
  * @property string|null                                 $exception_message
  * @property Carbon|null                                 $created_at
  * @property Carbon|null                                 $updated_at
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property ProfileContract|null $creator
  * @property string                                      $status
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property ProfileContract|null $updater
  *
- * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
+ * @method static JobManagerFactory factory($count = null, $state = [])
  * @method static Builder<static>|JobManager                        newModelQuery()
  * @method static Builder<static>|JobManager                        newQuery()
  * @method static Builder<static>|JobManager                        query()
@@ -127,7 +130,7 @@ class JobManager extends BaseModel
         return static::query();
     }
 
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

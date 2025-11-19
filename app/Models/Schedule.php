@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Override;
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Job\Database\Factories\ScheduleFactory;
+use InvalidArgumentException;
 use Exception;
 use Illuminate\Console\Scheduling\ManagesFrequencies;
 use Illuminate\Database\Eloquent\Builder;
@@ -43,13 +47,13 @@ use Webmozart\Assert\Assert;
  * @property string|null                                                    $updated_by
  * @property string|null                                                    $created_by
  * @property string|null                                                    $deleted_by
- * @property \Modules\Xot\Contracts\ProfileContract|null                    $creator
+ * @property ProfileContract|null $creator
  * @property \Illuminate\Database\Eloquent\Collection<int, ScheduleHistory> $histories
  * @property int|null                                                       $histories_count
- * @property \Modules\Xot\Contracts\ProfileContract|null                    $updater
+ * @property ProfileContract|null $updater
  *
  * @method static Builder<static>|Schedule                        active()
- * @method static \Modules\Job\Database\Factories\ScheduleFactory factory($count = null, $state = [])
+ * @method static ScheduleFactory factory($count = null, $state = [])
  * @method static Builder<static>|Schedule                        inactive()
  * @method static Builder<static>|Schedule                        newModelQuery()
  * @method static Builder<static>|Schedule                        newQuery()
@@ -226,7 +230,7 @@ class Schedule extends BaseModel
     }
 
     /** @return array<string, string> */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [
@@ -250,7 +254,7 @@ class Schedule extends BaseModel
      *
      * @param string $functionString Il nome della funzione da valutare
      *
-     * @throws \InvalidArgumentException Se viene passato un argomento non valido
+     * @throws InvalidArgumentException Se viene passato un argomento non valido
      *
      * @return string|null Il risultato della funzione o null se la funzione non è consentita
      */
@@ -271,7 +275,7 @@ class Schedule extends BaseModel
                     default:
                         return null;
                 }
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 // Log error or handle exception
                 return null;
             }

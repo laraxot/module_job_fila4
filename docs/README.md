@@ -332,7 +332,7 @@ php artisan queue:failed-table
 ```bash
 # Esegui analisi statica
 cd /var/www/html/_bases/base_techplanner_fila3_mono/laravel
-cd /var/www/html/_bases/base_saluteora/laravel
+cd /var/www/html/_bases/base_<nome progetto>/laravel
 ./vendor/bin/phpstan analyze Modules/Job --level=9
 ```
 

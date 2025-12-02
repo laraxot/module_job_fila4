@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Job\Database\Factories\ImportFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ImportFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Override;
 
 /**

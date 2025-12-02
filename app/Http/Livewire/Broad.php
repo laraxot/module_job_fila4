@@ -37,5 +37,7 @@ class Broad extends Component
         \Illuminate\Support\Facades\Log::debug('fine');
 
         // $this->showNewOrderNotification = true;
+
+        throw new \LogicException('This method should never complete normally');
     }
 }

@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Models\User;
+use Modules\Xot\Contracts\ProfileContract;
 
 /**
  * Class TaskComment.
  *
  * @property ProfileContract|null $creator
- * @property Task|null                                   $task
+ * @property Task|null $task
  * @property ProfileContract|null $updater
- * @property User|null                                   $user
+ * @property User|null $user
  *
  * @method static Builder<static>|TaskComment newModelQuery()
  * @method static Builder<static>|TaskComment newQuery()

@@ -77,7 +77,7 @@ PHPStan aveva difficoltà nel riconoscere la sintassi moderna del constructor co
 - **Documentazione migliorata**: PHPDoc aggiunto per chiarezza
 
 ### **Benefici**
-- ✅ **PHPStan Level 9**: Compatibilità completa
+- ✅ **PHPStan level 10**: Compatibilità completa
 - ✅ **Leggibilità**: Codice più esplicito e chiaro
 - ✅ **Type Safety**: Mantenuta con type hints espliciti
 

@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 <div>
     <form wire:submit.prevent="store">
         <div class="uk-flex uk-flex-between uk-flex-middle">
@@ -15,10 +21,14 @@ declare(strict_types=1);
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <label class="uk-form-label">Description</label>
 =======
                 <x-filament-forms::field-wrapper.label class="uk-form-label">Description</label>
 >>>>>>> e1b0bf9 (.)
+=======
+                <label class="uk-form-label">Description</label>
+>>>>>>> 7d4742a (.)
                 <div class="uk-text-meta">Provide a descriptive name for your task</div>
             </div>
             <div class="uk-width-1-1@s uk-width-2-3@m">
@@ -33,10 +43,14 @@ declare(strict_types=1);
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <label class="uk-form-label">Command</label>
 =======
                 <x-filament-forms::field-wrapper.label class="uk-form-label">Command</label>
 >>>>>>> e1b0bf9 (.)
+=======
+                <label class="uk-form-label">Command</label>
+>>>>>>> 7d4742a (.)
                 <div class="uk-text-meta">Select an artisan command to schedule</div>
             </div>
             <div class="uk-width-1-1@s uk-width-2-3@m">
@@ -49,10 +63,14 @@ declare(strict_types=1);
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <label class="uk-form-label">Parameters (Optional)</label>
 =======
                 <x-filament-forms::field-wrapper.label class="uk-form-label">Parameters (Optional)</label>
 >>>>>>> e1b0bf9 (.)
+=======
+                <label class="uk-form-label">Parameters (Optional)</label>
+>>>>>>> 7d4742a (.)
                 <div class="uk-text-meta">Command parameters required to run the selected command</div>
             </div>
             <div class="uk-width-1-1@s uk-width-2-3@m">
@@ -64,10 +82,14 @@ declare(strict_types=1);
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <label class="uk-form-label">Timezone</label>
 =======
                 <x-filament-forms::field-wrapper.label class="uk-form-label">Timezone</label>
 >>>>>>> e1b0bf9 (.)
+=======
+                <label class="uk-form-label">Timezone</label>
+>>>>>>> 7d4742a (.)
                 <div class="uk-text-meta">Select a timezone for your task. App timezone is selected by default</div>
             </div>
             <div class="uk-width-1-1@s uk-width-2-3@m">
@@ -90,16 +112,22 @@ declare(strict_types=1);
                     </div>
                     <div class="uk-width-1-1@s uk-width-2-3@m uk-form-controls-text">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
                         <label>
                             <input type="radio" name="type" v-model="type" value="expression"> Expression
                         </label><br>
                         <label>
+<<<<<<< HEAD
 =======
                         <x-filament-forms::field-wrapper.label>
                             <input type="radio" name="type" v-model="type" value="expression"> Expression
                         </label><br>
                         <x-filament-forms::field-wrapper.label>
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
                             <input type="radio" name="type" v-model="type" value="frequency"> Frequencies
                         </label>
                     </div>
@@ -107,10 +135,14 @@ declare(strict_types=1);
                 <div class="uk-grid" v-if="isCron">
                     <div class="uk-width-1-1@s uk-width-1-3@m">
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <label class="uk-form-label">Cron Expression</label>
 =======
                         <x-filament-forms::field-wrapper.label class="uk-form-label">Cron Expression</label>
 >>>>>>> e1b0bf9 (.)
+=======
+                        <label class="uk-form-label">Cron Expression</label>
+>>>>>>> 7d4742a (.)
                         <div class="uk-text-meta">Add a cron expression for your task</div>
                     </div>
                     <div class="uk-width-1-1@s uk-width-2-3@m">
@@ -125,10 +157,14 @@ declare(strict_types=1);
                 <div class="uk-grid" v-if="managesFrequencies">
                     <div class="uk-width-1-1@s uk-width-1-3@m">
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <label class="uk-form-label">Frequencies</label>
 =======
                         <x-filament-forms::field-wrapper.label class="uk-form-label">Frequencies</label>
 >>>>>>> e1b0bf9 (.)
+=======
+                        <label class="uk-form-label">Frequencies</label>
+>>>>>>> 7d4742a (.)
                         <div class="uk-text-meta">Add frequencies to your task. These frequencies will be converted into
                             a cron expression while scheduling the task</div>
                     </div>
@@ -196,10 +232,14 @@ declare(strict_types=1);
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <label class="uk-form-label">Email Notification (optional)</label>
 =======
                 <x-filament-forms::field-wrapper.label class="uk-form-label">Email Notification (optional)</label>
 >>>>>>> e1b0bf9 (.)
+=======
+                <label class="uk-form-label">Email Notification (optional)</label>
+>>>>>>> 7d4742a (.)
                 <div class="uk-text-meta">Add an email address to receive notifications when this task gets executed.
                     Leave empty if you do not wish to receive email notifications</div>
             </div>
@@ -215,10 +255,14 @@ declare(strict_types=1);
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <label class="uk-form-label">SMS Notification (optional)</label>
 =======
                 <x-filament-forms::field-wrapper.label class="uk-form-label">SMS Notification (optional)</label>
 >>>>>>> e1b0bf9 (.)
+=======
+                <label class="uk-form-label">SMS Notification (optional)</label>
+>>>>>>> 7d4742a (.)
                 <div class="uk-text-meta">Add a phone number to receive SMS notifications. Leave empty if you do not
                     wish to receive sms notifications</div>
             </div>
@@ -234,10 +278,14 @@ declare(strict_types=1);
         <div class="uk-grid">
             <div class="uk-width-1-1@s uk-width-1-3@m">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <label class="uk-form-label">Slack Notification (optional)</label>
 =======
                 <x-filament-forms::field-wrapper.label class="uk-form-label">Slack Notification (optional)</label>
 >>>>>>> e1b0bf9 (.)
+=======
+                <label class="uk-form-label">Slack Notification (optional)</label>
+>>>>>>> 7d4742a (.)
                 <div class="uk-text-meta">Add a slack web hook url to recieve slack notifications. Leave empty if you
                     do not wish to receive slack notifications</div>
             </div>
@@ -265,10 +313,14 @@ declare(strict_types=1);
             </div>
             <div class="uk-width-1-1@s uk-width-2-3@m uk-form-controls-text">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <label class="uk-margin">
 =======
                 <x-filament-forms::field-wrapper.label class="uk-margin">
 >>>>>>> e1b0bf9 (.)
+=======
+                <label class="uk-margin">
+>>>>>>> 7d4742a (.)
                     <input type="hidden" name="dont_overlap" id="dont_overlap" value="0"
                         {{ old('dont_overlap', $task->dont_overlap) ? '' : 'checked' }}>
                     <input type="checkbox" name="dont_overlap" id="dont_overlap" value="1"
@@ -278,10 +330,14 @@ declare(strict_types=1);
 
                 <div class="uk-margin">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <label class="uk-margin">
 =======
                     <x-filament-forms::field-wrapper.label class="uk-margin">
 >>>>>>> e1b0bf9 (.)
+=======
+                    <label class="uk-margin">
+>>>>>>> 7d4742a (.)
                         <input type="hidden" name="run_in_maintenance" id="run_in_maintenance" value="0"
                             {{ old('run_in_maintenance', $task->run_in_maintenance) ? '' : 'checked' }}>
                         <input type="checkbox" name="run_in_maintenance" id="run_in_maintenance" value="1"
@@ -291,10 +347,14 @@ declare(strict_types=1);
                 </div>
                 <div class="uk-margin">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <label class="uk-margin">
 =======
                     <x-filament-forms::field-wrapper.label class="uk-margin">
 >>>>>>> e1b0bf9 (.)
+=======
+                    <label class="uk-margin">
+>>>>>>> 7d4742a (.)
                         <input type="hidden" name="run_on_one_server" id="run_on_one_server" value="0"
                             {{ old('run_on_one_server', $task->run_on_one_server) ? '' : 'checked' }}>
                         <input type="checkbox" name="run_on_one_server" id="run_on_one_server" value="1"
@@ -304,10 +364,14 @@ declare(strict_types=1);
                 </div>
                 <div class="uk-margin">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <label class="uk-margin">
 =======
                     <x-filament-forms::field-wrapper.label class="uk-margin">
 >>>>>>> e1b0bf9 (.)
+=======
+                    <label class="uk-margin">
+>>>>>>> 7d4742a (.)
                         <input type="hidden" name="run_in_background" id="run_in_background" value="0"
                             {{ old('run_in_background', $task->run_in_background) ? '' : 'checked' }}>
                         <input type="checkbox" name="run_in_background" id="run_in_background" value="1"
@@ -328,29 +392,41 @@ declare(strict_types=1);
             </div>
             <div class="uk-width-1-1@s uk-width-2-3@m uk-form-controls-text">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <label class="uk-margin">
 =======
                 <x-filament-forms::field-wrapper.label class="uk-margin">
 >>>>>>> e1b0bf9 (.)
+=======
+                <label class="uk-margin">
+>>>>>>> 7d4742a (.)
                     Auto Cleanup results after
                     <br>
                     <input class="uk-input" type="number" name="auto_cleanup_num" id="auto_cleanup_num"
                         value="{{ old('auto_cleanup_num', $task->auto_cleanup_num) ?? 0 }}" />
                     <br>
 <<<<<<< HEAD
-                    <label>
-=======
-                    <x-filament-forms::field-wrapper.label>
->>>>>>> e1b0bf9 (.)
-                        <input type="radio" name="auto_cleanup_type" value="days"
-                            {{ old('auto_cleanup_type', $task->auto_cleanup_type) !== 'results' ? 'checked' : '' }}>
-                        Days
-                    </label><br>
 <<<<<<< HEAD
                     <label>
 =======
                     <x-filament-forms::field-wrapper.label>
 >>>>>>> e1b0bf9 (.)
+=======
+                    <label>
+>>>>>>> 7d4742a (.)
+                        <input type="radio" name="auto_cleanup_type" value="days"
+                            {{ old('auto_cleanup_type', $task->auto_cleanup_type) !== 'results' ? 'checked' : '' }}>
+                        Days
+                    </label><br>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    <label>
+=======
+                    <x-filament-forms::field-wrapper.label>
+>>>>>>> e1b0bf9 (.)
+=======
+                    <label>
+>>>>>>> 7d4742a (.)
                         <input type="radio" name="auto_cleanup_type" value="results"
                             {{ old('auto_cleanup_type', $task->auto_cleanup_type) === 'results' ? 'checked' : '' }}>
                         Results

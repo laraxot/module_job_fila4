@@ -10,10 +10,6 @@ class ExecuteTaskAction
 {
     use QueueableAction;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
     public function execute(string $_task_id): string
     {
         /*
@@ -29,26 +25,6 @@ class ExecuteTaskAction
          *
          * return $output;
          */
-<<<<<<< HEAD
-=======
-    public function execute(string $task_id): string
-    {
-        /*
-        $task = Task::findOrFail($task_id);
-        $start = microtime(true);
-        try {
-            Artisan::call($task->command, $task->compileParameters());
-            $output = Artisan::output();
-        } catch (\Exception $e) {
-            $output = $e->getMessage();
-        }
-        Executed::dispatch($task, $start, $output);
-
-        return $output;
-        */
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
         dddx('wip');
 
         return 'WIP';

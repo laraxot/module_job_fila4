@@ -24,6 +24,19 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__.'/docs',
         __DIR__.'/tests/coverage',
     ]);
+    $rectorConfig->paths(
+        [
+            __DIR__,
+        ]
+    );
+
+    $rectorConfig->skip(
+        [
+            './vendor/',
+            '*/docs',
+            '*/vendor',
+        ]
+    );
 
     // PHP version target
     $rectorConfig->phpVersion(\Rector\ValueObject\PhpVersion::PHP_81);
@@ -44,6 +57,22 @@ return static function (RectorConfig $rectorConfig): void {
         // Coding style
         // SetList::CODING_STYLE,
     ]);
+    $rectorConfig->sets(
+        [
+            PHPUnitLevelSetList::UP_TO_PHPUNIT_100,
+            // SetList::DEAD_CODE,
+            // SetList::CODE_QUALITY,
+            LevelSetList::UP_TO_PHP_81,
+            LaravelSetList::LARAVEL_100,
+
+            // SetList::NAMING, //problemi con injuction
+            SetList::TYPE_DECLARATION,
+            // SetList::CODING_STYLE,
+            // SetList::PRIVATIZATION,//problemi con final
+            // SetList::EARLY_RETURN,
+            // SetList::INSTANCEOF,
+        ]
+    );
 
     // Import names for cleaner code
     $rectorConfig->importNames();

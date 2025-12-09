@@ -11,3 +11,4 @@ declare(strict_types=1);
     @endforeach
     </ul>
 </div>
+</div>

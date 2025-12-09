@@ -6,6 +6,7 @@ namespace Modules\Job\Models\Policies;
 
 use Modules\Job\Models\JobsWaiting;
 use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Contracts\ProfileContract;
 
 class JobsWaitingPolicy extends JobBasePolicy
 {
@@ -15,6 +16,9 @@ class JobsWaitingPolicy extends JobBasePolicy
     public function viewAny(UserContract $user): bool
     {
         return $user->hasPermissionTo('jobs_waiting.viewAny');
+    public function viewAny(ProfileContract $user): bool
+    {
+        return $user->hasPermissionTo('jobs_waiting.viewAny'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -23,6 +27,9 @@ class JobsWaitingPolicy extends JobBasePolicy
     public function view(UserContract $user, JobsWaiting $_jobs_waiting): bool
     {
         return $user->hasPermissionTo('jobs_waiting.view');
+    public function view(ProfileContract $user, JobsWaiting $jobs_waiting): bool
+    {
+        return $user->hasPermissionTo('jobs_waiting.view'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -31,6 +38,9 @@ class JobsWaitingPolicy extends JobBasePolicy
     public function create(UserContract $user): bool
     {
         return $user->hasPermissionTo('jobs_waiting.create');
+    public function create(ProfileContract $user): bool
+    {
+        return $user->hasPermissionTo('jobs_waiting.create'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -39,6 +49,9 @@ class JobsWaitingPolicy extends JobBasePolicy
     public function update(UserContract $user, JobsWaiting $_jobs_waiting): bool
     {
         return $user->hasPermissionTo('jobs_waiting.update');
+    public function update(ProfileContract $user, JobsWaiting $jobs_waiting): bool
+    {
+        return $user->hasPermissionTo('jobs_waiting.update'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -47,6 +60,9 @@ class JobsWaitingPolicy extends JobBasePolicy
     public function delete(UserContract $user, JobsWaiting $_jobs_waiting): bool
     {
         return $user->hasPermissionTo('jobs_waiting.delete');
+    public function delete(ProfileContract $user, JobsWaiting $jobs_waiting): bool
+    {
+        return $user->hasPermissionTo('jobs_waiting.delete'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -55,6 +71,9 @@ class JobsWaitingPolicy extends JobBasePolicy
     public function restore(UserContract $user, JobsWaiting $_jobs_waiting): bool
     {
         return $user->hasPermissionTo('jobs_waiting.restore');
+    public function restore(ProfileContract $user, JobsWaiting $jobs_waiting): bool
+    {
+        return $user->hasPermissionTo('jobs_waiting.restore'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -63,5 +82,8 @@ class JobsWaitingPolicy extends JobBasePolicy
     public function forceDelete(UserContract $user, JobsWaiting $jobs_waiting): bool
     {
         return $user->hasPermissionTo('jobs_waiting.forceDelete');
+    public function forceDelete(ProfileContract $user, JobsWaiting $jobs_waiting): bool
+    {
+        return $user->hasPermissionTo('jobs_waiting.forceDelete'); /** @phpstan-ignore method.nonObject */
     }
 }

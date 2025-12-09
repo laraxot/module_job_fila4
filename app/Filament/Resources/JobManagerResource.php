@@ -36,7 +36,8 @@ class JobManagerResource extends XotBaseResource
             'failed' => Toggle::make('failed')->required(),
             'attempt' => TextInput::make('attempt')->required(),
             'exception_message' => Textarea::make('exception_message')->maxLength(65535),
-        ]);}
+        ]);
+    }
 
     #[Override]
     public static function getRelations(): array

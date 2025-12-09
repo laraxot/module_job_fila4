@@ -18,20 +18,14 @@ class ListJobsWaiting extends XotBaseListRecords
 {
     public static string $resource = JobsWaitingResource::class;
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getHeaderWidgets(): array
     {
         return [
-            'overview' => JobsWaitingOverview::class,
+            JobsWaitingOverview::class,
         ];
     }
 
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         return [

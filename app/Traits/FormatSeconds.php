@@ -13,23 +13,10 @@ trait FormatSeconds
     public function formatSeconds(int $seconds): string
     {
         $days = floor($seconds / (60 * 60 * 24));
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
         $seconds -= $days * 60 * 60 * 24;
 
         $hours = floor($seconds / (60 * 60));
         $seconds -= $hours * 60 * 60;
-<<<<<<< HEAD
-=======
-        $seconds -= $days * (60 * 60 * 24);
-
-        $hours = floor($seconds / (60 * 60));
-        $seconds -= $hours * (60 * 60);
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
 
         $minutes = floor($seconds / 60);
         $seconds -= $minutes * 60;
@@ -37,10 +24,6 @@ trait FormatSeconds
         $formattedSeconds = '';
 
         if ($days > 0) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
             $formattedSeconds .= "{$days} d ";
         }
 
@@ -54,24 +37,6 @@ trait FormatSeconds
 
         if ($days < 1 && ($seconds > 0 || $minutes > 0 || $hours > 0)) {
             $formattedSeconds .= "{$seconds} s";
-<<<<<<< HEAD
-=======
-            $formattedSeconds .= "$days d ";
-        }
-
-        if ($hours > 0 || $days > 0) {
-            $formattedSeconds .= "$hours h ";
-        }
-
-        if ($minutes > 0 || $hours > 0 || $days > 0) {
-            $formattedSeconds .= "$minutes m ";
-        }
-
-        if ($days < 1 && ($seconds > 0 || $minutes > 0 || $hours > 0)) {
-            $formattedSeconds .= "$seconds s";
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
         }
 
         return $formattedSeconds;

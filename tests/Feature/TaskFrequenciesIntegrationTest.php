@@ -2,9 +2,15 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Modules\Job\Actions\CreateTaskFrequencyAction;
 use Modules\Job\Actions\GetTaskFrequenciesAction;
 use Modules\Job\Models\TaskFrequency;
+=======
+use Modules\Job\Models\TaskFrequency;
+use Modules\Job\Actions\CreateTaskFrequencyAction;
+use Modules\Job\Actions\GetTaskFrequenciesAction;
+>>>>>>> e1b0bf9 (.)
 
 describe('TaskFrequencies Integration', function () {
     beforeEach(function () {
@@ -33,12 +39,18 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
         expect($result)
             ->toBeArray()
             ->and(count($result))
             ->toBe(15)
             ->and($result)
             ->toHaveKeys([
+=======
+        expect($result)->toBeArray()
+            ->and(count($result))->toBe(15)
+            ->and($result)->toHaveKeys([
+>>>>>>> e1b0bf9 (.)
                 'everyMinute',
                 'everyFiveMinutes',
                 'everyTenMinutes',
@@ -53,7 +65,11 @@ describe('TaskFrequencies Integration', function () {
                 'weekly',
                 'monthly',
                 'quarterly',
+<<<<<<< HEAD
                 'yearly',
+=======
+                'yearly'
+>>>>>>> e1b0bf9 (.)
             ]);
     });
 
@@ -70,6 +86,7 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
         expect($result)
             ->toBeArray()
             ->and($result['everyMinute'])
@@ -82,6 +99,14 @@ describe('TaskFrequencies Integration', function () {
             ->toBe('Weekly')
             ->and($result['monthly'])
             ->toBe('Monthly');
+=======
+        expect($result)->toBeArray()
+            ->and($result['everyMinute'])->toBe('Every Minute')
+            ->and($result['hourly'])->toBe('Hourly')
+            ->and($result['daily'])->toBe('Daily')
+            ->and($result['weekly'])->toBe('Weekly')
+            ->and($result['monthly'])->toBe('Monthly');
+>>>>>>> e1b0bf9 (.)
     });
 
     it('can be used in queue context', function () {
@@ -101,6 +126,7 @@ describe('TaskFrequencies Integration', function () {
         config(['totem.frequencies' => ['changed' => 'Changed Value']]);
         $result2 = $this->action->execute();
 
+<<<<<<< HEAD
         expect($result1)
             ->toHaveKey('initial')
             ->and($result1['initial'])
@@ -111,6 +137,13 @@ describe('TaskFrequencies Integration', function () {
             ->toBe('Changed Value')
             ->and($result2)
             ->not->toHaveKey('initial');
+=======
+        expect($result1)->toHaveKey('initial')
+            ->and($result1['initial'])->toBe('Initial Value')
+            ->and($result2)->toHaveKey('changed')
+            ->and($result2['changed'])->toBe('Changed Value')
+            ->and($result2)->not->toHaveKey('initial');
+>>>>>>> e1b0bf9 (.)
     });
 
     it('validates configuration file structure', function () {
@@ -126,6 +159,7 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
         expect($result)
             ->toBeArray()
             ->and($result['simple'])
@@ -134,6 +168,12 @@ describe('TaskFrequencies Integration', function () {
             ->toBeArray()
             ->and($result['complex']['label'])
             ->toBe('Complex Label');
+=======
+        expect($result)->toBeArray()
+            ->and($result['simple'])->toBe('Simple Value')
+            ->and($result['complex'])->toBeArray()
+            ->and($result['complex']['label'])->toBe('Complex Label');
+>>>>>>> e1b0bf9 (.)
     });
 
     it('handles empty configuration gracefully', function () {
@@ -141,7 +181,12 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
         expect($result)->toBeArray()->and($result)->toBeEmpty();
+=======
+        expect($result)->toBeArray()
+            ->and($result)->toBeEmpty();
+>>>>>>> e1b0bf9 (.)
     });
 
     it('works with string and numeric keys', function () {
@@ -154,6 +199,7 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
         expect($result)
             ->toBeArray()
             ->and($result['string_key'])
@@ -164,12 +210,23 @@ describe('TaskFrequencies Integration', function () {
             ->toBe('Another Numeric')
             ->and($result['mixed_123'])
             ->toBe('Mixed Key Value');
+=======
+        expect($result)->toBeArray()
+            ->and($result['string_key'])->toBe('String Value')
+            ->and($result[0])->toBe('Numeric Key Value')
+            ->and($result[1])->toBe('Another Numeric')
+            ->and($result['mixed_123'])->toBe('Mixed Key Value');
+>>>>>>> e1b0bf9 (.)
     });
 
     it('integrates with Laravel service container', function () {
         // Test that the action can be resolved from container
         $actionFromContainer = app(GetTaskFrequenciesAction::class);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> e1b0bf9 (.)
         expect($actionFromContainer)->toBeInstanceOf(GetTaskFrequenciesAction::class);
     });
 
@@ -181,12 +238,18 @@ describe('TaskFrequencies Integration', function () {
         $result2 = $this->action->execute();
         $result3 = $this->action->execute();
 
+<<<<<<< HEAD
         expect($result1)
             ->toBe($result2)
             ->and($result2)
             ->toBe($result3)
             ->and($result1['concurrent'])
             ->toBe('Concurrent Value');
+=======
+        expect($result1)->toBe($result2)
+            ->and($result2)->toBe($result3)
+            ->and($result1['concurrent'])->toBe('Concurrent Value');
+>>>>>>> e1b0bf9 (.)
     });
 
     it('validates error handling in production scenario', function () {
@@ -202,8 +265,14 @@ describe('TaskFrequencies Integration', function () {
 
         foreach ($invalidConfigs as $invalidConfig) {
             config(['totem.frequencies' => $invalidConfig]);
+<<<<<<< HEAD
 
             expect($this->action->execute(...))->toThrow(Exception::class);
+=======
+            
+            expect(fn () => $this->action->execute())
+                ->toThrow(Exception::class);
+>>>>>>> e1b0bf9 (.)
         }
     });
 
@@ -257,6 +326,7 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
         expect($result)
             ->toBeArray()
             ->and(count($result))
@@ -273,5 +343,15 @@ describe('TaskFrequencies Integration', function () {
             ->toBe('Monthly')
             ->and($result['yearly'])
             ->toBe('Yearly');
+=======
+        expect($result)->toBeArray()
+            ->and(count($result))->toBe(26)
+            ->and($result['everyMinute'])->toBe('Every Minute')
+            ->and($result['hourly'])->toBe('Hourly')
+            ->and($result['daily'])->toBe('Daily')
+            ->and($result['weekly'])->toBe('Weekly')
+            ->and($result['monthly'])->toBe('Monthly')
+            ->and($result['yearly'])->toBe('Yearly');
+>>>>>>> e1b0bf9 (.)
     });
 });

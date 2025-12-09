@@ -6,7 +6,6 @@ namespace Modules\Job\Models\Policies;
 
 use Modules\Job\Models\ScheduleHistory;
 use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Contracts\ProfileContract;
 
 class ScheduleHistoryPolicy extends JobBasePolicy
 {
@@ -16,9 +15,6 @@ class ScheduleHistoryPolicy extends JobBasePolicy
     public function viewAny(UserContract $user): bool
     {
         return $user->hasPermissionTo('schedule_history.viewAny');
-    public function viewAny(ProfileContract $user): bool
-    {
-        return $user->hasPermissionTo('schedule_history.viewAny'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -27,9 +23,6 @@ class ScheduleHistoryPolicy extends JobBasePolicy
     public function view(UserContract $user, ScheduleHistory $_schedule_history): bool
     {
         return $user->hasPermissionTo('schedule_history.view');
-    public function view(ProfileContract $user, ScheduleHistory $schedule_history): bool
-    {
-        return $user->hasPermissionTo('schedule_history.view'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -38,9 +31,6 @@ class ScheduleHistoryPolicy extends JobBasePolicy
     public function create(UserContract $user): bool
     {
         return $user->hasPermissionTo('schedule_history.create');
-    public function create(ProfileContract $user): bool
-    {
-        return $user->hasPermissionTo('schedule_history.create'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -49,9 +39,6 @@ class ScheduleHistoryPolicy extends JobBasePolicy
     public function update(UserContract $user, ScheduleHistory $_schedule_history): bool
     {
         return $user->hasPermissionTo('schedule_history.update');
-    public function update(ProfileContract $user, ScheduleHistory $schedule_history): bool
-    {
-        return $user->hasPermissionTo('schedule_history.update'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -60,9 +47,6 @@ class ScheduleHistoryPolicy extends JobBasePolicy
     public function delete(UserContract $user, ScheduleHistory $_schedule_history): bool
     {
         return $user->hasPermissionTo('schedule_history.delete');
-    public function delete(ProfileContract $user, ScheduleHistory $schedule_history): bool
-    {
-        return $user->hasPermissionTo('schedule_history.delete'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -71,9 +55,6 @@ class ScheduleHistoryPolicy extends JobBasePolicy
     public function restore(UserContract $user, ScheduleHistory $_schedule_history): bool
     {
         return $user->hasPermissionTo('schedule_history.restore');
-    public function restore(ProfileContract $user, ScheduleHistory $schedule_history): bool
-    {
-        return $user->hasPermissionTo('schedule_history.restore'); /** @phpstan-ignore method.nonObject */
     }
 
     /**
@@ -82,8 +63,5 @@ class ScheduleHistoryPolicy extends JobBasePolicy
     public function forceDelete(UserContract $user, ScheduleHistory $schedule_history): bool
     {
         return $user->hasPermissionTo('schedule_history.forceDelete');
-    public function forceDelete(ProfileContract $user, ScheduleHistory $schedule_history): bool
-    {
-        return $user->hasPermissionTo('schedule_history.forceDelete'); /** @phpstan-ignore method.nonObject */
     }
 }

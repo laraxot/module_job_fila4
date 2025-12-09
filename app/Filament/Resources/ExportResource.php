@@ -45,5 +45,6 @@ class ExportResource extends XotBaseResource
                 ->columnSpanFull(),
             'created_at' => DateTimePicker::make('created_at')->disabled(),
             'updated_at' => DateTimePicker::make('updated_at')->disabled(),
-        ]);}
+        ]);
+    }
 }

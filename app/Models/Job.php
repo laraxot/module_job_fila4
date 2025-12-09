@@ -78,7 +78,8 @@ class Job extends BaseModel
     public function status(): Attribute
     {
         return Attribute::make(get: function (): string {
-            if ($this->reserved_at) {
+            $reservedAt = $this->attributes['reserved_at'] ?? null;
+            if ($reservedAt !== null && $reservedAt > 0) {
                 return 'running';
             }
 

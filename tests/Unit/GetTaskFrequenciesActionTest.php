@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Modules\Job\Actions\GetTaskFrequenciesAction;
-use function Safe\class_uses;
+
 use function Safe\file_get_contents;
 
 describe('GetTaskFrequenciesAction', function (): void {
@@ -14,7 +14,7 @@ describe('GetTaskFrequenciesAction', function (): void {
 
     it('has queueable action trait', function (): void {
         $action = new GetTaskFrequenciesAction();
-        $traits = class_uses($action);
+        $traits = \Safe\class_uses($action);
 
         expect($traits)->toContain('Spatie\QueueableAction\QueueableAction');
     });

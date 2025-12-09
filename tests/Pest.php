@@ -50,8 +50,10 @@ pest()->extend(TestCase::class)->in('Feature', 'Unit');
  */
 function createJob(array $attributes = []): Job
 {
+    /** @var \Illuminate\Database\Eloquent\Factories\Factory<Job> $factory */
+    $factory = Job::factory();
     /** @var Job $job */
-    $job = Job::factory()->create($attributes);
+    $job = $factory->create($attributes);
     return $job;
 }
 
@@ -61,8 +63,10 @@ function createJob(array $attributes = []): Job
  */
 function makeJob(array $attributes = []): Job
 {
+    /** @var \Illuminate\Database\Eloquent\Factories\Factory<Job> $factory */
+    $factory = Job::factory();
     /** @var Job $job */
-    $job = Job::factory()->make($attributes);
+    $job = $factory->make($attributes);
     return $job;
 }
 
@@ -72,8 +76,10 @@ function makeJob(array $attributes = []): Job
  */
 function createJobBatch(array $attributes = []): JobBatch
 {
+    /** @var \Illuminate\Database\Eloquent\Factories\Factory<JobBatch> $factory */
+    $factory = JobBatch::factory();
     /** @var JobBatch $batch */
-    $batch = JobBatch::factory()->create($attributes);
+    $batch = $factory->create($attributes);
     return $batch;
 }
 
@@ -83,7 +89,9 @@ function createJobBatch(array $attributes = []): JobBatch
  */
 function makeJobBatch(array $attributes = []): JobBatch
 {
+    /** @var \Illuminate\Database\Eloquent\Factories\Factory<JobBatch> $factory */
+    $factory = JobBatch::factory();
     /** @var JobBatch $batch */
-    $batch = JobBatch::factory()->make($attributes);
+    $batch = $factory->make($attributes);
     return $batch;
 }

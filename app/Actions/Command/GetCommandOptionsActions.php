@@ -11,6 +11,9 @@ class GetCommandOptionsActions
 {
     use QueueableAction;
 
+    /**
+     * @return array<string, mixed>
+     */
     public function execute(Command $command): array
     {
         $options = [

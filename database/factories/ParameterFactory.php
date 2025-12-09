@@ -9,15 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\Parameter;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<Parameter>
-=======
-<<<<<<< HEAD
- * @extends Factory<Parameter>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Parameter>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
  */
 class ParameterFactory extends Factory
 {

@@ -18,8 +18,9 @@ class GetCommandArgumentsActions
     {
         $arguments = [];
         foreach ($command->getDefinition()->getArguments() as $argument) {
-            $arguments[] = [
-                'name' => $argument->getName(),
+            $name = $argument->getName();
+            $arguments[$name] = [
+                'name' => $name,
                 'default' => $argument->getDefault(),
                 'required' => $argument->isRequired(),
             ];

@@ -23,6 +23,9 @@ class ActionGroup extends XotBaseActionGroup
 
     protected string $view = 'job::components.action-group';
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getActions(): array
     {
         return [];

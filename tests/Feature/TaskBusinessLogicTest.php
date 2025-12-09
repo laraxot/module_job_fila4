@@ -4,11 +4,20 @@ declare(strict_types=1);
 
 namespace Modules\Job\Tests\Feature;
 
+<<<<<<< HEAD
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Job\Models\Frequency;
 use Modules\Job\Models\Result;
 use Modules\Job\Models\Task;
 use Tests\TestCase;
+=======
+use Modules\Job\Models\Task;
+use Modules\Job\Models\Frequency;
+use Modules\Job\Models\Result;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
+>>>>>>> e1b0bf9 (.)
 
 class TaskBusinessLogicTest extends TestCase
 {

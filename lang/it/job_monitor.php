@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 declare(strict_types=1);
 
 return [
@@ -101,6 +104,7 @@ return [
     ],
     'title' => 'job monitor',
 ];
+<<<<<<< HEAD
 =======
 return array (
   'navigation' => 
@@ -223,3 +227,5 @@ return array (
   'title' => 'job monitor',
 );
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)

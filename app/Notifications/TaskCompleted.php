@@ -15,13 +15,28 @@ class TaskCompleted extends Notification implements ShouldQueue
     use Queueable;
 
     /**
+<<<<<<< HEAD
+=======
+     * The task output.
+     */
+    private readonly string $output;
+
+    /**
+>>>>>>> b806243 (.)
      * Create a new notification instance.
      *
      * @return void
      */
+<<<<<<< HEAD
     public function __construct(
         private readonly string $output,
     ) {}
+=======
+    public function __construct(string $output)
+    {
+        $this->output = $output;
+    }
+>>>>>>> b806243 (.)
 
     /**
      * Get the notification's delivery channels.

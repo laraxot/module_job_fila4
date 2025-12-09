@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> e1b0bf9 (.)
 <div>
     <x-filament::section></x-filament::section>
     <x-filament::section>

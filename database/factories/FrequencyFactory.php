@@ -9,7 +9,15 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\Frequency;
 
 /**
+<<<<<<< HEAD
  * @extends Factory<Frequency>
+=======
+<<<<<<< HEAD
+ * @extends Factory<Frequency>
+=======
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Frequency>
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
  */
 class FrequencyFactory extends Factory
 {

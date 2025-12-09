@@ -16,6 +16,7 @@ class GetTaskCommandsAction
 
     public function execute(): Collection
     {
+        /** @var Collection<int|string, Command> $all_commands */
         $all_commands = collect(Artisan::all());
 
         /*

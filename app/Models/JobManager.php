@@ -51,6 +51,7 @@ use Illuminate\Support\Facades\Hash;
  *
  * @mixin \Eloquent
  */
+/** */
 class JobManager extends BaseModel
 {
     // protected $table = 'job_manager';

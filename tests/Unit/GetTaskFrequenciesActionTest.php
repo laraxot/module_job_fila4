@@ -8,12 +8,12 @@ use function Safe\file_get_contents;
 
 describe('GetTaskFrequenciesAction', function (): void {
     it('can be instantiated', function (): void {
-        $action = new GetTaskFrequenciesAction();
+        $action = new GetTaskFrequenciesAction;
         expect($action)->toBeInstanceOf(GetTaskFrequenciesAction::class);
     });
 
     it('has queueable action trait', function (): void {
-        $action = new GetTaskFrequenciesAction();
+        $action = new GetTaskFrequenciesAction;
         $traits = \Safe\class_uses($action);
 
         expect($traits)->toContain('Spatie\QueueableAction\QueueableAction');
@@ -25,13 +25,13 @@ describe('GetTaskFrequenciesAction', function (): void {
         $method = $reflection->getMethod('execute');
 
         expect($method->isPublic())->toBeTrue();
-        
+
         /** @phpstan-ignore-next-line method.nonObject */
         $returnType = $method->getReturnType();
         if ($returnType instanceof \ReflectionNamedType) {
             expect($returnType->getName())->toBe('array');
         }
-        
+
         expect($method->getNumberOfParameters())->toBe(0);
     });
 
@@ -68,7 +68,7 @@ describe('GetTaskFrequenciesAction', function (): void {
     });
 
     it('implements queueable functionality', function (): void {
-        $action = new GetTaskFrequenciesAction();
+        $action = new GetTaskFrequenciesAction;
         // Test that queueable methods are available via trait
         expect($action)->toBeInstanceOf(GetTaskFrequenciesAction::class);
     });
@@ -128,7 +128,7 @@ describe('GetTaskFrequenciesAction', function (): void {
     });
 
     it('follows Laravel action conventions', function (): void {
-        $action = new GetTaskFrequenciesAction();
+        $action = new GetTaskFrequenciesAction;
         // Test that the action follows Laravel conventions
         expect($action)->toBeInstanceOf(GetTaskFrequenciesAction::class);
     });

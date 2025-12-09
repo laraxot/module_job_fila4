@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
-use Filament\Schemas\Schema;
-use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
-use Override;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
 use Modules\Job\Filament\Resources\ScheduleResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
+use Override;
 use Webmozart\Assert\Assert;
 
 class EditSchedule extends XotBaseEditRecord
@@ -23,9 +22,6 @@ class EditSchedule extends XotBaseEditRecord
     protected static string $resource = ScheduleResource::class;
 
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getformSchema(): array
     {
         Assert::isArray($res = $this->getResource()::getFormSchema());

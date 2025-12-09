@@ -81,7 +81,6 @@ Overall Module Completion: 60%
 
 
 ## Collegamenti tra versioni di roadmap.md
-<<<<<<< HEAD
 * [roadmap.md](bashscripts/docs/roadmap.md)
 * [roadmap.md](docs/roadmap.md)
 * [roadmap.md](../../../Gdpr/docs/roadmap.md)
@@ -98,7 +97,6 @@ Overall Module Completion: 60%
 * [roadmap.md](../../../Patient/docs/roadmap.md)
 * [roadmap.md](../../../Cms/docs/roadmap.md)
 * [roadmap.md](../../../../Themes/One/docs/roadmap.md)
-=======
 * [roadmap.md](bashscripts/project_docs/roadmap.md)
 * [roadmap.md](docs/roadmap.md)
 * [roadmap.md](../../../Gdpr/project_docs/roadmap.md)
@@ -115,7 +113,6 @@ Overall Module Completion: 60%
 * [roadmap.md](../../../Patient/project_docs/roadmap.md)
 * [roadmap.md](../../../Cms/project_docs/roadmap.md)
 * [roadmap.md](../../../../Themes/One/project_docs/roadmap.md)
->>>>>>> e1b0bf9 (.)
 
 
 ### Versione Incoming

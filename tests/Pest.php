@@ -30,9 +30,8 @@ pest()->extend(TestCase::class)->in('Feature', 'Unit');
  * |
  */
 
-expect()->extend('toBeJob', fn () => $this->toBeInstanceOf(Job::class));
-
-expect()->extend('toBeJobBatch', fn () => $this->toBeInstanceOf(JobBatch::class));
+// Custom expectations removed due to PHPStan compatibility issues
+// Use expect($value)->toBeInstanceOf(Job::class) directly in tests
 
 /*
  * |--------------------------------------------------------------------------
@@ -95,22 +94,46 @@ expect()->extend('toBeJobBatch', function () {
 |
 */
 
+/**
+ * @param array<string, mixed> $attributes
+ * @return Job
+ */
 function createJob(array $attributes = []): Job
 {
-    return Job::factory()->create($attributes);
+    /** @var Job $job */
+    $job = Job::factory()->create($attributes);
+    return $job;
 }
 
+/**
+ * @param array<string, mixed> $attributes
+ * @return Job
+ */
 function makeJob(array $attributes = []): Job
 {
-    return Job::factory()->make($attributes);
+    /** @var Job $job */
+    $job = Job::factory()->make($attributes);
+    return $job;
 }
 
+/**
+ * @param array<string, mixed> $attributes
+ * @return JobBatch
+ */
 function createJobBatch(array $attributes = []): JobBatch
 {
-    return JobBatch::factory()->create($attributes);
+    /** @var JobBatch $batch */
+    $batch = JobBatch::factory()->create($attributes);
+    return $batch;
 }
 
+/**
+ * @param array<string, mixed> $attributes
+ * @return JobBatch
+ */
 function makeJobBatch(array $attributes = []): JobBatch
 {
-    return JobBatch::factory()->make($attributes);
+    /** @var JobBatch $batch */
+    $batch = JobBatch::factory()->make($attributes);
+    return $batch;
 }

@@ -41,7 +41,8 @@ class ImportResource extends XotBaseResource
             'error_message' => Textarea::make('error_message')->maxLength(65535),
             'total_rows' => TextInput::make('total_rows')->numeric(),
             'processed_rows' => TextInput::make('processed_rows')->numeric(),
-        ]);}
+        ]);
+    }
 
     #[Override]
     public static function getRelations(): array

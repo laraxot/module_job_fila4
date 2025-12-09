@@ -84,10 +84,7 @@ class Crud extends Component
          * }
          */
 
-        return $all_commands->sortBy(static function (mixed $command): string {
-            if (! $command instanceof Command) {
-                return '';
-            }
+        return $all_commands->sortBy(static function (Command $command): string {
             Assert::string($name = $command->getName());
             if (mb_strpos($name, ':') === false) {
                 return ':'.$name;

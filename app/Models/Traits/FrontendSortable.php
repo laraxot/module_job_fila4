@@ -12,16 +12,11 @@ trait FrontendSortable
      * @param  array<string, string>  $defaultSort
      * @param  array<string>  $sortableColumns
      */
-<<<<<<< HEAD
     public function scopeSortableBy(
         Builder $query,
         array $sortableColumns,
         array $defaultSort = ['name' => 'asc'],
     ): Builder {
-=======
-    public function scopeSortableBy(Builder $query, array $sortableColumns, array $defaultSort = ['name' => 'asc']): Builder
-    {
->>>>>>> e1b0bf9 (.)
         $request = request();
         $sorted = $request->has('sort_by') && in_array($request->input('sort_by'), $sortableColumns, false);
 
@@ -37,24 +32,13 @@ trait FrontendSortable
         return $query->when(
             $sorted,
             static function (Builder $query) use ($sortByRequest, $sortDirectionRequest): void {
-<<<<<<< HEAD
                 $query->orderBy((string) $sortByRequest, ((string) $sortDirectionRequest) === 'desc' ? 'desc' : 'asc');
-=======
-                $query->orderBy(
-                    (string) $sortByRequest,
-                    (string) $sortDirectionRequest === 'desc' ? 'desc' : 'asc'
-                );
->>>>>>> e1b0bf9 (.)
             },
             static function (Builder $query) use ($defaultSort): void {
                 foreach ($defaultSort as $key => $direction) {
                     $query->orderBy($key, $direction);
                 }
-<<<<<<< HEAD
             },
-=======
-            }
->>>>>>> e1b0bf9 (.)
         );
     }
 }

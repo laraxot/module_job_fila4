@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Modules\Job\Database\Factories;
 
 use Modules\Job\Models\TaskComment;
@@ -22,3 +20,4 @@ class TaskCommentFactory extends Factory
         return [];
     }
 }
+

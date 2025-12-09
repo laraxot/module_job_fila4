@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> e1b0bf9 (.)
 <div>
     @if (session()->has('message'))
     <div class="alert alert-success">

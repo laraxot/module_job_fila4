@@ -26,14 +26,6 @@ class JobStatus extends Page
         ];
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    
-
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
     public function artisan(string $cmd): void
     {
         $this->out = '';
@@ -52,10 +44,6 @@ class JobStatus extends Page
     {
         return [
             /*
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
              * (object) [
              * 'name' => 'batches-table',
              * 'label' => 'Create a migration for the batches database table',
@@ -69,24 +57,6 @@ class JobStatus extends Page
              * 'label' => 'Create a migration for the queue jobs database table',
              * ],
              */
-<<<<<<< HEAD
-=======
-            (object) [
-                'name' => 'batches-table',
-                'label' => 'Create a migration for the batches database table',
-            ],
-            (object) [
-                'name' => 'failed-table',
-                'label' => ' Create a migration for the failed queue jobs database table',
-            ],
-            (object) [
-                'name' => 'table',
-                'label' => 'Create a migration for the queue jobs database table',
-            ],
-            */
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
             (object) [
                 'name' => 'queue:clear',
                 'label' => 'Delete all of the jobs from the specified queue',
@@ -95,22 +65,11 @@ class JobStatus extends Page
                 'name' => 'queue:failed',
                 'label' => 'List all of the failed queue jobs',
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
             (object) [
                 'name' => 'queue:flush',
                 'label' => 'Flush all of the failed queue jobs',
             ],
             /* -- VUOLE ID
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
              * (object) [
              * 'name' => 'forget',
              * 'label' => 'Delete a failed queue job',
@@ -128,28 +87,6 @@ class JobStatus extends Page
              * 'label' => 'Monitor the size of the specified queues',
              * ],
              */
-<<<<<<< HEAD
-=======
-            (object) [
-                'name' => 'forget',
-                'label' => 'Delete a failed queue job',
-            ],
-            */
-            /* --- RIMANE APPESO
-            (object) [
-                'name' => 'listen',
-                'label' => 'Listen to a given queue',
-            ],
-            */
-            /*manca parametro
-            (object) [
-                'name' => 'monitor',
-                'label' => 'Monitor the size of the specified queues',
-            ],
-            */
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
             (object) [
                 'name' => 'queue:prune-batches',
                 'label' => 'Prune stale entries from the batches database',
@@ -167,10 +104,6 @@ class JobStatus extends Page
                 'label' => 'Retry a failed queue job',
             ],
             /*-- vuole parametro
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
              * (object) [
              * 'name' => 'retry-batch',
              * 'label' => 'Retry the failed jobs for a batch',
@@ -182,33 +115,10 @@ class JobStatus extends Page
              * 'label' => 'Start processing jobs on the queue as a daemon',
              * ],
              */
-<<<<<<< HEAD
-=======
-            (object) [
-                'name' => 'retry-batch',
-                'label' => 'Retry the failed jobs for a batch',
-            ],
-            */
-            /*-- rimane appeso
-            (object) [
-                'name' => 'work',
-                'label' => 'Start processing jobs on the queue as a daemon',
-            ],
-            */
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
             (object) [
                 'name' => 'worker:check',
                 'label' => 'Ensure that the queue listener is running.',
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
             (object) [
                 'name' => 'route:list',
                 'label' => 'Route list',

@@ -24,9 +24,6 @@ class ListJobManagers extends XotBaseListRecords
      * @return array<string, Tables\Columns\Column>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         return [
@@ -50,9 +47,6 @@ class ListJobManagers extends XotBaseListRecords
      * @return array<string, BulkAction>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableBulkActions(): array
     {
         return [

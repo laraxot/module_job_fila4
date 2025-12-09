@@ -21,6 +21,9 @@ class ScheduleOptions extends TextColumn
     {
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
          * if($this->record==null){
          * return [];
          * }
@@ -30,6 +33,7 @@ class ScheduleOptions extends TextColumn
          * return parent::getTags();
          * }
          */
+<<<<<<< HEAD
 =======
         if($this->record==null){
             return [];
@@ -41,6 +45,8 @@ class ScheduleOptions extends TextColumn
         }
         */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
         return [];
     }
 }

@@ -19,7 +19,7 @@ class ImportResource extends XotBaseResource
     #[Override]
     public static function getFormSchema(): array
     {
-        return [
+        return array_values([
             'name' => TextInput::make('name')->required()->maxLength(255),
             'file' => FileUpload::make('file')
                 ->required()
@@ -41,8 +41,7 @@ class ImportResource extends XotBaseResource
             'error_message' => Textarea::make('error_message')->maxLength(65535),
             'total_rows' => TextInput::make('total_rows')->numeric(),
             'processed_rows' => TextInput::make('processed_rows')->numeric(),
-        ];
-    }
+        ]);}
 
     #[Override]
     public static function getRelations(): array

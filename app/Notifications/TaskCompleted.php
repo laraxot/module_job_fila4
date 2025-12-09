@@ -15,10 +15,19 @@ class TaskCompleted extends Notification implements ShouldQueue
     use Queueable;
 
     /**
+<<<<<<< HEAD
+=======
+     * The task output.
+     */
+    private readonly string $output;
+
+    /**
+>>>>>>> 7d4742a (.)
      * Create a new notification instance.
      *
      * @return void
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function __construct(
         private readonly string $output,
@@ -26,6 +35,12 @@ class TaskCompleted extends Notification implements ShouldQueue
 =======
     public function __construct(private readonly string $output) {}
 >>>>>>> e1b0bf9 (.)
+=======
+    public function __construct(string $output)
+    {
+        $this->output = $output;
+    }
+>>>>>>> 7d4742a (.)
 
     /**
      * Get the notification's delivery channels.
@@ -55,10 +70,14 @@ class TaskCompleted extends Notification implements ShouldQueue
     public function toMail(Task $task): MailMessage
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new MailMessage()
 =======
         return (new MailMessage)
 >>>>>>> e1b0bf9 (.)
+=======
+        return new MailMessage()
+>>>>>>> 7d4742a (.)
             ->subject($task->description)
             ->greeting('Hi,')
             ->line(sprintf('%s just finished running.', $task->description))
@@ -68,6 +87,9 @@ class TaskCompleted extends Notification implements ShouldQueue
     /*
      * Get the Nexmo / SMS representation of the notification.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
      *
      * public function toNexmo(mixed $notifiable): NexmoMessage
      * {
@@ -89,6 +111,7 @@ class TaskCompleted extends Notification implements ShouldQueue
      * });
      * }
      */
+<<<<<<< HEAD
 =======
 
     public function toNexmo(mixed $notifiable): NexmoMessage
@@ -113,4 +136,6 @@ class TaskCompleted extends Notification implements ShouldQueue
     }
     */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 }

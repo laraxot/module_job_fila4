@@ -27,7 +27,6 @@ class JobStatsOverview extends BaseWidget
             DB::raw('AVG(finished_at - started_at) as average_time_elapsed'),
         ];
 
-<<<<<<< HEAD
         $aggregatedInfo = JobManager::query()->select($aggregationColumns)->first();
 
         if ($aggregatedInfo) {
@@ -50,29 +49,16 @@ class JobStatsOverview extends BaseWidget
                     ).'s'
                 )
                 : '0';
-=======
-        $aggregatedInfo = JobManager::query()
-            ->select($aggregationColumns)
-            ->first();
-
-        if ($aggregatedInfo) {
-            $averageTime = app(SafeEloquentCastAction::class)
-                ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0') ? 
-                ceil((float) app(SafeEloquentCastAction::class)
-                    ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0')).'s' : '0';
-            
-            $totalTime = app(SafeEloquentCastAction::class)
-                ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0') ? 
-                $this->formatSeconds((int) app(SafeEloquentCastAction::class)
-                    ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0')).'s' : '0';
->>>>>>> e1b0bf9 (.)
         } else {
             $averageTime = '0';
             $totalTime = '0';
         }
 
+        $count = $aggregatedInfo->count ?? 0;
+        $countValue = is_numeric($count) ? (int) $count : 0;
+
         return [
-            Stat::make(__('jobs::translations.total_jobs'), (int) ($aggregatedInfo->count ?? 0)),
+            Stat::make(__('jobs::translations.total_jobs'), $countValue),
             Stat::make(__('jobs::translations.execution_time'), $totalTime),
             Stat::make(__('jobs::translations.average_time'), $averageTime),
         ];

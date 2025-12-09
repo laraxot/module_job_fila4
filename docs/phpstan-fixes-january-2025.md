@@ -9,11 +9,11 @@
 ### Errori Risolti
 
 1. **PHPDoc tag @property-read per `$creator`**
-   - Prima: `@property-read \Modules\Quaeris\Models\Profile|null $creator`
+   - Prima: `@property-read \Modules\Xot\Contracts\ProfileContract|null $creator`
    - Dopo: `@property-read \Modules\Xot\Contracts\ProfileContract|null $creator`
 
 2. **PHPDoc tag @property-read per `$updater`**
-   - Prima: `@property-read \Modules\Quaeris\Models\Profile|null $updater`
+   - Prima: `@property-read \Modules\Xot\Contracts\ProfileContract|null $updater`
    - Dopo: `@property-read \Modules\Xot\Contracts\ProfileContract|null $updater`
 
 3. **PHPDoc tag @method per `factory()`**

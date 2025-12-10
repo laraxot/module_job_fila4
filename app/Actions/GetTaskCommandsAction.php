@@ -35,7 +35,8 @@ class GetTaskCommandsAction
          * });
          * }
          */
-        return $all_commands->sortBy(static function (Command $command): string {
+        return $all_commands->sortBy(static function ($command) {
+            /** @var \Symfony\Component\Console\Command\Command $command */
             $name = $command->getName();
             Assert::string($name, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
             if (mb_strpos($name, ':') === false) {

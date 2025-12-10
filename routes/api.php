@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
  * |--------------------------------------------------------------------------
  * | API Routes
  * |--------------------------------------------------------------------------
@@ -19,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 /*
  * Route::middleware('auth:api')->get('/job', fn(Request $request) => $request->user());
  */
+<<<<<<< HEAD
 =======
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,3 +37,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/job', fn(Request $request) => $request->user());
 */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)

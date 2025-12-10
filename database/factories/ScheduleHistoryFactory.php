@@ -9,15 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\ScheduleHistory;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<ScheduleHistory>
-=======
-<<<<<<< HEAD
- * @extends Factory<ScheduleHistory>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\ScheduleHistory>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
  */
 class ScheduleHistoryFactory extends Factory
 {
@@ -35,24 +27,6 @@ class ScheduleHistoryFactory extends Factory
      */
     public function definition()
     {
-<<<<<<< HEAD
         return [];
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return [];
-=======
-        return [
-        ];
->>>>>>> a12f125f4a (.)
-=======
-        return [];
->>>>>>> b93ef594b4 (.)
-=======
-        return [
-        ];
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
     }
 }

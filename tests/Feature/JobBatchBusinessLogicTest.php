@@ -4,11 +4,39 @@ declare(strict_types=1);
 
 namespace Modules\Job\Tests\Feature;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 548bbd3 (.)
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Job;
 use Modules\Job\Models\JobBatch;
 use Tests\TestCase;
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+use Modules\Job\Models\JobBatch;
+use Modules\Job\Models\Job;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
+use Modules\Job\Models\Job;
+use Modules\Job\Models\JobBatch;
+use Tests\TestCase;
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
 
 class JobBatchBusinessLogicTest extends TestCase
 {
@@ -321,7 +349,23 @@ class JobBatchBusinessLogicTest extends TestCase
         // Crea un batch di batch per testare operazioni bulk
         $batchList = [];
         $statuses = ['active', 'completed', 'failed'];
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> a12f125f4a (.)
+=======
+
+>>>>>>> b93ef594b4 (.)
+=======
+        
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
         for ($i = 1; $i <= 3; $i++) {
             $batchList[] = JobBatch::create([
                 'id' => "bulk-batch-{$i}",
@@ -336,9 +380,33 @@ class JobBatchBusinessLogicTest extends TestCase
         }
 
         $this->assertCount(3, $batchList);
+<<<<<<< HEAD
 
         foreach ($batchList as $index => $batch) {
             $this->assertEquals('bulk-batch-' . ($index + 1), $batch->id);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        foreach ($batchList as $index => $batch) {
+            $this->assertEquals('bulk-batch-' . ($index + 1), $batch->id);
+=======
+        
+        foreach ($batchList as $index => $batch) {
+            $this->assertEquals("bulk-batch-" . ($index + 1), $batch->id);
+>>>>>>> a12f125f4a (.)
+=======
+
+        foreach ($batchList as $index => $batch) {
+            $this->assertEquals('bulk-batch-' . ($index + 1), $batch->id);
+>>>>>>> b93ef594b4 (.)
+=======
+        
+        foreach ($batchList as $index => $batch) {
+            $this->assertEquals("bulk-batch-" . ($index + 1), $batch->id);
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
             $this->assertEquals(($index + 1) * 10, $batch->total_jobs);
             $this->assertEquals($statuses[$index], $batch->status);
         }

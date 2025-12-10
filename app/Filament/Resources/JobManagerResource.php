@@ -27,7 +27,7 @@ class JobManagerResource extends XotBaseResource
     #[Override]
     public static function getFormSchema(): array
     {
-        return [
+        return array_values([
             'job_id' => TextInput::make('job_id')->required()->maxLength(255),
             'name' => TextInput::make('name')->maxLength(255),
             'queue' => TextInput::make('queue')->maxLength(255),
@@ -36,8 +36,7 @@ class JobManagerResource extends XotBaseResource
             'failed' => Toggle::make('failed')->required(),
             'attempt' => TextInput::make('attempt')->required(),
             'exception_message' => Textarea::make('exception_message')->maxLength(65535),
-        ];
-    }
+        ]);}
 
     #[Override]
     public static function getRelations(): array

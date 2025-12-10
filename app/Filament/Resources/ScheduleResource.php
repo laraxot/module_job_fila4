@@ -66,7 +66,7 @@ class ScheduleResource extends XotBaseResource
         static::$commands = app(GetCommandsAction::class)->execute();
         $commands_opts = static::$commands->toCollection()->pluck('full_name', 'name')->toArray();
 
-        return [
+        return array_values([
             'main_section' => Section::make([
                 Select::make('command')
                     ->options(fn () => $commands_opts)
@@ -122,7 +122,7 @@ class ScheduleResource extends XotBaseResource
                 Toggle::make('on_one_server'),
                 Toggle::make('run_in_background'),
             ])->inlineLabel(false),
-        ];
+        ]);
     }
 
     #[Override]

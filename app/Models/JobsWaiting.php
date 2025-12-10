@@ -46,7 +46,6 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|JobsWaiting whereUpdatedAt($value)
  * @method static Builder<static>|JobsWaiting whereUpdatedBy($value)
  *
- * @mixin IdeHelperJobsWaiting
  * @mixin \Eloquent
  */
 class JobsWaiting extends Job {}

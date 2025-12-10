@@ -33,6 +33,9 @@ class TaskCompleted extends Notification implements ShouldQueue
      * Get the notification's delivery channels.
      */
     // public function via(mixed $notifiable): array {
+    /**
+     * @return array<string, mixed>
+     */
     public function via(Task $notifiable): array
     {
         $channels = [];
@@ -56,11 +59,15 @@ class TaskCompleted extends Notification implements ShouldQueue
      */
     public function toMail(Task $task): MailMessage
     {
-        return new MailMessage()
-            ->subject($task->description)
-            ->greeting('Hi,')
-            ->line(sprintf('%s just finished running.', $task->description))
-            ->line($this->output);
+        $description = $task->description ? $task->description : 'Task';
+        
+        $message = new MailMessage();
+        $message->subject($description);
+        $message->greeting('Hi,');
+        $message->line(sprintf('%s just finished running.', $description));
+        $message->line($this->output);
+        
+        return $message;
     }
 
     /*

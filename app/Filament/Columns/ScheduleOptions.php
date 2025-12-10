@@ -23,6 +23,7 @@ class ScheduleOptions extends TextColumn
     public function getTags(): array
     {
         /*
+<<<<<<< HEAD
          * if($this->record==null){
          * return [];
          * }
@@ -32,6 +33,17 @@ class ScheduleOptions extends TextColumn
          * return parent::getTags();
          * }
          */
+=======
+        if($this->record==null){
+            return [];
+        }
+        if($this->withValue)
+        return $this->record->getOptions();
+        else{
+            return parent::getTags();
+        }
+        */
+>>>>>>> e1b0bf9 (.)
         return [];
     }
 }

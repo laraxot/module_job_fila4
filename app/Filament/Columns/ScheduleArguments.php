@@ -49,35 +49,31 @@ class ScheduleArguments extends TextColumn
 
     /**
      * Format tags when they are in array format.
-     */
-    /**
+     *
      * @param  array<int|string, mixed>  $tags
      * @return array<int, string>
      */
     protected function formatArrayTags(array $tags): array
     {
         $result = [];
-
         foreach ($tags as $key => $value) {
             $keyStr = (string) $key;
 
-            if (! $this->withValue) {
-                $valStr = is_scalar($value) ? (string) $value : '';
-                $result[] = $keyStr.'='.$valStr;
+            if ($this->withValue) {
+                if (is_array($value)) {
+                    $name = isset($value['name']) && is_string($value['name']) ? $value['name'] : $keyStr;
+                    $val = isset($value['value']) && is_string($value['value']) ? $value['value'] : '';
+                    $result[] = $name.'='.$val;
+
+                    continue;
+                }
+
+                $result[] = $keyStr.'='.(string) $value;
 
                 continue;
             }
 
-            if (is_array($value)) {
-                $name = isset($value['name']) && is_scalar($value['name']) ? (string) $value['name'] : $keyStr;
-                $val = isset($value['value']) && is_scalar($value['value']) ? (string) $value['value'] : '';
-                $result[] = $name.'='.$val;
-
-                continue;
-            }
-
-            $valStr = is_scalar($value) ? (string) $value : '';
-            $result[] = $keyStr.'='.$valStr;
+            $result[] = $keyStr.'='.(string) $value;
         }
 
         return $result;

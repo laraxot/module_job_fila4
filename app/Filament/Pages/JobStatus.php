@@ -15,7 +15,7 @@ class JobStatus extends Page
 
     public string $out = '';
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-computer-desktop';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-computer-desktop';
 
     protected string $view = 'job::filament.pages.job-status';
 

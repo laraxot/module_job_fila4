@@ -2,74 +2,22 @@
 # LARAXOT MODULE JOB - .GITIGNORE
 # ==============================================
 # Modulo Job Laraxot - Template standardizzato
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4e489ba (.)
-# Ultimo aggiornamento: 2025-01-31
 # Ultimo aggiornamento: 2025-01-06
-<<<<<<< HEAD
->>>>>>> f774f97 (.)
-=======
-# Ultimo aggiornamento: 2025-01-06
->>>>>>> bccac65 (.)
-=======
->>>>>>> 4e489ba (.)
 # ==============================================
 
 # ==============================================
 # DEPENDENCIES & PACKAGES
 # ==============================================
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4e489ba (.)
-/vendor/
-/vendor
-/node_modules/
-/node_modules
-/docs/vendor/
-package-lock.json
-yarn.lock
-composer.lock
-yarn-error.log
-npm-debug.log
-<<<<<<< HEAD
-=======
-=======
->>>>>>> bccac65 (.)
-=======
->>>>>>> 4e489ba (.)
 vendor/
 node_modules/
 package-lock.json
 yarn.lock
 composer.lock
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> f774f97 (.)
-=======
->>>>>>> bccac65 (.)
-=======
->>>>>>> 4e489ba (.)
 
 # ==============================================
 # BUILD & COMPILED FILES
 # ==============================================
 /build
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/build/
-=======
->>>>>>> f774f97 (.)
-=======
->>>>>>> bccac65 (.)
-=======
-/build/
->>>>>>> 4e489ba (.)
 build/
 dist/
 docs/cache/
@@ -165,45 +113,12 @@ Thumbs.db
 # ==============================================
 docs/phpstan/
 docs/cache/
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4e489ba (.)
-
-# ==============================================
-# LANGUAGE FILES
-# ==============================================
-lang/lang/
-resources/lang/
 /docs/cache
-<<<<<<< HEAD
->>>>>>> f774f97 (.)
-=======
-/docs/cache
->>>>>>> bccac65 (.)
-=======
->>>>>>> 4e489ba (.)
 
 # ==============================================
 # OLD DIRECTORIES (LEGACY CLEANUP)
 # ==============================================
 resources/views/Components_old/
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4e489ba (.)
-database/Migrations_old/
-database/Seeders_old/
-database/Factories_old/
-database_old/
-<<<<<<< HEAD
-=======
-=======
->>>>>>> bccac65 (.)
-=======
->>>>>>> 4e489ba (.)
 resources/views/Components_old
 database/Migrations_old/
 database/Migrations_old
@@ -214,13 +129,6 @@ database/Factories_old
 database/Factories_
 database_old/
 database_old
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> f774f97 (.)
-=======
->>>>>>> bccac65 (.)
-=======
->>>>>>> 4e489ba (.)
 
 # ==============================================
 # MODULE SPECIFIC - JOB
@@ -241,18 +149,7 @@ test_jobs.sql
 # END OF JOB .GITIGNORE
 # ==============================================
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> f774f97 (.)
-=======
-
->>>>>>> bccac65 (.)
-=======
-
->>>>>>> 4e489ba (.)
 # 🚫 File specifici del progetto
 *.fila2
 laravel

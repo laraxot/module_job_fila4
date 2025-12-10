@@ -34,24 +34,28 @@ class TaskCompleted extends Notification implements ShouldQueue
      */
     // public function via(mixed $notifiable): array {
     /**
-     * @return array<string, mixed>
+     * @return array<int, string>
      */
     public function via(Task $notifiable): array
     {
-        $channels = [];
-        if ($notifiable->notification_email_address) {
-            $channels[] = 'mail';
+        $result = [];
+        
+        $emailAddress = $notifiable->attributes['notification_email_address'] ?? null;
+        if ($emailAddress) {
+            $result[] = 'mail';
         }
 
-        if ($notifiable->notification_phone_number) {
-            $channels[] = 'nexmo';
+        $phoneNumber = $notifiable->attributes['notification_phone_number'] ?? null;
+        if ($phoneNumber) {
+            $result[] = 'nexmo';
         }
 
-        if ($notifiable->notification_slack_webhook !== '' && $notifiable->notification_slack_webhook !== '0') {
-            $channels[] = 'slack';
+        $slackWebhook = $notifiable->attributes['notification_slack_webhook'] ?? null;
+        if ($slackWebhook !== null && $slackWebhook !== '' && $slackWebhook !== '0') {
+            $result[] = 'slack';
         }
 
-        return $channels;
+        return $result;
     }
 
     /**
@@ -59,7 +63,8 @@ class TaskCompleted extends Notification implements ShouldQueue
      */
     public function toMail(Task $task): MailMessage
     {
-        $description = $task->description ? $task->description : 'Task';
+        $descriptionValue = $task->attributes['description'] ?? 'Task';
+        $description = is_string($descriptionValue) ? $descriptionValue : 'Task';
         
         $message = new MailMessage();
         $message->subject($description);

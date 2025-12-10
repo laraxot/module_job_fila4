@@ -15,34 +15,47 @@ class TaskCompleted extends Notification implements ShouldQueue
     use Queueable;
 
     /**
+     * The task output.
+     */
+    private readonly string $output;
+
+    /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(
-        private readonly string $output,
-    ) {}
+    public function __construct(string $output)
+    {
+        $this->output = $output;
+    }
 
     /**
      * Get the notification's delivery channels.
      */
     // public function via(mixed $notifiable): array {
+    /**
+     * @return array<int, string>
+     */
     public function via(Task $notifiable): array
     {
-        $channels = [];
-        if ($notifiable->notification_email_address) {
-            $channels[] = 'mail';
+        $result = [];
+        
+        $emailAddress = $notifiable->attributes['notification_email_address'] ?? null;
+        if ($emailAddress) {
+            $result[] = 'mail';
         }
 
-        if ($notifiable->notification_phone_number) {
-            $channels[] = 'nexmo';
+        $phoneNumber = $notifiable->attributes['notification_phone_number'] ?? null;
+        if ($phoneNumber) {
+            $result[] = 'nexmo';
         }
 
-        if ($notifiable->notification_slack_webhook !== '' && $notifiable->notification_slack_webhook !== '0') {
-            $channels[] = 'slack';
+        $slackWebhook = $notifiable->attributes['notification_slack_webhook'] ?? null;
+        if ($slackWebhook !== null && $slackWebhook !== '' && $slackWebhook !== '0') {
+            $result[] = 'slack';
         }
 
-        return $channels;
+        return $result;
     }
 
     /**
@@ -50,11 +63,16 @@ class TaskCompleted extends Notification implements ShouldQueue
      */
     public function toMail(Task $task): MailMessage
     {
-        return new MailMessage()
-            ->subject($task->description)
-            ->greeting('Hi,')
-            ->line(sprintf('%s just finished running.', $task->description))
-            ->line($this->output);
+        $descriptionValue = $task->attributes['description'] ?? 'Task';
+        $description = is_string($descriptionValue) ? $descriptionValue : 'Task';
+        
+        $message = new MailMessage();
+        $message->subject($description);
+        $message->greeting('Hi,');
+        $message->line(sprintf('%s just finished running.', $description));
+        $message->line($this->output);
+        
+        return $message;
     }
 
     /*

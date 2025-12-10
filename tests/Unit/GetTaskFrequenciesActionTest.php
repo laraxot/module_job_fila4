@@ -15,37 +15,13 @@ describe('GetTaskFrequenciesAction', function () {
 
     it('has queueable action trait', function () {
         $traits = class_uses($this->action);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         expect($traits)->toContain('Spatie\QueueableAction\QueueableAction');
     });
 
     it('has correct method signature', function () {
         $reflection = new ReflectionClass($this->action);
         $method = $reflection->getMethod('execute');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
 
         expect($method->isPublic())
             ->toBeTrue()
@@ -53,45 +29,12 @@ describe('GetTaskFrequenciesAction', function () {
             ->toBe('array')
             ->and($method->getNumberOfParameters())
             ->toBe(0);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-        
-        expect($method->isPublic())->toBeTrue()
-            ->and($method->getReturnType()?->getName())->toBe('array')
-            ->and($method->getNumberOfParameters())->toBe(0);
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
     });
 
     it('has proper return type annotation', function () {
         $reflection = new ReflectionClass($this->action);
         $method = $reflection->getMethod('execute');
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         $docComment = $method->getDocComment();
         expect($docComment)->toContain('@return array<string, mixed>');
     });
@@ -99,37 +42,13 @@ describe('GetTaskFrequenciesAction', function () {
     it('uses correct exception handling', function () {
         $reflection = new ReflectionClass($this->action);
         $method = $reflection->getMethod('execute');
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         // Check that the method can throw exceptions
         expect($method)->not->toBeNull();
     });
 
     it('has proper class structure', function () {
         $reflection = new ReflectionClass($this->action);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
 
         expect($reflection->isInstantiable())
             ->toBeTrue()
@@ -137,23 +56,6 @@ describe('GetTaskFrequenciesAction', function () {
             ->toBeFalse()
             ->and($reflection->isAbstract())
             ->toBeFalse();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-        
-        expect($reflection->isInstantiable())->toBeTrue()
-            ->and($reflection->isFinal())->toBeFalse()
-            ->and($reflection->isAbstract())->toBeFalse();
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
     });
 
     it('implements queueable functionality', function () {
@@ -163,46 +65,14 @@ describe('GetTaskFrequenciesAction', function () {
 
     it('has correct namespace', function () {
         $reflection = new ReflectionClass($this->action);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         expect($reflection->getNamespaceName())->toBe('Modules\Job\Actions');
     });
 
     it('uses strict types', function () {
         $reflection = new ReflectionClass($this->action);
         $filename = $reflection->getFileName();
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         if ($filename) {
             $content = file_get_contents($filename);
             expect($content)->toContain('declare(strict_types=1);');
@@ -212,12 +82,6 @@ describe('GetTaskFrequenciesAction', function () {
     it('has proper imports', function () {
         $reflection = new ReflectionClass($this->action);
         $filename = $reflection->getFileName();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
 
         if ($filename) {
             $content = file_get_contents($filename);
@@ -225,72 +89,20 @@ describe('GetTaskFrequenciesAction', function () {
                 ->toContain('use Exception;')
                 ->and($content)
                 ->toContain('use Spatie\QueueableAction\QueueableAction;');
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-        
-        if ($filename) {
-            $content = file_get_contents($filename);
-            expect($content)->toContain('use Exception;')
-                ->and($content)->toContain('use Spatie\QueueableAction\QueueableAction;');
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-
-        if ($filename) {
-            $content = file_get_contents($filename);
-            expect($content)
-                ->toContain('use Exception;')
-                ->and($content)
-                ->toContain('use Spatie\QueueableAction\QueueableAction;');
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         }
     });
 
     it('validates class dependencies', function () {
         // Check that required classes exist
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
         expect(class_exists('Exception'))
             ->toBeTrue()
             ->and(trait_exists('Spatie\QueueableAction\QueueableAction'))
             ->toBeTrue();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-        expect(class_exists('Exception'))->toBeTrue()
-            ->and(trait_exists('Spatie\QueueableAction\QueueableAction'))->toBeTrue();
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        expect(class_exists('Exception'))->toBeTrue()
-            ->and(trait_exists('Spatie\QueueableAction\QueueableAction'))->toBeTrue();
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
     });
 
     it('has correct method implementation structure', function () {
         $reflection = new ReflectionClass($this->action);
         $method = $reflection->getMethod('execute');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
 
         // Verify method is properly implemented
         expect($method->isPublic())
@@ -299,31 +111,6 @@ describe('GetTaskFrequenciesAction', function () {
             ->toBeFalse()
             ->and($method->isAbstract())
             ->toBeFalse();
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-        
-        // Verify method is properly implemented
-        expect($method->isPublic())->toBeTrue()
-            ->and($method->isStatic())->toBeFalse()
-            ->and($method->isAbstract())->toBeFalse();
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-
-        // Verify method is properly implemented
-        expect($method->isPublic())
-            ->toBeTrue()
-            ->and($method->isStatic())
-            ->toBeFalse()
-            ->and($method->isAbstract())
-            ->toBeFalse();
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
     });
 
     it('follows Laravel action conventions', function () {
@@ -334,46 +121,14 @@ describe('GetTaskFrequenciesAction', function () {
     it('can be used with dependency injection', function () {
         // Test that the action can be resolved from container
         $actionFromContainer = app(GetTaskFrequenciesAction::class);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         expect($actionFromContainer)->toBeInstanceOf(GetTaskFrequenciesAction::class);
     });
 
     it('has proper error handling implementation', function () {
         $reflection = new ReflectionClass($this->action);
         $filename = $reflection->getFileName();
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         if ($filename) {
             $content = file_get_contents($filename);
             expect($content)->toContain('throw new Exception');
@@ -383,42 +138,10 @@ describe('GetTaskFrequenciesAction', function () {
     it('validates config function usage', function () {
         $reflection = new ReflectionClass($this->action);
         $filename = $reflection->getFileName();
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
         if ($filename) {
             $content = file_get_contents($filename);
             expect($content)->toContain('config(');
         }
     });
-<<<<<<< HEAD
 });
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-});
-=======
-});
->>>>>>> a12f125f4a (.)
-=======
-});
->>>>>>> b93ef594b4 (.)
-=======
-});
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)

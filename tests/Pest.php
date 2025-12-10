@@ -30,8 +30,9 @@ pest()->extend(TestCase::class)->in('Feature', 'Unit');
  * |
  */
 
-// Custom expectations removed due to PHPStan compatibility issues
-// Use expect($value)->toBeInstanceOf(Job::class) directly in tests
+expect()->extend('toBeJob', fn () => $this->toBeInstanceOf(Job::class));
+
+expect()->extend('toBeJobBatch', fn () => $this->toBeInstanceOf(JobBatch::class));
 
 /*
  * |--------------------------------------------------------------------------
@@ -44,54 +45,22 @@ pest()->extend(TestCase::class)->in('Feature', 'Unit');
  * |
  */
 
-/**
- * @param  array<string, mixed>  $attributes
- */
 function createJob(array $attributes = []): Job
 {
-    /** @var \Illuminate\Database\Eloquent\Factories\Factory<Job> $factory */
-    $factory = Job::factory();
-    /** @var Job $job */
-    $job = $factory->create($attributes);
-
-    return $job;
+    return Job::factory()->create($attributes);
 }
 
-/**
- * @param  array<string, mixed>  $attributes
- */
 function makeJob(array $attributes = []): Job
 {
-    /** @var \Illuminate\Database\Eloquent\Factories\Factory<Job> $factory */
-    $factory = Job::factory();
-    /** @var Job $job */
-    $job = $factory->make($attributes);
-
-    return $job;
+    return Job::factory()->make($attributes);
 }
 
-/**
- * @param  array<string, mixed>  $attributes
- */
 function createJobBatch(array $attributes = []): JobBatch
 {
-    /** @var \Illuminate\Database\Eloquent\Factories\Factory<JobBatch> $factory */
-    $factory = JobBatch::factory();
-    /** @var JobBatch $batch */
-    $batch = $factory->create($attributes);
-
-    return $batch;
+    return JobBatch::factory()->create($attributes);
 }
 
-/**
- * @param  array<string, mixed>  $attributes
- */
 function makeJobBatch(array $attributes = []): JobBatch
 {
-    /** @var \Illuminate\Database\Eloquent\Factories\Factory<JobBatch> $factory */
-    $factory = JobBatch::factory();
-    /** @var JobBatch $batch */
-    $batch = $factory->make($attributes);
-
-    return $batch;
+    return JobBatch::factory()->make($attributes);
 }

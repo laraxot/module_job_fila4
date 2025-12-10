@@ -466,17 +466,10 @@ class ClockWidget extends XotBaseWidget
 ## Collegamenti e Riferimenti
 
 - [XotBaseWidget Source Code](../../../Xot/app/Filament/Widgets/XotBaseWidget.php)
-<<<<<<< HEAD
 - [Filament Widgets Documentation](https://filamentphp.com/project_docs/3.x/panels/widgets)
 - [Filament Forms Documentation](https://filamentphp.com/project_docs/3.x/forms/fields)
 - [Livewire Testing Documentation](https://laravel-livewire.com/project_docs/testing)
 - [Filament ViewRecord Errors](../../../project_docs/filament-view-record-errors.md)
-=======
-- [Filament Widgets Documentation](https://filamentphp.com/docs/3.x/panels/widgets)
-- [Filament Forms Documentation](https://filamentphp.com/docs/3.x/forms/fields)
-- [Livewire Testing Documentation](https://laravel-livewire.com/docs/testing)
-- [Filament ViewRecord Errors](../../../docs/filament-view-record-errors.md)
->>>>>>> bccac65 (.)
 
 ## Note di Manutenzione
 

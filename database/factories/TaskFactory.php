@@ -8,15 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\Task;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<Task>
-=======
-<<<<<<< HEAD
- * @extends Factory<Task>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Task>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
  */
 class TaskFactory extends Factory
 {

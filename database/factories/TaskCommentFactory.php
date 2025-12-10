@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Job\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -20,4 +22,3 @@ class TaskCommentFactory extends Factory
         return [];
     }
 }
-

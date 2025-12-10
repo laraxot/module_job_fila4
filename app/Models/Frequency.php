@@ -86,22 +86,4 @@ class Frequency extends BaseModel
         return $this->hasMany(Parameter::class);
     }
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return array_merge(parent::casts(), [
-            'id' => 'integer',
-            'task_id' => 'integer',
-            'label' => 'string',
-            'interval' => 'string',
-            'created_by' => 'string',
-            'updated_by' => 'string',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-        ]);
     }
-}

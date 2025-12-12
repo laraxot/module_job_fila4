@@ -53,7 +53,6 @@ use function Safe\json_decode;
  * @property-read Collection<int, Result> $results
  * @property-read int|null $results_count
  * @property-read ProfileContract|null $updater
- *
  * @method static Builder<static>|Task newModelQuery()
  * @method static Builder<static>|Task newQuery()
  * @method static Builder<static>|Task query()
@@ -78,7 +77,12 @@ use function Safe\json_decode;
  * @method static Builder<static>|Task whereTimezone($value)
  * @method static Builder<static>|Task whereUpdatedAt($value)
  * @method static Builder<static>|Task whereUpdatedBy($value)
- *
+ * @property Carbon|null $deleted_at
+ * @property string|null $deleted_by
+ * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @method static \Modules\Job\Database\Factories\TaskFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Task whereDeletedAt($value)
+ * @method static Builder<static>|Task whereDeletedBy($value)
  * @mixin \Eloquent
  */
 class Task extends BaseModel

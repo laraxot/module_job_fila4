@@ -79,6 +79,7 @@ use Override;
  * @method static Builder<static>|JobManager whereProgress($value)
  * @method static Builder<static>|JobManager whereQueue($value)
  * @method static Builder<static>|JobManager whereStartedAt($value)
+ * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel

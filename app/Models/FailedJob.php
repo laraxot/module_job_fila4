@@ -25,7 +25,6 @@ use Override;
  * @property string $failed_at
  * @property-read ProfileContract|null $creator
  * @property-read ProfileContract|null $updater
- *
  * @method static FailedJobFactory factory($count = null, $state = [])
  * @method static Builder<static>|FailedJob newModelQuery()
  * @method static Builder<static>|FailedJob newQuery()
@@ -37,7 +36,7 @@ use Override;
  * @method static Builder<static>|FailedJob wherePayload($value)
  * @method static Builder<static>|FailedJob whereQueue($value)
  * @method static Builder<static>|FailedJob whereUuid($value)
- *
+ * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel

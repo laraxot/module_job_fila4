@@ -5,17 +5,24 @@ declare(strict_types=1);
 namespace Modules\Job\Actions;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Webmozart\Assert\Assert;
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use Spatie\QueueableAction\QueueableAction;
 use Symfony\Component\Console\Command\Command;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Webmozart\Assert\Assert;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Webmozart\Assert\Assert;
+>>>>>>> 7d4742a (.)
 
 class GetTaskCommandsAction
 {
@@ -27,6 +34,9 @@ class GetTaskCommandsAction
 
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
          * $command_filter = config('totem.artisan.command_filter');
          * $whitelist = config('totem.artisan.whitelist', true);
          *
@@ -53,6 +63,7 @@ class GetTaskCommandsAction
 
             return $name;
         });
+<<<<<<< HEAD
 =======
         $command_filter = config('totem.artisan.command_filter');
         $whitelist = config('totem.artisan.whitelist', true);
@@ -82,5 +93,7 @@ class GetTaskCommandsAction
             }
         );
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     }
 }

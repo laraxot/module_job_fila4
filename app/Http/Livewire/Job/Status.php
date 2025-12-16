@@ -45,8 +45,8 @@ class Status extends Component
             throw new Exception('['.__LINE__.']['.class_basename($this).']');
         }
 
-        $this->old_value = $queue_conn;
-        $this->form_data['conn'] = $queue_conn;
+        $this->old_value = (string) $queue_conn;
+        $this->form_data['conn'] = (string) $queue_conn;
 
         // $env_file=base_path('.env');
         // dddx(getenv(base_path('')));
@@ -154,21 +154,15 @@ class Status extends Component
     {
         $env_file = base_path('.env');
         $env_content = File::get($env_file);
-        $connValue = $this->form_data['conn'] ?? '';
-        $oldValue = $this->old_value ?? '';
-        
-        $oldValueStr = (string) $oldValue;
-        $connValueStr = (string) $connValue;
-        
         $new_content = Str::replace(
-            'QUEUE_CONNECTION='.$oldValueStr,
-            'QUEUE_CONNECTION='.$connValueStr,
+            'QUEUE_CONNECTION='.(string) $this->old_value,
+            'QUEUE_CONNECTION='.(string) $this->form_data['conn'],
             $env_content,
         );
-        putenv('QUEUE_CONNECTION='.$connValueStr);
+        putenv('QUEUE_CONNECTION='.(string) $this->form_data['conn']);
         Assert::string($new_content, '['.__LINE__.']['.class_basename($this).']');
         File::put($env_file, $new_content);
-        $this->old_value = $connValueStr;
+        $this->old_value = (string) $this->form_data['conn'];
     }
 
     public function artisan(string $cmd): void

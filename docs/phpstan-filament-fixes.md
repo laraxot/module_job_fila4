@@ -66,6 +66,18 @@ Method Modules\Job\Filament\Resources\FailedImportRowResource::getFormSchema() s
 3. **Coerenza del codice**: Mantenuto un approccio coerente in tutte le risorse Filament del modulo.
 4. **DRY (Don't Repeat Yourself)**: Evitato di ripetere codice già presente nella classe base.
 
+### 3. Widget `JobsWaitingOverview`
+
+**Problema**: il widget `JobsWaitingOverview` usava logica annidata con chiamate ripetute a `SafeEloquentCastAction` e formattazione inline, rendendo difficile il parsing di PHPStan (parse error dovuto a trailing comma) e abbassando i punteggi PHP Insights.
+
+**Soluzione**:
+- Semplificata la query di conteggio (`Job::query()->count()`).
+- Estratta l'aggregazione in metodi dedicati (`getAggregatedTimes()`, `fetchAggregatedInfo()`, `aggregationColumns()`).
+- Ridotta la complessità del metodo principale `getCards()`, eliminando i trailing comma che causavano l'errore di sintassi.
+- Classe resa `final` e documentati i tipi di ritorno (`array<int, Stat>`).
+
+**Risultato**: PHPStan livello 10 pulito e `phpinsights` ora 100/100/100/100 per il widget.
+
 ## Linee Guida per il Futuro
 
 Quando si crea una nuova risorsa Filament:

@@ -35,7 +35,8 @@ class JobsWaitingResource extends XotBaseResource
             'failed' => Toggle::make('failed')->required(),
             'attempt' => TextInput::make('attempt')->required(),
             'exception_message' => Textarea::make('exception_message')->maxLength(65535),
-        ]);}
+        ]);
+    }
 
     public static function getWidgets(): array
     {

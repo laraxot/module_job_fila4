@@ -33,9 +33,6 @@ class ListJobsWaitings extends XotBaseListRecords
      * @return array<string, Tables\Columns\Column>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         return [

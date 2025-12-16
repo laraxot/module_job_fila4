@@ -11,11 +11,13 @@ use Modules\Job\Filament\Resources\ScheduleResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 use Override;
+use Modules\Xot\Filament\Traits\TransTrait;
 use Webmozart\Assert\Assert;
 
 class EditSchedule extends XotBaseEditRecord
 {
     use NavigationPageLabelTrait;
+    use TransTrait;
 
     public Collection $commands;
 

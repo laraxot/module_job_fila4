@@ -26,7 +26,7 @@ class JobsWaitingResource extends XotBaseResource
     #[Override]
     public static function getFormSchema(): array
     {
-        return array_values([
+        return [
             'job_id' => TextInput::make('job_id')->required()->maxLength(255),
             'name' => TextInput::make('name')->maxLength(255),
             'queue' => TextInput::make('queue')->maxLength(255),
@@ -35,7 +35,7 @@ class JobsWaitingResource extends XotBaseResource
             'failed' => Toggle::make('failed')->required(),
             'attempt' => TextInput::make('attempt')->required(),
             'exception_message' => Textarea::make('exception_message')->maxLength(65535),
-        ]);
+        ];
     }
 
     public static function getWidgets(): array

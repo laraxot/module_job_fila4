@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobResource\Widgets;
 
+use Modules\Xot\Actions\Cast\SafeEloquentCastAction;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Support\Facades\DB;
 use Modules\Job\Models\JobManager;
 use Modules\Job\Traits\FormatSeconds;
-use Modules\Xot\Actions\Cast\SafeEloquentCastAction;
 
 class JobStatsOverview extends BaseWidget
 {
@@ -36,7 +36,7 @@ class JobStatsOverview extends BaseWidget
                     ceil(
                         (float) app(SafeEloquentCastAction::class)
                             ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0'),
-                    ).'s'
+                    ) . 's'
                 )
                 : '0';
 
@@ -46,7 +46,7 @@ class JobStatsOverview extends BaseWidget
                     $this->formatSeconds(
                         (int) app(SafeEloquentCastAction::class)
                             ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0'),
-                    ).'s'
+                    ) . 's'
                 )
                 : '0';
         } else {
@@ -55,7 +55,7 @@ class JobStatsOverview extends BaseWidget
         }
 
         return [
-            Stat::make(__('jobs::translations.total_jobs'), (int) ($aggregatedInfo->count ?? 0)),
+            Stat::make(__('jobs::translations.total_jobs'), $aggregatedInfo->count ?? 0),
             Stat::make(__('jobs::translations.execution_time'), $totalTime),
             Stat::make(__('jobs::translations.average_time'), $averageTime),
         ];

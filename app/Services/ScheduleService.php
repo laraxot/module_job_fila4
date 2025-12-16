@@ -20,16 +20,16 @@ class ScheduleService
 
     public function __construct()
     {
-        Assert::string($modelClass = config('job::model'), '['.__LINE__.']['.class_basename($this).']');
-        $model = app($modelClass);
-        Assert::isInstanceOf($model, Schedule::class);
-        $this->model = $model;
+        Assert::string($modelClass = config('job::model'), '[' . __LINE__ . '][' . class_basename($this) . ']');
+        $this->model = app($modelClass);
     }
 
     /**
      * Undocumented function.
+     *
+     * @return Collection
      */
-    public function getActives(): Collection
+    public function getActives()
     {
         if (config('job::cache.enabled')) {
             return $this->getFromCache();
@@ -40,19 +40,21 @@ class ScheduleService
 
     public function clearCache(): void
     {
-        Assert::string($store = config('job::cache.store'), '['.__LINE__.']['.class_basename($this).']');
-        Assert::string($key = config('job::cache.key'), '['.__LINE__.']['.class_basename($this).']');
+        Assert::string($store = config('job::cache.store'), '[' . __LINE__ . '][' . class_basename($this) . ']');
+        Assert::string($key = config('job::cache.key'), '[' . __LINE__ . '][' . class_basename($this) . ']');
 
         Cache::store($store)->forget($key);
     }
 
     /**
      * Undocumented function.
+     *
+     * @return Collection
      */
-    private function getFromCache(): Collection
+    private function getFromCache()
     {
-        Assert::string($store = config('job::cache.store'), '['.__LINE__.']['.class_basename($this).']');
-        Assert::string($key = config('job::cache.key'), '['.__LINE__.']['.class_basename($this).']');
+        Assert::string($store = config('job::cache.store'), '[' . __LINE__ . '][' . class_basename($this) . ']');
+        Assert::string($key = config('job::cache.key'), '[' . __LINE__ . '][' . class_basename($this) . ']');
 
         return Cache::store($store)->rememberForever($key, $this->model->active()->get(...));
     }

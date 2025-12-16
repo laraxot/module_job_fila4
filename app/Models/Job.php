@@ -49,7 +49,7 @@ use function Safe\json_decode;
  * @method static Builder<static>|Job whereReservedAt($value)
  * @method static Builder<static>|Job whereUpdatedAt($value)
  * @method static Builder<static>|Job whereUpdatedBy($value)
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @mixin \Eloquent
  */
 class Job extends BaseModel

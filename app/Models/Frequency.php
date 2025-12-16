@@ -41,7 +41,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|Frequency whereTaskId($value)
  * @method static Builder<static>|Frequency whereUpdatedAt($value)
  * @method static Builder<static>|Frequency whereUpdatedBy($value)
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @mixin \Eloquent
  */
 class Frequency extends BaseModel

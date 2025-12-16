@@ -22,7 +22,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|TaskComment query()
  * @method static Builder<static>|TaskComment withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|TaskComment withoutTrashed()
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @method static \Modules\Job\Database\Factories\TaskCommentFactory factory($count = null, $state = [])
  * @mixin \Eloquent
  */

@@ -53,7 +53,7 @@ use Override;
  * @method static Builder<static>|Import whereUpdatedBy($value)
  * @method static Builder<static>|Import whereUserId($value)
  * @method static Builder<static>|Import whereUserType($value)
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @mixin \Eloquent
  */
 class Import extends BaseModel

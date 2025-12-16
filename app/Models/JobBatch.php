@@ -47,7 +47,7 @@ use Override;
  * @method static Builder<static>|JobBatch whereOptions($value)
  * @method static Builder<static>|JobBatch wherePendingJobs($value)
  * @method static Builder<static>|JobBatch whereTotalJobs($value)
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel

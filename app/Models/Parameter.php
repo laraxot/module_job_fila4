@@ -36,7 +36,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|Parameter whereUpdatedAt($value)
  * @method static Builder<static>|Parameter whereUpdatedBy($value)
  * @method static Builder<static>|Parameter whereValue($value)
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel

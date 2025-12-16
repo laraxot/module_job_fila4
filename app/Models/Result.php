@@ -40,7 +40,7 @@ use Override;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result whereTaskId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result whereUpdatedBy($value)
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @mixin \Eloquent
  */
 class Result extends BaseModel

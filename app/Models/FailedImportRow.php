@@ -37,7 +37,7 @@ use Override;
  * @method static Builder<static>|FailedImportRow whereUpdatedAt($value)
  * @method static Builder<static>|FailedImportRow whereUpdatedBy($value)
  * @method static Builder<static>|FailedImportRow whereValidationError($value)
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @mixin \Eloquent
  */
 class FailedImportRow extends BaseModel

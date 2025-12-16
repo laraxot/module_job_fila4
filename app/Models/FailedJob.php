@@ -36,7 +36,7 @@ use Override;
  * @method static Builder<static>|FailedJob wherePayload($value)
  * @method static Builder<static>|FailedJob whereQueue($value)
  * @method static Builder<static>|FailedJob whereUuid($value)
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel

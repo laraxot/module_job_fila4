@@ -87,7 +87,7 @@ use Webmozart\Assert\Assert;
  * @method static Builder<static>|Schedule whereWithoutOverlapping($value)
  * @method static Builder<static>|Schedule withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|Schedule withoutTrashed()
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @mixin \Eloquent
  */
 class Schedule extends BaseModel

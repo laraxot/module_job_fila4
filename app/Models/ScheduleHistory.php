@@ -48,7 +48,7 @@ use Override;
  * @method static Builder<static>|ScheduleHistory whereScheduleId($value)
  * @method static Builder<static>|ScheduleHistory whereUpdatedAt($value)
  * @method static Builder<static>|ScheduleHistory whereUpdatedBy($value)
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @mixin \Eloquent
  */
 class ScheduleHistory extends BaseModel

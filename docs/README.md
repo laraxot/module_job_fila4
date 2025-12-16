@@ -299,24 +299,101 @@ class JobReportService
     </page_footer>
 </page>
 ## 🎨 Filament Integration
+
+### Architettura Filament
+
+**IMPORTANTE**: Tutte le pagine Filament estendono `XotBasePage`, mai direttamente `Filament\Pages\Page`.
+
+#### Pagine del Modulo
+
+- **JobStatus**: Estende `Modules\Xot\Filament\Pages\XotBasePage`
+- **JobMonitor**: Estende `Modules\Xot\Filament\Pages\XotBasePage`
+- **ManageQueues**: Estende `Modules\Xot\Filament\Pages\XotBasePage`
+- **ScheduleCalendar**: Estende `Modules\Xot\Filament\Pages\XotBasePage`
+
+#### Pattern Corretti
+
+```php
+// ✅ CORRETTO - Estende XotBasePage
+use Modules\Xot\Filament\Pages\XotBasePage;
+
+class JobStatus extends XotBasePage
+{
+    protected string $view = 'job::filament.pages.job-status';
+    
+    /**
+     * @return array<string, mixed>
+     */
+    public function getHeaderWidgets(): array
+    {
+        return [
+            'clock' => ClockWidget::make(),
+        ];
+    }
+}
+
+// ❌ SBAGLIATO - Mai estendere direttamente Filament
+use Filament\Pages\Page;
+
+class JobStatus extends Page // VIOLAZIONE ARCHITETTURALE
+{
+}
+```
+
 ### Queue Management Resource
+
+```php
 class QueueManagementResource extends XotBaseResource
+{
     protected static ?string $model = Job::class;
+    
+    /**
+     * @return array<string, mixed>
+     */
     public static function getPages(): array
+    {
+        return [
             'index' => Pages\ManageQueues::route('/'),
             'monitor' => Pages\JobMonitor::route('/monitor'),
             'schedule' => Pages\ScheduleCalendar::route('/schedule'),
+        ];
+    }
+    
+    /**
+     * @return array<string, mixed>
+     */
     public static function getWidgets(): array
-            QueueStatsWidget::class,
-            JobHistoryWidget::class,
+    {
+        return [
+            'queue_stats' => QueueStatsWidget::class,
+            'job_history' => JobHistoryWidget::class,
+        ];
+    }
+}
+```
+
 ### Queue Stats Widget
+
+```php
 class QueueStatsWidget extends XotBaseWidget
+{
     protected static string $view = 'job::filament.widgets.queue-stats';
+    
+    /**
+     * @return array<string, mixed>
+     */
     public function getViewData(): array
+    {
+        $monitor = app(QueueMonitorService::class);
+        
+        return [
             'statistics' => $monitor->getQueueStatistics(),
             'total_jobs' => Job::count(),
             'failed_jobs' => FailedJob::count(),
             'active_tasks' => Task::where('is_active', true)->count(),
+        ];
+    }
+}
 ## 🧪 Testing Status
 ### ✅ Completed Tests (85% Coverage)
 #### Business Logic Tests

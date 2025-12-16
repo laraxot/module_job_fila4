@@ -53,10 +53,15 @@ class ScheduleArguments extends TextColumn
     protected function formatArrayTags(array $tags): array
     {
         return collect($tags)
+<<<<<<< HEAD
             ->when($this->withValue, fn($collection) => $collection->reject(fn($value) => empty($value['value'])))
             ->map(fn($value, $key) => $this->withValue
                 ? (($value['name'] ?? $key) . '=' . $value['value'])
                 : ($key . '=' . $value))
+=======
+            ->when($this->withValue, fn ($collection) => $collection->reject(fn ($value) => empty($value['value'])))
+            ->map(fn ($value, $key) => ($this->withValue ? ($value['name'] ?? $key).'='.$value['value'] : $key.'='.$value))
+>>>>>>> e1b0bf9 (.)
             ->toArray();
     }
 

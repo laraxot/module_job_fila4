@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace Modules\Job\Tests\Feature;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Job\Models\Frequency;
 use Modules\Job\Models\Result;
 use Modules\Job\Models\Task;
 use Tests\TestCase;
+<<<<<<< HEAD
 =======
 use Modules\Job\Models\Task;
 use Modules\Job\Models\Frequency;
@@ -18,6 +22,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 
 class TaskBusinessLogicTest extends TestCase
 {

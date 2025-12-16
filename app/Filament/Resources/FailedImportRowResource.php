@@ -17,12 +17,12 @@ class FailedImportRowResource extends XotBaseResource
     #[Override]
     public static function getFormSchema(): array
     {
-        return array_values([
+        return [
             'import_class' => TextInput::make('import_class')->required()->maxLength(255),
             'row_number' => TextInput::make('row_number')->numeric()->required(),
             'row_data' => Textarea::make('row_data')->required()->columnSpanFull(),
             'error_message' => Textarea::make('error_message')->required()->columnSpanFull(),
-        ]);
+        ];
     }
 
     #[Override]

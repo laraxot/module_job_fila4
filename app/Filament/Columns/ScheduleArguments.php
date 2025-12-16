@@ -49,34 +49,15 @@ class ScheduleArguments extends TextColumn
 
     /**
      * Format tags when they are in array format.
-     *
-     * @param  array<int|string, mixed>  $tags
-     * @return array<int, string>
      */
     protected function formatArrayTags(array $tags): array
     {
-        $result = [];
-        foreach ($tags as $key => $value) {
-            $keyStr = (string) $key;
-
-            if ($this->withValue) {
-                if (is_array($value)) {
-                    $name = isset($value['name']) && is_string($value['name']) ? $value['name'] : $keyStr;
-                    $val = isset($value['value']) && is_string($value['value']) ? $value['value'] : '';
-                    $result[] = $name.'='.$val;
-
-                    continue;
-                }
-
-                $result[] = $keyStr.'='.(string) $value;
-
-                continue;
-            }
-
-            $result[] = $keyStr.'='.(string) $value;
-        }
-
-        return $result;
+        return collect($tags)
+            ->when($this->withValue, fn ($collection) => $collection->reject(fn ($value) => empty($value['value'])))
+            ->map(fn ($value, $key) => $this->withValue
+                ? (($value['name'] ?? $key).'='.$value['value'])
+                : ($key.'='.$value))
+            ->toArray();
     }
 
     /**

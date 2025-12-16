@@ -69,7 +69,7 @@ class ListSchedules extends XotBaseListRecords
             ViewAction::make()
                 ->icon('history')
                 ->color('gray')
-                ->tooltip(static::trans('buttons.history')),
+                ->tooltip(__('buttons.history')),
         ];
     }
 

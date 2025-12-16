@@ -14,6 +14,9 @@ class JobStatus extends XotBasePage
 
     protected string $view = 'job::filament.pages.job-status';
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getHeaderWidgets(): array
     {
         return [
@@ -28,6 +31,9 @@ class JobStatus extends XotBasePage
         $this->out .= Artisan::output();
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getViewData(): array
     {
         return [
@@ -35,6 +41,9 @@ class JobStatus extends XotBasePage
         ];
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getActs(): array
     {
         return [

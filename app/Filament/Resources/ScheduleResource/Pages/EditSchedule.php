@@ -12,6 +12,7 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 use Modules\Xot\Filament\Traits\TransTrait;
 use Override;
+use Modules\Xot\Filament\Traits\TransTrait;
 use Webmozart\Assert\Assert;
 
 class EditSchedule extends XotBaseEditRecord

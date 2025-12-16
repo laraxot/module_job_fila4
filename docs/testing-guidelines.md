@@ -7,7 +7,12 @@ All tests MUST use `.env.testing` configuration:
 ```env
 APP_ENV=testing
 DB_CONNECTION=sqlite
+<<<<<<< HEAD
 DB_DATABASE=saluteora_data_test
+=======
+DB_DATABASE=<nome progetto>_data_test
+DB_DATABASE=<nome progetto>_data_test
+>>>>>>> bccac65 (.)
 QUEUE_CONNECTION=sync
 ```
 

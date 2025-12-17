@@ -16,13 +16,13 @@ use Filament\Actions\DeleteBulkAction;
 use Closure;
 use Filament\Tables;
 use Modules\Job\Filament\Resources\ScheduleResource;
+use Modules\Job\Models\Schedule;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListSchedules extends XotBaseListRecords
 {
     protected static string $resource = ScheduleResource::class;
 
-    #[Override]
     public function getTableColumns(): array
     {
         return [
@@ -52,7 +52,7 @@ class ListSchedules extends XotBaseListRecords
     {
         return [
             EditAction::make()
-                ->hidden(fn($record) => $record->trashed())
+                ->hidden(static fn (Schedule $record): bool => $record->deleted_at !== null)
                 ->tooltip(__('filament-support::actions/edit.single.label')),
             RestoreAction::make()->tooltip(__('filament-support::actions/restore.single.label')),
             DeleteAction::make()->tooltip(__('filament-support::actions/delete.single.label')),

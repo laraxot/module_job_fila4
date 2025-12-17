@@ -154,15 +154,19 @@ class Status extends Component
     {
         $env_file = base_path('.env');
         $env_content = File::get($env_file);
+
+        $conn = $this->form_data['conn'] ?? null;
+        Assert::string($conn, '[' . __LINE__ . '][' . class_basename($this) . ']');
+
         $new_content = Str::replace(
             'QUEUE_CONNECTION=' . $this->old_value,
-            'QUEUE_CONNECTION=' . $this->form_data['conn'],
+            'QUEUE_CONNECTION=' . $conn,
             $env_content,
         );
-        putenv('QUEUE_CONNECTION=' . $this->form_data['conn']);
+        putenv('QUEUE_CONNECTION=' . $conn);
         Assert::string($new_content, '[' . __LINE__ . '][' . class_basename($this) . ']');
         File::put($env_file, $new_content);
-        $this->old_value = $this->form_data['conn'];
+        $this->old_value = $conn;
     }
 
     public function artisan(string $cmd): void

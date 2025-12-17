@@ -37,7 +37,5 @@ class Broad extends Component
         dd('fine');
 
         // $this->showNewOrderNotification = true;
-
-        throw new \LogicException('This method should never complete normally');
     }
 }

@@ -18,6 +18,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Artisan;
 use Modules\Job\Filament\Resources\JobBatchResource;
+use Modules\Job\Models\JobBatch;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Webmozart\Assert\Assert;
 
@@ -31,10 +32,8 @@ class ListJobBatches extends XotBaseListRecords
     #[Override]
     public function getTableColumns(): array
     {
-        Assert::string(
-            $date_format = config('app.date_format'),
-            '[' . __LINE__ . '][' . class_basename(__CLASS__) . ']',
-        );
+        $date_format = config('app.date_format');
+        Assert::string($date_format, '[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
 
         return [
             'id' => TextColumn::make('id')
@@ -49,7 +48,18 @@ class ListJobBatches extends XotBaseListRecords
             'pending_jobs' => TextColumn::make('pending_jobs')->numeric()->sortable(),
             'failed_jobs' => TextColumn::make('failed_jobs')->numeric()->sortable(),
             'progress' => TextColumn::make('progress')
-                ->formatStateUsing(fn($record) => $record->progress() . '%')
+                ->formatStateUsing(
+                    /**
+                     * @param  mixed  $record
+                     */
+                    static function ($record): string {
+                        if (! $record instanceof JobBatch) {
+                            return '';
+                        }
+
+                        return (string) $record->progress() . '%';
+                    },
+                )
                 ->sortable(),
             'failed_job_ids' => TextColumn::make('failed_job_ids')
                 ->wrap()

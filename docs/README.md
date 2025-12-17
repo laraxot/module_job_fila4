@@ -419,6 +419,13 @@ class QueueStatsWidget extends XotBaseWidget
 | Factory Coverage | 100% | 100% | ✅ Complete |
 | Seeder Coverage | 100% | 100% | ✅ Complete |
 | Models Tested | 5/8 | 8/8 | 🔄 In Progress |
+
+### 🔍 Strumenti di qualità (da lanciare da `laravel/`)
+
+- **PHPStan**: `./vendor/bin/phpstan analyse Modules/Job --level=10`
+- **PHPMD (phar)**: `php phpmd.phar Modules/Job text codesize`
+- **PHP Insights**: `./vendor/bin/phpinsights analyse Modules/Job`
+
 ## 🚀 Installation & Setup
 ### 1. Module Installation
 ```bash

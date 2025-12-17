@@ -52,12 +52,37 @@ class ScheduleArguments extends TextColumn
      */
     protected function formatArrayTags(array $tags): array
     {
-        return collect($tags)
-            ->when($this->withValue, fn($collection) => $collection->reject(fn($value) => empty($value['value'])))
-            ->map(fn($value, $key) => $this->withValue
-                ? (($value['name'] ?? $key) . '=' . $value['value'])
-                : ($key . '=' . $value))
-            ->toArray();
+        $collection = collect($tags);
+
+        if ($this->withValue) {
+            $collection = $collection->filter(
+                static function (mixed $value): bool {
+                    if (! is_array($value)) {
+                        return false;
+                    }
+
+                    return array_key_exists('value', $value) && $value['value'] !== null && $value['value'] !== '';
+                },
+            );
+        }
+
+        return $collection
+            ->map(
+                function (mixed $value, int|string $key): string {
+                    if ($this->withValue && is_array($value)) {
+                        $name = isset($value['name']) && is_string($value['name'])
+                            ? $value['name']
+                            : (string) $key;
+                        $val = isset($value['value']) ? (string) $value['value'] : '';
+
+                        return $name . '=' . $val;
+                    }
+
+                    return (string) $key . '=' . (string) $value;
+                },
+            )
+            ->values()
+            ->all();
     }
 
     /**

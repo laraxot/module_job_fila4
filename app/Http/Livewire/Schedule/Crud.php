@@ -64,6 +64,7 @@ class Crud extends Component
     {
         config('totem.artisan.command_filter');
         config('totem.artisan.whitelist', true);
+        /** @var Collection<string, Command> $all_commands */
         $all_commands = collect(Artisan::all());
 
         /*
@@ -83,14 +84,21 @@ class Crud extends Component
          * }
          */
 
-        return $all_commands->sortBy(static function (Command $command): string {
-            Assert::string($name = $command->getName());
-            if (mb_strpos($name, ':') === false) {
-                return ':' . $name;
-            }
+        return $all_commands->sortBy(
+            /**
+             * @param  Command  $command
+             */
+            static function ($command): string {
+                Assert::isInstanceOf($command, Command::class);
+                Assert::string($name = $command->getName());
 
-            return $name;
-        });
+                if (mb_strpos($name, ':') === false) {
+                    return ':' . $name;
+                }
+
+                return $name;
+            },
+        );
     }
 
     public function executeTask(string $task_id): void

@@ -10,26 +10,18 @@ use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\Layout\Panel;
 use Filament\Forms;
-use Filament\Resources\Concerns\HasTabs;
-use Filament\Resources\Pages\Concerns\HasRelationManagers;
-use Filament\Resources\Pages\Concerns\InteractsWithRecord;
-use Filament\Resources\Pages\Page;
-use Filament\Tables;
 use Filament\Tables\Contracts\HasTable;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\HtmlString;
 use Livewire\Attributes\Url;
 use Modules\Job\Filament\Resources\ScheduleResource;
+use Modules\Job\Models\ScheduleHistory;
+use Modules\Xot\Filament\Resources\Pages\XotBaseResourcePage;
 use Webmozart\Assert\Assert;
 
-class ViewSchedule extends Page implements HasTable
+class ViewSchedule extends XotBaseResourcePage implements HasTable
 {
     use InteractsWithForms;
-    use HasRelationManagers;
-    use HasTabs;
-    use InteractsWithRecord;
-    use InteractsWithTable {
-        makeTable as makeBaseTable;
-    }
     use InteractsWithTable {
         makeTable as makeBaseTable;
     }
@@ -51,50 +43,28 @@ class ViewSchedule extends Page implements HasTable
         return [];
     }
 
-    /*
-     * Undocumented function
-     *
-     * @param string $record
-     * @return void
-     *
-     * public function mount($record): void
-     * {
-     * static::authorizeResourceAccess();
-     *
-     * $this->record = $this->resolveRecord($record);
-     *
-     * abort_unless(static::getResource()::canView($this->getRecord()), 403);
-     * }
-     *
-     * protected function getRelationManagers(): array
-     * {
-     * return [];
-     * }
-     *
-     *
-     * protected function getTableQuery(): Builder
-     * {
-     * return ScheduleHistory::where('schedule_id', $this->record->id)->latest();
-     * }
-     */
-
     protected function getTableColumns(): array
     {
-        $date_format = Assert::string(config('app.date_format'), '[' . __LINE__ . '][' . class_basename($this) . ']');
+        $date_format = config('app.date_format');
+        Assert::string($date_format, '[' . __LINE__ . '][' . class_basename($this) . ']');
 
         return [
             Split::make([
                 TextColumn::make('command'),
                 TextColumn::make('created_at')->dateTime($date_format),
                 TextColumn::make('updated_at')->formatStateUsing(static function (
-                    $state,
-                    $record,
+                    ?Carbon $state,
+                    ScheduleHistory $record,
                 ): string {
-                    if ($state === $record->created_at) {
+                    if ($record->created_at === null || $state === null) {
+                        return '';
+                    }
+
+                    if ($state->equalTo($record->created_at)) {
                         return 'Processing...';
                     }
 
-                    return $state->diffInSeconds($record->created_at) . ' seconds';
+                    return (string) $state->diffInSeconds($record->created_at) . ' seconds';
                 }),
                 TextColumn::make('output')->formatStateUsing(
                     static fn(string $state): string => (

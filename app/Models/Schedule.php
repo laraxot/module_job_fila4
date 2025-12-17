@@ -220,7 +220,7 @@ class Schedule extends BaseModel
                 static function ($value, $key): string {
                     if (is_array($value)) {
                         $name = $value['name'] ?? null;
-                        $fallbackKey = is_int($key) || is_string($key) ? (string) $key : '';
+                        $fallbackKey = (string) $key;
                         $optionName = is_string($name) ? $name : $fallbackKey;
                         $optionValue = $value['value'] ?? null;
 

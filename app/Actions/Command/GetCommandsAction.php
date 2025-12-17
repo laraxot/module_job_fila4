@@ -32,10 +32,7 @@ class GetCommandsAction
             static function (Command $command): CommandData {
                 $name = (string) $command->getName();
                 $description = (string) $command->getDescription();
-                $signatureRaw = method_exists($command, 'getDefinition') && method_exists($command, 'getSignature')
-                    ? $command->getSignature()
-                    : $name;
-                $signature = (string) $signatureRaw;
+                $signature = $name;
 
                 /** @var Collection<int, array{name: string, description: string, required: bool}> $arguments */
                 $arguments = collect($command->getDefinition()->getArguments())

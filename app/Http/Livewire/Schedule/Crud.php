@@ -88,8 +88,7 @@ class Crud extends Component
             /**
              * @param  Command  $command
              */
-            static function ($command): string {
-                Assert::isInstanceOf($command, Command::class);
+            static function (Command $command): string {
                 Assert::string($name = $command->getName());
 
                 if (mb_strpos($name, ':') === false) {

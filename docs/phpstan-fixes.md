@@ -1,55 +1,34 @@
-<<<<<<< HEAD
-# PHPStan Fixes - Gennaio 2025
+# PHPStan Fixes – Gennaio 2025
 
-## Modulo Job - Correzioni Completate
+## ✅ Stato complessivo
 
-### File Corretto
+Il modulo Job è completamente conforme al livello PHPStan 7 con **0 errori rimanenti**. Le correzioni riguardano sia i modelli Eloquent sia le Filament Resources, in modo allineato con le convenzioni `XotBase`.
 
-**Modules/Job/app/Models/Result.php**
+---
 
-### Errori Risolti
+## 🔧 Correzioni implementate
 
-1. **PHPDoc tag @property-read per `$creator`**
-   - Prima: `@property-read \Modules\Xot\Contracts\ProfileContract|null $creator`
-   - Dopo: `@property-read \Modules\Xot\Contracts\ProfileContract|null $creator`
+### 1. Modello `Modules/Job/app/Models/Result.php`
 
-2. **PHPDoc tag @property-read per `$updater`**
-   - Prima: `@property-read \Modules\Xot\Contracts\ProfileContract|null $updater`
-   - Dopo: `@property-read \Modules\Xot\Contracts\ProfileContract|null $updater`
+- Allineati i PHPDoc `@property-read` a `\Modules\Xot\Contracts\ProfileContract|null` per gli attributi `creator` e `updater`.
+- Verificato e documentato il metodo `factory()` con il namespace completo `\Modules\Job\Database\Factories\ResultFactory`.
 
-3. **PHPDoc tag @method per `factory()`**
-   - Verificato che il namespace sia corretto: `\Modules\Job\Database\Factories\ResultFactory`
+### 2. Filament Resource `FailedJobResource/Pages/ListFailedJobs.php`
 
-## Pattern Applicato
+- `getHeaderActions()` ora restituisce array associativi con chiavi string coerenti.
+- PHPDoc aggiornato a `@return array<string, \Filament\Actions\Action>` secondo gli standard Filament/Xot.
+
+---
+
+## 📋 Pattern applicati
 
 ### PHPDoc Contracts
-- Utilizzare sempre `ProfileContract` invece di `Profile` nei PHPDoc
-- Namespace completo per Factory: `Modules\{Module}\Database\Factories\{Model}Factory`
 
-## Risultati
+- Utilizzare sempre `ProfileContract` nei PHPDoc degli attributi relazionali.
+- Specificare i namespace completi per le factory `Modules\{Module}\Database\Factories\{Model}Factory`.
 
-- **Errori PHPStan**: 0
-- **File corretti**: 1
-- **Pattern applicati**: PHPDoc Contracts
+### Array associativi Filament
 
-=======
-# Job Module - PHPStan Level 7 Fixes - Gennaio 2025
-
-## ✅ **Stato Completato**
-
-Il modulo Job è stato completamente risolto per PHPStan Level 7 con 0 errori rimanenti.
-
-## 🔧 **Correzioni Implementate**
-
-### Filament Resources - Array Compatibility
-- **FailedJobResource/Pages/ListFailedJobs.php**: 
-  - Corretto `getHeaderActions()` per utilizzare array associativo con chiavi string
-  - Aggiornato PHPDoc: `@return array<string, \Filament\Actions\Action>`
-  - Implementato pattern conforme alle best practices del progetto
-
-## 📋 **Pattern Implementati**
-
-### Array Associativi Filament
 ```php
 /**
  * @return array<string, \Filament\Actions\Action>
@@ -65,29 +44,45 @@ protected function getHeaderActions(): array
             ->color('danger')
             ->requiresConfirmation()
             ->action(function (): void {
-                // Clear all failed jobs implementation
+                // Implementazione pulizia job falliti
             }),
     ];
 }
 ```
 
-### Best Practices Seguite
-- **Array Associativi**: Sempre utilizzare chiavi string per azioni Filament
-- **PHPDoc Completo**: Specificare tipi di ritorno precisi
-- **Compatibilità XotBase**: Allineamento con classi base del progetto
-- **Job Management**: Pattern specifici per gestione job falliti
+---
 
-## 🎯 **Risultati**
-- **Errori PHPStan**: 0 (completamente risolto)
-- **Compatibilità**: 100% con XotBaseListRecords
-- **Standard**: Conforme alle convenzioni del progetto
-- **Funzionalità**: Gestione completa dei job falliti
+## 🎯 Risultati
 
-## 📚 **Documentazione di Riferimento**
-- `docs/phpstan-level7-guide.md`: Guida completa PHPStan Level 7
-- `docs/phpstan/guida_filament_table_actions.md`: Guida azioni Filament
+- **Errori PHPStan**: 0
+- **File corretti**: 2 (Result model + FailedJobResource page)
+- **Compatibilità**: confermata con `XotBaseListRecords`
+- **Pattern applicati**: PHPDoc Contracts, Array associativi Filament
 
 ---
-*Ultimo aggiornamento: Gennaio 2025*
-*Stato: ✅ Completato - 0 errori PHPStan*
->>>>>>> laraxot/develop
+
+## 📚 Documentazione di riferimento
+
+- `docs/phpstan-level7-guide.md` – guida completa allineata al livello 7
+- `docs/phpstan/guida_filament_table_actions.md` – best practice sulle azioni Filament
+
+> Ultimo aggiornamento: Gennaio 2025 — Stato: ✅ Completato (0 errori)
+
+---
+
+## Collegamenti tra versioni di lang-link.md
+
+- [lang-link.md](../../../Chart/docs/lang-link.md)
+- [lang-link.md](../../../Reporting/docs/lang-link.md)
+- [lang-link.md](../../../Gdpr/docs/lang-link.md)
+- [lang-link.md](../../../Notify/docs/lang-link.md)
+- [lang-link.md](../../../Xot/docs/lang-link.md)
+- [lang-link.md](../../../Dental/docs/lang-link.md)
+- [lang-link.md](../../../User/docs/lang-link.md)
+- [lang-link.md](../../../UI/docs/lang-link.md)
+- [lang-link.md](../../../Job/docs/lang-link.md)
+- [lang-link.md](../../../Media/docs/lang-link.md)
+- [lang-link.md](../../../Tenant/docs/lang-link.md)
+- [lang-link.md](../../../Activity/docs/lang-link.md)
+- [lang-link.md](../../../Patient/docs/lang-link.md)
+- [lang-link.md](../../../Cms/docs/lang-link.md)

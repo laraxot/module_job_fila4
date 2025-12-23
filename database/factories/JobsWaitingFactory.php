@@ -8,19 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\JobsWaiting;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<JobsWaiting>
-=======
-<<<<<<< HEAD
- * @extends Factory<JobsWaiting>
-=======
-<<<<<<< HEAD
- * @extends Factory<JobsWaiting>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\JobsWaiting>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
  */
 class JobsWaitingFactory extends Factory
 {

@@ -8,19 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\Result;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<Result>
-=======
-<<<<<<< HEAD
- * @extends Factory<Result>
-=======
-<<<<<<< HEAD
- * @extends Factory<Result>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Result>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
  */
 class ResultFactory extends Factory
 {

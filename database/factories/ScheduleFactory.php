@@ -8,19 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\Schedule;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<Schedule>
-=======
-<<<<<<< HEAD
- * @extends Factory<Schedule>
-=======
-<<<<<<< HEAD
- * @extends Factory<Schedule>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Schedule>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
  */
 class ScheduleFactory extends Factory
 {
@@ -38,28 +26,6 @@ class ScheduleFactory extends Factory
      */
     public function definition()
     {
-<<<<<<< HEAD
         return [];
-=======
-<<<<<<< HEAD
-        return [];
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return [];
-=======
-        return [
-        ];
->>>>>>> a12f125f4a (.)
-=======
-        return [];
->>>>>>> b93ef594b4 (.)
-=======
-        return [
-        ];
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
     }
 }

@@ -27,21 +27,5 @@ test('can create a simple database record without model', function () {
 
     $user = DB::table('users')->where('email', 'test@example.com')->first();
     expect($user)->not->toBeNull();
-<<<<<<< HEAD
     expect($user?->name)->toBe('Test User');
-=======
-<<<<<<< HEAD
-    expect($user?->name)->toBe('Test User');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    expect($user?->name)->toBe('Test User');
-=======
-    expect($user->name)->toBe('Test User');
->>>>>>> a12f125f4a (.)
-=======
-    expect($user?->name)->toBe('Test User');
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
 });

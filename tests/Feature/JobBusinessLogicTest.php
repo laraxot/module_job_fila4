@@ -2,33 +2,8 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Job;
-=======
-<<<<<<< HEAD
-use Illuminate\Support\Carbon;
-use Modules\Job\Models\Job;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Illuminate\Support\Carbon;
-use Modules\Job\Models\Job;
-=======
-use Modules\Job\Models\Job;
-use Illuminate\Support\Carbon;
->>>>>>> a12f125f4a (.)
-=======
-use Illuminate\Support\Carbon;
-use Modules\Job\Models\Job;
->>>>>>> b93ef594b4 (.)
-=======
-use Modules\Job\Models\Job;
-use Illuminate\Support\Carbon;
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
 
 describe('Job Business Logic', function () {
     it('can create job with basic information', function () {
@@ -48,17 +23,6 @@ describe('Job Business Logic', function () {
 
         $job = Job::create($jobData);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
         expect($job)
             ->toBeInstanceOf(Job::class)
             ->and($job->queue)
@@ -67,26 +31,6 @@ describe('Job Business Logic', function () {
             ->toBe(0)
             ->and($job->reserved_at)
             ->toBeNull();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-        expect($job)->toBeInstanceOf(Job::class)
-            ->and($job->queue)->toBe('default')
-            ->and($job->attempts)->toBe(0)
-            ->and($job->reserved_at)->toBeNull();
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
 
         $this->assertDatabaseHas('jobs', [
             'id' => $job->id,
@@ -132,29 +76,7 @@ describe('Job Business Logic', function () {
             'reserved_at' => now()->timestamp,
         ]);
 
-<<<<<<< HEAD
         expect($job->attempts)->toBe(1)->and($job->status)->toBe('running');
-=======
-<<<<<<< HEAD
-        expect($job->attempts)->toBe(1)->and($job->status)->toBe('running');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        expect($job->attempts)->toBe(1)->and($job->status)->toBe('running');
-=======
-        expect($job->attempts)->toBe(1)
-            ->and($job->status)->toBe('running');
->>>>>>> a12f125f4a (.)
-=======
-        expect($job->attempts)->toBe(1)->and($job->status)->toBe('running');
->>>>>>> b93ef594b4 (.)
-=======
-        expect($job->attempts)->toBe(1)
-            ->and($job->status)->toBe('running');
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
 
         // Secondo tentativo
         $job->update([
@@ -163,29 +85,7 @@ describe('Job Business Logic', function () {
             'available_at' => now()->addMinutes(5)->timestamp,
         ]);
 
-<<<<<<< HEAD
         expect($job->attempts)->toBe(2)->and($job->status)->toBe('waiting');
-=======
-<<<<<<< HEAD
-        expect($job->attempts)->toBe(2)->and($job->status)->toBe('waiting');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        expect($job->attempts)->toBe(2)->and($job->status)->toBe('waiting');
-=======
-        expect($job->attempts)->toBe(2)
-            ->and($job->status)->toBe('waiting');
->>>>>>> a12f125f4a (.)
-=======
-        expect($job->attempts)->toBe(2)->and($job->status)->toBe('waiting');
->>>>>>> b93ef594b4 (.)
-=======
-        expect($job->attempts)->toBe(2)
-            ->and($job->status)->toBe('waiting');
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
     });
 
     it('can extract display name from payload', function () {
@@ -234,54 +134,12 @@ describe('Job Business Logic', function () {
             'available_at' => now()->timestamp,
         ]);
 
-<<<<<<< HEAD
         expect($job->display_name)->toBe('App\Jobs\ComplexProcessingJob')->and($job->queue)->toBe('processing');
-=======
-<<<<<<< HEAD
-        expect($job->display_name)->toBe('App\Jobs\ComplexProcessingJob')->and($job->queue)->toBe('processing');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        expect($job->display_name)->toBe('App\Jobs\ComplexProcessingJob')->and($job->queue)->toBe('processing');
-=======
-        expect($job->display_name)->toBe('App\Jobs\ComplexProcessingJob')
-            ->and($job->queue)->toBe('processing');
->>>>>>> a12f125f4a (.)
-=======
-        expect($job->display_name)->toBe('App\Jobs\ComplexProcessingJob')->and($job->queue)->toBe('processing');
->>>>>>> b93ef594b4 (.)
-=======
-        expect($job->display_name)->toBe('App\Jobs\ComplexProcessingJob')
-            ->and($job->queue)->toBe('processing');
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
     });
 
     it('can handle job scheduling and delays', function () {
         $futureTime = now()->addHours(2);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
-
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
         $job = Job::create([
             'queue' => 'scheduled',
             'payload' => json_encode(['displayName' => 'ScheduledJob']),
@@ -289,29 +147,7 @@ describe('Job Business Logic', function () {
             'available_at' => $futureTime->timestamp,
         ]);
 
-<<<<<<< HEAD
         expect($job->available_at)->toBeGreaterThan(now()->timestamp)->and($job->status)->toBe('waiting');
-=======
-<<<<<<< HEAD
-        expect($job->available_at)->toBeGreaterThan(now()->timestamp)->and($job->status)->toBe('waiting');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        expect($job->available_at)->toBeGreaterThan(now()->timestamp)->and($job->status)->toBe('waiting');
-=======
-        expect($job->available_at)->toBeGreaterThan(now()->timestamp)
-            ->and($job->status)->toBe('waiting');
->>>>>>> a12f125f4a (.)
-=======
-        expect($job->available_at)->toBeGreaterThan(now()->timestamp)->and($job->status)->toBe('waiting');
->>>>>>> b93ef594b4 (.)
-=======
-        expect($job->available_at)->toBeGreaterThan(now()->timestamp)
-            ->and($job->status)->toBe('waiting');
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
     });
 
     it('can manage job reservation and processing', function () {
@@ -329,31 +165,7 @@ describe('Job Business Logic', function () {
             'attempts' => 1,
         ]);
 
-<<<<<<< HEAD
         expect($job->status)->toBe('running')->and($job->attempts)->toBe(1)->and($job->reserved_at)->not->toBeNull();
-=======
-<<<<<<< HEAD
-        expect($job->status)->toBe('running')->and($job->attempts)->toBe(1)->and($job->reserved_at)->not->toBeNull();
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        expect($job->status)->toBe('running')->and($job->attempts)->toBe(1)->and($job->reserved_at)->not->toBeNull();
-=======
-        expect($job->status)->toBe('running')
-            ->and($job->attempts)->toBe(1)
-            ->and($job->reserved_at)->not->toBeNull();
->>>>>>> a12f125f4a (.)
-=======
-        expect($job->status)->toBe('running')->and($job->attempts)->toBe(1)->and($job->reserved_at)->not->toBeNull();
->>>>>>> b93ef594b4 (.)
-=======
-        expect($job->status)->toBe('running')
-            ->and($job->attempts)->toBe(1)
-            ->and($job->reserved_at)->not->toBeNull();
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
 
         // Rilascia il job (fallimento o completamento)
         $job->update([
@@ -362,31 +174,7 @@ describe('Job Business Logic', function () {
             'available_at' => now()->addMinutes(10)->timestamp, // Delay per retry
         ]);
 
-<<<<<<< HEAD
         expect($job->status)->toBe('waiting')->and($job->attempts)->toBe(2)->and($job->reserved_at)->toBeNull();
-=======
-<<<<<<< HEAD
-        expect($job->status)->toBe('waiting')->and($job->attempts)->toBe(2)->and($job->reserved_at)->toBeNull();
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        expect($job->status)->toBe('waiting')->and($job->attempts)->toBe(2)->and($job->reserved_at)->toBeNull();
-=======
-        expect($job->status)->toBe('waiting')
-            ->and($job->attempts)->toBe(2)
-            ->and($job->reserved_at)->toBeNull();
->>>>>>> a12f125f4a (.)
-=======
-        expect($job->status)->toBe('waiting')->and($job->attempts)->toBe(2)->and($job->reserved_at)->toBeNull();
->>>>>>> b93ef594b4 (.)
-=======
-        expect($job->status)->toBe('waiting')
-            ->and($job->attempts)->toBe(2)
-            ->and($job->reserved_at)->toBeNull();
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
     });
 
     it('can handle job priority queues', function () {
@@ -411,42 +199,12 @@ describe('Job Business Logic', function () {
             'available_at' => now()->timestamp,
         ]);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
         expect($highPriorityJob->queue)
             ->toBe('high')
             ->and($lowPriorityJob->queue)
             ->toBe('low')
             ->and($defaultJob->queue)
             ->toBe('default');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-        expect($highPriorityJob->queue)->toBe('high')
-            ->and($lowPriorityJob->queue)->toBe('low')
-            ->and($defaultJob->queue)->toBe('default');
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        expect($highPriorityJob->queue)->toBe('high')
-            ->and($lowPriorityJob->queue)->toBe('low')
-            ->and($defaultJob->queue)->toBe('default');
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
     });
 
     it('can handle job cleanup and maintenance', function () {
@@ -468,38 +226,10 @@ describe('Job Business Logic', function () {
         ]);
 
         // Verifica che i job siano gestibili per la pulizia
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
         expect($completedJob->reserved_at)
             ->toBeLessThan(now()->subMinutes(30)->timestamp)
             ->and($failedJob->attempts)
             ->toBeGreaterThanOrEqual(5);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-        expect($completedJob->reserved_at)->toBeLessThan(now()->subMinutes(30)->timestamp)
-            ->and($failedJob->attempts)->toBeGreaterThanOrEqual(5);
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        expect($completedJob->reserved_at)->toBeLessThan(now()->subMinutes(30)->timestamp)
-            ->and($failedJob->attempts)->toBeGreaterThanOrEqual(5);
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
     });
 
     it('can validate job payload integrity', function () {
@@ -540,15 +270,6 @@ describe('Job Business Logic', function () {
         }
 
         expect($batchJobs)->toHaveCount(5);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
 
         foreach ($batchJobs as $job) {
             expect($job->queue)
@@ -557,34 +278,6 @@ describe('Job Business Logic', function () {
                 ->toBe('BatchJob')
                 ->and($job->status)
                 ->toBe('waiting');
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> origin/develop
-        
-        foreach ($batchJobs as $job) {
-            expect($job->queue)->toBe('batch')
-                ->and($job->display_name)->toBe('BatchJob')
-                ->and($job->status)->toBe('waiting');
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
-
-        foreach ($batchJobs as $job) {
-            expect($job->queue)
-                ->toBe('batch')
-                ->and($job->display_name)
-                ->toBe('BatchJob')
-                ->and($job->status)
-                ->toBe('waiting');
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
         }
     });
 });

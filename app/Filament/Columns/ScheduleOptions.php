@@ -20,17 +20,6 @@ class ScheduleOptions extends TextColumn
     public function getTags(): array
     {
         /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
          * if($this->record==null){
          * return [];
          * }
@@ -40,31 +29,6 @@ class ScheduleOptions extends TextColumn
          * return parent::getTags();
          * }
          */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-        if($this->record==null){
-            return [];
-        }
-        if($this->withValue)
-        return $this->record->getOptions();
-        else{
-            return parent::getTags();
-        }
-        */
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
         return [];
     }
 }

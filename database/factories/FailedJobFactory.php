@@ -9,19 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\FailedJob;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<FailedJob>
-=======
-<<<<<<< HEAD
- * @extends Factory<FailedJob>
-=======
-<<<<<<< HEAD
- * @extends Factory<FailedJob>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\FailedJob>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
  */
 class FailedJobFactory extends Factory
 {

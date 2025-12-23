@@ -9,19 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\Import;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<Import>
-=======
-<<<<<<< HEAD
- * @extends Factory<Import>
-=======
-<<<<<<< HEAD
- * @extends Factory<Import>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Import>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
  */
 class ImportFactory extends Factory
 {

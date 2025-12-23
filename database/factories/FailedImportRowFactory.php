@@ -9,19 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\FailedImportRow;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<FailedImportRow>
-=======
-<<<<<<< HEAD
- * @extends Factory<FailedImportRow>
-=======
-<<<<<<< HEAD
- * @extends Factory<FailedImportRow>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\FailedImportRow>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
->>>>>>> laraxot/develop
  */
 class FailedImportRowFactory extends Factory
 {

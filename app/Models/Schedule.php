@@ -89,7 +89,7 @@ use Webmozart\Assert\Assert;
  * @method static Builder<static>|Schedule withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|Schedule withoutTrashed()
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property-read ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

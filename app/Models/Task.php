@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Modules\Job\Database\Factories\TaskFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -81,9 +82,9 @@ use function Safe\json_decode;
  *
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property-read ProfileContract|null $deleter
  *
- * @method static \Modules\Job\Database\Factories\TaskFactory factory($count = null, $state = [])
+ * @method static TaskFactory factory($count = null, $state = [])
  * @method static Builder<static>|Task whereDeletedAt($value)
  * @method static Builder<static>|Task whereDeletedBy($value)
  *

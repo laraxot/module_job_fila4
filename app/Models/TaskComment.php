@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Modules\Job\Database\Factories\TaskCommentFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Models\User;
@@ -24,9 +25,9 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|TaskComment withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|TaskComment withoutTrashed()
  *
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property-read ProfileContract|null $deleter
  *
- * @method static \Modules\Job\Database\Factories\TaskCommentFactory factory($count = null, $state = [])
+ * @method static TaskCommentFactory factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */

@@ -6,13 +6,14 @@ namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Traits\FrontendSortable;
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Xot\Models\Traits\HasXotFactory;
 use Webmozart\Assert\Assert;
 
 use function Safe\json_decode;
@@ -40,18 +41,18 @@ use function Safe\json_decode;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read Collection<int, \Modules\Job\Models\Frequency> $frequencies
+ * @property-read ProfileContract|null $creator
+ * @property-read Collection<int, Frequency> $frequencies
  * @property-read int|null $frequencies_count
  * @property-read bool $activated
  * @property-read float $average_runtime
- * @property-read \Modules\Job\Models\Result|null $last_result
+ * @property-read Result|null $last_result
  * @property-read string $upcoming
  * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
- * @property-read Collection<int, \Modules\Job\Models\Result> $results
+ * @property-read Collection<int, Result> $results
  * @property-read int|null $results_count
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read ProfileContract|null $updater
  *
  * @method static Builder<static>|Task newModelQuery()
  * @method static Builder<static>|Task newQuery()
@@ -78,13 +79,21 @@ use function Safe\json_decode;
  * @method static Builder<static>|Task whereUpdatedAt($value)
  * @method static Builder<static>|Task whereUpdatedBy($value)
  *
+ * @property Carbon|null $deleted_at
+ * @property string|null $deleted_by
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+ * @method static \Modules\Job\Database\Factories\TaskFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Task whereDeletedAt($value)
+ * @method static Builder<static>|Task whereDeletedBy($value)
+ *
  * @mixin \Eloquent
  */
 class Task extends BaseModel
 {
     // use HasFrequencies;
     use FrontendSortable;
-    use \Modules\Xot\Models\Traits\HasXotFactory;
+    use HasXotFactory;
     use Notifiable;
 
     protected $fillable = [

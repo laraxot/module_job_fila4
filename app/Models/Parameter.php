@@ -7,6 +7,8 @@ namespace Modules\Job\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ParameterFactory;
+use Modules\Xot\Contracts\ProfileContract;
 
 /**
  * Modules\Job\Models\Parameter.
@@ -19,11 +21,11 @@ use Illuminate\Support\Carbon;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Job\Models\Frequency|null $task
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read ProfileContract|null $creator
+ * @property-read Frequency|null $task
+ * @property-read ProfileContract|null $updater
  *
- * @method static \Modules\Job\Database\Factories\ParameterFactory factory($count = null, $state = [])
+ * @method static ParameterFactory factory($count = null, $state = [])
  * @method static Builder<static>|Parameter newModelQuery()
  * @method static Builder<static>|Parameter newQuery()
  * @method static Builder<static>|Parameter query()
@@ -36,6 +38,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Parameter whereUpdatedBy($value)
  * @method static Builder<static>|Parameter whereValue($value)
  *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel
@@ -47,11 +51,6 @@ class Parameter extends BaseModel
         'name',
         'value',
     ];
-
-    public function task(): BelongsTo
-    {
-        return $this->belongsTo(Frequency::class);
-    }
 
     /**
      * Get the attributes that should be cast.
@@ -70,5 +69,10 @@ class Parameter extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ]);
+    }
+
+    public function task(): BelongsTo
+    {
+        return $this->belongsTo(Frequency::class);
     }
 }

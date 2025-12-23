@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\FrequencyFactory;
+use Modules\Xot\Contracts\ProfileContract;
 
 // use Modules\Job\Models\Traits\HasParameters;
 /**
@@ -22,13 +24,13 @@ use Illuminate\Support\Carbon;
  * @property string|null $updated_by
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read Collection<int, \Modules\Job\Models\Parameter> $parameters
+ * @property-read ProfileContract|null $creator
+ * @property-read Collection<int, Parameter> $parameters
  * @property-read int|null $parameters_count
- * @property-read \Modules\Job\Models\Task|null $task
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read Task|null $task
+ * @property-read ProfileContract|null $updater
  *
- * @method static \Modules\Job\Database\Factories\FrequencyFactory factory($count = null, $state = [])
+ * @method static FrequencyFactory factory($count = null, $state = [])
  * @method static Builder<static>|Frequency newModelQuery()
  * @method static Builder<static>|Frequency newQuery()
  * @method static Builder<static>|Frequency query()
@@ -40,6 +42,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Frequency whereTaskId($value)
  * @method static Builder<static>|Frequency whereUpdatedAt($value)
  * @method static Builder<static>|Frequency whereUpdatedBy($value)
+ *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */
@@ -54,16 +58,6 @@ class Frequency extends BaseModel
         'label',
         'interval',
     ];
-
-    public function task(): BelongsTo
-    {
-        return $this->belongsTo(Task::class);
-    }
-
-    public function parameters(): HasMany
-    {
-        return $this->hasMany(Parameter::class);
-    }
 
     /**
      * Get the attributes that should be cast.
@@ -82,5 +76,15 @@ class Frequency extends BaseModel
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ]);
+    }
+
+    public function task(): BelongsTo
+    {
+        return $this->belongsTo(Task::class);
+    }
+
+    public function parameters(): HasMany
+    {
+        return $this->hasMany(Parameter::class);
     }
 }

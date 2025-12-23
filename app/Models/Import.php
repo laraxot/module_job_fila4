@@ -10,6 +10,8 @@ namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ImportFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Override;
 
 /**
@@ -29,10 +31,10 @@ use Override;
  * @property string|null $created_by
  * @property Carbon|null $deleted_at
  * @property string|null $deleted_by
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read ProfileContract|null $creator
+ * @property-read ProfileContract|null $updater
  *
- * @method static \Modules\Job\Database\Factories\ImportFactory factory($count = null, $state = [])
+ * @method static ImportFactory factory($count = null, $state = [])
  * @method static Builder<static>|Import newModelQuery()
  * @method static Builder<static>|Import newQuery()
  * @method static Builder<static>|Import query()
@@ -52,6 +54,8 @@ use Override;
  * @method static Builder<static>|Import whereUpdatedBy($value)
  * @method static Builder<static>|Import whereUserId($value)
  * @method static Builder<static>|Import whereUserType($value)
+ *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

@@ -3,10 +3,11 @@
 declare(strict_types=1);
 
 use Modules\Job\Actions\GetTaskFrequenciesAction;
+use Modules\Job\Models\TaskFrequency;
 
 describe('GetTaskFrequenciesAction Integration', function () {
     beforeEach(function () {
-        $this->action = new GetTaskFrequenciesAction;
+        $this->action = new GetTaskFrequenciesAction();
     });
 
     it('returns array when config exists', function () {
@@ -181,17 +182,17 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBeArray()
             ->and(count($result))
             ->toBe(10)
-            ->and($result['everyMinute'])
+            ->and(isset($result['everyMinute']) ? $result['everyMinute'] : null)
             ->toBe('Every Minute')
-            ->and($result['hourly'])
+            ->and(isset($result['hourly']) ? $result['hourly'] : null)
             ->toBe('Hourly')
-            ->and($result['daily'])
+            ->and(isset($result['daily']) ? $result['daily'] : null)
             ->toBe('Daily')
-            ->and($result['weekly'])
+            ->and(isset($result['weekly']) ? $result['weekly'] : null)
             ->toBe('Weekly')
-            ->and($result['monthly'])
+            ->and(isset($result['monthly']) ? $result['monthly'] : null)
             ->toBe('Monthly')
-            ->and($result['yearly'])
+            ->and(isset($result['yearly']) ? $result['yearly'] : null)
             ->toBe('Yearly');
     });
 });

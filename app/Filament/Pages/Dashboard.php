@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Pages;
 
+use Filament\Pages\Page;
 use Modules\Xot\Filament\Pages\XotBaseDashboard;
 
 class Dashboard extends XotBaseDashboard
 {
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-home';
+    // protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-home';
 
-    protected string $view = 'job::filament.pages.dashboard';
+    // protected string $view = 'job::filament.pages.dashboard';
 
     // public function mount(): void {
     //     $user = auth()->user();

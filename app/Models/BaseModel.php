@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Modules\Xot\Contracts\ProfileContract;
-use Modules\Xot\Models\XotBaseModel;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Traits\Updater;
 
 /**
@@ -15,10 +17,9 @@ use Modules\Xot\Traits\Updater;
  * @property-read ProfileContract|null $creator
  * @property-read ProfileContract|null $updater
  */
-abstract class BaseModel extends XotBaseModel
+abstract class BaseModel extends Model
 {
-    use \Modules\Xot\Models\Traits\HasXotFactory;
-    use SoftDeletes;
+    use HasFactory;
 
     // use Searchable;
     // //use Cachable;
@@ -65,10 +66,21 @@ abstract class BaseModel extends XotBaseModel
     public function __construct(array $attributes = [])
     {
         if (isset($this->prefix)) {
-            $this->table = $this->prefix.$this->table;
+            $this->table = $this->prefix . $this->table;
         }
 
         parent::__construct($attributes);
+    }
+
+    /**
+     * ----
+     * Create a new factory instance for the model.
+     *
+     * @return Factory<static>
+     */
+    protected static function newFactory()
+    {
+        return app(GetFactoryAction::class)->execute(static::class);
     }
 
     /** @return array<string, string> */

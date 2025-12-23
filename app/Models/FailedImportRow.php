@@ -10,6 +10,8 @@ namespace Modules\Job\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\FailedImportRowFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Override;
 
 /**
@@ -21,10 +23,10 @@ use Override;
  * @property Carbon|null $updated_at
  * @property string|null $updated_by
  * @property string|null $created_by
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property-read ProfileContract|null $creator
+ * @property-read ProfileContract|null $updater
  *
- * @method static \Modules\Job\Database\Factories\FailedImportRowFactory factory($count = null, $state = [])
+ * @method static FailedImportRowFactory factory($count = null, $state = [])
  * @method static Builder<static>|FailedImportRow newModelQuery()
  * @method static Builder<static>|FailedImportRow newQuery()
  * @method static Builder<static>|FailedImportRow query()
@@ -36,6 +38,8 @@ use Override;
  * @method static Builder<static>|FailedImportRow whereUpdatedAt($value)
  * @method static Builder<static>|FailedImportRow whereUpdatedBy($value)
  * @method static Builder<static>|FailedImportRow whereValidationError($value)
+ *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @mixin \Eloquent
  */

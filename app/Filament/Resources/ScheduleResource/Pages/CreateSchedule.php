@@ -6,38 +6,41 @@ namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
 use Filament\Notifications\Notification;
 use Filament\Schemas\Schema;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
 use Modules\Job\Filament\Resources\ScheduleResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
+use Modules\Xot\Filament\Traits\TransTrait;
 use Webmozart\Assert\Assert;
 
 class CreateSchedule extends XotBaseCreateRecord
 {
     use NavigationPageLabelTrait;
+    use TransTrait;
 
     public Collection $commands;
 
     protected static string $resource = ScheduleResource::class;
 
     /**
-     * @return array<\Illuminate\Contracts\Support\Htmlable|string>
+     * @return array<Htmlable|string>
      */
     public function getformSchema(): array
     {
         $res = $this->getResource()::getFormSchema();
         Assert::isArray($res);
 
-        /** @var array<\Illuminate\Contracts\Support\Htmlable|string> $typedRes */
+        /** @var array<Htmlable|string> $typedRes */
         $typedRes = $res;
 
         return $typedRes;
     }
 
-    public function form(Schema $schema): Schema
+    public function schema(Schema $schema): Schema
     {
-        /** @var array<\Illuminate\Contracts\Support\Htmlable|string> $formSchema */
+        /** @var array<Htmlable|string> $formSchema */
         $formSchema = $this->getFormSchema();
         Assert::isArray($formSchema);
 

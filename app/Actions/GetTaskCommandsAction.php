@@ -16,7 +16,6 @@ class GetTaskCommandsAction
 
     public function execute(): Collection
     {
-        /** @var Collection<int|string, Command> $all_commands */
         $all_commands = collect(Artisan::all());
 
         /*
@@ -36,11 +35,12 @@ class GetTaskCommandsAction
          * });
          * }
          */
-        return $all_commands->sortBy(static function (Command $command): string {
+        return $all_commands->sortBy(static function ($command) {
+            /** @var \Symfony\Component\Console\Command\Command $command */
             $name = $command->getName();
-            Assert::string($name, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
+            Assert::string($name, __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
             if (mb_strpos($name, ':') === false) {
-                return ':'.$name;
+                return ':' . $name;
             }
 
             return $name;

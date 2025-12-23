@@ -4,18 +4,31 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Models\User;
+=======
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Modules\User\Models\User;
+use Modules\Xot\Contracts\ProfileContract;
+>>>>>>> laraxot/develop
 
 /**
  * Class TaskComment.
  *
  * @property ProfileContract|null $creator
+<<<<<<< HEAD
  * @property Task|null                                   $task
  * @property ProfileContract|null $updater
  * @property User|null                                   $user
+=======
+ * @property Task|null $task
+ * @property ProfileContract|null $updater
+ * @property User|null $user
+>>>>>>> laraxot/develop
  *
  * @method static Builder<static>|TaskComment newModelQuery()
  * @method static Builder<static>|TaskComment newQuery()
@@ -24,6 +37,13 @@ use Modules\User\Models\User;
  * @method static Builder<static>|TaskComment withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|TaskComment withoutTrashed()
  *
+<<<<<<< HEAD
+=======
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+ * @method static \Modules\Job\Database\Factories\TaskCommentFactory factory($count = null, $state = [])
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class TaskComment extends BaseModel

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -20,6 +21,21 @@ use Override;
 class JobsWaitingResource extends XotBaseResource
 {
     protected static ?string $model = Job::class;
+=======
+use Override;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms;
+use Modules\Job\Filament\Resources\JobsWaitingResource\Widgets\JobsWaitingOverview;
+use Modules\Job\Models\Job;
+use Modules\Xot\Filament\Resources\XotBaseResource;
+
+class JobsWaitingResource extends XotBaseResource
+{
+    protected static null|string $model = Job::class;
+>>>>>>> laraxot/develop
 
     protected static bool $shouldRegisterNavigation = true;
 

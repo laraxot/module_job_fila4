@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> laraxot/develop
 return [
     'navigation' => [
         'name' => 'Schedulatore',
@@ -226,9 +230,12 @@ return [
     'model' => [
         'label' => 'schedule.model',
     ],
+<<<<<<< HEAD
     'actions' => [
         'openColumnManager' => [
             'tooltip' => 'openColumnManager',
         ],
     ],
+=======
+>>>>>>> laraxot/develop
 ];

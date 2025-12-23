@@ -4,22 +4,34 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Override;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Job\Database\Factories\ScheduleFactory;
 use InvalidArgumentException;
+=======
+>>>>>>> laraxot/develop
 use Exception;
 use Illuminate\Console\Scheduling\ManagesFrequencies;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+<<<<<<< HEAD
 use Modules\Job\Enums\Status;
+=======
+use InvalidArgumentException;
+use Modules\Job\Database\Factories\ScheduleFactory;
+use Modules\Job\Enums\Status;
+use Modules\Xot\Contracts\ProfileContract;
+use Override;
+>>>>>>> laraxot/develop
 use Webmozart\Assert\Assert;
 
 /**
  * Modules\Job\Models\Schedule.
  *
+<<<<<<< HEAD
  * @property string                                                         $id
  * @property string                                                         $command
  * @property string|null                                                    $command_custom
@@ -88,6 +100,78 @@ use Webmozart\Assert\Assert;
  * @method static Builder<static>|Schedule                        whereWithoutOverlapping($value)
  * @method static Builder<static>|Schedule                        withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|Schedule                        withoutTrashed()
+=======
+ * @property string $id
+ * @property string $command
+ * @property string|null $command_custom
+ * @property array<array-key, array{name?: string, value?: bool|float|int|string|null, required?: bool, type?: string}>|null $params
+ * @property string $expression
+ * @property array<array-key, bool|float|int|string|null>|null $environments
+ * @property array<array-key, array{name?: string, value?: bool|float|int|string|null}|bool|float|int|string|null>|null $options
+ * @property array<array-key, array{name?: string, value?: bool|float|int|string|null, required?: bool, type?: string}>|null $options_with_value
+ * @property string|null $log_filename
+ * @property int $even_in_maintenance_mode
+ * @property int $without_overlapping
+ * @property int $on_one_server
+ * @property string|null $webhook_before
+ * @property string|null $webhook_after
+ * @property string|null $email_output
+ * @property int $sendmail_error
+ * @property int $log_success
+ * @property int $log_error
+ * @property Status $status
+ * @property int $run_in_background
+ * @property int $sendmail_success
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property string|null $deleted_by
+ * @property ProfileContract|null $creator
+ * @property \Illuminate\Database\Eloquent\Collection<int, ScheduleHistory> $histories
+ * @property int|null $histories_count
+ * @property ProfileContract|null $updater
+ *
+ * @method static Builder<static>|Schedule active()
+ * @method static ScheduleFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Schedule inactive()
+ * @method static Builder<static>|Schedule newModelQuery()
+ * @method static Builder<static>|Schedule newQuery()
+ * @method static Builder<static>|Schedule onlyTrashed()
+ * @method static Builder<static>|Schedule query()
+ * @method static Builder<static>|Schedule whereCommand($value)
+ * @method static Builder<static>|Schedule whereCommandCustom($value)
+ * @method static Builder<static>|Schedule whereCreatedAt($value)
+ * @method static Builder<static>|Schedule whereCreatedBy($value)
+ * @method static Builder<static>|Schedule whereDeletedAt($value)
+ * @method static Builder<static>|Schedule whereDeletedBy($value)
+ * @method static Builder<static>|Schedule whereEmailOutput($value)
+ * @method static Builder<static>|Schedule whereEnvironments($value)
+ * @method static Builder<static>|Schedule whereEvenInMaintenanceMode($value)
+ * @method static Builder<static>|Schedule whereExpression($value)
+ * @method static Builder<static>|Schedule whereId($value)
+ * @method static Builder<static>|Schedule whereLogError($value)
+ * @method static Builder<static>|Schedule whereLogFilename($value)
+ * @method static Builder<static>|Schedule whereLogSuccess($value)
+ * @method static Builder<static>|Schedule whereOnOneServer($value)
+ * @method static Builder<static>|Schedule whereOptions($value)
+ * @method static Builder<static>|Schedule whereOptionsWithValue($value)
+ * @method static Builder<static>|Schedule whereParams($value)
+ * @method static Builder<static>|Schedule whereRunInBackground($value)
+ * @method static Builder<static>|Schedule whereSendmailError($value)
+ * @method static Builder<static>|Schedule whereSendmailSuccess($value)
+ * @method static Builder<static>|Schedule whereStatus($value)
+ * @method static Builder<static>|Schedule whereUpdatedAt($value)
+ * @method static Builder<static>|Schedule whereUpdatedBy($value)
+ * @method static Builder<static>|Schedule whereWebhookAfter($value)
+ * @method static Builder<static>|Schedule whereWebhookBefore($value)
+ * @method static Builder<static>|Schedule whereWithoutOverlapping($value)
+ * @method static Builder<static>|Schedule withTrashed(bool $withTrashed = true)
+ * @method static Builder<static>|Schedule withoutTrashed()
+ *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+>>>>>>> laraxot/develop
  *
  * @mixin \Eloquent
  */
@@ -176,6 +260,7 @@ class Schedule extends BaseModel
                 continue;
             }
 
+<<<<<<< HEAD
             if (empty($value['value'])) {
                 continue;
             }
@@ -186,15 +271,31 @@ class Schedule extends BaseModel
             if (isset($safeValue['type']) && 'function' === $safeValue['type']) {
                 // PHPStan Level 10: Ensure string for evaluateFunction
                 $functionString = is_string($safeValue['value']) ? $safeValue['value'] : '';
+=======
+            if (! array_key_exists('value', $value) || $value['value'] === null || $value['value'] === '') {
+                continue;
+            }
+
+            /** @var array{name?: string, value?: bool|float|int|string|null, required?: bool, type?: string} $safeValue */
+            $safeValue = $value;
+
+            if (isset($safeValue['type']) && $safeValue['type'] === 'function') {
+                // PHPStan Level 10: Ensure string for evaluateFunction
+                $functionString = isset($safeValue['value']) && is_string($safeValue['value']) ? $safeValue['value'] : '';
+>>>>>>> laraxot/develop
                 $arguments[$argument] = $this->evaluateFunction($functionString);
             } else {
                 $name = isset($safeValue['name']) && is_string($safeValue['name'])
                     ? $safeValue['name']
                     : (string) $argument;
 
+<<<<<<< HEAD
                 $val = is_string($safeValue)
                     ? $safeValue
                     : (isset($safeValue['value']) ? (string) $safeValue['value'] : '');
+=======
+                $val = isset($safeValue['value']) ? (string) $safeValue['value'] : '';
+>>>>>>> laraxot/develop
 
                 $arguments[$name] = $val;
             }
@@ -215,6 +316,7 @@ class Schedule extends BaseModel
             $options = $options->merge($optionsWithValues);
         }
 
+<<<<<<< HEAD
         return $options->map(function ($value, $key) {
             if (is_array($value)) {
                 Assert::nullOrString($value['name']);
@@ -227,6 +329,26 @@ class Schedule extends BaseModel
 
             return "--{$strValue}";
         })->toArray();
+=======
+        return $options
+            ->map(
+                static function ($value, $key): string {
+                    if (is_array($value)) {
+                        $name = $value['name'] ?? null;
+                        $fallbackKey = (string) $key;
+                        $optionName = is_string($name) ? $name : $fallbackKey;
+                        $optionValue = $value['value'] ?? null;
+
+                        return '--' . $optionName . '=' . (string) $optionValue;
+                    }
+
+                    $strValue = (string) $value;
+
+                    return "--{$strValue}";
+                },
+            )
+            ->toArray();
+>>>>>>> laraxot/develop
     }
 
     /** @return array<string, string> */
@@ -252,11 +374,18 @@ class Schedule extends BaseModel
     /**
      * Safely evaluate function strings (avoiding eval).
      *
+<<<<<<< HEAD
      * @param string $functionString Il nome della funzione da valutare
      *
      * @throws InvalidArgumentException Se viene passato un argomento non valido
      *
      * @return string|null Il risultato della funzione o null se la funzione non è consentita
+=======
+     * @param  string  $functionString  Il nome della funzione da valutare
+     * @return string|null Il risultato della funzione o null se la funzione non è consentita
+     *
+     * @throws InvalidArgumentException Se viene passato un argomento non valido
+>>>>>>> laraxot/develop
      */
     private function evaluateFunction(string $functionString): ?string
     {

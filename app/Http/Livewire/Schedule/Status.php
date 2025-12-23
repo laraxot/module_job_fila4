@@ -4,8 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Job\Http\Livewire\Schedule;
 
+<<<<<<< HEAD
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Support\Renderable;
+=======
+use App\Console\Kernel;
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Events\Dispatcher;
+>>>>>>> laraxot/develop
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use Livewire\Component;

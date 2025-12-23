@@ -9,19 +9,30 @@ use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
 use Modules\Job\Filament\Resources\ScheduleResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
+<<<<<<< HEAD
 use Modules\Xot\Filament\Traits\NavigationPageLabelTrait;
 use Override;
+=======
+>>>>>>> laraxot/develop
 use Webmozart\Assert\Assert;
 
 class EditSchedule extends XotBaseEditRecord
 {
+<<<<<<< HEAD
     use NavigationPageLabelTrait;
+=======
+    // TransTrait è già incluso in XotBaseEditRecord - non ridichiarare
+>>>>>>> laraxot/develop
 
     public Collection $commands;
 
     protected static string $resource = ScheduleResource::class;
 
+<<<<<<< HEAD
     #[Override]
+=======
+    #[\Override]
+>>>>>>> laraxot/develop
     public function getformSchema(): array
     {
         Assert::isArray($res = $this->getResource()::getFormSchema());

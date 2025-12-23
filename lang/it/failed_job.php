@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> laraxot/develop
 return [
     'pages' => 'Pagine',
     'widgets' => 'Widgets',

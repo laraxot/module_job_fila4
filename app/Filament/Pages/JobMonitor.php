@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Pages;
 
+<<<<<<< HEAD
 use Filament\Pages\Page;
 use Modules\Xot\Filament\Traits\NavigationLabelTrait;
 
@@ -21,4 +22,11 @@ class JobMonitor extends Page
     //         redirect('/admin');
     //     }
     // }
+=======
+use Modules\Xot\Filament\Pages\XotBasePage;
+
+class JobMonitor extends XotBasePage
+{
+    protected string $view = 'job::filament.pages.job-monitor';
+>>>>>>> laraxot/develop
 }

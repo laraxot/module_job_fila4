@@ -3,10 +3,18 @@
 declare(strict_types=1);
 
 use Modules\Job\Actions\GetTaskFrequenciesAction;
+<<<<<<< HEAD
 
 describe('GetTaskFrequenciesAction Integration', function () {
     beforeEach(function () {
         $this->action = new GetTaskFrequenciesAction;
+=======
+use Modules\Job\Models\TaskFrequency;
+
+describe('GetTaskFrequenciesAction Integration', function () {
+    beforeEach(function () {
+        $this->action = new GetTaskFrequenciesAction();
+>>>>>>> laraxot/develop
     });
 
     it('returns array when config exists', function () {
@@ -181,6 +189,7 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBeArray()
             ->and(count($result))
             ->toBe(10)
+<<<<<<< HEAD
             ->and($result['everyMinute'])
             ->toBe('Every Minute')
             ->and($result['hourly'])
@@ -192,6 +201,19 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->and($result['monthly'])
             ->toBe('Monthly')
             ->and($result['yearly'])
+=======
+            ->and(isset($result['everyMinute']) ? $result['everyMinute'] : null)
+            ->toBe('Every Minute')
+            ->and(isset($result['hourly']) ? $result['hourly'] : null)
+            ->toBe('Hourly')
+            ->and(isset($result['daily']) ? $result['daily'] : null)
+            ->toBe('Daily')
+            ->and(isset($result['weekly']) ? $result['weekly'] : null)
+            ->toBe('Weekly')
+            ->and(isset($result['monthly']) ? $result['monthly'] : null)
+            ->toBe('Monthly')
+            ->and(isset($result['yearly']) ? $result['yearly'] : null)
+>>>>>>> laraxot/develop
             ->toBe('Yearly');
     });
 });

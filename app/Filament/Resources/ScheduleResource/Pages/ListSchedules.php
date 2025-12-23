@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ScheduleResource\Pages;
 
+<<<<<<< HEAD
 use Closure;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -16,12 +17,31 @@ use Filament\Tables\Columns\TextColumn;
 use Modules\Job\Filament\Resources\ScheduleResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 use Override;
+=======
+use Override;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Actions\EditAction;
+use Filament\Actions\RestoreAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\ViewAction;
+use Filament\Actions\DeleteBulkAction;
+use Closure;
+use Filament\Tables;
+use Modules\Job\Filament\Resources\ScheduleResource;
+use Modules\Job\Models\Schedule;
+use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+>>>>>>> laraxot/develop
 
 class ListSchedules extends XotBaseListRecords
 {
     protected static string $resource = ScheduleResource::class;
 
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> laraxot/develop
     public function getTableColumns(): array
     {
         return [
@@ -51,6 +71,7 @@ class ListSchedules extends XotBaseListRecords
     {
         return [
             EditAction::make()
+<<<<<<< HEAD
                 ->hidden(function ($record): bool {
                     if (is_object($record) && method_exists($record, 'trashed')) {
                         $trashed = $record->trashed();
@@ -60,6 +81,9 @@ class ListSchedules extends XotBaseListRecords
 
                     return false;
                 })
+=======
+                ->hidden(static fn (Schedule $record): bool => $record->deleted_at !== null)
+>>>>>>> laraxot/develop
                 ->tooltip(__('filament-support::actions/edit.single.label')),
             RestoreAction::make()->tooltip(__('filament-support::actions/restore.single.label')),
             DeleteAction::make()->tooltip(__('filament-support::actions/delete.single.label')),
@@ -80,8 +104,14 @@ class ListSchedules extends XotBaseListRecords
         ];
     }
 
+<<<<<<< HEAD
     protected function getTableRecordUrlUsing(): ?Closure
     {
         return static fn (): ?string => null;
+=======
+    protected function getTableRecordUrlUsing(): null|Closure
+    {
+        return static fn(): null|string => null;
+>>>>>>> laraxot/develop
     }
 }

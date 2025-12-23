@@ -4,11 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Job\Database\Factories\ParameterFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
+=======
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ParameterFactory;
+use Modules\Xot\Contracts\ProfileContract;
+>>>>>>> laraxot/develop
 
 /**
  * Modules\Job\Models\Parameter.
@@ -38,6 +46,11 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Parameter whereUpdatedBy($value)
  * @method static Builder<static>|Parameter whereValue($value)
  *
+<<<<<<< HEAD
+=======
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel
@@ -73,6 +86,7 @@ class Parameter extends BaseModel
     {
         return $this->belongsTo(Frequency::class);
     }
+<<<<<<< HEAD
 
     /**
      * Get the attributes that should be cast.
@@ -92,4 +106,6 @@ class Parameter extends BaseModel
             'updated_at' => 'datetime',
         ]);
     }
+=======
+>>>>>>> laraxot/develop
 }

@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ExportResource\Pages;
 
+<<<<<<< HEAD
 use Modules\Job\Filament\Resources\ExportResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
+=======
+use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
+use Modules\Job\Filament\Resources\ExportResource;
+>>>>>>> laraxot/develop
 
 class EditExport extends XotBaseEditRecord
 {

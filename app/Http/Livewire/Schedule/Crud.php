@@ -32,7 +32,11 @@ class Crud extends Component
             return $res;
         }
 
+<<<<<<< HEAD
         throw new Exception('['.__LINE__.']['.class_basename(self::class).']');
+=======
+        throw new Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+>>>>>>> laraxot/develop
     }
 
     public function render(): Renderable
@@ -64,7 +68,11 @@ class Crud extends Component
     {
         config('totem.artisan.command_filter');
         config('totem.artisan.whitelist', true);
+<<<<<<< HEAD
         /** @var Collection<int|string, Command> $all_commands */
+=======
+        /** @var Collection<string, Command> $all_commands */
+>>>>>>> laraxot/develop
         $all_commands = collect(Artisan::all());
 
         /*
@@ -84,6 +92,7 @@ class Crud extends Component
          * }
          */
 
+<<<<<<< HEAD
         return $all_commands->sortBy(static function (Command $command): string {
             Assert::string($name = $command->getName());
             if (mb_strpos($name, ':') === false) {
@@ -92,12 +101,32 @@ class Crud extends Component
 
             return $name;
         });
+=======
+        return $all_commands->sortBy(
+            /**
+             * @param  Command  $command
+             */
+            static function (Command $command): string {
+                Assert::string($name = $command->getName());
+
+                if (mb_strpos($name, ':') === false) {
+                    return ':' . $name;
+                }
+
+                return $name;
+            },
+        );
+>>>>>>> laraxot/develop
     }
 
     public function executeTask(string $task_id): void
     {
         app(ExecuteTaskAction::class)->execute($task_id);
 
+<<<<<<< HEAD
         session()->flash('message', 'task ['.$task_id.'] executed at '.now());
+=======
+        session()->flash('message', 'task [' . $task_id . '] executed at ' . now());
+>>>>>>> laraxot/develop
     }
 }

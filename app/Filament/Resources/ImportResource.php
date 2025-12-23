@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -15,6 +16,20 @@ use Override;
 class ImportResource extends XotBaseResource
 {
     protected static ?string $model = Import::class;
+=======
+use Override;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Modules\Job\Filament\Resources\ImportResource\Pages;
+use Modules\Job\Models\Import;
+use Modules\Xot\Filament\Resources\XotBaseResource;
+
+class ImportResource extends XotBaseResource
+{
+    protected static null|string $model = Import::class;
+>>>>>>> laraxot/develop
 
     #[Override]
     public static function getFormSchema(): array

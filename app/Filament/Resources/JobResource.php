@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Modules\Job\Filament\Resources\JobResource\Pages\BoardJobs;
@@ -22,6 +23,28 @@ class JobResource extends XotBaseResource
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-circle-stack';
 
     protected static ?string $recordTitleAttribute = 'display_name';
+=======
+use Override;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DateTimePicker;
+use Modules\Job\Filament\Resources\JobResource\Pages\ListJobs;
+use Modules\Job\Filament\Resources\JobResource\Pages\CreateJob;
+use Modules\Job\Filament\Resources\JobResource\Pages\BoardJobs;
+use Modules\Job\Filament\Resources\JobResource\Pages\EditJob;
+use Modules\Job\Filament\Resources\JobResource\Widgets\JobStatsOverview;
+use Modules\Job\Filament\Resources\JobResource\Pages;
+use Modules\Job\Filament\Resources\JobResource\Widgets;
+use Modules\Job\Models\Job;
+use Modules\Xot\Filament\Resources\XotBaseResource;
+
+class JobResource extends XotBaseResource
+{
+    protected static null|string $model = Job::class;
+
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-circle-stack';
+
+    protected static null|string $recordTitleAttribute = 'display_name';
+>>>>>>> laraxot/develop
 
     #[Override]
     public static function getFormSchema(): array

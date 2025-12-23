@@ -8,10 +8,17 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Job\Database\Factories\FailedImportRowFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+=======
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\FailedImportRowFactory;
+use Modules\Xot\Contracts\ProfileContract;
+>>>>>>> laraxot/develop
 use Override;
 
 /**
@@ -39,6 +46,11 @@ use Override;
  * @method static Builder<static>|FailedImportRow whereUpdatedBy($value)
  * @method static Builder<static>|FailedImportRow whereValidationError($value)
  *
+<<<<<<< HEAD
+=======
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class FailedImportRow extends BaseModel

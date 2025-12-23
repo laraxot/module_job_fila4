@@ -10,6 +10,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Providers;
 
+<<<<<<< HEAD
+=======
+use Override;
+>>>>>>> laraxot/develop
 use Filament\Actions\Exports\Models\Export;
 use Filament\Actions\Imports\Models\Import;
 use Illuminate\Console\Scheduling\Schedule;
@@ -23,7 +27,10 @@ use Modules\Job\Events\Executed;
 use Modules\Job\Events\Executing;
 use Modules\Job\Models\Task;
 use Modules\Xot\Providers\XotBaseServiceProvider;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 class JobServiceProvider extends XotBaseServiceProvider
 {

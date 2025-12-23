@@ -59,6 +59,11 @@ class ScheduleObserver
 
     /**
      * Undocumented function.
+<<<<<<< HEAD
+=======
+     *
+     * @return void
+>>>>>>> laraxot/develop
      */
     protected function clearCache(): void
     {

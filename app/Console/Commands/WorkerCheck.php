@@ -136,7 +136,10 @@ class WorkerCheck extends Command
             '/artisan queue:work --timeout=60 --sleep=5 --tries=3 > /dev/null & echo $!';
         // $this->comment($command);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> laraxot/develop
         $pid = exec($command);
         // if ($pid === false) {
         //    throw new Exception('['.__LINE__.']['.class_basename($this).']');

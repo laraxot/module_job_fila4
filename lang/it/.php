@@ -12,8 +12,11 @@ return [
     'actions' => [
         'logout' => [
             'tooltip' => 'logout',
+<<<<<<< HEAD
             'icon' => 'logout',
             'label' => 'logout',
+=======
+>>>>>>> laraxot/develop
         ],
     ],
 ];

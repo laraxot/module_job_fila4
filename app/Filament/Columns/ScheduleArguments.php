@@ -50,6 +50,7 @@ class ScheduleArguments extends TextColumn
     /**
      * Format tags when they are in array format.
      */
+<<<<<<< HEAD
     /**
      * @param  array<int|string, mixed>  $tags
      * @return array<int, string>
@@ -81,6 +82,41 @@ class ScheduleArguments extends TextColumn
         }
 
         return $result;
+=======
+    protected function formatArrayTags(array $tags): array
+    {
+        $collection = collect($tags);
+
+        if ($this->withValue) {
+            $collection = $collection->filter(
+                static function (mixed $value): bool {
+                    if (! is_array($value)) {
+                        return false;
+                    }
+
+                    return array_key_exists('value', $value) && $value['value'] !== null && $value['value'] !== '';
+                },
+            );
+        }
+
+        return $collection
+            ->map(
+                function (mixed $value, int|string $key): string {
+                    if ($this->withValue && is_array($value)) {
+                        $name = isset($value['name']) && is_string($value['name'])
+                            ? $value['name']
+                            : (string) $key;
+                        $val = isset($value['value']) ? (string) $value['value'] : '';
+
+                        return $name . '=' . $val;
+                    }
+
+                    return (string) $key . '=' . (string) $value;
+                },
+            )
+            ->values()
+            ->all();
+>>>>>>> laraxot/develop
     }
 
     /**

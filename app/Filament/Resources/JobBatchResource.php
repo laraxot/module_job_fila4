@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -16,6 +17,16 @@ use Modules\Job\Filament\Resources\JobBatchResource\Pages\ListJobBatches;
 use Modules\Job\Models\JobBatch;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 use Override;
+=======
+use Override;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\DateTimePicker;
+use Modules\Job\Filament\Resources\JobBatchResource\Pages\ListJobBatches;
+use Modules\Job\Models\JobBatch;
+use Modules\Xot\Filament\Resources\XotBaseResource;
+>>>>>>> laraxot/develop
 
 class JobBatchResource extends XotBaseResource
 {

@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace Modules\Job\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Carbon;
+>>>>>>> laraxot/develop
 use Modules\Job\Models\Result;
 use Modules\Job\Models\Task;
 use Tests\TestCase;

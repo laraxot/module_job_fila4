@@ -31,6 +31,10 @@ class PrivateEvent implements ShouldBroadcast
      */
     public function broadcastOn(): Channel
     {
+<<<<<<< HEAD
         return new PrivateChannel('private.'.auth()->id());
+=======
+        return new PrivateChannel('private.' . auth()->id());
+>>>>>>> laraxot/develop
     }
 }

@@ -25,6 +25,7 @@ class GetCommandsAction
         $commands = $artisan->all();
 
         /** @var Collection<int, CommandData> $commandDataCollection */
+<<<<<<< HEAD
         $commandDataCollection = collect($commands)->map(function (Command $command): CommandData {
             $name = $command->getName() ?? '';
             $description = $command->getDescription();
@@ -62,6 +63,51 @@ class GetCommandsAction
                 ],
             );
         });
+=======
+        $commandDataCollection = collect($commands)->map(
+            /**
+             * @param  Command  $command
+             */
+            static function (Command $command): CommandData {
+                $name = (string) $command->getName();
+                $description = (string) $command->getDescription();
+                $signature = $name;
+
+                /** @var Collection<int, array{name: string, description: string, required: bool}> $arguments */
+                $arguments = collect($command->getDefinition()->getArguments())
+                    ->map(
+                        static fn ($argument): array => [
+                            'name' => (string) $argument->getName(),
+                            'description' => (string) $argument->getDescription(),
+                            'required' => (bool) $argument->isRequired(),
+                        ],
+                    )
+                    ->values();
+
+                /** @var Collection<int, array{name: string, description: string, required: bool}> $options */
+                $options = collect($command->getDefinition()->getOptions())
+                    ->map(
+                        static fn ($option): array => [
+                            'name' => (string) $option->getName(),
+                            'description' => (string) $option->getDescription(),
+                            'required' => (bool) $option->isValueRequired(),
+                        ],
+                    )
+                    ->values();
+
+                return new CommandData(
+                    name: $name,
+                    description: $description,
+                    signature: $signature,
+                    full_name: $name . ' - ' . $description,
+                    arguments: $arguments->toArray(),
+                    options: [
+                        'withValue' => $options->toArray(),
+                    ],
+                );
+            },
+        );
+>>>>>>> laraxot/develop
 
         return new DataCollection(CommandData::class, $commandDataCollection->values()->all());
     }

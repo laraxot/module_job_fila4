@@ -9,12 +9,19 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources\JobManagerResource\Pages;
 
 use Filament\Actions\BulkAction;
+<<<<<<< HEAD
+=======
+use Override;
+>>>>>>> laraxot/develop
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Job\Filament\Resources\JobManagerResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 class ListJobManagers extends XotBaseListRecords
 {

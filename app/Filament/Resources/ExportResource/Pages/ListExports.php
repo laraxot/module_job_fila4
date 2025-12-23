@@ -4,11 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\ExportResource\Pages;
 
+<<<<<<< HEAD
+=======
+use Override;
+>>>>>>> laraxot/develop
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Job\Filament\Resources\ExportResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> laraxot/develop
 
 class ListExports extends XotBaseListRecords
 {

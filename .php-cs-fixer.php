@@ -2,10 +2,15 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $finder = Finder::create()
+=======
+
+$finder = PhpCsFixer\Finder::create()
+>>>>>>> laraxot/develop
     ->notPath('bootstrap/cache')
     ->notPath('storage')
     ->notPath('vendor')
@@ -13,9 +18,15 @@ $finder = Finder::create()
     ->name('*.php')
     ->notName('*.blade.php')
     ->ignoreDotFiles(true)
+<<<<<<< HEAD
     ->ignoreVCS(true);
 
 $config = new Config();
+=======
+    ->ignoreVCS(true)
+
+$config = new PhpCsFixer\Config();
+>>>>>>> laraxot/develop
 
 $config
     ->setRules([
@@ -40,6 +51,10 @@ $config
         'class_definition' => true,
         'elseif' => true,
     ])
+<<<<<<< HEAD
     ->setFinder($finder);
+=======
+    ->setFinder($finder)
+>>>>>>> laraxot/develop
 
 return $config;

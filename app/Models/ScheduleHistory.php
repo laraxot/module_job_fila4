@@ -8,11 +8,19 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Job\Database\Factories\ScheduleHistoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
+=======
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
+use Modules\Job\Database\Factories\ScheduleHistoryFactory;
+use Modules\Xot\Contracts\ProfileContract;
+>>>>>>> laraxot/develop
 use Override;
 
 /**
@@ -50,6 +58,11 @@ use Override;
  * @method static Builder<static>|ScheduleHistory whereUpdatedAt($value)
  * @method static Builder<static>|ScheduleHistory whereUpdatedBy($value)
  *
+<<<<<<< HEAD
+=======
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class ScheduleHistory extends BaseModel

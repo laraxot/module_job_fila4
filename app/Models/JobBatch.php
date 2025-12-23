@@ -11,11 +11,19 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Illuminate\Support\Collection;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Job\Database\Factories\JobBatchFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+=======
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
+use Modules\Job\Database\Factories\JobBatchFactory;
+use Modules\Xot\Contracts\ProfileContract;
+>>>>>>> laraxot/develop
 use Override;
 
 /**
@@ -49,6 +57,11 @@ use Override;
  * @method static Builder<static>|JobBatch wherePendingJobs($value)
  * @method static Builder<static>|JobBatch whereTotalJobs($value)
  *
+<<<<<<< HEAD
+=======
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class JobBatch extends BaseModel

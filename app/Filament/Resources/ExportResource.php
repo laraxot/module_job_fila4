@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -15,6 +16,20 @@ use Override;
 class ExportResource extends XotBaseResource
 {
     protected static ?string $model = Export::class;
+=======
+use Override;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\DateTimePicker;
+use Modules\Job\Filament\Resources\ExportResource\Pages;
+use Modules\Job\Models\Export;
+use Modules\Xot\Filament\Resources\XotBaseResource;
+
+class ExportResource extends XotBaseResource
+{
+    protected static null|string $model = Export::class;
+>>>>>>> laraxot/develop
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-rectangle-stack';
 

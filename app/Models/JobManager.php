@@ -4,18 +4,28 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Override;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Job\Database\Factories\JobManagerFactory;
+=======
+>>>>>>> laraxot/develop
 use Illuminate\Contracts\Queue\Job as JobContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
+<<<<<<< HEAD
+=======
+use Modules\Job\Database\Factories\JobManagerFactory;
+use Modules\Xot\Contracts\ProfileContract;
+use Override;
+>>>>>>> laraxot/develop
 
 /**
  * Modules\Job\Models\JobManager.
  *
+<<<<<<< HEAD
  * @property string                                      $id
  * @property string                                      $job_id
  * @property string|null                                 $name
@@ -48,6 +58,40 @@ use Illuminate\Support\Facades\Hash;
  * @method static Builder<static>|JobManager                        whereQueue($value)
  * @method static Builder<static>|JobManager                        whereStartedAt($value)
  * @method static Builder<static>|JobManager                        whereUpdatedAt($value)
+=======
+ * @property string $id
+ * @property string $job_id
+ * @property string|null $name
+ * @property string|null $queue
+ * @property Carbon|null $started_at
+ * @property Carbon|null $finished_at
+ * @property bool $failed
+ * @property int $attempt
+ * @property int|null $progress
+ * @property string|null $exception_message
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property ProfileContract|null $creator
+ * @property string $status
+ * @property ProfileContract|null $updater
+ *
+ * @method static JobManagerFactory factory($count = null, $state = [])
+ * @method static Builder<static>|JobManager newModelQuery()
+ * @method static Builder<static>|JobManager newQuery()
+ * @method static Builder<static>|JobManager query()
+ * @method static Builder<static>|JobManager whereAttempt($value)
+ * @method static Builder<static>|JobManager whereCreatedAt($value)
+ * @method static Builder<static>|JobManager whereExceptionMessage($value)
+ * @method static Builder<static>|JobManager whereFailed($value)
+ * @method static Builder<static>|JobManager whereFinishedAt($value)
+ * @method static Builder<static>|JobManager whereId($value)
+ * @method static Builder<static>|JobManager whereJobId($value)
+ * @method static Builder<static>|JobManager whereName($value)
+ * @method static Builder<static>|JobManager whereProgress($value)
+ * @method static Builder<static>|JobManager whereQueue($value)
+ * @method static Builder<static>|JobManager whereStartedAt($value)
+ * @method static Builder<static>|JobManager whereUpdatedAt($value)
+>>>>>>> laraxot/develop
  *
  * @mixin \Eloquent
  */
@@ -65,6 +109,10 @@ use Illuminate\Support\Facades\Hash;
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property-read string $status
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> laraxot/develop
  * @method static \Modules\Job\Database\Factories\JobManagerFactory factory($count = null, $state = [])
  * @method static Builder<static>|JobManager newModelQuery()
  * @method static Builder<static>|JobManager newQuery()
@@ -79,6 +127,12 @@ use Illuminate\Support\Facades\Hash;
  * @method static Builder<static>|JobManager whereProgress($value)
  * @method static Builder<static>|JobManager whereQueue($value)
  * @method static Builder<static>|JobManager whereStartedAt($value)
+<<<<<<< HEAD
+=======
+ *
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class JobManager extends BaseModel
@@ -127,7 +181,11 @@ class JobManager extends BaseModel
 
         $finishedAt = $this->attributes['finished_at'] ?? null;
 
+<<<<<<< HEAD
         return null !== $finishedAt;
+=======
+        return $finishedAt !== null;
+>>>>>>> laraxot/develop
     }
 
     public function hasFailed(): bool

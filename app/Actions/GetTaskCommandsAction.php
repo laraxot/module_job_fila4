@@ -35,11 +35,20 @@ class GetTaskCommandsAction
          * });
          * }
          */
+<<<<<<< HEAD
         return $all_commands->sortBy(static function (Command $command): string {
             $name = $command->getName();
             Assert::string($name, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
             if (mb_strpos($name, ':') === false) {
                 return ':'.$name;
+=======
+        return $all_commands->sortBy(static function ($command) {
+            /** @var \Symfony\Component\Console\Command\Command $command */
+            $name = $command->getName();
+            Assert::string($name, __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
+            if (mb_strpos($name, ':') === false) {
+                return ':' . $name;
+>>>>>>> laraxot/develop
             }
 
             return $name;

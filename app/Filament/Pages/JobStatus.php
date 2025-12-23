@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Pages;
 
+<<<<<<< HEAD
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Artisan;
 use Modules\Job\Filament\Widgets\ClockWidget;
@@ -17,6 +18,16 @@ class JobStatus extends Page
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-computer-desktop';
 
+=======
+use Illuminate\Support\Facades\Artisan;
+use Modules\Job\Filament\Widgets\ClockWidget;
+use Modules\Xot\Filament\Pages\XotBasePage;
+
+class JobStatus extends XotBasePage
+{
+    public string $out = '';
+
+>>>>>>> laraxot/develop
     protected string $view = 'job::filament.pages.job-status';
 
     public function getHeaderWidgets(): array

@@ -4,17 +4,27 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+<<<<<<< HEAD
 use Modules\Xot\Models\Traits\HasXotFactory;
 use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+=======
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+>>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Traits\FrontendSortable;
+<<<<<<< HEAD
+=======
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Xot\Models\Traits\HasXotFactory;
+>>>>>>> laraxot/develop
 use Webmozart\Assert\Assert;
 
 use function Safe\json_decode;
@@ -80,6 +90,17 @@ use function Safe\json_decode;
  * @method static Builder<static>|Task whereUpdatedAt($value)
  * @method static Builder<static>|Task whereUpdatedBy($value)
  *
+<<<<<<< HEAD
+=======
+ * @property Carbon|null $deleted_at
+ * @property string|null $deleted_by
+ * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+ * @method static \Modules\Job\Database\Factories\TaskFactory factory($count = null, $state = [])
+ * @method static Builder<static>|Task whereDeletedAt($value)
+ * @method static Builder<static>|Task whereDeletedBy($value)
+ *
+>>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class Task extends BaseModel

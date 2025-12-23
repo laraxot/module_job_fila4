@@ -6,16 +6,21 @@ namespace Modules\Job\Models\Policies;
 
 use Modules\Job\Models\Schedule;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Xot\Contracts\UserContract;
 =======
 use Modules\Xot\Contracts\ProfileContract;
 >>>>>>> e1b0bf9 (.)
+=======
+use Modules\Xot\Contracts\UserContract;
+>>>>>>> 7d4742a (.)
 
 class SchedulePolicy extends JobBasePolicy
 {
     /**
      * Determine whether the user can view any models.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function viewAny(UserContract $user): bool
     {
@@ -25,11 +30,17 @@ class SchedulePolicy extends JobBasePolicy
     {
         return $user->hasPermissionTo('schedule.viewAny'); /** @phpstan-ignore method.nonObject */
 >>>>>>> e1b0bf9 (.)
+=======
+    public function viewAny(UserContract $user): bool
+    {
+        return $user->hasPermissionTo('schedule.viewAny');
+>>>>>>> 7d4742a (.)
     }
 
     /**
      * Determine whether the user can view the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function view(UserContract $user, Schedule $_schedule): bool
     {
@@ -39,11 +50,17 @@ class SchedulePolicy extends JobBasePolicy
     {
         return $user->hasPermissionTo('schedule.view'); /** @phpstan-ignore method.nonObject */
 >>>>>>> e1b0bf9 (.)
+=======
+    public function view(UserContract $user, Schedule $_schedule): bool
+    {
+        return $user->hasPermissionTo('schedule.view');
+>>>>>>> 7d4742a (.)
     }
 
     /**
      * Determine whether the user can create models.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function create(UserContract $user): bool
     {
@@ -53,11 +70,17 @@ class SchedulePolicy extends JobBasePolicy
     {
         return $user->hasPermissionTo('schedule.create'); /** @phpstan-ignore method.nonObject */
 >>>>>>> e1b0bf9 (.)
+=======
+    public function create(UserContract $user): bool
+    {
+        return $user->hasPermissionTo('schedule.create');
+>>>>>>> 7d4742a (.)
     }
 
     /**
      * Determine whether the user can update the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function update(UserContract $user, Schedule $_schedule): bool
     {
@@ -67,11 +90,17 @@ class SchedulePolicy extends JobBasePolicy
     {
         return $user->hasPermissionTo('schedule.update'); /** @phpstan-ignore method.nonObject */
 >>>>>>> e1b0bf9 (.)
+=======
+    public function update(UserContract $user, Schedule $_schedule): bool
+    {
+        return $user->hasPermissionTo('schedule.update');
+>>>>>>> 7d4742a (.)
     }
 
     /**
      * Determine whether the user can delete the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function delete(UserContract $user, Schedule $_schedule): bool
     {
@@ -81,11 +110,17 @@ class SchedulePolicy extends JobBasePolicy
     {
         return $user->hasPermissionTo('schedule.delete'); /** @phpstan-ignore method.nonObject */
 >>>>>>> e1b0bf9 (.)
+=======
+    public function delete(UserContract $user, Schedule $_schedule): bool
+    {
+        return $user->hasPermissionTo('schedule.delete');
+>>>>>>> 7d4742a (.)
     }
 
     /**
      * Determine whether the user can restore the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function restore(UserContract $user, Schedule $_schedule): bool
     {
@@ -95,11 +130,17 @@ class SchedulePolicy extends JobBasePolicy
     {
         return $user->hasPermissionTo('schedule.restore'); /** @phpstan-ignore method.nonObject */
 >>>>>>> e1b0bf9 (.)
+=======
+    public function restore(UserContract $user, Schedule $_schedule): bool
+    {
+        return $user->hasPermissionTo('schedule.restore');
+>>>>>>> 7d4742a (.)
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function forceDelete(UserContract $user, Schedule $schedule): bool
     {
@@ -109,5 +150,10 @@ class SchedulePolicy extends JobBasePolicy
     {
         return $user->hasPermissionTo('schedule.forceDelete'); /** @phpstan-ignore method.nonObject */
 >>>>>>> e1b0bf9 (.)
+=======
+    public function forceDelete(UserContract $user, Schedule $schedule): bool
+    {
+        return $user->hasPermissionTo('schedule.forceDelete');
+>>>>>>> 7d4742a (.)
     }
 }

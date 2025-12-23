@@ -9,9 +9,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Textarea;
@@ -27,6 +31,9 @@ class JobBatchResource extends XotBaseResource
     // protected static ?string $model = JobBatch::class;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     #[Override]
     public static function getFormSchema(): array
     {
@@ -39,6 +46,7 @@ class JobBatchResource extends XotBaseResource
             'failed' => Toggle::make('failed')->required(),
             'options' => Textarea::make('options')->maxLength(65535),
             'created_at' => DateTimePicker::make('created_at')->required(),
+<<<<<<< HEAD
 =======
     public static function getFormSchema(): array
     {
@@ -65,15 +73,21 @@ class JobBatchResource extends XotBaseResource
             'created_at' => DateTimePicker::make('created_at')
                 ->required(),
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
             'cancelled_at' => DateTimePicker::make('cancelled_at'),
             'finished_at' => DateTimePicker::make('finished_at'),
         ];
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     #[Override]
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+    #[Override]
+>>>>>>> 7d4742a (.)
     public static function getPages(): array
     {
         return [

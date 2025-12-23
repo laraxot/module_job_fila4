@@ -28,8 +28,12 @@ test('can create a simple database record without model', function () {
     $user = DB::table('users')->where('email', 'test@example.com')->first();
     expect($user)->not->toBeNull();
 <<<<<<< HEAD
+<<<<<<< HEAD
     expect($user?->name)->toBe('Test User');
 =======
     expect($user->name)->toBe('Test User');
 >>>>>>> e1b0bf9 (.)
+=======
+    expect($user?->name)->toBe('Test User');
+>>>>>>> 7d4742a (.)
 });

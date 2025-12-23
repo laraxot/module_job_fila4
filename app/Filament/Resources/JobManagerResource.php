@@ -9,9 +9,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Modules\Job\Filament\Resources\JobManagerResource\Pages\ListJobManagers;
 use Modules\Job\Filament\Resources\JobManagerResource\Pages\CreateJobManager;
 use Modules\Job\Filament\Resources\JobManagerResource\Pages\EditJobManager;
@@ -28,6 +32,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class JobManagerResource extends XotBaseResource
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     protected static null|string $model = JobManager::class;
 
     #[Override]
@@ -52,6 +59,7 @@ class JobManagerResource extends XotBaseResource
     }
 
     #[Override]
+<<<<<<< HEAD
 =======
     protected static ?string $model = JobManager::class;
 
@@ -83,6 +91,8 @@ class JobManagerResource extends XotBaseResource
     }
 
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     public static function getPages(): array
     {
         return [

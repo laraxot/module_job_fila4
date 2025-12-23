@@ -16,6 +16,10 @@ class DummyAction
     public function execute(): void
     {
         // The business logic goes here, this can be executed in an async job.
+<<<<<<< HEAD
         echo 'hello' . PHP_EOL;
+=======
+        echo 'hello'.PHP_EOL;
+>>>>>>> e1b0bf9 (.)
     }
 }

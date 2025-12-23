@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Job\Tests;
 
+<<<<<<< HEAD
 use Illuminate\Foundation\Application;
 use Modules\Job\Providers\JobServiceProvider;
+=======
+use Modules\Job\Providers\JobServiceProvider;
+use Illuminate\Foundation\Application;
+>>>>>>> e1b0bf9 (.)
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Modules\Xot\Tests\CreatesApplication;
 
@@ -25,7 +30,11 @@ abstract class TestCase extends BaseTestCase
 
         // Load Job module specific configurations
         $this->loadLaravelMigrations();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> e1b0bf9 (.)
         // Seed any required data for Job tests
         $this->artisan('module:seed', ['module' => 'Job']);
     }

@@ -10,7 +10,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Providers;
 
+<<<<<<< HEAD
 use Override;
+=======
+>>>>>>> e1b0bf9 (.)
 use Filament\Actions\Exports\Models\Export;
 use Filament\Actions\Imports\Models\Import;
 use Illuminate\Console\Scheduling\Schedule;
@@ -33,16 +36,27 @@ class JobServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
+<<<<<<< HEAD
     #[Override]
+=======
+>>>>>>> e1b0bf9 (.)
     public function boot(): void
     {
         parent::boot();
         /*
+<<<<<<< HEAD
          * $this->app->resolving(Schedule::class, function ($schedule) {
          * dddx($schedule);
          * //
          * });
          */
+=======
+            $this->app->resolving(Schedule::class, function ($schedule) {
+                dddx($schedule);
+                //
+            });
+            */
+>>>>>>> e1b0bf9 (.)
         // $this->app->booted(function () {
         // $schedule = $this->app->make(Schedule::class);
         // try {
@@ -59,6 +73,7 @@ class JobServiceProvider extends XotBaseServiceProvider
     public function registerQueue(): void
     {
         /*
+<<<<<<< HEAD
          * Queue::before(static function (JobProcessing $event) {
          * self::jobStarted($event->job);
          * });
@@ -123,4 +138,70 @@ class JobServiceProvider extends XotBaseServiceProvider
      * }
      * }
      */
+=======
+        Queue::before(static function (JobProcessing $event) {
+           self::jobStarted($event->job);
+        });
+
+        Queue::after(static function (JobProcessed $event) {
+           self::jobFinished($event->job);
+        });
+
+        Queue::failing(static function (JobFailed $event) {
+           self::jobFinished($event->job, true, $event->exception);
+        });
+
+        Queue::exceptionOccurred(static function (JobExceptionOccurred $event) {
+           self::jobFinished($event->job, true, $event->exception);
+        });
+        */
+    }
+
+    /*
+    public function registerSchedule(Schedule $schedule): void {
+        if (Schema::hasTable('tasks')) {
+            $tasks = app(Task::class)
+                ->query()
+                ->with('frequencies')
+                ->where('is_active', true)
+                ->get();
+
+            $tasks->each(
+                function ($task) use ($schedule) {
+                    if (! $task instanceof Task) {
+                        throw new \Exception('['.__LINE__.']['.class_basename($this).']');
+                    }
+                    //
+                    // var \Illuminate\Console\Scheduling\Event
+                    //
+                    $event = $schedule->command($task->command, $task->compileParameters(true));
+                    // --- funziona solo con daily per ora
+                    $event->{$task->expression}()
+                        ->name($task->description)
+                        ->timezone($task->timezone)
+                        ->before(function () use ($task) {
+                            //Access to an undefined property Illuminate\Console\Scheduling\Event::$start.
+                            //$event->start = microtime(true);
+                            Executing::dispatch($task);
+                        })
+                        ->thenWithOutput(function ($output) use ($event, $task) {
+                            Executed::dispatch($task, $event->start ?? microtime(true), $output);
+                        });
+                    if ($task->dont_overlap) {
+                        $event->withoutOverlapping();
+                    }
+                    if ($task->run_in_maintenance) {
+                        $event->evenInMaintenanceMode();
+                    }
+                    if ($task->run_on_one_server && in_array(config('cache.default'), ['memcached', 'redis', 'database', 'dynamodb'])) {
+                        $event->onOneServer();
+                    }
+                    if ($task->run_in_background) {
+                        $event->runInBackground();
+                    }
+                });
+        }
+    }
+    */
+>>>>>>> e1b0bf9 (.)
 }

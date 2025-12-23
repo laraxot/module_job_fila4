@@ -66,7 +66,11 @@ abstract class BaseModel extends Model
     public function __construct(array $attributes = [])
     {
         if (isset($this->prefix)) {
+<<<<<<< HEAD
             $this->table = $this->prefix . $this->table;
+=======
+            $this->table = $this->prefix.$this->table;
+>>>>>>> e1b0bf9 (.)
         }
 
         parent::__construct($attributes);
@@ -93,6 +97,10 @@ abstract class BaseModel extends Model
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+<<<<<<< HEAD
+=======
+
+>>>>>>> e1b0bf9 (.)
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',

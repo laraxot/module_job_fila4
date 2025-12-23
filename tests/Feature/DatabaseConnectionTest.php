@@ -2,13 +2,8 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-use Illuminate\Support\Facades\DB;
-use Modules\Job\Tests\TestCase;
-=======
 use Modules\Job\Tests\TestCase;
 use Illuminate\Support\Facades\DB;
->>>>>>> laraxot/develop
 
 uses(TestCase::class);
 

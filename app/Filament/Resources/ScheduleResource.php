@@ -8,25 +8,16 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
-<<<<<<< HEAD
-=======
 use Filament\Schemas\Components\Section;
 use Override;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Components\Utilities\Get;
->>>>>>> laraxot/develop
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-<<<<<<< HEAD
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Utilities\Get;
-use Filament\Schemas\Components\Utilities\Set;
-=======
->>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Modules\Job\Actions\Command\GetCommandsAction;
@@ -38,20 +29,12 @@ use Modules\Job\Filament\Resources\ScheduleResource\Pages\ViewSchedule;
 use Modules\Job\Models\Schedule;
 use Modules\Job\Rules\Corn;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-<<<<<<< HEAD
-use Override;
-=======
->>>>>>> laraxot/develop
 use Spatie\LaravelData\DataCollection;
 use Webmozart\Assert\Assert;
 
 class ScheduleResource extends XotBaseResource
 {
-<<<<<<< HEAD
-    protected static ?string $model = Schedule::class;
-=======
     protected static null|string $model = Schedule::class;
->>>>>>> laraxot/develop
 
     protected static bool $shouldRegisterNavigation = true;
 
@@ -86,30 +69,19 @@ class ScheduleResource extends XotBaseResource
         return [
             'main_section' => Section::make([
                 Select::make('command')
-<<<<<<< HEAD
-                    ->options(fn () => $commands_opts)
-                    ->reactive()
-                    ->searchable()
-                    ->required()
-                    ->afterStateUpdated(function (Set $set, $state): void {
-=======
                     ->options(fn() => $commands_opts)
                     ->reactive()
                     ->searchable()
                     ->required()
                     ->afterStateUpdated(function (Set $set, ?string $state): void {
                         Assert::string($state);
->>>>>>> laraxot/develop
                         Assert::isInstanceOf(
                             $command = static::$commands->where('name', $state)->first(),
                             CommandData::class,
                         );
                         $params = $command->arguments;
                         $options_with_value = $command->options['withValue'] ?? [];
-<<<<<<< HEAD
-=======
                         Assert::isArray($options_with_value);
->>>>>>> laraxot/develop
                         $set('params', $params);
                         $set('options_with_value', $options_with_value);
                     }),
@@ -117,10 +89,6 @@ class ScheduleResource extends XotBaseResource
                     ->schema([
                         Hidden::make('name'),
                         TextInput::make('value')
-<<<<<<< HEAD
-                            ->label(fn (Get $get): mixed => $get('name'))
-                            ->required(fn (Get $get): mixed => $get('required')),
-=======
                             ->label(function (Get $get): string {
                                 $name = $get('name');
                                 Assert::string($name);
@@ -132,7 +100,6 @@ class ScheduleResource extends XotBaseResource
 
                                 return (bool) $required;
                             }),
->>>>>>> laraxot/develop
                     ])
                     ->addable(false)
                     ->deletable(false)
@@ -142,10 +109,6 @@ class ScheduleResource extends XotBaseResource
                         Hidden::make('name'),
                         Hidden::make('type')->default('string'),
                         TextInput::make('value')
-<<<<<<< HEAD
-                            ->label(fn (Get $get): mixed => $get('name'))
-                            ->required(fn (Get $get): mixed => $get('required')),
-=======
                             ->label(function (Get $get): string {
                                 $name = $get('name');
                                 Assert::string($name);
@@ -157,18 +120,13 @@ class ScheduleResource extends XotBaseResource
 
                                 return (bool) $required;
                             }),
->>>>>>> laraxot/develop
                     ])
                     ->addable(false)
                     ->deletable(false)
                     ->reorderable(false),
                 TextInput::make('expression')
                     ->placeholder('* * * * *')
-<<<<<<< HEAD
-                    ->rules([new Corn])
-=======
                     ->rules([new Corn()])
->>>>>>> laraxot/develop
                     ->required(),
                 TagsInput::make('environments')->placeholder(null),
                 TextInput::make('log_filename')->helperText(static::trans('messages.help-log-filename')),
@@ -191,11 +149,7 @@ class ScheduleResource extends XotBaseResource
     public static function getRelations(): array
     {
         return [
-<<<<<<< HEAD
-
-=======
             
->>>>>>> laraxot/develop
         ];
     }
 }

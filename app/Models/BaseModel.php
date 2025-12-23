@@ -4,36 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Xot\Models\XotBaseModel;
-=======
 use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Traits\Updater;
->>>>>>> laraxot/develop
 
 /**
  * Class BaseModel.
  *
-<<<<<<< HEAD
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
- */
-abstract class BaseModel extends XotBaseModel
-{
-    /** @var string */
-    protected $connection = 'job';
-
-    /*
-    public function __construct(array $attributes = [])
-    {
-        if (isset($this->prefix)) {
-            $this->table = $this->prefix.$this->table;
-=======
  * @property-read ProfileContract|null $creator
  * @property-read ProfileContract|null $updater
  */
@@ -87,14 +67,10 @@ abstract class BaseModel extends Model
     {
         if (isset($this->prefix)) {
             $this->table = $this->prefix . $this->table;
->>>>>>> laraxot/develop
         }
 
         parent::__construct($attributes);
     }
-<<<<<<< HEAD
-    */
-=======
 
     /**
      * ----
@@ -107,7 +83,6 @@ abstract class BaseModel extends Model
         return app(GetFactoryAction::class)->execute(static::class);
     }
 
->>>>>>> laraxot/develop
     /** @return array<string, string> */
     protected function casts(): array
     {

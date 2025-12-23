@@ -5,8 +5,6 @@ declare(strict_types=1);
 ?>
 <div>
 
-<<<<<<< HEAD
-=======
     @php
     /*
     dd([
@@ -16,7 +14,6 @@ declare(strict_types=1);
     ]);
     */
     @endphp
->>>>>>> laraxot/develop
     <ul>
     @foreach ($getState() as $key=>$value)
         @include('job::filament.tables.columns.array.item',['key'=>$key,'value'=>$value])

@@ -46,14 +46,6 @@
             "Modules\\Job\\Database\\Seeders\\": "database/seeders/"
         }
     },
-<<<<<<< HEAD
-    "autoload-dev": {
-        "psr-4": {
-            "Modules\\Job\\Tests\\": "tests/"
-        }
-    },
-=======
->>>>>>> laraxot/develop
     "scripts": {
         "post-autoload-dump1": "@php ./vendor/bin/testbench package:discover --ansi",
         "analyse": "vendor/bin/phpstan analyse",

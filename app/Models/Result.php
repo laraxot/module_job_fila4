@@ -4,19 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-use Modules\Xot\Contracts\ProfileContract;
-=======
->>>>>>> laraxot/develop
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-<<<<<<< HEAD
-=======
 use Modules\Xot\Contracts\ProfileContract;
->>>>>>> laraxot/develop
 use Override;
 
 /**
@@ -49,11 +42,8 @@ use Override;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Result whereUpdatedBy($value)
  *
-<<<<<<< HEAD
-=======
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
->>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class Result extends BaseModel

@@ -8,14 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobResource\Widgets;
 
-<<<<<<< HEAD
-use Filament\Widgets\StatsOverviewWidget as BaseWidget;
-use Filament\Widgets\StatsOverviewWidget\Stat;
-use Illuminate\Support\Facades\DB;
-use Modules\Job\Models\JobManager;
-use Modules\Job\Traits\FormatSeconds;
-use Modules\Xot\Actions\Cast\SafeEloquentCastAction;
-=======
 use Modules\Xot\Actions\Cast\SafeEloquentCastAction;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
@@ -23,7 +15,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\JobManager;
 use Modules\Job\Traits\FormatSeconds;
->>>>>>> laraxot/develop
 
 class JobStatsOverview extends BaseWidget
 {
@@ -39,35 +30,6 @@ class JobStatsOverview extends BaseWidget
 
         $aggregatedInfo = JobManager::query()->select($aggregationColumns)->first();
 
-<<<<<<< HEAD
-        if ($aggregatedInfo) {
-            $averageTime = app(SafeEloquentCastAction::class)
-                ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0')
-                ? (
-                    ceil(
-                        (float) app(SafeEloquentCastAction::class)
-                            ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0'),
-                    ).'s'
-                )
-                : '0';
-
-            $totalTime = app(SafeEloquentCastAction::class)
-                ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0')
-                ? (
-                    $this->formatSeconds(
-                        (int) app(SafeEloquentCastAction::class)
-                            ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0'),
-                    ).'s'
-                )
-                : '0';
-        } else {
-            $averageTime = '0';
-            $totalTime = '0';
-        }
-
-        return [
-            Stat::make(__('jobs::translations.total_jobs'), (int) ($aggregatedInfo->count ?? 0)),
-=======
         $cast = app(SafeEloquentCastAction::class);
 
         if (! ($aggregatedInfo instanceof Model)) {
@@ -90,7 +52,6 @@ class JobStatsOverview extends BaseWidget
 
         return [
             Stat::make(__('jobs::translations.total_jobs'), $totalJobs),
->>>>>>> laraxot/develop
             Stat::make(__('jobs::translations.execution_time'), $totalTime),
             Stat::make(__('jobs::translations.average_time'), $averageTime),
         ];

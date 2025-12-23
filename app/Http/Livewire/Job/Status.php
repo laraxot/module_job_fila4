@@ -37,18 +37,6 @@ class Status extends Component
         Artisan::call('worker:check');
         $this->out .= Artisan::output();
 
-<<<<<<< HEAD
-        $this->out .= '<br/>['.JobModel::count().'] Jobs';
-        $this->out .= '<br/>['.FailedJobModel::count().'] Failed Jobs';
-        $this->out .= '<br/>['.JobBatchModel::count().'] Job Batch';
-        $queue_conn = getenv('QUEUE_CONNECTION');
-        if ($queue_conn === false) {
-            throw new Exception('['.__LINE__.']['.class_basename($this).']');
-        }
-
-        $this->old_value = (string) $queue_conn;
-        $this->form_data['conn'] = (string) $queue_conn;
-=======
         $this->out .= '<br/>[' . JobModel::count() . '] Jobs';
         $this->out .= '<br/>[' . FailedJobModel::count() . '] Failed Jobs';
         $this->out .= '<br/>[' . JobBatchModel::count() . '] Job Batch';
@@ -59,7 +47,6 @@ class Status extends Component
 
         $this->old_value = $queue_conn;
         $this->form_data['conn'] = $queue_conn;
->>>>>>> laraxot/develop
 
         // $env_file=base_path('.env');
         // dddx(getenv(base_path('')));
@@ -167,17 +154,6 @@ class Status extends Component
     {
         $env_file = base_path('.env');
         $env_content = File::get($env_file);
-<<<<<<< HEAD
-        $new_content = Str::replace(
-            'QUEUE_CONNECTION='.(string) $this->old_value,
-            'QUEUE_CONNECTION='.(string) $this->form_data['conn'],
-            $env_content,
-        );
-        putenv('QUEUE_CONNECTION='.(string) $this->form_data['conn']);
-        Assert::string($new_content, '['.__LINE__.']['.class_basename($this).']');
-        File::put($env_file, $new_content);
-        $this->old_value = (string) $this->form_data['conn'];
-=======
 
         $conn = $this->form_data['conn'] ?? null;
         Assert::string($conn, '[' . __LINE__ . '][' . class_basename($this) . ']');
@@ -191,17 +167,12 @@ class Status extends Component
         Assert::string($new_content, '[' . __LINE__ . '][' . class_basename($this) . ']');
         File::put($env_file, $new_content);
         $this->old_value = $conn;
->>>>>>> laraxot/develop
     }
 
     public function artisan(string $cmd): void
     {
         $this->out .= '<hr/>';
-<<<<<<< HEAD
-        Artisan::call('queue:'.$cmd);
-=======
         Artisan::call('queue:' . $cmd);
->>>>>>> laraxot/develop
         $this->out .= Artisan::output();
         $this->out .= '<hr/>';
     }

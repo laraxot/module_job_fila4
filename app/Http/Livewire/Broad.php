@@ -25,11 +25,7 @@ class Broad extends Component
 
     public function try(): void
     {
-<<<<<<< HEAD
-        session()->flash('message', 'try ['.now().']');
-=======
         session()->flash('message', 'try [' . now() . ']');
->>>>>>> laraxot/develop
         // OrderShipped::dispatch();
         // event(new PublicEvent('test'));
         PublicEvent::dispatch();
@@ -37,13 +33,8 @@ class Broad extends Component
 
     public function notifyEvent(): void
     {
-<<<<<<< HEAD
-        session()->flash('message', 'notifyEvent ['.now().']');
-        \Illuminate\Support\Facades\Log::debug('fine');
-=======
         session()->flash('message', 'notifyEvent [' . now() . ']');
         dd('fine');
->>>>>>> laraxot/develop
 
         // $this->showNewOrderNotification = true;
     }

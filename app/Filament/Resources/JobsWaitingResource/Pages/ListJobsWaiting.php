@@ -8,13 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobsWaitingResource\Pages;
 
-<<<<<<< HEAD
-use Filament\Tables\Columns\TextColumn;
-use Modules\Job\Filament\Resources\JobsWaitingResource;
-use Modules\Job\Filament\Resources\JobsWaitingResource\Widgets\JobsWaitingOverview;
-use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Override;
-=======
 use Override;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
@@ -24,7 +17,6 @@ use Filament\Tables\Table;
 use Modules\Job\Filament\Resources\JobsWaitingResource;
 use Modules\Job\Filament\Resources\JobsWaitingResource\Widgets\JobsWaitingOverview;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
->>>>>>> laraxot/develop
 
 class ListJobsWaiting extends XotBaseListRecords
 {
@@ -50,11 +42,7 @@ class ListJobsWaiting extends XotBaseListRecords
             'status' => TextColumn::make('status')
                 ->badge()
                 ->sortable()
-<<<<<<< HEAD
-                ->color(static fn (string $state): string => match ($state) {
-=======
                 ->color(static fn(string $state): string => match ($state) {
->>>>>>> laraxot/develop
                     'running' => 'primary',
                     'waiting' => 'success',
                     'failed' => 'danger',

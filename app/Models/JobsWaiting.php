@@ -8,17 +8,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Job\Database\Factories\JobsWaitingFactory;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
-=======
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Job\Database\Factories\JobsWaitingFactory;
 use Modules\Xot\Contracts\ProfileContract;
->>>>>>> laraxot/develop
 
 /**
  * Modules\Job\Models\JobsWaiting.
@@ -54,12 +47,9 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|JobsWaiting whereUpdatedBy($value)
  *
  * @mixin IdeHelperJobsWaiting
-<<<<<<< HEAD
-=======
  *
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
->>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class JobsWaiting extends Job {}

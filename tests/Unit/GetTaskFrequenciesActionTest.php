@@ -6,11 +6,7 @@ use Modules\Job\Actions\GetTaskFrequenciesAction;
 
 describe('GetTaskFrequenciesAction', function () {
     beforeEach(function () {
-<<<<<<< HEAD
-        $this->action = new GetTaskFrequenciesAction;
-=======
         $this->action = new GetTaskFrequenciesAction();
->>>>>>> laraxot/develop
     });
 
     it('can be instantiated', function () {

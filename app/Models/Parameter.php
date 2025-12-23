@@ -4,19 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Job\Database\Factories\ParameterFactory;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Carbon;
-=======
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Modules\Job\Database\Factories\ParameterFactory;
 use Modules\Xot\Contracts\ProfileContract;
->>>>>>> laraxot/develop
 
 /**
  * Modules\Job\Models\Parameter.
@@ -46,11 +38,8 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static Builder<static>|Parameter whereUpdatedBy($value)
  * @method static Builder<static>|Parameter whereValue($value)
  *
-<<<<<<< HEAD
-=======
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
->>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class Parameter extends BaseModel
@@ -86,26 +75,4 @@ class Parameter extends BaseModel
     {
         return $this->belongsTo(Frequency::class);
     }
-<<<<<<< HEAD
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return array_merge(parent::casts(), [
-            'id' => 'integer',
-            'frequency_id' => 'integer',
-            'name' => 'string',
-            'value' => 'string',
-            'created_by' => 'string',
-            'updated_by' => 'string',
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
-        ]);
-    }
-=======
->>>>>>> laraxot/develop
 }

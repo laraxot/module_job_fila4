@@ -5,13 +5,8 @@ declare(strict_types=1);
 namespace Modules\Job\Tests;
 
 use Illuminate\Foundation\Application;
-<<<<<<< HEAD
-use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Modules\Job\Providers\JobServiceProvider;
-=======
 use Modules\Job\Providers\JobServiceProvider;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
->>>>>>> laraxot/develop
 use Modules\Xot\Tests\CreatesApplication;
 
 /**
@@ -38,11 +33,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * Get package providers.
      *
-<<<<<<< HEAD
-     * @param  Application  $app
-=======
      * @param Application $app
->>>>>>> laraxot/develop
      * @return array<int, class-string>
      */
     protected function getPackageProviders($app): array

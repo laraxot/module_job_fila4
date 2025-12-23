@@ -19,11 +19,7 @@ class ScheduleOptions extends TextColumn
 
     public function getTags(): array
     {
-<<<<<<< HEAD
-        if (null === $this->record) {
-=======
         if ($this->record === null) {
->>>>>>> laraxot/develop
             return [];
         }
 

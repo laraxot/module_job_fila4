@@ -22,10 +22,6 @@ class GetTaskFrequenciesAction
             return $res;
         }
 
-<<<<<<< HEAD
-        throw new Exception('['.__LINE__.']['.class_basename($this).']');
-=======
         throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
->>>>>>> laraxot/develop
     }
 }

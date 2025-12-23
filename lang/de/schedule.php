@@ -2,10 +2,7 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-=======
 
->>>>>>> laraxot/develop
 return [
     'navigation' => [
         'name' => 'Schedulatore',

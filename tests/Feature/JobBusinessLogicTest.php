@@ -2,10 +2,7 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Carbon;
->>>>>>> laraxot/develop
 use Modules\Job\Models\Job;
 
 describe('Job Business Logic', function () {

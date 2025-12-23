@@ -8,19 +8,12 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobManagerResource\Widgets;
 
-<<<<<<< HEAD
-=======
 use Modules\Xot\Actions\Cast\SafeEloquentCastAction;
->>>>>>> laraxot/develop
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Support\Facades\DB;
 use Modules\Job\Models\JobManager;
 use Modules\Job\Traits\FormatSeconds;
-<<<<<<< HEAD
-use Modules\Xot\Actions\Cast\SafeEloquentCastAction;
-=======
->>>>>>> laraxot/develop
 
 class JobStatsOverview extends BaseWidget
 {
@@ -43,11 +36,7 @@ class JobStatsOverview extends BaseWidget
                     ceil(
                         (float) app(SafeEloquentCastAction::class)
                             ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0'),
-<<<<<<< HEAD
-                    ).'s'
-=======
                     ) . 's'
->>>>>>> laraxot/develop
                 )
                 : '0';
 

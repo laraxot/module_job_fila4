@@ -30,15 +30,9 @@ pest()->extend(TestCase::class)->in('Feature', 'Unit');
  * |
  */
 
-<<<<<<< HEAD
-expect()->extend('toBeJob', fn () => $this->toBeInstanceOf(Job::class));
-
-expect()->extend('toBeJobBatch', fn () => $this->toBeInstanceOf(JobBatch::class));
-=======
 expect()->extend('toBeJob', fn() => $this->toBeInstanceOf(Job::class));
 
 expect()->extend('toBeJobBatch', fn() => $this->toBeInstanceOf(JobBatch::class));
->>>>>>> laraxot/develop
 
 /*
  * |--------------------------------------------------------------------------

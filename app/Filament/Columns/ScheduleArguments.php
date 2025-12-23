@@ -50,39 +50,6 @@ class ScheduleArguments extends TextColumn
     /**
      * Format tags when they are in array format.
      */
-<<<<<<< HEAD
-    /**
-     * @param  array<int|string, mixed>  $tags
-     * @return array<int, string>
-     */
-    protected function formatArrayTags(array $tags): array
-    {
-        $result = [];
-
-        foreach ($tags as $key => $value) {
-            $keyStr = (string) $key;
-
-            if (! $this->withValue) {
-                $valStr = is_scalar($value) ? (string) $value : '';
-                $result[] = $keyStr.'='.$valStr;
-
-                continue;
-            }
-
-            if (is_array($value)) {
-                $name = isset($value['name']) && is_scalar($value['name']) ? (string) $value['name'] : $keyStr;
-                $val = isset($value['value']) && is_scalar($value['value']) ? (string) $value['value'] : '';
-                $result[] = $name.'='.$val;
-
-                continue;
-            }
-
-            $valStr = is_scalar($value) ? (string) $value : '';
-            $result[] = $keyStr.'='.$valStr;
-        }
-
-        return $result;
-=======
     protected function formatArrayTags(array $tags): array
     {
         $collection = collect($tags);
@@ -116,7 +83,6 @@ class ScheduleArguments extends TextColumn
             )
             ->values()
             ->all();
->>>>>>> laraxot/develop
     }
 
     /**

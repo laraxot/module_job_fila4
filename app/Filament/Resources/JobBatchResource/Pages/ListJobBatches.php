@@ -8,30 +8,18 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\JobBatchResource\Pages;
 
-<<<<<<< HEAD
-use Filament\Actions\Action;
-use Filament\Actions\ActionGroup;
-use Filament\Actions\BulkAction;
-use Filament\Actions\DeleteBulkAction;
-=======
 use Filament\Actions\BulkAction;
 use Filament\Actions\ActionGroup;
 use Override;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\Action;
->>>>>>> laraxot/develop
 use Filament\Notifications\Notification;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Artisan;
 use Modules\Job\Filament\Resources\JobBatchResource;
-<<<<<<< HEAD
-use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Override;
-=======
 use Modules\Job\Models\JobBatch;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
->>>>>>> laraxot/develop
 use Webmozart\Assert\Assert;
 
 class ListJobBatches extends XotBaseListRecords
@@ -44,15 +32,8 @@ class ListJobBatches extends XotBaseListRecords
     #[Override]
     public function getTableColumns(): array
     {
-<<<<<<< HEAD
-        Assert::string(
-            $date_format = config('app.date_format'),
-            '['.__LINE__.']['.class_basename(__CLASS__).']',
-        );
-=======
         $date_format = config('app.date_format');
         Assert::string($date_format, '[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
->>>>>>> laraxot/develop
 
         return [
             'id' => TextColumn::make('id')
@@ -67,18 +48,6 @@ class ListJobBatches extends XotBaseListRecords
             'pending_jobs' => TextColumn::make('pending_jobs')->numeric()->sortable(),
             'failed_jobs' => TextColumn::make('failed_jobs')->numeric()->sortable(),
             'progress' => TextColumn::make('progress')
-<<<<<<< HEAD
-                ->formatStateUsing(function ($record): string {
-                    if (is_object($record) && method_exists($record, 'progress')) {
-                        $progress = $record->progress();
-                        $progressStr = is_numeric($progress) ? ((string) $progress) : '0';
-
-                        return sprintf('%s%%', $progressStr);
-                    }
-
-                    return '0%';
-                })
-=======
                 ->formatStateUsing(
                     /**
                      * @param  mixed  $record
@@ -91,7 +60,6 @@ class ListJobBatches extends XotBaseListRecords
                         return (string) $record->progress() . '%';
                     },
                 )
->>>>>>> laraxot/develop
                 ->sortable(),
             'failed_job_ids' => TextColumn::make('failed_job_ids')
                 ->wrap()

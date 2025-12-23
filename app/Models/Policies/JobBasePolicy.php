@@ -12,11 +12,7 @@ abstract class JobBasePolicy
 {
     use HandlesAuthorization;
 
-<<<<<<< HEAD
-    public function before(UserContract $user, string $_ability): ?bool
-=======
     public function before(UserContract $user, string $_ability): null|bool
->>>>>>> laraxot/develop
     {
         $xotData = XotData::make();
         if ($user->hasRole('super-admin')) {

@@ -4,17 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources\FailedImportRowResource\Pages;
 
-<<<<<<< HEAD
-use Filament\Tables\Columns\TextColumn;
-use Modules\Job\Filament\Resources\FailedImportRowResource;
-use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
-use Override;
-=======
 use Override;
 use Filament\Tables\Columns\TextColumn;
 use Modules\Job\Filament\Resources\FailedImportRowResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
->>>>>>> laraxot/develop
 
 class ListFailedImportRows extends XotBaseListRecords
 {

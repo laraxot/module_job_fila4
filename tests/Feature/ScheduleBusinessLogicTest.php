@@ -5,10 +5,7 @@ declare(strict_types=1);
 namespace Modules\Job\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Carbon;
->>>>>>> laraxot/develop
 use Modules\Job\Models\Schedule;
 use Modules\Job\Models\ScheduleHistory;
 use Tests\TestCase;
@@ -373,13 +370,8 @@ class ScheduleBusinessLogicTest extends TestCase
         $this->assertCount(3, $batchSchedules);
 
         foreach ($batchSchedules as $index => $schedule) {
-<<<<<<< HEAD
-            $this->assertEquals('Batch Schedule '.($index + 1), $schedule->name);
-            $this->assertEquals('0 '.($index + 1).' * * *', $schedule->cron_expression);
-=======
             $this->assertEquals('Batch Schedule ' . ($index + 1), $schedule->name);
             $this->assertEquals('0 ' . ($index + 1) . ' * * *', $schedule->cron_expression);
->>>>>>> laraxot/develop
             $this->assertEquals($priorities[$index], $schedule->priority);
         }
     }

@@ -1,22 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
-return [
-    'sections' => [
-        'empty' => [
-            'label' => 'empty',
-            'heading' => 'empty',
-        ],
-    ],
-    'actions' => [
-        'logout' => [
-            'tooltip' => 'logout',
-<<<<<<< HEAD
-            'icon' => 'logout',
-            'label' => 'logout',
-=======
->>>>>>> laraxot/develop
-        ],
-    ],
-];
+return array (
+  'sections' => 
+  array (
+    'empty' => 
+    array (
+      'label' => 'empty',
+      'heading' => 'empty',
+    ),
+  ),
+);

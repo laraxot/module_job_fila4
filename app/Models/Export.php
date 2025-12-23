@@ -54,10 +54,6 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Export whereUserType($value)
  *
  * @mixin IdeHelperExport
-<<<<<<< HEAD
- * @mixin Eloquent
- * @mixin Eloquent
-=======
  * @mixin IdeHelperExport
  * @mixin IdeHelperExport
  * @mixin IdeHelperExport
@@ -66,7 +62,6 @@ use Illuminate\Support\Carbon;
  * @mixin IdeHelperExport
  * @mixin Eloquent
  * @mixin IdeHelperExport
->>>>>>> laraxot/develop
  * @mixin Eloquent
  * @mixin IdeHelperExport
  * @mixin Eloquent

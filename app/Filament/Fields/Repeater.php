@@ -9,21 +9,14 @@ use Webmozart\Assert\Assert;
 
 class Repeater extends ComponentsRepeater
 {
-<<<<<<< HEAD
-    public function getItemLabel(string $uuid): ?string
-=======
     public function getItemLabel(string $uuid): null|string
->>>>>>> laraxot/develop
     {
         $container = $this->getChildSchema($uuid);
         if ($container === null) {
             return null;
         }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> laraxot/develop
         $res = $this->evaluate($this->itemLabel, [
             'state' => $container->getRawState(),
             'uuid' => $uuid,

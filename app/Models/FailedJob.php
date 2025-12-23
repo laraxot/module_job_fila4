@@ -8,15 +8,9 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-<<<<<<< HEAD
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Job\Database\Factories\FailedJobFactory;
-use Illuminate\Database\Eloquent\Builder;
-=======
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Job\Database\Factories\FailedJobFactory;
 use Modules\Xot\Contracts\ProfileContract;
->>>>>>> laraxot/develop
 use Override;
 
 /**
@@ -44,11 +38,8 @@ use Override;
  * @method static Builder<static>|FailedJob whereQueue($value)
  * @method static Builder<static>|FailedJob whereUuid($value)
  *
-<<<<<<< HEAD
-=======
  * @property-read \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
->>>>>>> laraxot/develop
  * @mixin \Eloquent
  */
 class FailedJob extends BaseModel

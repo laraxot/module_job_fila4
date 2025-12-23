@@ -10,19 +10,12 @@ namespace Modules\Job\Filament\Tables\Columns;
 
 use Filament\Actions\Concerns\InteractsWithRecord;
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
-=======
 use Modules\Xot\Filament\Actions\XotBaseActionGroup;
->>>>>>> laraxot/develop
 
 /**
  * @property Model $record
  */
-<<<<<<< HEAD
-class ActionGroup extends \Filament\Actions\ActionGroup
-=======
 class ActionGroup extends XotBaseActionGroup
->>>>>>> laraxot/develop
 {
     use InteractsWithRecord;
 

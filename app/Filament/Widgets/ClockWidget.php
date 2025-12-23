@@ -37,6 +37,7 @@ class ClockWidget extends Widget
     public function beginProcess(): void
     {
         $this->time = '';
+<<<<<<< HEAD
         $process = Process::path(base_path())->start('php artisan queue:listen --timeout=0');
         while ($process->running()) {
             // ...
@@ -45,6 +46,13 @@ class ClockWidget extends Widget
                 content: $this->time,
                 replace: true,
             );
+=======
+        $process = Process::path(base_path())
+            ->start('php artisan queue:listen --timeout=0');
+        while ($process->running()) {
+            // ...
+            $this->stream(to: 'count', content: $this->time, replace: true);
+>>>>>>> e1b0bf9 (.)
             // Pause for 1 second between numbers...
             sleep(3);
             // se no troppe richieste
@@ -57,6 +65,7 @@ class ClockWidget extends Widget
 
     public function beginStream(): void
     {
+<<<<<<< HEAD
         $this->run = !$this->run;
         // $output = new BufferedOutput();
         /*
@@ -85,6 +94,36 @@ class ClockWidget extends Widget
         $resource = fopen('php://stdout', 'w');
         if ($resource === false) {
             throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
+=======
+        $this->run = ! $this->run;
+        // $output = new BufferedOutput();
+        /*
+        $output = new class() extends StreamOutput {
+            public function __construct()
+            {
+                parent::__construct(fopen('php://output', 'w'));
+            }
+
+            protected function doWrite(string $message, bool $newline): void
+            {
+                if ('' != $message) {
+                    dddx($message);
+                }
+
+                $message = str_replace("\n", '<br>', $message);
+
+                if ($newline) {
+                    $message .= '<br>';
+                }
+
+                parent::doWrite($message, false);
+            }
+        };
+        */
+        $resource = fopen('php://stdout', 'w');
+        if ($resource === false) {
+            throw new Exception('['.__LINE__.']['.class_basename($this).']');
+>>>>>>> e1b0bf9 (.)
         }
         $output = new StreamOutput($resource);
         // $output = new StreamOutput(fopen('/path/to/output.log', 'a', false));
@@ -95,6 +134,7 @@ class ClockWidget extends Widget
         // dddx($output);
         // dddx($output->fetch());
         /*
+<<<<<<< HEAD
          * while ($this->run) {
          * // Stream the current count to the browser...
          * $this->stream(
@@ -111,5 +151,23 @@ class ClockWidget extends Widget
          * $this->time = $output->fetch().PHP_EOL;
          * }
          */
+=======
+        while ($this->run) {
+            // Stream the current count to the browser...
+            $this->stream(
+                to: 'count',
+                content: $this->time,
+                replace: true,
+            );
+
+            // Pause for 1 second between numbers...
+            sleep(1);
+
+            // Decrement the counter...
+            // $this->time = (string) Carbon::now()->format('H:i:s');
+            $this->time = $output->fetch().PHP_EOL;
+        }
+        */
+>>>>>>> e1b0bf9 (.)
     }
 }

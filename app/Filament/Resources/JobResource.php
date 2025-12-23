@@ -4,14 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Override;
-=======
->>>>>>> e1b0bf9 (.)
-=======
-use Override;
->>>>>>> 7d4742a (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DateTimePicker;
 use Modules\Job\Filament\Resources\JobResource\Pages\ListJobs;
@@ -26,10 +19,6 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class JobResource extends XotBaseResource
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
     protected static null|string $model = Job::class;
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-circle-stack';
@@ -55,41 +44,6 @@ class JobResource extends XotBaseResource
     }
 
     #[Override]
-<<<<<<< HEAD
-=======
-    protected static ?string $model = Job::class;
-
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-circle-stack';
-
-    protected static ?string $recordTitleAttribute = 'display_name';
-
-    public static function getFormSchema(): array
-    {
-        return [
-            'queue' => TextInput::make('queue')
-                ->required()
-                ->maxLength(255),
-            'payload' => TextInput::make('payload')
-                ->required(),
-            'attempts' => TextInput::make('attempts')
-                ->numeric()
-                ->required(),
-            'available_at' => DateTimePicker::make('available_at')
-                ->required(),
-            'created_at' => DateTimePicker::make('created_at')
-                ->required(),
-        ];
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-        ];
-    }
-
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
     public static function getPages(): array
     {
         return [

@@ -2,6 +2,12 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 548bbd3 (.)
 use Modules\Job\Models\Job;
 use Modules\Job\Models\JobBatch;
 use Modules\Job\Tests\TestCase;
@@ -44,6 +50,109 @@ expect()->extend('toBeJobBatch', fn() => $this->toBeInstanceOf(JobBatch::class))
  * | global functions to help you to reduce the number of lines of code in your test files.
  * |
  */
+<<<<<<< HEAD
+=======
+=======
+namespace Modules\Job\Tests;
+
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+=======
+>>>>>>> b93ef594b4 (.)
+use Modules\Job\Models\Job;
+use Modules\Job\Models\JobBatch;
+use Modules\Job\Tests\TestCase;
+
+/*
+ * |--------------------------------------------------------------------------
+ * | Test Case
+ * |--------------------------------------------------------------------------
+ * |
+ * | The closure you provide to your test functions is always bound to a specific PHPUnit test
+ * | case class. By default, that class is "PHPUnit\Framework\TestCase". Of course, you may
+ * | need to change it using the "pest()" function to bind a different classes or traits.
+ * |
+ */
+
+pest()->extend(TestCase::class)->in('Feature', 'Unit');
+
+/*
+ * |--------------------------------------------------------------------------
+ * | Expectations
+ * |--------------------------------------------------------------------------
+ * |
+ * | When you're writing tests, you often need to check that values meet certain conditions. The
+ * | "expect()" function gives you access to a set of "expectations" methods that you can use
+ * | to assert different things. Of course, you may extend the Expectation API at any time.
+ * |
+ */
+
+expect()->extend('toBeJob', fn() => $this->toBeInstanceOf(Job::class));
+
+expect()->extend('toBeJobBatch', fn() => $this->toBeInstanceOf(JobBatch::class));
+
+/*
+<<<<<<< HEAD
+=======
+use Modules\Job\Tests\TestCase;
+
+/*
+|--------------------------------------------------------------------------
+| Test Case
+|--------------------------------------------------------------------------
+|
+| The closure you provide to your test functions is always bound to a specific PHPUnit test
+| case class. By default, that class is "PHPUnit\Framework\TestCase". Of course, you may
+| need to change it using the "pest()" function to bind a different classes or traits.
+|
+*/
+
+pest()->extend(TestCase::class)
+    ->in('Feature', 'Unit');
+
+/*
+|--------------------------------------------------------------------------
+| Expectations
+|--------------------------------------------------------------------------
+|
+| When you're writing tests, you often need to check that values meet certain conditions. The
+| "expect()" function gives you access to a set of "expectations" methods that you can use
+| to assert different things. Of course, you may extend the Expectation API at any time.
+|
+*/
+
+expect()->extend('toBeJob', function () {
+    return $this->toBeInstanceOf(\Modules\Job\Models\Job::class);
+});
+
+expect()->extend('toBeJobBatch', function () {
+    return $this->toBeInstanceOf(\Modules\Job\Models\JobBatch::class);
+});
+
+/*
+>>>>>>> origin/develop
+|--------------------------------------------------------------------------
+| Functions
+|--------------------------------------------------------------------------
+|
+| While Pest is very powerful out-of-the-box, you may have some testing code specific to your
+| project that you don't want to repeat in every file. Here you can also expose helpers as
+| global functions to help you to reduce the number of lines of code in your test files.
+|
+*/
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+ * |--------------------------------------------------------------------------
+ * | Functions
+ * |--------------------------------------------------------------------------
+ * |
+ * | While Pest is very powerful out-of-the-box, you may have some testing code specific to your
+ * | project that you don't want to repeat in every file. Here you can also expose helpers as
+ * | global functions to help you to reduce the number of lines of code in your test files.
+ * |
+ */
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
 
 function createJob(array $attributes = []): Job
 {
@@ -63,4 +172,28 @@ function createJobBatch(array $attributes = []): JobBatch
 function makeJobBatch(array $attributes = []): JobBatch
 {
     return JobBatch::factory()->make($attributes);
+<<<<<<< HEAD
+=======
+=======
+
+function createJob(array $attributes = []): \Modules\Job\Models\Job
+{
+    return \Modules\Job\Models\Job::factory()->create($attributes);
+}
+
+function makeJob(array $attributes = []): \Modules\Job\Models\Job
+{
+    return \Modules\Job\Models\Job::factory()->make($attributes);
+}
+
+function createJobBatch(array $attributes = []): \Modules\Job\Models\JobBatch
+{
+    return \Modules\Job\Models\JobBatch::factory()->create($attributes);
+}
+
+function makeJobBatch(array $attributes = []): \Modules\Job\Models\JobBatch
+{
+    return \Modules\Job\Models\JobBatch::factory()->make($attributes);
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
 }

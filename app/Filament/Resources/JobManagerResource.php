@@ -8,11 +8,28 @@ declare(strict_types=1);
 
 namespace Modules\Job\Filament\Resources;
 
+<<<<<<< HEAD
 use Override;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Override;
+=======
+>>>>>>> a12f125f4a (.)
+=======
+use Override;
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
 use Modules\Job\Filament\Resources\JobManagerResource\Pages\ListJobManagers;
 use Modules\Job\Filament\Resources\JobManagerResource\Pages\CreateJobManager;
 use Modules\Job\Filament\Resources\JobManagerResource\Pages\EditJobManager;
 use Modules\Job\Filament\Resources\JobManagerResource\Widgets\JobStatsOverview;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -24,6 +41,12 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class JobManagerResource extends XotBaseResource
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 548bbd3 (.)
     protected static null|string $model = JobManager::class;
 
     #[Override]
@@ -48,19 +71,102 @@ class JobManagerResource extends XotBaseResource
     }
 
     #[Override]
+<<<<<<< HEAD
+=======
+=======
+    protected static ?string $model = JobManager::class;
+=======
+    protected static null|string $model = JobManager::class;
+>>>>>>> b93ef594b4 (.)
+
+    #[Override]
+    public static function getFormSchema(): array
+    {
+        return [
+            'job_id' => TextInput::make('job_id')->required()->maxLength(255),
+            'name' => TextInput::make('name')->maxLength(255),
+            'queue' => TextInput::make('queue')->maxLength(255),
+            'started_at' => DateTimePicker::make('started_at'),
+            'finished_at' => DateTimePicker::make('finished_at'),
+            'failed' => Toggle::make('failed')->required(),
+            'attempt' => TextInput::make('attempt')->required(),
+            'exception_message' => Textarea::make('exception_message')->maxLength(65535),
+        ];
+    }
+
+    #[Override]
+    public static function getRelations(): array
+    {
+        return [];
+    }
+
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+    #[Override]
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
     public static function getPages(): array
     {
         return [
             'index' => ListJobManagers::route('/'),
             'create' => CreateJobManager::route('/create'),
             'edit' => EditJobManager::route('/{record}/edit'),
+<<<<<<< HEAD
+=======
+=======
+    protected static ?string $model = JobManager::class;
+
+    public static function getFormSchema(): array
+    {
+        return [
+            'job_id' => TextInput::make('job_id')
+                ->required()
+                ->maxLength(255),
+            'name' => TextInput::make('name')
+                ->maxLength(255),
+            'queue' => TextInput::make('queue')
+                ->maxLength(255),
+            'started_at' => DateTimePicker::make('started_at'),
+            'finished_at' => DateTimePicker::make('finished_at'),
+            'failed' => Toggle::make('failed')
+                ->required(),
+            'attempt' => TextInput::make('attempt')
+                ->required(),
+            'exception_message' => Textarea::make('exception_message')
+                ->maxLength(65535),
+        ];
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListJobManagers::route('/'),
+            'create' => Pages\CreateJobManager::route('/create'),
+            'edit' => Pages\EditJobManager::route('/{record}/edit'),
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
         ];
     }
 
     public static function getWidgets(): array
     {
         return [
+<<<<<<< HEAD
             JobStatsOverview::class,
+=======
+<<<<<<< HEAD
+            JobStatsOverview::class,
+=======
+            Widgets\JobStatsOverview::class,
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
         ];
     }
 }

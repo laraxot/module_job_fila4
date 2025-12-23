@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
@@ -19,6 +23,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class ImportResource extends XotBaseResource
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     protected static null|string $model = Import::class;
 
     #[Override]
@@ -33,6 +40,7 @@ class ImportResource extends XotBaseResource
                     'application/vnd.ms-excel',
                     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
                 ])
+<<<<<<< HEAD
 =======
     protected static ?string $model = Import::class;
 
@@ -46,6 +54,8 @@ class ImportResource extends XotBaseResource
                 ->required()
                 ->acceptedFileTypes(['text/csv', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'])
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
                 ->maxSize(10240),
             'status' => Select::make('status')
                 ->required()
@@ -57,6 +67,9 @@ class ImportResource extends XotBaseResource
                 ])
                 ->default('pending'),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
             'error_message' => Textarea::make('error_message')->maxLength(65535),
             'total_rows' => TextInput::make('total_rows')->numeric(),
             'processed_rows' => TextInput::make('processed_rows')->numeric(),
@@ -67,6 +80,7 @@ class ImportResource extends XotBaseResource
     public static function getRelations(): array
     {
         return [];
+<<<<<<< HEAD
 =======
             'error_message' => Textarea::make('error_message')
                 ->maxLength(65535),
@@ -82,5 +96,7 @@ class ImportResource extends XotBaseResource
         return [
         ];
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     }
 }

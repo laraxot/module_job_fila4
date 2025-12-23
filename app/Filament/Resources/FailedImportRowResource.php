@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms;
@@ -18,6 +22,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class FailedImportRowResource extends XotBaseResource
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     protected static null|string $model = FailedImportRow::class;
 
     #[Override]
@@ -35,6 +42,7 @@ class FailedImportRowResource extends XotBaseResource
     public static function getRelations(): array
     {
         return [];
+<<<<<<< HEAD
 =======
     protected static ?string $model = FailedImportRow::class;
 
@@ -61,5 +69,7 @@ class FailedImportRowResource extends XotBaseResource
         return [
         ];
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     }
 }

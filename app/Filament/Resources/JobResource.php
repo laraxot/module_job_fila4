@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Resources;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Override;
 =======
 >>>>>>> e1b0bf9 (.)
+=======
+use Override;
+>>>>>>> 7d4742a (.)
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DateTimePicker;
 use Modules\Job\Filament\Resources\JobResource\Pages\ListJobs;
@@ -23,6 +27,9 @@ use Modules\Xot\Filament\Resources\XotBaseResource;
 class JobResource extends XotBaseResource
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     protected static null|string $model = Job::class;
 
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-circle-stack';
@@ -48,6 +55,7 @@ class JobResource extends XotBaseResource
     }
 
     #[Override]
+<<<<<<< HEAD
 =======
     protected static ?string $model = Job::class;
 
@@ -80,6 +88,8 @@ class JobResource extends XotBaseResource
     }
 
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     public static function getPages(): array
     {
         return [

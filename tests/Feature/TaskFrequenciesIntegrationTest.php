@@ -2,9 +2,39 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Modules\Job\Actions\CreateTaskFrequencyAction;
 use Modules\Job\Actions\GetTaskFrequenciesAction;
 use Modules\Job\Models\TaskFrequency;
+=======
+<<<<<<< HEAD
+use Modules\Job\Actions\CreateTaskFrequencyAction;
+use Modules\Job\Actions\GetTaskFrequenciesAction;
+use Modules\Job\Models\TaskFrequency;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+use Modules\Job\Actions\CreateTaskFrequencyAction;
+use Modules\Job\Actions\GetTaskFrequenciesAction;
+use Modules\Job\Models\TaskFrequency;
+=======
+use Modules\Job\Models\TaskFrequency;
+use Modules\Job\Actions\CreateTaskFrequencyAction;
+use Modules\Job\Actions\GetTaskFrequenciesAction;
+>>>>>>> a12f125f4a (.)
+=======
+use Modules\Job\Actions\CreateTaskFrequencyAction;
+use Modules\Job\Actions\GetTaskFrequenciesAction;
+use Modules\Job\Models\TaskFrequency;
+>>>>>>> b93ef594b4 (.)
+=======
+use Modules\Job\Models\TaskFrequency;
+use Modules\Job\Actions\CreateTaskFrequencyAction;
+use Modules\Job\Actions\GetTaskFrequenciesAction;
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
 
 describe('TaskFrequencies Integration', function () {
     beforeEach(function () {
@@ -33,12 +63,42 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         expect($result)
             ->toBeArray()
             ->and(count($result))
             ->toBe(15)
             ->and($result)
             ->toHaveKeys([
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        expect($result)->toBeArray()
+            ->and(count($result))->toBe(15)
+            ->and($result)->toHaveKeys([
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+        expect($result)->toBeArray()
+            ->and(count($result))->toBe(15)
+            ->and($result)->toHaveKeys([
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
                 'everyMinute',
                 'everyFiveMinutes',
                 'everyTenMinutes',
@@ -53,7 +113,27 @@ describe('TaskFrequencies Integration', function () {
                 'weekly',
                 'monthly',
                 'quarterly',
+<<<<<<< HEAD
                 'yearly',
+=======
+<<<<<<< HEAD
+                'yearly',
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+                'yearly',
+=======
+                'yearly'
+>>>>>>> a12f125f4a (.)
+=======
+                'yearly',
+>>>>>>> b93ef594b4 (.)
+=======
+                'yearly'
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
             ]);
     });
 
@@ -70,6 +150,17 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         expect($result)
             ->toBeArray()
             ->and($result['everyMinute'])
@@ -82,6 +173,28 @@ describe('TaskFrequencies Integration', function () {
             ->toBe('Weekly')
             ->and($result['monthly'])
             ->toBe('Monthly');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        expect($result)->toBeArray()
+            ->and($result['everyMinute'])->toBe('Every Minute')
+            ->and($result['hourly'])->toBe('Hourly')
+            ->and($result['daily'])->toBe('Daily')
+            ->and($result['weekly'])->toBe('Weekly')
+            ->and($result['monthly'])->toBe('Monthly');
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
     });
 
     it('can be used in queue context', function () {
@@ -101,6 +214,17 @@ describe('TaskFrequencies Integration', function () {
         config(['totem.frequencies' => ['changed' => 'Changed Value']]);
         $result2 = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         expect($result1)
             ->toHaveKey('initial')
             ->and($result1['initial'])
@@ -111,6 +235,27 @@ describe('TaskFrequencies Integration', function () {
             ->toBe('Changed Value')
             ->and($result2)
             ->not->toHaveKey('initial');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        expect($result1)->toHaveKey('initial')
+            ->and($result1['initial'])->toBe('Initial Value')
+            ->and($result2)->toHaveKey('changed')
+            ->and($result2['changed'])->toBe('Changed Value')
+            ->and($result2)->not->toHaveKey('initial');
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
     });
 
     it('validates configuration file structure', function () {
@@ -126,6 +271,17 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         expect($result)
             ->toBeArray()
             ->and($result['simple'])
@@ -134,6 +290,26 @@ describe('TaskFrequencies Integration', function () {
             ->toBeArray()
             ->and($result['complex']['label'])
             ->toBe('Complex Label');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        expect($result)->toBeArray()
+            ->and($result['simple'])->toBe('Simple Value')
+            ->and($result['complex'])->toBeArray()
+            ->and($result['complex']['label'])->toBe('Complex Label');
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
     });
 
     it('handles empty configuration gracefully', function () {
@@ -141,7 +317,29 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
         expect($result)->toBeArray()->and($result)->toBeEmpty();
+=======
+<<<<<<< HEAD
+        expect($result)->toBeArray()->and($result)->toBeEmpty();
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        expect($result)->toBeArray()->and($result)->toBeEmpty();
+=======
+        expect($result)->toBeArray()
+            ->and($result)->toBeEmpty();
+>>>>>>> a12f125f4a (.)
+=======
+        expect($result)->toBeArray()->and($result)->toBeEmpty();
+>>>>>>> b93ef594b4 (.)
+=======
+        expect($result)->toBeArray()
+            ->and($result)->toBeEmpty();
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
     });
 
     it('works with string and numeric keys', function () {
@@ -154,6 +352,17 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         expect($result)
             ->toBeArray()
             ->and($result['string_key'])
@@ -164,12 +373,53 @@ describe('TaskFrequencies Integration', function () {
             ->toBe('Another Numeric')
             ->and($result['mixed_123'])
             ->toBe('Mixed Key Value');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        expect($result)->toBeArray()
+            ->and($result['string_key'])->toBe('String Value')
+            ->and($result[0])->toBe('Numeric Key Value')
+            ->and($result[1])->toBe('Another Numeric')
+            ->and($result['mixed_123'])->toBe('Mixed Key Value');
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
     });
 
     it('integrates with Laravel service container', function () {
         // Test that the action can be resolved from container
         $actionFromContainer = app(GetTaskFrequenciesAction::class);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> a12f125f4a (.)
+=======
+
+>>>>>>> b93ef594b4 (.)
+=======
+        
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         expect($actionFromContainer)->toBeInstanceOf(GetTaskFrequenciesAction::class);
     });
 
@@ -181,12 +431,42 @@ describe('TaskFrequencies Integration', function () {
         $result2 = $this->action->execute();
         $result3 = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         expect($result1)
             ->toBe($result2)
             ->and($result2)
             ->toBe($result3)
             ->and($result1['concurrent'])
             ->toBe('Concurrent Value');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        expect($result1)->toBe($result2)
+            ->and($result2)->toBe($result3)
+            ->and($result1['concurrent'])->toBe('Concurrent Value');
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+        expect($result1)->toBe($result2)
+            ->and($result2)->toBe($result3)
+            ->and($result1['concurrent'])->toBe('Concurrent Value');
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
     });
 
     it('validates error handling in production scenario', function () {
@@ -202,8 +482,35 @@ describe('TaskFrequencies Integration', function () {
 
         foreach ($invalidConfigs as $invalidConfig) {
             config(['totem.frequencies' => $invalidConfig]);
+<<<<<<< HEAD
 
             expect($this->action->execute(...))->toThrow(Exception::class);
+=======
+<<<<<<< HEAD
+
+            expect($this->action->execute(...))->toThrow(Exception::class);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+            expect($this->action->execute(...))->toThrow(Exception::class);
+=======
+            
+            expect(fn () => $this->action->execute())
+                ->toThrow(Exception::class);
+>>>>>>> a12f125f4a (.)
+=======
+
+            expect($this->action->execute(...))->toThrow(Exception::class);
+>>>>>>> b93ef594b4 (.)
+=======
+            
+            expect(fn () => $this->action->execute())
+                ->toThrow(Exception::class);
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         }
     });
 
@@ -257,6 +564,17 @@ describe('TaskFrequencies Integration', function () {
 
         $result = $this->action->execute();
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         expect($result)
             ->toBeArray()
             ->and(count($result))
@@ -273,5 +591,29 @@ describe('TaskFrequencies Integration', function () {
             ->toBe('Monthly')
             ->and($result['yearly'])
             ->toBe('Yearly');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        expect($result)->toBeArray()
+            ->and(count($result))->toBe(26)
+            ->and($result['everyMinute'])->toBe('Every Minute')
+            ->and($result['hourly'])->toBe('Hourly')
+            ->and($result['daily'])->toBe('Daily')
+            ->and($result['weekly'])->toBe('Weekly')
+            ->and($result['monthly'])->toBe('Monthly')
+            ->and($result['yearly'])->toBe('Yearly');
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
     });
 });

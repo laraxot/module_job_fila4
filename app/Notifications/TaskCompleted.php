@@ -15,19 +15,28 @@ class TaskCompleted extends Notification implements ShouldQueue
     use Queueable;
 
     /**
+<<<<<<< HEAD
      * The task output.
      */
     private readonly string $output;
 
     /**
+=======
+>>>>>>> laraxot/develop
      * Create a new notification instance.
      *
      * @return void
      */
+<<<<<<< HEAD
     public function __construct(string $output)
     {
         $this->output = $output;
     }
+=======
+    public function __construct(
+        private readonly string $output,
+    ) {}
+>>>>>>> laraxot/develop
 
     /**
      * Get the notification's delivery channels.

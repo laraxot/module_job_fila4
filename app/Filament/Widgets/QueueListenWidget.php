@@ -25,7 +25,19 @@ class QueueListenWidget extends Widget
 
     public bool $run = false;
 
+<<<<<<< HEAD
     protected string $view = 'job::filament.widgets.queue-listen';
+=======
+<<<<<<< HEAD
+    protected string $view = 'job::filament.widgets.queue-listen';
+=======
+<<<<<<< HEAD
+    protected string $view = 'job::filament.widgets.queue-listen';
+=======
+    protected static string $view = 'job::filament.widgets.queue-listen';
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
 
     protected int|string|array $columnSpan = 'full';
 
@@ -37,6 +49,15 @@ class QueueListenWidget extends Widget
     public function beginProcess(): void
     {
         $this->time = '';
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         $process = Process::path(base_path())->start('php artisan queue:listen');
         while ($process->running()) {
             // ...
@@ -45,6 +66,34 @@ class QueueListenWidget extends Widget
                 content: $this->time,
                 replace: true,
             );
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> origin/develop
+        $process = Process::path(base_path())
+            ->start('php artisan queue:listen');
+        while ($process->running()) {
+            // ...
+            $this->stream(to: 'count', content: $this->time, replace: true);
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+        $process = Process::path(base_path())->start('php artisan queue:listen');
+        while ($process->running()) {
+            // ...
+            $this->stream(
+                to: 'count',
+                content: $this->time,
+                replace: true,
+            );
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
             // Pause for 1 second between numbers...
             sleep(3);
             // se no troppe richieste
@@ -57,6 +106,15 @@ class QueueListenWidget extends Widget
 
     public function beginStream(): void
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         $this->run = !$this->run;
         // $output = new BufferedOutput();
         /*
@@ -85,6 +143,79 @@ class QueueListenWidget extends Widget
         $resource = fopen('php://stdout', 'w');
         if ($resource === false) {
             throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        $this->run = ! $this->run;
+=======
+        $this->run = !$this->run;
+>>>>>>> b93ef594b4 (.)
+        // $output = new BufferedOutput();
+        /*
+         * $output = new class() extends StreamOutput {
+         * public function __construct()
+         * {
+         * parent::__construct(fopen('php://output', 'w'));
+         * }
+         *
+         * protected function doWrite(string $message, bool $newline): void
+         * {
+         * if ('' != $message) {
+         * dddx($message);
+         * }
+         *
+         * $message = str_replace("\n", '<br>', $message);
+         *
+         * if ($newline) {
+         * $message .= '<br>';
+         * }
+         *
+         * parent::doWrite($message, false);
+         * }
+         * };
+         */
+        $resource = fopen('php://stdout', 'w');
+        if ($resource === false) {
+<<<<<<< HEAD
+            throw new Exception('['.__LINE__.']['.class_basename($this).']');
+>>>>>>> a12f125f4a (.)
+=======
+            throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
+>>>>>>> b93ef594b4 (.)
+=======
+        $this->run = ! $this->run;
+        // $output = new BufferedOutput();
+        /*
+        $output = new class() extends StreamOutput {
+            public function __construct()
+            {
+                parent::__construct(fopen('php://output', 'w'));
+            }
+
+            protected function doWrite(string $message, bool $newline): void
+            {
+                if ('' != $message) {
+                    dddx($message);
+                }
+
+                $message = str_replace("\n", '<br>', $message);
+
+                if ($newline) {
+                    $message .= '<br>';
+                }
+
+                parent::doWrite($message, false);
+            }
+        };
+        */
+        $resource = fopen('php://stdout', 'w');
+        if ($resource === false) {
+            throw new Exception('['.__LINE__.']['.class_basename($this).']');
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
         }
         $output = new StreamOutput($resource);
         // $output = new StreamOutput(fopen('/path/to/output.log', 'a', false));
@@ -95,6 +226,17 @@ class QueueListenWidget extends Widget
         // dddx($output);
         // dddx($output->fetch());
         /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
          * while ($this->run) {
          * // Stream the current count to the browser...
          * $this->stream(
@@ -111,5 +253,37 @@ class QueueListenWidget extends Widget
          * $this->time = $output->fetch().PHP_EOL;
          * }
          */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        while ($this->run) {
+            // Stream the current count to the browser...
+            $this->stream(
+                to: 'count',
+                content: $this->time,
+                replace: true,
+            );
+
+            // Pause for 1 second between numbers...
+            sleep(1);
+
+            // Decrement the counter...
+            // $this->time = (string) Carbon::now()->format('H:i:s');
+            $this->time = $output->fetch().PHP_EOL;
+        }
+        */
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
     }
 }

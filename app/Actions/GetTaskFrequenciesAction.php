@@ -22,6 +22,26 @@ class GetTaskFrequenciesAction
             return $res;
         }
 
+<<<<<<< HEAD
         throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
+=======
+<<<<<<< HEAD
+        throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
+=======
+        throw new Exception('['.__LINE__.']['.class_basename($this).']');
+>>>>>>> a12f125f4a (.)
+=======
+        throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
+>>>>>>> b93ef594b4 (.)
+=======
+        throw new Exception('['.__LINE__.']['.class_basename($this).']');
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
+>>>>>>> laraxot/develop
     }
 }

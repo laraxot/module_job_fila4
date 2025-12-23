@@ -4,41 +4,30 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
-use Carbon\Carbon;
+use Modules\Xot\Contracts\ProfileContract;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\User\Models\User;
 
 /**
  * Class TaskComment.
  *
- * @property int         $id
- * @property int         $task_id
- * @property int         $user_id
- * @property string      $comment
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property Carbon|null $deleted_at
- * @property Task        $task
- * @property User        $user
+ * @property ProfileContract|null $creator
+ * @property Task|null                                   $task
+ * @property ProfileContract|null $updater
+ * @property User|null                                   $user
  *
- * @method static \Modules\Job\Database\Factories\TaskCommentFactory        factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment query()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment withTrashed(bool $withTrashed = true)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|TaskComment withoutTrashed()
- *
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @method static Builder<static>|TaskComment newModelQuery()
+ * @method static Builder<static>|TaskComment newQuery()
+ * @method static Builder<static>|TaskComment onlyTrashed()
+ * @method static Builder<static>|TaskComment query()
+ * @method static Builder<static>|TaskComment withTrashed(bool $withTrashed = true)
+ * @method static Builder<static>|TaskComment withoutTrashed()
  *
  * @mixin \Eloquent
  */
 class TaskComment extends BaseModel
 {
-    use SoftDeletes;
-
     protected $table = 'task_comments';
 
     protected $fillable = [
@@ -46,6 +35,16 @@ class TaskComment extends BaseModel
         'user_id',
         'comment',
     ];
+
+    public function task(): BelongsTo
+    {
+        return $this->belongsTo(Task::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 
     /**
      * Get the attributes that should be cast.
@@ -59,15 +58,5 @@ class TaskComment extends BaseModel
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
         ];
-    }
-
-    public function task(): BelongsTo
-    {
-        return $this->belongsTo(Task::class);
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
     }
 }

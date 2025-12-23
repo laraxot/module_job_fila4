@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Job\Filament\Columns;
+namespace Modules\Job\Filament\Tables\Columns;
 
 use Filament\Actions\Concerns\InteractsWithRecord;
 use Illuminate\Database\Eloquent\Model;

@@ -10,10 +10,8 @@ namespace Modules\Job\Filament\Widgets;
 
 use Exception;
 use Filament\Widgets\Widget;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Process;
-use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\StreamOutput;
 
 use function Safe\fopen;

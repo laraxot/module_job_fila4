@@ -59,11 +59,8 @@ class JobsWaitingOverview extends BaseWidget
             $totalTime = '0';
         }
 
-        $count = $jobsWaiting->count ?? 0;
-        $countValue = is_numeric($count) ? (int) $count : 0;
-
         return [
-            Stat::make('waiting_jobs', $countValue),
+            Stat::make('waiting_jobs', (int) ($jobsWaiting->count ?? 0)),
             Stat::make('execution_time', $totalTime),
             Stat::make('average_time', $averageTime),
         ];

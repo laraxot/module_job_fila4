@@ -35,12 +35,9 @@ class GetTaskCommandsAction
          * });
          * }
          */
-        return $all_commands->sortBy(static function (mixed $command): string {
-            if (! $command instanceof Command) {
-                return '';
-            }
+        return $all_commands->sortBy(static function (Command $command): string {
             $name = $command->getName();
-            Assert::string($name, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+            Assert::string($name, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
             if (mb_strpos($name, ':') === false) {
                 return ':'.$name;
             }

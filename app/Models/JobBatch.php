@@ -11,74 +11,43 @@ declare(strict_types=1);
 
 namespace Modules\Job\Models;
 
+use Illuminate\Support\Collection;
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Job\Database\Factories\JobBatchFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Collection;
-use Modules\Job\Database\Factories\JobBatchFactory;
-use Modules\Xot\Contracts\ProfileContract;
+use Override;
 
 /**
  * Modules\Job\Models\JobBatch.
  *
- * @property string          $id
- * @property string          $name
- * @property int             $total_jobs
- * @property int             $pending_jobs
- * @property int             $failed_jobs
- * @property string          $failed_job_ids
- * @property Collection|null $options
- * @property Carbon|null     $cancelled_at
- * @property Carbon          $created_at
- * @property Carbon|null     $finished_at
- *
- * @method static JobBatchFactory  factory($count = null, $state = [])
- * @method static Builder|JobBatch newModelQuery()
- * @method static Builder|JobBatch newQuery()
- * @method static Builder|JobBatch query()
- * @method static Builder|JobBatch whereCancelledAt($value)
- * @method static Builder|JobBatch whereCreatedAt($value)
- * @method static Builder|JobBatch whereFailedJobIds($value)
- * @method static Builder|JobBatch whereFailedJobs($value)
- * @method static Builder|JobBatch whereFinishedAt($value)
- * @method static Builder|JobBatch whereId($value)
- * @method static Builder|JobBatch whereName($value)
- * @method static Builder|JobBatch whereOptions($value)
- * @method static Builder|JobBatch wherePendingJobs($value)
- * @method static Builder|JobBatch whereTotalJobs($value)
- *
- * @property ProfileContract|null $creator
- * @property ProfileContract|null $updater
- *
- * @mixin \Eloquent
- */
-/**
- * @property string                            $id
- * @property string                            $name
- * @property int                               $total_jobs
- * @property int                               $pending_jobs
- * @property int                               $failed_jobs
- * @property string                            $failed_job_ids
+ * @property string $id
+ * @property string $name
+ * @property int $total_jobs
+ * @property int $pending_jobs
+ * @property int $failed_jobs
+ * @property string $failed_job_ids
  * @property Collection<array-key, mixed>|null $options
- * @property Carbon|null                       $cancelled_at
- * @property Carbon                            $created_at
- * @property Carbon|null                       $finished_at
- * @property ProfileContract|null              $creator
- * @property ProfileContract|null              $updater
+ * @property Carbon|null $cancelled_at
+ * @property Carbon $created_at
+ * @property Carbon|null $finished_at
+ * @property-read ProfileContract|null $creator
+ * @property-read ProfileContract|null $updater
  *
- * @method static \Modules\Job\Database\Factories\JobBatchFactory factory($count = null, $state = [])
- * @method static Builder<static>|JobBatch                        newModelQuery()
- * @method static Builder<static>|JobBatch                        newQuery()
- * @method static Builder<static>|JobBatch                        query()
- * @method static Builder<static>|JobBatch                        whereCancelledAt($value)
- * @method static Builder<static>|JobBatch                        whereCreatedAt($value)
- * @method static Builder<static>|JobBatch                        whereFailedJobIds($value)
- * @method static Builder<static>|JobBatch                        whereFailedJobs($value)
- * @method static Builder<static>|JobBatch                        whereFinishedAt($value)
- * @method static Builder<static>|JobBatch                        whereId($value)
- * @method static Builder<static>|JobBatch                        whereName($value)
- * @method static Builder<static>|JobBatch                        whereOptions($value)
- * @method static Builder<static>|JobBatch                        wherePendingJobs($value)
- * @method static Builder<static>|JobBatch                        whereTotalJobs($value)
+ * @method static JobBatchFactory factory($count = null, $state = [])
+ * @method static Builder<static>|JobBatch newModelQuery()
+ * @method static Builder<static>|JobBatch newQuery()
+ * @method static Builder<static>|JobBatch query()
+ * @method static Builder<static>|JobBatch whereCancelledAt($value)
+ * @method static Builder<static>|JobBatch whereCreatedAt($value)
+ * @method static Builder<static>|JobBatch whereFailedJobIds($value)
+ * @method static Builder<static>|JobBatch whereFailedJobs($value)
+ * @method static Builder<static>|JobBatch whereFinishedAt($value)
+ * @method static Builder<static>|JobBatch whereId($value)
+ * @method static Builder<static>|JobBatch whereName($value)
+ * @method static Builder<static>|JobBatch whereOptions($value)
+ * @method static Builder<static>|JobBatch wherePendingJobs($value)
+ * @method static Builder<static>|JobBatch whereTotalJobs($value)
  *
  * @mixin \Eloquent
  */
@@ -110,8 +79,8 @@ class JobBatch extends BaseModel
      */
     public function processedJobs(): int|float
     {
-        $totalJobs = app(\Modules\Xot\Actions\Cast\SafeIntCastAction::class)->execute($this->attributes['total_jobs'] ?? 0);
-        $pendingJobs = app(\Modules\Xot\Actions\Cast\SafeIntCastAction::class)->execute($this->attributes['pending_jobs'] ?? 0);
+        $totalJobs = (int) ($this->attributes['total_jobs'] ?? 0);
+        $pendingJobs = (int) ($this->attributes['pending_jobs'] ?? 0);
 
         return $totalJobs - $pendingJobs;
     }
@@ -121,8 +90,8 @@ class JobBatch extends BaseModel
      */
     public function progress(): int
     {
-        $totalJobs = app(\Modules\Xot\Actions\Cast\SafeIntCastAction::class)->execute($this->attributes['total_jobs'] ?? 0);
-        $progress = $totalJobs > 0 ? round(($this->processedJobs() / $totalJobs) * 100) : 0;
+        $totalJobs = (int) ($this->attributes['total_jobs'] ?? 0);
+        $progress = $totalJobs > 0 ? round($this->processedJobs() / $totalJobs * 100) : 0;
 
         return (int) $progress;
     }
@@ -132,7 +101,7 @@ class JobBatch extends BaseModel
      */
     public function hasPendingJobs(): bool
     {
-        $pendingJobs = app(\Modules\Xot\Actions\Cast\SafeIntCastAction::class)->execute($this->attributes['pending_jobs'] ?? 0);
+        $pendingJobs = (int) ($this->attributes['pending_jobs'] ?? 0);
 
         return $pendingJobs > 0;
     }
@@ -152,7 +121,7 @@ class JobBatch extends BaseModel
      */
     public function hasFailures(): bool
     {
-        $failedJobs = app(\Modules\Xot\Actions\Cast\SafeIntCastAction::class)->execute($this->attributes['failed_jobs'] ?? 0);
+        $failedJobs = (int) ($this->attributes['failed_jobs'] ?? 0);
 
         return $failedJobs > 0;
     }
@@ -162,8 +131,8 @@ class JobBatch extends BaseModel
      */
     public function failed(): bool
     {
-        $failedJobs = app(\Modules\Xot\Actions\Cast\SafeIntCastAction::class)->execute($this->attributes['failed_jobs'] ?? 0);
-        $totalJobs = app(\Modules\Xot\Actions\Cast\SafeIntCastAction::class)->execute($this->attributes['total_jobs'] ?? 0);
+        $failedJobs = (int) ($this->attributes['failed_jobs'] ?? 0);
+        $totalJobs = (int) ($this->attributes['total_jobs'] ?? 0);
 
         return $failedJobs === $totalJobs;
     }
@@ -179,7 +148,7 @@ class JobBatch extends BaseModel
     }
 
     /**  @return array<string, string>  */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

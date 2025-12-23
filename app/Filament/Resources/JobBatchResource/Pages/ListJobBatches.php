@@ -29,9 +29,6 @@ class ListJobBatches extends XotBaseListRecords
      * @return array<string, Tables\Columns\Column>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         Assert::string(
@@ -52,11 +49,14 @@ class ListJobBatches extends XotBaseListRecords
             'pending_jobs' => TextColumn::make('pending_jobs')->numeric()->sortable(),
             'failed_jobs' => TextColumn::make('failed_jobs')->numeric()->sortable(),
             'progress' => TextColumn::make('progress')
-                ->formatStateUsing(function ($record) {
+                ->formatStateUsing(function ($record): string {
                     if (is_object($record) && method_exists($record, 'progress')) {
                         $progress = $record->progress();
-                        return is_numeric($progress) ? $progress.'%' : '0%';
+                        $progressStr = is_numeric($progress) ? ((string) $progress) : '0';
+
+                        return sprintf('%s%%', $progressStr);
                     }
+
                     return '0%';
                 })
                 ->sortable(),
@@ -81,9 +81,6 @@ class ListJobBatches extends XotBaseListRecords
      * @return array<string, Action|ActionGroup>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableActions(): array
     {
         return [];
@@ -93,9 +90,6 @@ class ListJobBatches extends XotBaseListRecords
      * @return array<string, BulkAction>
      */
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableBulkActions(): array
     {
         return [

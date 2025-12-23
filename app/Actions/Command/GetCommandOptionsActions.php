@@ -16,20 +16,10 @@ class GetCommandOptionsActions
         $options = [
             'withValue' => [],
             'withoutValue' => [
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
                 'verbose',
                 'quiet',
                 'ansi',
                 'no-ansi',
-<<<<<<< HEAD
-=======
-                'verbose', 'quiet', 'ansi', 'no-ansi',
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
             ],
         ];
         foreach ($command->getDefinition()->getOptions() as $option) {

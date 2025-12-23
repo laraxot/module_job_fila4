@@ -37,10 +37,6 @@ class QueueListenWidget extends Widget
     public function beginProcess(): void
     {
         $this->time = '';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
         $process = Process::path(base_path())->start('php artisan queue:listen');
         while ($process->running()) {
             // ...
@@ -49,16 +45,6 @@ class QueueListenWidget extends Widget
                 content: $this->time,
                 replace: true,
             );
-<<<<<<< HEAD
-=======
-        $process = Process::path(base_path())
-            ->start('php artisan queue:listen');
-        while ($process->running()) {
-            // ...
-            $this->stream(to: 'count', content: $this->time, replace: true);
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
             // Pause for 1 second between numbers...
             sleep(3);
             // se no troppe richieste
@@ -71,10 +57,6 @@ class QueueListenWidget extends Widget
 
     public function beginStream(): void
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
         $this->run = !$this->run;
         // $output = new BufferedOutput();
         /*
@@ -103,39 +85,6 @@ class QueueListenWidget extends Widget
         $resource = fopen('php://stdout', 'w');
         if ($resource === false) {
             throw new Exception('[' . __LINE__ . '][' . class_basename($this) . ']');
-<<<<<<< HEAD
-=======
-        $this->run = ! $this->run;
-        // $output = new BufferedOutput();
-        /*
-        $output = new class() extends StreamOutput {
-            public function __construct()
-            {
-                parent::__construct(fopen('php://output', 'w'));
-            }
-
-            protected function doWrite(string $message, bool $newline): void
-            {
-                if ('' != $message) {
-                    dddx($message);
-                }
-
-                $message = str_replace("\n", '<br>', $message);
-
-                if ($newline) {
-                    $message .= '<br>';
-                }
-
-                parent::doWrite($message, false);
-            }
-        };
-        */
-        $resource = fopen('php://stdout', 'w');
-        if ($resource === false) {
-            throw new Exception('['.__LINE__.']['.class_basename($this).']');
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
         }
         $output = new StreamOutput($resource);
         // $output = new StreamOutput(fopen('/path/to/output.log', 'a', false));
@@ -146,10 +95,6 @@ class QueueListenWidget extends Widget
         // dddx($output);
         // dddx($output->fetch());
         /*
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
          * while ($this->run) {
          * // Stream the current count to the browser...
          * $this->stream(
@@ -166,26 +111,5 @@ class QueueListenWidget extends Widget
          * $this->time = $output->fetch().PHP_EOL;
          * }
          */
-<<<<<<< HEAD
-=======
-        while ($this->run) {
-            // Stream the current count to the browser...
-            $this->stream(
-                to: 'count',
-                content: $this->time,
-                replace: true,
-            );
-
-            // Pause for 1 second between numbers...
-            sleep(1);
-
-            // Decrement the counter...
-            // $this->time = (string) Carbon::now()->format('H:i:s');
-            $this->time = $output->fetch().PHP_EOL;
-        }
-        */
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
     }
 }

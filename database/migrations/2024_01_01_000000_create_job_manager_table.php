@@ -5,26 +5,13 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 return new class extends XotBaseMigration {
-=======
-return new class extends XotBaseMigration
-{
->>>>>>> e1b0bf9 (.)
-=======
-return new class extends XotBaseMigration {
->>>>>>> 7d4742a (.)
     /**
      * Run the migrations.
      */
     public function up(): void
     {
         // -- CREATE --
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d4742a (.)
         $this->tableCreate(static function (Blueprint $table): void {
             $table->id();
             $table->string('job_id')->index();
@@ -43,32 +30,5 @@ return new class extends XotBaseMigration {
             //    $table->string('uuid')->nullable();
             // }
         });
-<<<<<<< HEAD
-=======
-        $this->tableCreate(
-            static function (Blueprint $table): void {
-                $table->id();
-                $table->string('job_id')->index();
-                $table->string('name')->nullable();
-                $table->string('queue')->nullable();
-                $table->timestamp('started_at')->nullable()->index();
-                $table->timestamp('finished_at')->nullable();
-                $table->boolean('failed')->default(false)->index();
-                $table->integer('attempt')->default(0);
-                $table->integer('progress')->nullable();
-                $table->text('exception_message')->nullable();
-            }
-        );
-        // -- UPDATE --
-        $this->tableUpdate(
-            static function (Blueprint $table): void {
-                // if (! $this->hasColumn('uuid')) {
-                //    $table->string('uuid')->nullable();
-                // }
-            }
-        );
->>>>>>> e1b0bf9 (.)
-=======
->>>>>>> 7d4742a (.)
     }
 };

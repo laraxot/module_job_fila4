@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+
 return [
     'pages' => 'Pagine',
     'widgets' => 'Widgets',
@@ -107,30 +108,6 @@ return [
                 'success' => 'Jobs falliti eliminati con successo',
             ],
         ],
-        'logout' => [
-            'tooltip' => 'logout',
-            'icon' => 'logout',
-            'label' => 'logout',
-        ],
-        'reorderRecords' => [
-            'tooltip' => 'reorderRecords',
-            'icon' => 'reorderRecords',
-            'label' => 'reorderRecords',
-        ],
-        'cancel' => [
-            'tooltip' => 'cancel',
-            'icon' => 'cancel',
-            'label' => 'cancel',
-        ],
-        'openColumnManager' => [
-            'tooltip' => 'openColumnManager',
-            'icon' => 'openColumnManager',
-            'label' => 'openColumnManager',
-        ],
-        'submit' => [
-            'tooltip' => 'submit',
-            'icon' => 'submit',
-        ],
     ],
     'messages' => [
         'no_failed_jobs' => 'Nessun job fallito',
@@ -168,5 +145,4 @@ return [
         'sort' => 93,
         'icon' => 'job-failed-job',
     ],
-    'label' => 'failed job',
 ];

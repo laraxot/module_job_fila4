@@ -1,7 +1,3 @@
-# filament
-
-<!-- Contenuto migrato da _docs/filament.txt -->
-
 
 https://gitlab.com/amvisor/filament-failed-jobs/-/blob/master/src/FilamentFailedJobsServiceProvider.php
 

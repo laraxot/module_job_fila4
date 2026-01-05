@@ -1,7 +1,3 @@
-# schedule
-
-<!-- Contenuto migrato da _docs/schedule.txt -->
-
 https://healthchecks.io/
 
 Simple and Effective Cron Job Monitoring

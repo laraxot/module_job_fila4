@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c2fdbf (.)
 return [
     'actions' => [
         'create' => [
@@ -35,4 +38,10 @@ return [
             'label' => 'created_at',
         ],
     ],
+<<<<<<< HEAD
+=======
+    'navigation' => [
+        'sort' => 58,
+    ],
+>>>>>>> 3c2fdbf (.)
 ];

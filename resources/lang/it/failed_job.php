@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c2fdbf (.)
 return [
     'actions' => [
         'retry_all' => [
@@ -12,4 +15,10 @@ return [
             'label' => 'delete_all',
         ],
     ],
+<<<<<<< HEAD
+=======
+    'navigation' => [
+        'sort' => 20,
+    ],
+>>>>>>> 3c2fdbf (.)
 ];

@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c2fdbf (.)
 return [
     'fields' => [
         'status' => [
@@ -24,4 +27,10 @@ return [
             'label' => 'created_at',
         ],
     ],
+<<<<<<< HEAD
+=======
+    'navigation' => [
+        'sort' => 91,
+    ],
+>>>>>>> 3c2fdbf (.)
 ];

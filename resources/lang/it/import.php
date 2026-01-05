@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c2fdbf (.)
 return [
     'actions' => [
         'create' => [
@@ -17,10 +13,7 @@ return [
             'label' => 'edit',
         ],
     ],
-<<<<<<< HEAD
-=======
     'navigation' => [
         'sort' => 96,
     ],
->>>>>>> 3c2fdbf (.)
 ];

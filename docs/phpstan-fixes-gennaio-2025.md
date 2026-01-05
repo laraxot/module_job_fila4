@@ -203,7 +203,3 @@ public function __construct(string $output)
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> laraxot/develop

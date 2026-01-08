@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 return [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     'navigation' => [
         'label' => 'Navigation Label',
         'group' => 'Job',
@@ -122,6 +125,7 @@ return [
         'normal' => 'Normale',
         'high' => 'Alta',
         'urgent' => 'Urgente',
+<<<<<<< HEAD
 =======
   'navigation' => 
   [
@@ -268,6 +272,8 @@ return [
     'high' => 'Alta',
     'urgent' => 'Urgente',
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
     ],
     'types' => [
         'default' => 'Default',

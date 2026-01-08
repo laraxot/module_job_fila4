@@ -29,7 +29,23 @@ class JobBatchPolicy extends UserBasePolicy
     /**
      * Determine whether the user can create models.
      */
+<<<<<<< HEAD
     public function create(UserContract $_user): bool
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    public function create(UserContract $_user): bool
+=======
+    public function create(UserContract $user): bool
+>>>>>>> a12f125f4a (.)
+=======
+    public function create(UserContract $_user): bool
+>>>>>>> b93ef594b4 (.)
+=======
+    public function create(UserContract $user): bool
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     {
         return true;
     }
@@ -38,7 +54,23 @@ class JobBatchPolicy extends UserBasePolicy
      * Determine whether the user can update the model.
      */
     // public function update(UserContract $user, Team $team): bool
+<<<<<<< HEAD
     public function update(UserContract $_user): bool
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    public function update(UserContract $_user): bool
+=======
+    public function update(UserContract $user): bool
+>>>>>>> a12f125f4a (.)
+=======
+    public function update(UserContract $_user): bool
+>>>>>>> b93ef594b4 (.)
+=======
+    public function update(UserContract $user): bool
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     {
         // return $user->ownsTeam($team);
         return false;

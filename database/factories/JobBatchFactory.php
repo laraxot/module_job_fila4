@@ -9,7 +9,15 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\JobBatch;
 
 /**
+<<<<<<< HEAD
  * @extends Factory<JobBatch>
+=======
+<<<<<<< HEAD
+ * @extends Factory<JobBatch>
+=======
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\JobBatch>
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
  */
 class JobBatchFactory extends Factory
 {

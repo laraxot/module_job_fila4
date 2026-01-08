@@ -11,19 +11,18 @@ class GetCommandOptionsActions
 {
     use QueueableAction;
 
+    /**
+     * @return array<string, mixed>
+     */
     public function execute(Command $command): array
     {
         $options = [
             'withValue' => [],
             'withoutValue' => [
-<<<<<<< HEAD
                 'verbose',
                 'quiet',
                 'ansi',
                 'no-ansi',
-=======
-                'verbose', 'quiet', 'ansi', 'no-ansi',
->>>>>>> e1b0bf9 (.)
             ],
         ];
         foreach ($command->getDefinition()->getOptions() as $option) {

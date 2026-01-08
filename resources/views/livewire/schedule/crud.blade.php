@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
-=======
->>>>>>> e1b0bf9 (.)
 <div>
     <div class="uk-flex uk-flex-between uk-flex-middle">
         <h4 class="uk-card-title uk-margin-remove">Tasks</h4>

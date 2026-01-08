@@ -25,11 +25,7 @@ class ScheduleObserver
     /**
      * Undocumented function.
      */
-<<<<<<< HEAD
     public function updated(Schedule $_schedule): void
-=======
-    public function updated(Schedule $schedule): void
->>>>>>> e1b0bf9 (.)
     {
         $this->clearCache();
     }
@@ -39,7 +35,7 @@ class ScheduleObserver
      */
     public function deleted(Schedule $schedule): void
     {
-        $schedule->status = Status::Trashed;
+        $schedule->setAttribute('status', Status::Trashed);
         $schedule->saveQuietly();
         $this->clearCache();
     }
@@ -49,18 +45,14 @@ class ScheduleObserver
      */
     public function restored(Schedule $schedule): void
     {
-        $schedule->status = Status::Inactive;
+        $schedule->setAttribute('status', Status::Inactive);
         $schedule->saveQuietly();
     }
 
     /**
      * Undocumented function.
      */
-<<<<<<< HEAD
     public function saved(Schedule $_schedule): void
-=======
-    public function saved(Schedule $schedule): void
->>>>>>> e1b0bf9 (.)
     {
         $this->clearCache();
     }

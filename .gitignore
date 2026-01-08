@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 # ==============================================
 # LARAXOT MODULE JOB - .GITIGNORE
 # ==============================================
@@ -155,6 +158,7 @@ test_jobs.sql
 *.fila2
 laravel
 public_html
+<<<<<<< HEAD
 =======
 # Dependencies
 vendor/
@@ -194,3 +198,5 @@ docs/phpstan/
 # Other
 -e
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)

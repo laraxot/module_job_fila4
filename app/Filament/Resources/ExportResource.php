@@ -22,7 +22,7 @@ class ExportResource extends XotBaseResource
     #[Override]
     public static function getFormSchema(): array
     {
-        return array_values([
+        return [
             'name' => TextInput::make('name')->required()->maxLength(255),
             'type' => Select::make('type')
                 ->required()
@@ -46,5 +46,6 @@ class ExportResource extends XotBaseResource
                 ->columnSpanFull(),
             'created_at' => DateTimePicker::make('created_at')->disabled(),
             'updated_at' => DateTimePicker::make('updated_at')->disabled(),
-        ]);}
+        ];
+    }
 }

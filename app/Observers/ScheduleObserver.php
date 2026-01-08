@@ -35,7 +35,7 @@ class ScheduleObserver
      */
     public function deleted(Schedule $schedule): void
     {
-        $schedule->setAttribute('status', Status::Trashed);
+        $schedule->status = Status::Trashed;
         $schedule->saveQuietly();
         $this->clearCache();
     }
@@ -45,7 +45,7 @@ class ScheduleObserver
      */
     public function restored(Schedule $schedule): void
     {
-        $schedule->setAttribute('status', Status::Inactive);
+        $schedule->status = Status::Inactive;
         $schedule->saveQuietly();
     }
 

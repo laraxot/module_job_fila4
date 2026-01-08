@@ -27,20 +27,28 @@ class JobStatsOverview extends BaseWidget
             DB::raw('AVG(finished_at - started_at) as average_time_elapsed'),
         ];
 
-        $aggregatedInfo = JobManager::query()
-            ->select($aggregationColumns)
-            ->first();
+        $aggregatedInfo = JobManager::query()->select($aggregationColumns)->first();
 
         if ($aggregatedInfo) {
             $averageTime = app(SafeEloquentCastAction::class)
-                ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0') ?
-                ceil((float) app(SafeEloquentCastAction::class)
-                    ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0')).'s' : '0';
+                ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0')
+                ? (
+                    ceil(
+                        (float) app(SafeEloquentCastAction::class)
+                            ->getStringAttribute($aggregatedInfo, 'average_time_elapsed', '0'),
+                    ).'s'
+                )
+                : '0';
 
             $totalTime = app(SafeEloquentCastAction::class)
-                ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0') ?
-                $this->formatSeconds((int) app(SafeEloquentCastAction::class)
-                    ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0')) : '0';
+                ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0')
+                ? (
+                    $this->formatSeconds(
+                        (int) app(SafeEloquentCastAction::class)
+                            ->getStringAttribute($aggregatedInfo, 'total_time_elapsed', '0'),
+                    )
+                )
+                : '0';
         } else {
             $averageTime = '0';
             $totalTime = '0';

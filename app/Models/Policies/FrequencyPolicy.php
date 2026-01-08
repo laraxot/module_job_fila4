@@ -6,7 +6,6 @@ namespace Modules\Job\Models\Policies;
 
 use Modules\Job\Models\Frequency;
 use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Contracts\ProfileContract;
 
 class FrequencyPolicy extends JobBasePolicy
 {

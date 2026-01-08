@@ -28,7 +28,5 @@ class ScheduleHistoryFactory extends Factory
     public function definition()
     {
         return [];
-        return [
-        ];
     }
 }

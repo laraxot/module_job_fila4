@@ -10,7 +10,7 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class BaseMorphPivot.
  */
-abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
+abstract class BaseMorphPivot extends MorphPivot
 {
     use Updater;
 
@@ -49,7 +49,6 @@ abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
         'id',
         'post_id',
         'post_type',
-        'post_id', 'post_type',
         'related_type',
         'user_id',
         'note',
@@ -63,7 +62,6 @@ abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
-
             'updated_by' => 'string',
             'created_by' => 'string',
             'deleted_by' => 'string',

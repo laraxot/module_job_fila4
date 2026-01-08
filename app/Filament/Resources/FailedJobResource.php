@@ -24,7 +24,7 @@ class FailedJobResource extends XotBaseResource
     #[Override]
     public static function getFormSchema(): array
     {
-        return array_values([
+        return [
             'uuid' => TextInput::make('uuid')->disabled()->columnSpan(4),
             'failed_at' => TextInput::make('failed_at')->disabled(),
             'id' => TextInput::make('id')->disabled(),
@@ -38,7 +38,8 @@ class FailedJobResource extends XotBaseResource
                 ->disabled()
                 ->columnSpan(4)
                 ->extraInputAttributes(['style' => 'font-size: 80%;']),
-        ]);}
+        ];
+    }
 
     #[Override]
     public static function getRelations(): array

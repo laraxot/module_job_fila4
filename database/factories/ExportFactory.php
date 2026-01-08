@@ -9,15 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Job\Models\Export;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<Export>
-=======
-<<<<<<< HEAD
- * @extends Factory<Export>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\Export>
->>>>>>> origin/develop
->>>>>>> 548bbd3 (.)
  */
 class ExportFactory extends Factory
 {

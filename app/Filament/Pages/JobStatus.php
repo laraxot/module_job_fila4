@@ -14,13 +14,10 @@ class JobStatus extends XotBasePage
 
     protected string $view = 'job::filament.pages.job-status';
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getHeaderWidgets(): array
     {
         return [
-            'clock' => ClockWidget::make(),
+            ClockWidget::make(),
         ];
     }
 
@@ -31,9 +28,6 @@ class JobStatus extends XotBasePage
         $this->out .= Artisan::output();
     }
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getViewData(): array
     {
         return [
@@ -41,45 +35,86 @@ class JobStatus extends XotBasePage
         ];
     }
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getActs(): array
     {
         return [
-            'queue:clear' => (object) [
+            /*
+             * (object) [
+             * 'name' => 'batches-table',
+             * 'label' => 'Create a migration for the batches database table',
+             * ],
+             * (object) [
+             * 'name' => 'failed-table',
+             * 'label' => ' Create a migration for the failed queue jobs database table',
+             * ],
+             * (object) [
+             * 'name' => 'table',
+             * 'label' => 'Create a migration for the queue jobs database table',
+             * ],
+             */
+            (object) [
                 'name' => 'queue:clear',
                 'label' => 'Delete all of the jobs from the specified queue',
             ],
-            'queue:failed' => (object) [
+            (object) [
                 'name' => 'queue:failed',
                 'label' => 'List all of the failed queue jobs',
             ],
-            'queue:flush' => (object) [
+            (object) [
                 'name' => 'queue:flush',
                 'label' => 'Flush all of the failed queue jobs',
             ],
-            'queue:prune-batches' => (object) [
+            /* -- VUOLE ID
+             * (object) [
+             * 'name' => 'forget',
+             * 'label' => 'Delete a failed queue job',
+             * ],
+             */
+            /* --- RIMANE APPESO
+             * (object) [
+             * 'name' => 'listen',
+             * 'label' => 'Listen to a given queue',
+             * ],
+             */
+            /*manca parametro
+             * (object) [
+             * 'name' => 'monitor',
+             * 'label' => 'Monitor the size of the specified queues',
+             * ],
+             */
+            (object) [
                 'name' => 'queue:prune-batches',
                 'label' => 'Prune stale entries from the batches database',
             ],
-            'queue:prune-failed' => (object) [
+            (object) [
                 'name' => 'queue:prune-failed',
                 'label' => ' Prune stale entries from the failed jobs table',
             ],
-            'queue:restart' => (object) [
+            (object) [
                 'name' => 'queue:restart',
                 'label' => 'Restart queue worker daemons after their current job',
             ],
-            'queue:retry' => (object) [
+            (object) [
                 'name' => 'queue:retry',
                 'label' => 'Retry a failed queue job',
             ],
-            'worker:check' => (object) [
+            /*-- vuole parametro
+             * (object) [
+             * 'name' => 'retry-batch',
+             * 'label' => 'Retry the failed jobs for a batch',
+             * ],
+             */
+            /*-- rimane appeso
+             * (object) [
+             * 'name' => 'work',
+             * 'label' => 'Start processing jobs on the queue as a daemon',
+             * ],
+             */
+            (object) [
                 'name' => 'worker:check',
                 'label' => 'Ensure that the queue listener is running.',
             ],
-            'route:list' => (object) [
+            (object) [
                 'name' => 'route:list',
                 'label' => 'Route list',
             ],

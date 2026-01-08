@@ -227,9 +227,4 @@ return [
     'model' => [
         'label' => 'schedule.model',
     ],
-    'actions' => [
-        'openColumnManager' => [
-            'tooltip' => 'openColumnManager',
-        ],
-    ],
 ];

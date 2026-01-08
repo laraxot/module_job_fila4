@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Job\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
 use Modules\Job\Models\Job;
 use Modules\Job\Models\JobBatch;
 use Tests\TestCase;
@@ -337,7 +338,7 @@ class JobBatchBusinessLogicTest extends TestCase
         $this->assertCount(3, $batchList);
 
         foreach ($batchList as $index => $batch) {
-            $this->assertEquals('bulk-batch-'.($index + 1), $batch->id);
+            $this->assertEquals('bulk-batch-' . ($index + 1), $batch->id);
             $this->assertEquals(($index + 1) * 10, $batch->total_jobs);
             $this->assertEquals($statuses[$index], $batch->status);
         }

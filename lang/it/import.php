@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 declare(strict_types=1);
 
 
@@ -231,6 +234,7 @@ return [
         'xml' => 'XML',
     ],
 ];
+<<<<<<< HEAD
 =======
 return array (
   'pages' => 'Pagine',
@@ -511,3 +515,5 @@ return array (
   ),
 );
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)

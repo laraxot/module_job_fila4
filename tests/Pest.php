@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 use Modules\Job\Models\Job;
 use Modules\Job\Models\JobBatch;
 use Modules\Job\Tests\TestCase;
@@ -45,6 +48,7 @@ expect()->extend('toBeJobBatch', fn() => $this->toBeInstanceOf(JobBatch::class))
  * | global functions to help you to reduce the number of lines of code in your test files.
  * |
  */
+<<<<<<< HEAD
 =======
 namespace Modules\Job\Tests;
 
@@ -97,6 +101,8 @@ expect()->extend('toBeJobBatch', function () {
 |
 */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 
 function createJob(array $attributes = []): Job
 {

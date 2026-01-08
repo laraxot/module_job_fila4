@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace Modules\Job\Tests\Feature;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Result;
 use Modules\Job\Models\Task;
 use Tests\TestCase;
+<<<<<<< HEAD
 =======
 use Modules\Job\Models\Result;
 use Modules\Job\Models\Task;
@@ -17,6 +21,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 
 class ResultBusinessLogicTest extends TestCase
 {
@@ -170,10 +176,14 @@ class ResultBusinessLogicTest extends TestCase
 
         $this->assertEquals(json_encode($detailedOutput), $result->output);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> e1b0bf9 (.)
+=======
+
+>>>>>>> 7d4742a (.)
         $decodedOutput = json_decode($result->output, true);
         $this->assertEquals('Inizializzazione', $decodedOutput['step']);
         $this->assertEquals('success', $decodedOutput['status']);
@@ -246,10 +256,14 @@ class ResultBusinessLogicTest extends TestCase
         $this->assertEquals('failed', $result->result);
         $this->assertEquals(1, $result->exit_code);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> e1b0bf9 (.)
+=======
+
+>>>>>>> 7d4742a (.)
         $decodedError = json_decode($result->output, true);
         $this->assertEquals('ConnectionException', $decodedError['error_type']);
         $this->assertEquals('DB_CONNECTION_FAILED', $decodedError['error_code']);
@@ -342,10 +356,14 @@ class ResultBusinessLogicTest extends TestCase
         $results = [];
         $statuses = ['success', 'failed', 'success', 'success', 'failed'];
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> e1b0bf9 (.)
+=======
+
+>>>>>>> 7d4742a (.)
         for ($i = 1; $i <= 5; $i++) {
             $results[] = Result::create([
                 'task_id' => $task->id,
@@ -359,16 +377,22 @@ class ResultBusinessLogicTest extends TestCase
 
         $this->assertCount(5, $results);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 
         $successCount = collect($results)->where('result', 'success')->count();
         $failedCount = collect($results)->where('result', 'failed')->count();
 
+<<<<<<< HEAD
 =======
         
         $successCount = collect($results)->where('result', 'success')->count();
         $failedCount = collect($results)->where('result', 'failed')->count();
         
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
         $this->assertEquals(3, $successCount);
         $this->assertEquals(2, $failedCount);
     }
@@ -435,10 +459,14 @@ class ResultBusinessLogicTest extends TestCase
 
         $this->assertEquals('warning', $result->result);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> e1b0bf9 (.)
+=======
+
+>>>>>>> 7d4742a (.)
         $decodedAlert = json_decode($result->output, true);
         $this->assertEquals('warning', $decodedAlert['alert_level']);
         $this->assertEquals(85, $decodedAlert['current_value']);

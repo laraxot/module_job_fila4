@@ -22,6 +22,9 @@ class ListJobsWaiting extends XotBaseListRecords
 {
     public static string $resource = JobsWaitingResource::class;
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getHeaderWidgets(): array
     {
         return [
@@ -30,6 +33,9 @@ class ListJobsWaiting extends XotBaseListRecords
     }
 
     #[Override]
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [

@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> e1b0bf9 (.)
 @php
     /*
     try{
@@ -24,4 +27,8 @@ declare(strict_types=1);
     @else
         {{ $value }}
     @endif
+<<<<<<< HEAD
 </li>
+=======
+</li>
+>>>>>>> e1b0bf9 (.)

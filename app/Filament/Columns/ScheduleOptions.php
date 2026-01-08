@@ -17,6 +17,9 @@ class ScheduleOptions extends TextColumn
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getTags(): array
     {
         /*

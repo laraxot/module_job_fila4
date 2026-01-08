@@ -11,6 +11,9 @@ class ExecuteTaskAction
     use QueueableAction;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
     public function execute(string $_task_id): string
     {
         /*
@@ -26,6 +29,7 @@ class ExecuteTaskAction
          *
          * return $output;
          */
+<<<<<<< HEAD
 =======
     public function execute(string $task_id): string
     {
@@ -43,6 +47,8 @@ class ExecuteTaskAction
         return $output;
         */
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
         dddx('wip');
 
         return 'WIP';

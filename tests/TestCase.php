@@ -24,7 +24,7 @@ abstract class TestCase extends BaseTestCase
         parent::setUp();
 
         // Load Job module specific configurations
-        $this->loadLaravelMigrations();
+        // $this->loadLaravelMigrations(); // Method not available in base class
 
         // Seed any required data for Job tests
         $this->artisan('module:seed', ['module' => 'Job']);

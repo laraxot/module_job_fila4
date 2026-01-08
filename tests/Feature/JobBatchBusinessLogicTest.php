@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace Modules\Job\Tests\Feature;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d4742a (.)
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Job;
 use Modules\Job\Models\JobBatch;
 use Tests\TestCase;
+<<<<<<< HEAD
 =======
 use Modules\Job\Models\JobBatch;
 use Modules\Job\Models\Job;
@@ -17,6 +21,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 >>>>>>> e1b0bf9 (.)
+=======
+>>>>>>> 7d4742a (.)
 
 class JobBatchBusinessLogicTest extends TestCase
 {
@@ -330,10 +336,14 @@ class JobBatchBusinessLogicTest extends TestCase
         $batchList = [];
         $statuses = ['active', 'completed', 'failed'];
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> e1b0bf9 (.)
+=======
+
+>>>>>>> 7d4742a (.)
         for ($i = 1; $i <= 3; $i++) {
             $batchList[] = JobBatch::create([
                 'id' => "bulk-batch-{$i}",
@@ -349,6 +359,7 @@ class JobBatchBusinessLogicTest extends TestCase
 
         $this->assertCount(3, $batchList);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         foreach ($batchList as $index => $batch) {
             $this->assertEquals('bulk-batch-' . ($index + 1), $batch->id);
@@ -357,6 +368,11 @@ class JobBatchBusinessLogicTest extends TestCase
         foreach ($batchList as $index => $batch) {
             $this->assertEquals("bulk-batch-" . ($index + 1), $batch->id);
 >>>>>>> e1b0bf9 (.)
+=======
+
+        foreach ($batchList as $index => $batch) {
+            $this->assertEquals('bulk-batch-' . ($index + 1), $batch->id);
+>>>>>>> 7d4742a (.)
             $this->assertEquals(($index + 1) * 10, $batch->total_jobs);
             $this->assertEquals($statuses[$index], $batch->status);
         }

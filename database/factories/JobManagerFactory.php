@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Job\Models\JobManager;
 
 /**
+<<<<<<< HEAD
  * @extends Factory<JobManager>
+=======
+<<<<<<< HEAD
+ * @extends Factory<JobManager>
+=======
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Job\Models\JobManager>
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
  */
 class JobManagerFactory extends Factory
 {
@@ -24,6 +32,24 @@ class JobManagerFactory extends Factory
      */
     public function definition(): array
     {
+<<<<<<< HEAD
         return [];
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return [];
+=======
+        return [
+        ];
+>>>>>>> a12f125f4a (.)
+=======
+        return [];
+>>>>>>> b93ef594b4 (.)
+=======
+        return [
+        ];
+>>>>>>> origin/develop
+>>>>>>> 548bbd3 (.)
     }
 }

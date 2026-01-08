@@ -8,13 +8,15 @@ use Modules\User\Models\Policies\UserBasePolicy;
 use Modules\User\Models\Team;
 use Modules\Xot\Contracts\UserContract;
 
-class JobPolicy extends UserBasePolicy
+final class JobPolicy extends UserBasePolicy
 {
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny(UserContract $user): bool
     {
+        unset($user);
+
         return false;
     }
 
@@ -29,18 +31,20 @@ class JobPolicy extends UserBasePolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(UserContract $_user): bool
+    public function create(UserContract $user): bool
     {
+        unset($user);
+
         return true;
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    // public function update(UserContract $user, Team $team): bool
-    public function update(UserContract $_user): bool
+    public function update(UserContract $user, Team $team): bool
     {
-        // return $user->ownsTeam($team);
+        unset($user, $team);
+
         return false;
     }
 

@@ -26,6 +26,8 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBeArray()
             ->and($result)
             ->toHaveKeys([
+        expect($result)->toBeArray()
+            ->and($result)->toHaveKeys([
                 'everyMinute',
                 'everyFiveMinutes',
                 'hourly',
@@ -39,6 +41,11 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBe('Hourly')
             ->and($result['daily'])
             ->toBe('Daily');
+                'monthly'
+            ])
+            ->and($result['everyMinute'])->toBe('Every Minute')
+            ->and($result['hourly'])->toBe('Hourly')
+            ->and($result['daily'])->toBe('Daily');
     });
 
     it('throws exception when config is not array', function () {
@@ -46,6 +53,8 @@ describe('GetTaskFrequenciesAction Integration', function () {
         config(['totem.frequencies' => 'invalid_value']);
 
         expect($this->action->execute(...))->toThrow(Exception::class);
+        expect(fn () => $this->action->execute())
+            ->toThrow(Exception::class);
     });
 
     it('throws exception when config is null', function () {
@@ -53,6 +62,8 @@ describe('GetTaskFrequenciesAction Integration', function () {
         config(['totem.frequencies' => null]);
 
         expect($this->action->execute(...))->toThrow(Exception::class);
+        expect(fn () => $this->action->execute())
+            ->toThrow(Exception::class);
     });
 
     it('handles empty array config', function () {
@@ -61,6 +72,8 @@ describe('GetTaskFrequenciesAction Integration', function () {
         $result = $this->action->execute();
 
         expect($result)->toBeArray()->and(count($result))->toBe(0);
+        expect($result)->toBeArray()
+            ->and(count($result))->toBe(0);
     });
 
     it('can be queued', function () {
@@ -72,6 +85,7 @@ describe('GetTaskFrequenciesAction Integration', function () {
         // Test that the action can be resolved from container
         $actionFromContainer = app(GetTaskFrequenciesAction::class);
 
+        
         expect($actionFromContainer)->toBeInstanceOf(GetTaskFrequenciesAction::class);
     });
 
@@ -94,6 +108,11 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBe('Changed Value')
             ->and($result2)
             ->not->toHaveKey('initial');
+        expect($result1)->toHaveKey('initial')
+            ->and($result1['initial'])->toBe('Initial Value')
+            ->and($result2)->toHaveKey('changed')
+            ->and($result2['changed'])->toBe('Changed Value')
+            ->and($result2)->not->toHaveKey('initial');
     });
 
     it('returns string keys and mixed values', function () {
@@ -116,6 +135,11 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBe(123)
             ->and($result['boolean_key'])
             ->toBe(true);
+        expect($result)->toBeArray()
+            ->and($result['string_key'])->toBe('string_value')
+            ->and($result['another_key'])->toBe(['nested', 'array'])
+            ->and($result['numeric_key'])->toBe(123)
+            ->and($result['boolean_key'])->toBe(true);
     });
 
     it('preserves array key types', function () {
@@ -141,6 +165,13 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBe('value2')
             ->and($result[1])
             ->toBe('value3');
+        expect($result)->toBeArray()
+            ->and($result)->toHaveKey('string_key')
+            ->and($result)->toHaveKey(0)
+            ->and($result)->toHaveKey(1)
+            ->and($result['string_key'])->toBe('value1')
+            ->and($result[0])->toBe('value2')
+            ->and($result[1])->toBe('value3');
     });
 
     it('maintains consistency across multiple executions', function () {
@@ -193,5 +224,13 @@ describe('GetTaskFrequenciesAction Integration', function () {
             ->toBe('Monthly')
             ->and(isset($result['yearly']) ? $result['yearly'] : null)
             ->toBe('Yearly');
+        expect($result)->toBeArray()
+            ->and(count($result))->toBe(10)
+            ->and($result['everyMinute'])->toBe('Every Minute')
+            ->and($result['hourly'])->toBe('Hourly')
+            ->and($result['daily'])->toBe('Daily')
+            ->and($result['weekly'])->toBe('Weekly')
+            ->and($result['monthly'])->toBe('Monthly')
+            ->and($result['yearly'])->toBe('Yearly');
     });
 });

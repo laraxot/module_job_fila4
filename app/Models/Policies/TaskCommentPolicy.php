@@ -6,6 +6,7 @@ namespace Modules\Job\Models\Policies;
 
 use Modules\Job\Models\TaskComment;
 use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Contracts\ProfileContract;
 
 class TaskCommentPolicy extends JobBasePolicy
 {

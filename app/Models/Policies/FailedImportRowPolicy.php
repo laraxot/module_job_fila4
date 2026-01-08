@@ -5,63 +5,88 @@ declare(strict_types=1);
 namespace Modules\Job\Models\Policies;
 
 use Modules\Job\Models\FailedImportRow;
-use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Contracts\ProfileContract as Profile;
+use Modules\Xot\Contracts\UserContract as User;
 
-class FailedImportRowPolicy extends JobBasePolicy
+final class FailedImportRowPolicy extends JobBasePolicy
 {
-    /**
-     * Determine whether the user can view any models.
-     */
-    public function viewAny(UserContract $user): bool
+    public function viewAny(User|Profile $user): bool
     {
-        return $user->hasPermissionTo('failed_import_row.viewAny');
+        return $this->can($user, 'failed_import_row.viewAny');
     }
 
-    /**
-     * Determine whether the user can view the model.
-     */
-    public function view(UserContract $user, FailedImportRow $_failed_import_row): bool
+    public function view(User|Profile $user, FailedImportRow $failedImportRow): bool
     {
-        return $user->hasPermissionTo('failed_import_row.view');
+        $permission = 'failed_import_row.view';
+
+        return $this->authorizeOnRecord(
+            $user,
+            $permission,
+            $failedImportRow,
+        );
     }
 
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(UserContract $user): bool
+    public function create(User|Profile $user): bool
     {
-        return $user->hasPermissionTo('failed_import_row.create');
+        return $this->can($user, 'failed_import_row.create');
     }
 
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(UserContract $user, FailedImportRow $_failed_import_row): bool
+    public function update(User|Profile $user, FailedImportRow $failedImportRow): bool
     {
-        return $user->hasPermissionTo('failed_import_row.update');
+        $permission = 'failed_import_row.update';
+
+        return $this->authorizeOnRecord(
+            $user,
+            $permission,
+            $failedImportRow,
+        );
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(UserContract $user, FailedImportRow $_failed_import_row): bool
+    public function delete(User|Profile $user, FailedImportRow $failedImportRow): bool
     {
-        return $user->hasPermissionTo('failed_import_row.delete');
+        $permission = 'failed_import_row.delete';
+
+        return $this->authorizeOnRecord(
+            $user,
+            $permission,
+            $failedImportRow,
+        );
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(UserContract $user, FailedImportRow $_failed_import_row): bool
+    public function restore(User|Profile $user, FailedImportRow $failedImportRow): bool
     {
-        return $user->hasPermissionTo('failed_import_row.restore');
+        $permission = 'failed_import_row.restore';
+
+        return $this->authorizeOnRecord(
+            $user,
+            $permission,
+            $failedImportRow,
+        );
     }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(UserContract $user, FailedImportRow $failed_import_row): bool
+    public function forceDelete(User|Profile $user, FailedImportRow $failedImportRow): bool
     {
-        return $user->hasPermissionTo('failed_import_row.forceDelete');
+        $permission = 'failed_import_row.forceDelete';
+
+        return $this->authorizeOnRecord(
+            $user,
+            $permission,
+            $failedImportRow,
+        );
+    }
+
+    private function authorizeOnRecord(
+        User|Profile $user,
+        string $permission,
+        FailedImportRow $failedImportRow,
+    ): bool {
+        unset($failedImportRow);
+
+        return $this->can($user, $permission);
+    }
+
+    private function can(User|Profile $user, string $permission): bool
+    {
+        return $user->hasPermissionTo($permission);
     }
 }

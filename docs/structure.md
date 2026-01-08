@@ -36,15 +36,12 @@ Il `RouteServiceProvider` gestisce:
 - Namespace dei controller `Modules\Job\Http\Controllers`
 
 ## Collegamenti Bidirezionali
-<<<<<<< HEAD
 - [Documentazione Generale dei Moduli](/docs/modules.md)
 - [Configurazione Job](/docs/module_job.md)
 - [Best Practices PHPStan](/docs/phpstan/PHPSTAN_LEVEL10_LINEE_GUIDA.md) 
-=======
 - [Documentazione Generale dei Moduli](/project_docs/modules.md)
 - [Configurazione Job](/project_docs/module_job.md)
 - [Best Practices PHPStan](/project_docs/phpstan/PHPSTAN_LEVEL10_LINEE_GUIDA.md) 
->>>>>>> e1b0bf9 (.)
 
 # Analisi Dettagliata del Modulo Job
 
@@ -136,7 +133,6 @@ namespace Modules\Job\App\Filament\Resources;
 
 ## Collegamenti alla documentazione generale
 
-<<<<<<< HEAD
 - [Analisi strutturale complessiva](/docs/phpstan/modules_structure_analysis.md)
 - [Report PHPStan](/docs/phpstan/)
 - [Documentazione Xot](/var/www/html/_bases/base_ptvx_fila3_mono/laravel/Modules/Xot/docs/README.md)
@@ -160,7 +156,6 @@ namespace Modules\Job\App\Filament\Resources;
 * [structure.md](../../../Cms/docs/structure.md)
 * [structure.md](../../../Cms/docs/themes/structure.md)
 * [structure.md](../../../Cms/docs/components/structure.md)
-=======
 - [Analisi strutturale complessiva](/project_docs/phpstan/modules_structure_analysis.md)
 - [Report PHPStan](/project_docs/phpstan/)
 - [Documentazione Xot](/var/www/html/_bases/base_ptvx_fila3_mono/laravel/Modules/Xot/project_docs/README.md)
@@ -184,14 +179,10 @@ namespace Modules\Job\App\Filament\Resources;
 * [structure.md](../../../Cms/project_docs/structure.md)
 * [structure.md](../../../Cms/project_docs/themes/structure.md)
 * [structure.md](../../../Cms/project_docs/components/structure.md)
->>>>>>> e1b0bf9 (.)
 
 
 ### Versione Incoming
 
 
-<<<<<<< HEAD
 * [structure.md](../../../Cms/docs/components/structure.md)
-=======
 * [structure.md](../../../Cms/project_docs/components/structure.md)
->>>>>>> e1b0bf9 (.)

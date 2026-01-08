@@ -22,9 +22,6 @@ class ListFailedJobs extends XotBaseListRecords
     protected static string $resource = FailedJobResource::class;
 
     #[Override]
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         return [

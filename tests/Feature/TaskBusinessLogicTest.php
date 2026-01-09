@@ -314,7 +314,6 @@ it('can handle task maintenance mode', function (): void
         'expression' => '0 3 * * *',
         'timezone' => 'UTC',
         'is_active' => 1,
-        'status' => 'active',
         'run_in_maintenance' => 1,
         'notification_slack_webhook' => 'https://hooks.slack.com/services/TEST',
     ]);
@@ -325,7 +324,6 @@ it('can handle task maintenance mode', function (): void
         'expression' => '0 4 * * *',
         'timezone' => 'UTC',
         'is_active' => 1,
-        'status' => 'active',
         'run_in_maintenance' => 0,
         'notification_slack_webhook' => 'https://hooks.slack.com/services/TEST',
     ]);

@@ -3,15 +3,26 @@
 declare(strict_types=1);
 
 return [
+    'navigation' => [
+        'label' => 'Trabajos en Espera',
+        'group' => 'Trabajos',
+        'icon' => 'heroicon-o-clock',
+        'sort' => 30,
+    ],
+    'label' => 'Trabajo en Espera',
+    'plural_label' => 'Trabajos en Espera',
     'fields' => [
-        'status' => [
-            'label' => 'Estado',
+        'id' => [
+            'label' => 'ID',
         ],
-        'display_name' => [
-            'label' => 'Nombre para Mostrar',
+        'connection' => [
+            'label' => 'Conexión',
         ],
         'queue' => [
             'label' => 'Cola',
+        ],
+        'payload' => [
+            'label' => 'Carga Útil',
         ],
         'attempts' => [
             'label' => 'Intentos',
@@ -19,16 +30,19 @@ return [
         'reserved_at' => [
             'label' => 'Reservado En',
         ],
+        'available_at' => [
+            'label' => 'Disponible En',
+        ],
         'created_at' => [
             'label' => 'Creado En',
         ],
     ],
-    'navigation' => [
-        'sort' => 91,
-        'icon' => 'heroicon-o-clock',
-        'group' => 'Sistema',
-        'label' => 'Trabajos en Espera',
+    'actions' => [
+        'process' => [
+            'label' => 'Procesar',
+        ],
+        'retry' => [
+            'label' => 'Reintentar',
+        ],
     ],
-];
-
 ];

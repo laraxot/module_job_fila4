@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Job\Filament\Tables\Columns;
 
 use Filament\Tables\Columns\TextColumn;
+use Webmozart\Assert\Assert;
 
 class ScheduleOptions extends TextColumn
 {
@@ -24,8 +25,10 @@ class ScheduleOptions extends TextColumn
         }
 
         if ($this->withValue && \is_object($this->record) && method_exists($this->record, 'getOptions')) {
+            $options = $this->record->getOptions();
+            Assert::isArray($options);
             /** @var array<int|string, string> $options */
-            return $this->record->getOptions();
+            return $options;
         }
 
         return [];

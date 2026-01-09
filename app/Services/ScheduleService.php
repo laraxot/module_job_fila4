@@ -50,7 +50,9 @@ class ScheduleService
         Assert::string($store = config('job::cache.store'), '[' . __LINE__ . '][' . class_basename($this) . ']');
         Assert::string($key = config('job::cache.key'), '[' . __LINE__ . '][' . class_basename($this) . ']');
 
+        $result = Cache::store($store)->rememberForever($key, fn (): Collection => $this->model->active()->get());
+        Assert::isInstanceOf($result, Collection::class);
         /** @var Collection<int, Schedule> $result */
-        return Cache::store($store)->rememberForever($key, fn (): Collection => $this->model->active()->get());
+        return $result;
     }
 }

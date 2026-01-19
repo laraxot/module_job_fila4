@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+uses(\Modules\Job\Tests\TestCase::class);
+
 use Illuminate\Support\Carbon;
 use Modules\Job\Models\Job;
 

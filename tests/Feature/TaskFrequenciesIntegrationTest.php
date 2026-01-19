@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+uses(\Modules\Job\Tests\TestCase::class);
+
 use Modules\Job\Actions\CreateTaskFrequencyAction;
 use Modules\Job\Actions\GetTaskFrequenciesAction;
 use Modules\Job\Models\TaskFrequency;
